@@ -1,0 +1,35 @@
+---
+import Base from "../../layouts/Base.astro";
+import Card from "../../components/Card.astro";
+import TagList from "../../components/TagList.astro";
+import { posts, bySlug } from "../../lib/content";
+
+// Static mode prerenders one page per post; server mode ignores getStaticPaths and resolves the slug per request.
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const post = bySlug[Astro.params.slug ?? ""];
+if (!post) return Astro.rewrite("/404");
+const prev = post.prev ? bySlug[post.prev] : undefined;
+const next = post.next ? bySlug[post.next] : undefined;
+---
+<Base path={`/blog/${post.slug}`} title={post.title} description={post.summary} image={post.cover.src} type="article" current="/blog">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime={post.date}>{post.dateLabel}</time> · {post.readingMinutes} min read</p>
+<h1>{post.title}</h1>
+<p class="post-summary">{post.summary}</p>
+<TagList post={post} />
+</header>
+<img class="post-cover" src={post.cover.src} alt={post.cover.alt} width={post.cover.width} height={post.cover.height} fetchpriority="high">
+<div class="post-body" set:html={post.html} />
+</article>
+<nav class="post-nav" aria-label="Adjacent posts">{prev && <a rel="prev" href={`/blog/${prev.slug}`}>← {prev.title}</a>}{next && <a rel="next" href={`/blog/${next.slug}`}>{next.title} →</a>}</nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+{post.related.map((s) => <Card post={bySlug[s]} />)}
+</div>
+</section>
+</Base>

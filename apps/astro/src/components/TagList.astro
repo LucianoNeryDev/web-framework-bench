@@ -1,0 +1,5 @@
+---
+import { tagName, type Post } from "../lib/content";
+const { post } = Astro.props as { post: Post };
+---
+<ul class="tag-list">{post.tags.map((t) => <li><a class="tag" href={`/blog?tag=${t}`}>{tagName[t]}</a></li>)}</ul>

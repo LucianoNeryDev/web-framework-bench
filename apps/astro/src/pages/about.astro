@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../lib/content";
+---
+<Base path="/about" title="About" description={`About ${site.author} and ${site.title}.`} image="/images/avatar.webp" current="/about">
+<section class="about">
+<h1>About</h1>
+<img class="about-avatar" src="/images/avatar.webp" alt={`Portrait of ${site.author}`} width="160" height="160">
+<Fragment set:html={site.aboutHtml} />
+</section>
+</Base>

@@ -1,0 +1,17 @@
+---
+import { tagName, type Post } from "../lib/content";
+
+interface Props {
+  post: Post;
+  eager?: boolean;
+  hidden?: boolean;
+}
+const { post, eager = false, hidden = false } = Astro.props;
+const search = `${post.title} ${post.summary}`.toLowerCase();
+---
+<article class="card" data-post data-tags={post.tags.join(" ")} data-search={search} hidden={hidden}>
+<a class="card-link" href={`/blog/${post.slug}`}><img class="card-image" src={post.cover.thumb} alt="" width={post.cover.thumbWidth} height={post.cover.thumbHeight} loading={eager ? undefined : "lazy"} decoding="async"><h3 class="card-title">{post.title}</h3></a>
+<p class="card-meta"><time datetime={post.date}>{post.dateLabel}</time> · {post.readingMinutes} min read</p>
+<p class="card-summary">{post.summary}</p>
+<ul class="tag-list">{post.tags.map((t) => <li><a class="tag" href={`/blog?tag=${t}`}>{tagName[t]}</a></li>)}</ul>
+</article>

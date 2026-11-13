@@ -1,0 +1,42 @@
+---
+import { site, THEME_SCRIPT } from "../lib/content";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+interface Props {
+  path: string;
+  title: string;
+  description: string;
+  image: string;
+  type?: string;
+  current?: string;
+}
+const { path, title, description, image, type = "website", current } = Astro.props;
+const fullTitle = path === "/" ? site.title : `${title} · ${site.title}`;
+const nav = [["/", "Home"], ["/blog", "Blog"], ["/about", "About"]];
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{fullTitle}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={`${site.url}${path}`}>
+<meta property="og:type" content={type}>
+<meta property="og:title" content={fullTitle}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={`${site.url}${image}`}>
+<link rel="alternate" type="application/rss+xml" title={site.title} href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<Fragment set:html={THEME_SCRIPT} />
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">{site.title}</a><nav class="site-nav" aria-label="Main">{nav.map(([href, label]) => <a href={href} aria-current={current === href ? "page" : undefined}>{label}</a>)}</nav><ThemeToggle /></div></header>
+<main id="main" class="container">
+<slot />
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 {site.author} · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

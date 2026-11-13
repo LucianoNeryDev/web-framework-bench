@@ -1,0 +1,13 @@
+{
+  "name": "wfb-astro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "astro build"
+  },
+  "dependencies": {
+    "@astrojs/node": "11.1.12",
+    "@astrojs/rss": "4.0.19",
+    "astro": "7.4.11"
+  }
+}

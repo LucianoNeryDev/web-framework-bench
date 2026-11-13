@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+import Card from "../components/Card.astro";
+import BlogFilter from "../components/BlogFilter.astro";
+import { posts, matches } from "../lib/content";
+
+// On demand (server mode) the query string arrives here and the list is rendered already filtered;
+// prerendered (static mode) it is always empty and the island filters on load.
+const q = Astro.url.searchParams.get("q") ?? "";
+const tag = Astro.url.searchParams.get("tag") ?? "";
+const shown = posts.filter((p) => matches(p, q, tag)).length;
+---
+<Base path="/blog" title="Blog" description={`All ${posts.length} posts on Field Notes.`} image="/images/hero.webp" current="/blog">
+<h1>Blog</h1>
+<p>Everything I have written, newest first. Search titles and summaries, or narrow by tag.</p>
+<BlogFilter q={q} tag={tag} total={posts.length} shown={shown}>
+{posts.map((p, i) => <Card post={p} eager={i < 3} hidden={!matches(p, q, tag)} />)}
+</BlogFilter>
+</Base>
