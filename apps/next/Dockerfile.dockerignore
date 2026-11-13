@@ -1,0 +1,10 @@
+# Paths are relative to the build context (the repository root).
+.git
+bench
+results
+docs
+apps/*/node_modules
+apps/next/.next
+apps/next/out
+apps/next/data
+apps/next/public

@@ -1,0 +1,7 @@
+node_modules/
+.next/
+out/
+# copied from the repository root at build time (see Dockerfile / README in NOTES.md)
+public/
+data/
+next-env.d.ts
