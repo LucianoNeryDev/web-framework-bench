@@ -1,0 +1,116 @@
+# Ghost target: MySQL 8 + Ghost (custom theme) + nginx, plus a one-shot seed job.
+#   WFB_PORT=18200 WFB_CACHE=off docker compose -p wfb-ghost -f apps/ghost/compose.yaml up -d --build --wait
+# WFB_CACHE=off: nginx proxies every page request to Ghost. WFB_CACHE=on: nginx proxy_cache (10 min) in front.
+# Ghost and MySQL sit on an internal network with no route out; only nginx is published.
+
+x-ghost-build: &ghost-build
+  context: ../..
+  dockerfile: apps/ghost/Dockerfile
+  target: ghost
+
+x-db-env: &db-env
+  database__client: mysql
+  database__connection__host: db
+  database__connection__port: "3306"
+  database__connection__user: ghost
+  database__connection__password: ghost-bench
+  database__connection__database: ghost
+
+services:
+  db:
+    image: mysql:8.4.13
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root-bench
+      MYSQL_DATABASE: ghost
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ghost-bench
+    volumes:
+      - db-data:/var/lib/mysql
+    networks: [backend]
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -proot-bench --silent"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 3600s
+      start_interval: 3s
+
+  ghost:
+    build: *ghost-build
+    image: wfb/ghost:server
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      <<: *db-env
+      NODE_ENV: production
+      url: https://bench.example
+      # No outbound calls (update check, Gravatar, RPC pings, ...); the network has no route out anyway.
+      privacy__useTinfoil: "true"
+      # Tinfoil does not cover the Explore ping, which runs at boot before the seed can switch it off.
+      explore__update_url: ""
+      # New-device sign-in would need an emailed code; the seed job signs in once per start.
+      security__staffDeviceVerification: "false"
+    volumes:
+      - ghost-content:/var/lib/ghost/content
+    networks: [backend]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null --header 'X-Forwarded-Proto: https' http://127.0.0.1:2368/ghost/api/admin/site/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 3600s
+      start_interval: 3s
+
+  seed:
+    build: *ghost-build
+    image: wfb/ghost:server
+    entrypoint: ["node", "/opt/fieldnotes/seed.mjs"]
+    command: []
+    restart: "no"
+    depends_on:
+      ghost:
+        condition: service_healthy
+    environment:
+      GHOST_INTERNAL_URL: http://ghost:2368
+      GHOST_ADMIN_ORIGIN: https://bench.example
+      GHOST_OWNER_EMAIL: ada@bench.example
+      GHOST_OWNER_PASSWORD: field-notes-bench-2026
+    networks: [backend]
+
+  nginx:
+    build:
+      context: ../..
+      dockerfile: apps/ghost/Dockerfile
+      target: nginx
+    image: wfb/ghost-nginx:server
+    restart: unless-stopped
+    depends_on:
+      ghost:
+        condition: service_healthy
+      seed:
+        condition: service_completed_successfully
+    environment:
+      WFB_CACHE: ${WFB_CACHE:-off}
+      NGINX_ENVSUBST_FILTER: ^WFB_
+    ports:
+      - "${WFB_PORT:-8080}:8080"
+    networks: [backend, frontend]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:8080/healthz && wget -q -O /dev/null http://127.0.0.1:8080/blog || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 3600s
+      start_interval: 2s
+
+volumes:
+  db-data:
+  ghost-content:
+
+networks:
+  backend:
+    internal: true
+  frontend:

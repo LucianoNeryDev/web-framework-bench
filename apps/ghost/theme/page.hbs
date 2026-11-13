@@ -1,0 +1,10 @@
+{{!< default}}
+{{#post}}
+{{#contentFor "meta"}}{{> meta ptitle=title pdesc=custom_excerpt ppath=(concat "/" slug) pimage="/images/avatar.webp"}}{{/contentFor}}
+{{#contentFor "nav"}}{{> nav current=slug}}{{/contentFor}}
+<section class="about">
+<h1>{{title}}</h1>
+<img class="about-avatar" src="/images/avatar.webp" alt="Portrait of Ada Fieldwork" width="160" height="160">
+{{content}}
+</section>
+{{/post}}

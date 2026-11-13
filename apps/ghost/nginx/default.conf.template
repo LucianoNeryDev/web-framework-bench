@@ -1,0 +1,75 @@
+# Field Notes in front of Ghost, the way Ghost documents its production setup: nginx serves static files and
+# proxies everything else to Ghost. WFB_CACHE (off|on) picks /etc/nginx/fieldnotes/cache-<mode>.conf at start-up
+# (the nginx image runs envsubst over this template; only WFB_* variables are substituted).
+
+resolver 127.0.0.11 valid=10s ipv6=off;
+
+upstream ghost {
+    zone ghost_upstream 64k;
+    server ghost:2368 resolve;
+    keepalive 32;
+}
+
+# Used only when WFB_CACHE=on: 10 minutes, keyed on host + path + query string.
+proxy_cache_path /var/cache/nginx/ghost levels=1:2 keys_zone=ghost_pages:10m max_size=256m inactive=10m use_temp_path=off;
+
+# Staff (Ghost Admin) and member sessions always go to Ghost, uncached.
+map $http_cookie $ghost_session {
+    default 0;
+    ~ghost-admin-api-session 1;
+    ~ghost-members-ssr 1;
+}
+
+server {
+    listen 8080;
+    server_name _;
+    root /usr/share/nginx/html;
+
+    absolute_redirect off;
+    server_tokens off;
+
+    location = /healthz {
+        access_log off;
+        default_type text/plain;
+        return 200 "ok\n";
+    }
+
+    # shared/public, served unchanged by nginx. Unknown images fall through to Ghost's 404 page.
+    location = /style.css { }
+    location = /app.js { }
+    location = /favicon.svg { }
+    location /images/ {
+        try_files $uri @ghost;
+    }
+
+    # Ghost Admin, the Admin/Content APIs and member endpoints: never cached.
+    location ^~ /ghost {
+        include /etc/nginx/fieldnotes/proxy.conf;
+    }
+    location ^~ /members/ {
+        include /etc/nginx/fieldnotes/proxy.conf;
+    }
+
+    # Ghost's URLs end in a slash and Ghost 301s requests without one; the contract forbids redirects.
+    # Map the contract URLs onto Ghost's internally (the client never sees the slash).
+    location = /rss.xml {
+        rewrite ^ /rss/ break;
+        include /etc/nginx/fieldnotes/cache-${WFB_CACHE}.conf;
+        include /etc/nginx/fieldnotes/proxy.conf;
+    }
+    location = /sitemap.xml {
+        rewrite ^ /fieldnotes-sitemap/ break;
+        include /etc/nginx/fieldnotes/cache-${WFB_CACHE}.conf;
+        include /etc/nginx/fieldnotes/proxy.conf;
+    }
+    location / {
+        # /blog -> /blog/, /blog/<slug> -> /blog/<slug>/, /about -> /about/, /anything -> /anything/ (Ghost's 404)
+        rewrite ^(.*/[^/.]+)$ $1/ break;
+        include /etc/nginx/fieldnotes/cache-${WFB_CACHE}.conf;
+        include /etc/nginx/fieldnotes/proxy.conf;
+    }
+    location @ghost {
+        include /etc/nginx/fieldnotes/cache-${WFB_CACHE}.conf;
+        include /etc/nginx/fieldnotes/proxy.conf;
+    }
+}

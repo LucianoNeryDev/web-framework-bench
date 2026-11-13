@@ -1,0 +1,6 @@
+<article class="card" data-post data-tags="{{#foreach tags}}{{slug}}{{#unless @last}} {{/unless}}{{/foreach}}" data-search="{{#> (concat "data/search/" slug)}}{{/undefined}}">
+<a class="card-link" href="/blog/{{slug}}"><img class="card-image" src="/images/{{slug}}-thumb.webp" alt="" width="600" height="315"{{#unless eager}} loading="lazy"{{/unless}} decoding="async"><h3 class="card-title">{{title}}</h3></a>
+<p class="card-meta"><time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="D MMM YYYY"}}</time> · {{#> (concat "data/minutes/" slug)}}{{/undefined}} min read</p>
+<p class="card-summary">{{custom_excerpt}}</p>
+{{> tag-list}}
+</article>

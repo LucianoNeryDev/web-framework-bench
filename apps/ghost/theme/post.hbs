@@ -1,0 +1,24 @@
+{{!< default}}
+{{#post}}
+{{#contentFor "meta"}}{{> meta ptitle=title pdesc=custom_excerpt ppath=(concat "/blog/" slug) ptype="article" pimage=(img_url feature_image)}}{{/contentFor}}
+{{#contentFor "nav"}}{{> nav current="blog"}}{{/contentFor}}
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="D MMM YYYY"}}</time> · {{#> (concat "data/minutes/" slug)}}{{/undefined}} min read</p>
+<h1>{{title}}</h1>
+<p class="post-summary">{{custom_excerpt}}</p>
+{{> tag-list}}
+</header>
+<img class="post-cover" src="{{img_url feature_image}}" alt="{{feature_image_alt}}" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+{{content}}
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts">{{#prev_post}}<a rel="prev" href="/blog/{{slug}}">← {{title}}</a>{{/prev_post}}{{#next_post}}<a rel="next" href="/blog/{{slug}}">{{title}} →</a>{{/next_post}}</nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+{{#> (concat "data/related/" slug)}}{{/undefined}}
+</div>
+</section>
+{{/post}}

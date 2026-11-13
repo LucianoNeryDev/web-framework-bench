@@ -1,0 +1,19 @@
+# Field Notes URL layout (docs/site-spec.md).
+# Ghost paths always end in a slash; nginx maps the contract's slash-less URLs onto them internally,
+# including /rss.xml -> /rss/ and /sitemap.xml -> /fieldnotes-sitemap/ (Ghost treats any path with a file
+# extension as a theme asset, so a route cannot be called /rss.xml/).
+routes:
+  /: home
+  /rss/:
+    template: rss
+    content_type: xml
+  /fieldnotes-sitemap/:
+    template: sitemap
+    content_type: xml
+
+collections:
+  /blog/:
+    permalink: /blog/{slug}/
+    template: index
+
+# No taxonomies: the contract has no tag or author archives, so /tag/* and /author/* are 404s.

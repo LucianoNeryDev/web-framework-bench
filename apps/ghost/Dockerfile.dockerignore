@@ -1,0 +1,10 @@
+# Build context is the repository root; send only what the Ghost images use.
+*
+!content/posts.json
+!shared/public/
+!apps/ghost/theme/
+!apps/ghost/tools/
+!apps/ghost/seed/
+!apps/ghost/ghost/
+!apps/ghost/nginx/
+apps/ghost/theme/partials/data/

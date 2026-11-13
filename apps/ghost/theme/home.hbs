@@ -1,0 +1,18 @@
+{{!< default}}
+{{#contentFor "meta"}}{{> meta ppath="/" pdesc=@site.description pimage="/images/hero.webp"}}{{/contentFor}}
+{{#contentFor "nav"}}{{> nav current="home"}}{{/contentFor}}
+<section class="hero">
+<div class="hero-text"><h1>Notes from the workbench</h1><p>Small daily discoveries, build logs and longer project write-ups about the web, tooling and the systems underneath.</p><p><a class="button" href="/blog">Read the blog</a></p></div>
+<img class="hero-image" src="/images/hero.webp" alt="Abstract illustration of overlapping circles" width="1600" height="900" fetchpriority="high">
+</section>
+<section class="latest" aria-labelledby="latest-heading">
+<h2 id="latest-heading">Latest posts</h2>
+<div class="card-grid">
+{{#get "posts" limit="6" include="tags"}}
+{{#foreach posts}}
+{{> card}}
+{{/foreach}}
+{{/get}}
+</div>
+<p class="section-footer"><a href="/blog">All posts →</a></p>
+</section>
