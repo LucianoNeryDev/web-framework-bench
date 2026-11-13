@@ -18,7 +18,7 @@ import { request } from "node:http";
 import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { basename, extname, join } from "node:path";
 import {
-  CLIENT_CPUS, EDGE_PORT, PORT, ROOT, containersOf, log, loadResult, memoryNow, oha, posts, restartTarget, saveResult,
+  CLIENT_CPUS, PORT, ROOT, containersOf, edgeBase, targetBase, log, loadResult, memoryNow, oha, posts, restartTarget, saveResult,
   serviceContainer, sh, shAsync, sleep, startEdge, startSampler, startTarget, stopTarget, waitFor,
 } from "./lib.mjs";
 import { select } from "./targets.mjs";
@@ -125,10 +125,10 @@ async function load(t) {
     const idleMemMB = +(memoryNow(containers) / 2 ** 20).toFixed(1);
     const runs = {};
     for (const [name, path] of Object.entries(ROUTES)) {
-      await oha(path, { concurrency: 10, seconds: 5 }); // warm up this route (JIT, opcache, template caches)
+      await oha(t, path, { concurrency: 10, seconds: 5 }); // warm up this route (JIT, opcache, template caches)
       for (const c of CONCURRENCY) {
         const sampler = startSampler(containers);
-        const r = await oha(path, { concurrency: c, seconds: DURATION });
+        const r = await oha(t, path, { concurrency: c, seconds: DURATION });
         runs[`${name}@${c}`] = { route: path, concurrency: c, ...r, ...sampler.stop() };
         log(`${t.id} ${name}@${c}: ${r.rps} rps, p50 ${r.p50} ms, p99 ${r.p99} ms, errors ${r.errors}, non-2xx ${JSON.stringify(r.status)}`);
         await sleep(2000);
@@ -163,17 +163,17 @@ async function lighthouse(t) {
   const result = {};
   try {
     for (const [name, path] of Object.entries(pages)) {
-      const url = `http://127.0.0.1:${EDGE_PORT}${path}`;
+      const url = `${edgeBase()}${path}`;
       await fetch(url).then((r) => r.arrayBuffer()); // warm the server
       const runs = [];
-      for (let i = 0; i < runsPerPage; i++) {
-        const chrome = await chromeLauncher.launch({ chromePath: chromePath(), chromeFlags: ["--headless=new", "--no-sandbox", "--disable-gpu"] });
+      for (let i = -1; i < runsPerPage; i++) { // run -1 warms Chrome and the server and is discarded
+        const chrome = await chromeLauncher.launch({ chromePath: chromePath(), chromeFlags: ["--headless=new", "--no-sandbox", "--disable-gpu"], maxConnectionPollTries: 240, connectionPollInterval: 500 });
         try {
           const { lhr } = await lh(url, { port: chrome.port, output: "json", logLevel: "error" });
           const a = lhr.audits;
           const reqs = a["network-requests"]?.details?.items ?? [];
           const byType = (type) => reqs.filter((r) => r.resourceType === type).reduce((s, r) => s + (r.transferSize || 0), 0);
-          runs.push({
+          if (i >= 0) runs.push({
             performance: lhr.categories.performance?.score * 100,
             accessibility: lhr.categories.accessibility?.score * 100,
             bestPractices: lhr.categories["best-practices"]?.score * 100,
@@ -238,7 +238,7 @@ async function interact(t) {
       });
 
       // Time until the blog filter responds: click the "Go" chip until the list shows only Go posts.
-      await page.goto(`http://127.0.0.1:${EDGE_PORT}/blog`, { waitUntil: "commit" });
+      await page.goto(`${edgeBase()}/blog`, { waitUntil: "commit" });
       let readyMs = null;
       const deadline = Date.now() + 60_000;
       while (Date.now() < deadline) {
@@ -352,7 +352,7 @@ async function robust(t) {
     // 2. Overload: 1000 concurrent connections on a post page.
     {
       const sampler = startSampler(containers);
-      const r = await oha(POST, { concurrency: 1000, seconds: 15 });
+      const r = await oha(t, POST, { concurrency: 1000, seconds: 15 });
       out.overload = { ...r, ...sampler.stop() };
       const alive = await rawRequest("GET", "/");
       out.overload.healthyAfter = alive.status === 200;
@@ -361,11 +361,11 @@ async function robust(t) {
 
     // 3. Soak: every page in rotation at moderate load; watch memory.
     {
-      const urls = [...["/", "/blog", "/about", "/blog?q=cache"], ...posts.map((p) => `/blog/${p.slug}`)].map((p) => `http://wfb-run:8080${p}`);
+      const urls = [...["/", "/blog", "/about", "/blog?q=cache"], ...posts.map((p) => `/blog/${p.slug}`)].map((p) => `${targetBase(t)}${p}`);
       writeFileSync(join(ROOT, "results/tmp/soak-urls.txt"), urls.join("\n") + "\n", { mode: 0o644 });
       const memStart = memoryNow(containers);
       const sampler = startSampler(containers, 1000);
-      const r = await oha(null, { concurrency: 50, seconds: SOAK, urlsFile: "soak-urls.txt" });
+      const r = await oha(t, null, { concurrency: 50, seconds: SOAK, urlsFile: join(ROOT, "results/tmp/soak-urls.txt") });
       const s = sampler.stop();
       out.soak = { seconds: SOAK, ...r, ...s, memStartMB: +(memStart / 2 ** 20).toFixed(1), memGrowthMB: +(s.memEndMB - memStart / 2 ** 20).toFixed(1) };
       log(`${t.id} soak: ${r.rps} rps, errors ${r.errors}, memory ${out.soak.memStartMB} -> ${s.memEndMB} MB`);

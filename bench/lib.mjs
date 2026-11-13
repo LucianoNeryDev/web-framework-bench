@@ -15,7 +15,8 @@ export const EDGE = "wfb-edge";
 export const TARGET_CPUS = process.env.WFB_TARGET_CPUS || "0,1";
 export const CLIENT_CPUS = process.env.WFB_CLIENT_CPUS || "4-7";
 export const TARGET_MEM = process.env.WFB_TARGET_MEM || "1g";
-export const OHA = process.env.WFB_OHA_IMAGE || "ghcr.io/hatoo/oha:latest";
+// oha 1.16.0 release binary (bench/bin/oha, see bench/setup.sh); runs on the host, pinned with the harness.
+export const OHA = process.env.WFB_OHA || join(dirname(fileURLToPath(import.meta.url)), "bin", "oha");
 
 export const posts = JSON.parse(readFileSync(join(ROOT, "content/posts.json"), "utf8")).posts;
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -209,13 +210,19 @@ export function startSampler(containers, interval = 500) {
 
 // --- load generation ---------------------------------------------------------------------------
 
-/** Run oha inside the bench network on the client cores and return a compact summary. */
-export async function oha(path, { concurrency, seconds, urlsFile, extra = "" }) {
-  const target = urlsFile ? `--urls-from-file /work/${urlsFile}` : `'http://${RUN}:8080${path}'`;
-  const mount = urlsFile ? `-v ${join(ROOT, "results", "tmp")}:/work:ro` : "";
+/** IP of a container on the bench network, so clients skip Docker's userland port proxy. */
+export function ipOf(container) {
+  return sh(`docker inspect -f '{{(index .NetworkSettings.Networks "${NET}").IPAddress}}' ${container}`);
+}
+
+export const targetBase = (t) => `http://${ipOf(t.kind === "image" ? RUN : serviceContainer(t, t.entry))}:8080`;
+export const edgeBase = () => `http://${ipOf(EDGE)}:8080`;
+
+/** Run oha on the client cores against the target's network IP and return a compact summary. */
+export async function oha(t, path, { concurrency, seconds, urlsFile, extra = "" }) {
+  const target = urlsFile ? `--urls-from-file ${urlsFile}` : `'${targetBase(t)}${path}'`;
   const out = await shAsync(
-    `docker run --rm --network ${NET} --cpuset-cpus ${CLIENT_CPUS} ${mount} ${OHA} ` +
-    `--no-tui --output-format json -z ${seconds}s -c ${concurrency} -t 10s ${extra} ${target}`,
+    `taskset -c ${CLIENT_CPUS} ${OHA} --no-tui --output-format json -w -z ${seconds}s -c ${concurrency} -t 10s ${extra} ${target}`,
   );
   const r = JSON.parse(out);
   const codes = r.statusCodeDistribution || {};

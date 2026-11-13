@@ -1,0 +1,7 @@
+**/node_modules
+apps/*/build
+apps/*/.svelte-kit
+apps/sveltekit/static
+.git
+bench
+results
