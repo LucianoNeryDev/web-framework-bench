@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardening cold starts under load · Field Notes</title>
+<meta name="description" content="A small reproduction in an empty repository removed every distraction from the real problem. The fix itself was three lines; finding where to put them took two days.">
+<link rel="canonical" href="https://bench.example/blog/hardening-cold-starts-under-load">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hardening cold starts under load · Field Notes">
+<meta property="og:description" content="A small reproduction in an empty repository removed every distraction from the real problem. The fix itself was three lines; finding where to put them took two days.">
+<meta property="og:image" content="https://bench.example/images/hardening-cold-starts-under-load.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/blog" aria-current="page">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="2026-06-09">9 Jun 2026</time> · 5 min read</p>
+<h1>Hardening cold starts under load</h1>
+<p class="post-summary">A small reproduction in an empty repository removed every distraction from the real problem. The fix itself was three lines; finding where to put them took two days.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=tooling">Tooling</a></li></ul>
+</header>
+<img class="post-cover" src="/images/hardening-cold-starts-under-load.webp" alt="Abstract cover illustration for “Hardening cold starts under load”" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+<p>Moving the work off the request path made the page fast and the queue honest. Logs were useful only after every line carried a request identifier. Pinning the versions made the build reproducible and the upgrade a deliberate decision. Small, frequent releases made each change easy to reason about and easy to revert.</p>
+<p>Most of the latency came from a single synchronous call that nobody remembered adding. The real constraint was not the CPU but the number of open file descriptors. The migration ran in batches so it could be paused, resumed and verified at each step. I deleted more code than I added, and the system got faster and easier to read. I wrote a short runbook so the next incident starts with steps instead of guesses.</p>
+<h2>Trade-offs</h2>
+<p>Reading the source was faster than searching for a blog post that matched my exact version. The configuration file had grown three ways to say the same thing. The slowest part of the deploy was waiting for a health check that checked nothing. Moving the work off the request path made the page fast and the queue honest. Clear error messages saved more time than any clever optimisation.</p>
+<p>The profiler pointed at serialisation, which was not where I would have guessed. Every abstraction leaked a little, and the leaks were where the bugs lived. Most of the latency came from a single synchronous call that nobody remembered adding. I kept the old path behind a flag for a week so I could compare both under real traffic. The real constraint was not the CPU but the number of open file descriptors.</p>
+<p>A small reproduction in an empty repository removed every distraction from the real problem. The migration ran in batches so it could be paused, resumed and verified at each step. Pinning the versions made the build reproducible and the upgrade a deliberate decision.</p>
+<h2>What actually fixed it</h2>
+<p>Clear error messages saved more time than any clever optimisation. Writing the test first forced me to decide what correct behaviour actually meant. Most tools default to settings that are reasonable for a laptop and surprising on a server. Retries without jitter turned a short blip into a synchronised wave of traffic. The configuration file had grown three ways to say the same thing. Most of the latency came from a single synchronous call that nobody remembered adding.</p>
+<p>I started with the simplest version that could possibly work and wrote down every assumption. Pinning the versions made the build reproducible and the upgrade a deliberate decision. Retries without jitter turned a short blip into a synchronised wave of traffic. Clear error messages saved more time than any clever optimisation.</p>
+<ul>
+<li>The slowest part of the deploy was waiting for a health check that checked nothing.</li>
+<li>I wrote a short runbook so the next incident starts with steps instead of guesses.</li>
+<li>Tail latency told a different story from the average, which looked perfectly healthy.</li>
+<li>Retries without jitter turned a short blip into a synchronised wave of traffic.</li>
+</ul>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. The migration ran in batches so it could be paused, resumed and verified at each step. Clear error messages saved more time than any clever optimisation.</p>
+<h2>The first attempt</h2>
+<p>Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. I started with the simplest version that could possibly work and wrote down every assumption. Moving the work off the request path made the page fast and the queue honest. The first measurement was misleading because the cache was already warm. Most tools default to settings that are reasonable for a laptop and surprising on a server. A budget for each page kept the bundle from growing one harmless dependency at a time.</p>
+<p>Most tools default to settings that are reasonable for a laptop and surprising on a server. Moving the work off the request path made the page fast and the queue honest. The slowest part of the deploy was waiting for a health check that checked nothing.</p>
+<blockquote>
+<p>Small, frequent releases made each change easy to reason about and easy to revert.</p>
+</blockquote>
+<p>Tail latency told a different story from the average, which looked perfectly healthy. Measuring before and after turned a hunch into a result I could defend. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. The profiler pointed at serialisation, which was not where I would have guessed. Most tools default to settings that are reasonable for a laptop and surprising on a server.</p>
+<h2>What I would do differently</h2>
+<p>The migration ran in batches so it could be paused, resumed and verified at each step. Most of the latency came from a single synchronous call that nobody remembered adding. I deleted more code than I added, and the system got faster and easier to read. The configuration file had grown three ways to say the same thing.</p>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. Moving the work off the request path made the page fast and the queue honest. Logs were useful only after every line carried a request identifier.</p>
+<pre><code class="language-sql">SELECT p.slug, count(v.id) AS views
+FROM posts p
+LEFT JOIN views v ON v.post_id = p.id
+  AND v.created_at &gt; now() - interval '7 days'
+GROUP BY p.slug
+ORDER BY views DESC
+LIMIT 10;
+</code></pre>
+<p>Retries without jitter turned a short blip into a synchronised wave of traffic. Measuring before and after turned a hunch into a result I could defend. Moving the work off the request path made the page fast and the queue honest. The configuration file had grown three ways to say the same thing. The benchmark looked impressive until I ran it on the same hardware as production.</p>
+<h2>Measuring the problem</h2>
+<p>Retries without jitter turned a short blip into a synchronised wave of traffic. The first measurement was misleading because the cache was already warm. A budget for each page kept the bundle from growing one harmless dependency at a time. Moving the work off the request path made the page fast and the queue honest. A small reproduction in an empty repository removed every distraction from the real problem. Clear error messages saved more time than any clever optimisation.</p>
+<p>The first measurement was misleading because the cache was already warm. Small, frequent releases made each change easy to reason about and easy to revert. The benchmark looked impressive until I ran it on the same hardware as production. Clear error messages saved more time than any clever optimisation.</p>
+<pre><code class="language-rust">fn parse_line(line: &amp;str) -&gt; Option&lt;(&amp;str, u64)&gt; {
+    let (key, value) = line.split_once('=')?;
+    let value = value.trim().parse().ok()?;
+    Some((key.trim(), value))
+}
+</code></pre>
+<p>The fix itself was three lines; finding where to put them took two days. Retries without jitter turned a short blip into a synchronised wave of traffic. The error only appeared when two requests raced for the same row inside one transaction. The real constraint was not the CPU but the number of open file descriptors. Most tools default to settings that are reasonable for a laptop and surprising on a server.</p>
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts"><a rel="prev" href="/blog/shipping-the-build-pipeline-on-a-small-budget">← Shipping the build pipeline on a small budget</a><a rel="next" href="/blog/simplifying-connection-pooling-after-a-long-weekend">Simplifying connection pooling after a long weekend →</a></nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="javascript security tooling" data-search="replacing a memory leak with fewer moving parts the fix itself was three lines; finding where to put them took two days. the first measurement was misleading because the cache was already warm.">
+<a class="card-link" href="/blog/replacing-a-memory-leak-with-fewer-moving-parts"><img class="card-image" src="/images/replacing-a-memory-leak-with-fewer-moving-parts-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Replacing a memory leak with fewer moving parts</h3></a>
+<p class="card-meta"><time datetime="2026-04-08">8 Apr 2026</time> · 5 min read</p>
+<p class="card-summary">The fix itself was three lines; finding where to put them took two days. The first measurement was misleading because the cache was already warm.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=javascript">JavaScript</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li><li><a class="tag" href="/blog?tag=tooling">Tooling</a></li></ul>
+</article>
+<article class="card" data-post data-tags="databases tooling" data-search="simplifying service workers without downtime the documentation described the happy path well and said nothing about what happens on timeout. measuring before and after turned a hunch into a result i could defend.">
+<a class="card-link" href="/blog/simplifying-service-workers-without-downtime"><img class="card-image" src="/images/simplifying-service-workers-without-downtime-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Simplifying service workers without downtime</h3></a>
+<p class="card-meta"><time datetime="2026-09-25">25 Sep 2026</time> · 4 min read</p>
+<p class="card-summary">The documentation described the happy path well and said nothing about what happens on timeout. Measuring before and after turned a hunch into a result I could defend.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=databases">Databases</a></li><li><a class="tag" href="/blog?tag=tooling">Tooling</a></li></ul>
+</article>
+<article class="card" data-post data-tags="css testing tooling" data-search="automating background jobs after a long weekend most of the latency came from a single synchronous call that nobody remembered adding. i deleted more code than i added, and the system got faster and easier to read.">
+<a class="card-link" href="/blog/automating-background-jobs-after-a-long-weekend"><img class="card-image" src="/images/automating-background-jobs-after-a-long-weekend-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Automating background jobs after a long weekend</h3></a>
+<p class="card-meta"><time datetime="2026-09-30">30 Sep 2026</time> · 5 min read</p>
+<p class="card-summary">Most of the latency came from a single synchronous call that nobody remembered adding. I deleted more code than I added, and the system got faster and easier to read.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=testing">Testing</a></li><li><a class="tag" href="/blog?tag=tooling">Tooling</a></li></ul>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

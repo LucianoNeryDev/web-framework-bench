@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simplifying error budgets on a small budget · Field Notes</title>
+<meta name="description" content="Most of the latency came from a single synchronous call that nobody remembered adding. The migration ran in batches so it could be paused, resumed and verified at each step.">
+<link rel="canonical" href="https://bench.example/blog/simplifying-error-budgets-on-a-small-budget">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Simplifying error budgets on a small budget · Field Notes">
+<meta property="og:description" content="Most of the latency came from a single synchronous call that nobody remembered adding. The migration ran in batches so it could be paused, resumed and verified at each step.">
+<meta property="og:image" content="https://bench.example/images/simplifying-error-budgets-on-a-small-budget.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/blog" aria-current="page">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="2026-10-26">26 Oct 2026</time> · 5 min read</p>
+<h1>Simplifying error budgets on a small budget</h1>
+<p class="post-summary">Most of the latency came from a single synchronous call that nobody remembered adding. The migration ran in batches so it could be paused, resumed and verified at each step.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=performance">Performance</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</header>
+<img class="post-cover" src="/images/simplifying-error-budgets-on-a-small-budget.webp" alt="Abstract cover illustration for “Simplifying error budgets on a small budget”" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+<p>A budget for each page kept the bundle from growing one harmless dependency at a time. Small, frequent releases made each change easy to reason about and easy to revert. I started with the simplest version that could possibly work and wrote down every assumption. Logs were useful only after every line carried a request identifier.</p>
+<p>Tail latency told a different story from the average, which looked perfectly healthy. The first measurement was misleading because the cache was already warm. Every abstraction leaked a little, and the leaks were where the bugs lived. The slowest part of the deploy was waiting for a health check that checked nothing. I kept the old path behind a flag for a week so I could compare both under real traffic.</p>
+<h2>What I would do differently</h2>
+<p>I deleted more code than I added, and the system got faster and easier to read. The documentation described the happy path well and said nothing about what happens on timeout. The migration ran in batches so it could be paused, resumed and verified at each step. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<p>Pinning the versions made the build reproducible and the upgrade a deliberate decision. Writing the test first forced me to decide what correct behaviour actually meant. The documentation described the happy path well and said nothing about what happens on timeout.</p>
+<p>Moving the work off the request path made the page fast and the queue honest. Small, frequent releases made each change easy to reason about and easy to revert. I kept the old path behind a flag for a week so I could compare both under real traffic.</p>
+<h2>Trade-offs</h2>
+<p>The error only appeared when two requests raced for the same row inside one transaction. Every abstraction leaked a little, and the leaks were where the bugs lived. I kept the old path behind a flag for a week so I could compare both under real traffic. Logs were useful only after every line carried a request identifier.</p>
+<p>Moving the work off the request path made the page fast and the queue honest. I deleted more code than I added, and the system got faster and easier to read. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<ul>
+<li>A budget for each page kept the bundle from growing one harmless dependency at a time.</li>
+<li>Pinning the versions made the build reproducible and the upgrade a deliberate decision.</li>
+<li>The error only appeared when two requests raced for the same row inside one transaction.</li>
+<li>Most of the latency came from a single synchronous call that nobody remembered adding.</li>
+</ul>
+<p>The real constraint was not the CPU but the number of open file descriptors. The documentation described the happy path well and said nothing about what happens on timeout. The first measurement was misleading because the cache was already warm. Small, frequent releases made each change easy to reason about and easy to revert.</p>
+<h2>Numbers after the change</h2>
+<p>The configuration file had grown three ways to say the same thing. Most of the latency came from a single synchronous call that nobody remembered adding. The slowest part of the deploy was waiting for a health check that checked nothing. I kept the old path behind a flag for a week so I could compare both under real traffic. Clear error messages saved more time than any clever optimisation.</p>
+<p>A budget for each page kept the bundle from growing one harmless dependency at a time. The benchmark looked impressive until I ran it on the same hardware as production. The migration ran in batches so it could be paused, resumed and verified at each step. Writing the test first forced me to decide what correct behaviour actually meant.</p>
+<pre><code class="language-bash">set -euo pipefail
+for host in $(cat hosts.txt); do
+  ssh &quot;$host&quot; 'systemctl is-active app' || echo &quot;$host down&quot;
+done
+</code></pre>
+<blockquote>
+<p>Tail latency told a different story from the average, which looked perfectly healthy.</p>
+</blockquote>
+<p>Logs were useful only after every line carried a request identifier. Small, frequent releases made each change easy to reason about and easy to revert. Pinning the versions made the build reproducible and the upgrade a deliberate decision.</p>
+<h2>The first attempt</h2>
+<p>Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. Moving the work off the request path made the page fast and the queue honest. A budget for each page kept the bundle from growing one harmless dependency at a time. Most tools default to settings that are reasonable for a laptop and surprising on a server. I started with the simplest version that could possibly work and wrote down every assumption. I wrote a short runbook so the next incident starts with steps instead of guesses.</p>
+<p>The error only appeared when two requests raced for the same row inside one transaction. Retries without jitter turned a short blip into a synchronised wave of traffic. The slowest part of the deploy was waiting for a health check that checked nothing. Reading the source was faster than searching for a blog post that matched my exact version. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<p>The fix itself was three lines; finding where to put them took two days. A budget for each page kept the bundle from growing one harmless dependency at a time. Most of the latency came from a single synchronous call that nobody remembered adding. The benchmark looked impressive until I ran it on the same hardware as production. Small, frequent releases made each change easy to reason about and easy to revert.</p>
+<h2>Where it started</h2>
+<p>I deleted more code than I added, and the system got faster and easier to read. Writing the test first forced me to decide what correct behaviour actually meant. The fix itself was three lines; finding where to put them took two days. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. Moving the work off the request path made the page fast and the queue honest.</p>
+<p>Every abstraction leaked a little, and the leaks were where the bugs lived. The profiler pointed at serialisation, which was not where I would have guessed. Moving the work off the request path made the page fast and the queue honest.</p>
+<pre><code class="language-rust">fn parse_line(line: &amp;str) -&gt; Option&lt;(&amp;str, u64)&gt; {
+    let (key, value) = line.split_once('=')?;
+    let value = value.trim().parse().ok()?;
+    Some((key.trim(), value))
+}
+</code></pre>
+<p>I started with the simplest version that could possibly work and wrote down every assumption. Retries without jitter turned a short blip into a synchronised wave of traffic. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. Moving the work off the request path made the page fast and the queue honest.</p>
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts"><a rel="prev" href="/blog/untangling-structured-logging-from-first-principles">← Untangling structured logging from first principles</a><a rel="next" href="/blog/rethinking-connection-pooling-on-a-small-budget">Rethinking connection pooling on a small budget →</a></nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="performance databases security" data-search="replacing css container queries at the edge i wrote a short runbook so the next incident starts with steps instead of guesses. writing the test first forced me to decide what correct behaviour actually meant.">
+<a class="card-link" href="/blog/replacing-css-container-queries-at-the-edge"><img class="card-image" src="/images/replacing-css-container-queries-at-the-edge-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Replacing CSS container queries at the edge</h3></a>
+<p class="card-meta"><time datetime="2026-09-03">3 Sep 2026</time> · 5 min read</p>
+<p class="card-summary">I wrote a short runbook so the next incident starts with steps instead of guesses. Writing the test first forced me to decide what correct behaviour actually meant.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=performance">Performance</a></li><li><a class="tag" href="/blog?tag=databases">Databases</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+<article class="card" data-post data-tags="javascript css security" data-search="debugging rate limiting after a long weekend clear error messages saved more time than any clever optimisation. once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.">
+<a class="card-link" href="/blog/debugging-rate-limiting-after-a-long-weekend"><img class="card-image" src="/images/debugging-rate-limiting-after-a-long-weekend-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Debugging rate limiting after a long weekend</h3></a>
+<p class="card-meta"><time datetime="2026-08-02">2 Aug 2026</time> · 4 min read</p>
+<p class="card-summary">Clear error messages saved more time than any clever optimisation. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=javascript">JavaScript</a></li><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+<article class="card" data-post data-tags="css performance devops" data-search="replacing a flaky integration test in production the error only appeared when two requests raced for the same row inside one transaction. writing the test first forced me to decide what correct behaviour actually meant.">
+<a class="card-link" href="/blog/replacing-a-flaky-integration-test-in-production"><img class="card-image" src="/images/replacing-a-flaky-integration-test-in-production-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Replacing a flaky integration test in production</h3></a>
+<p class="card-meta"><time datetime="2026-07-12">12 Jul 2026</time> · 4 min read</p>
+<p class="card-summary">The error only appeared when two requests raced for the same row inside one transaction. Writing the test first forced me to decide what correct behaviour actually meant.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=performance">Performance</a></li><li><a class="tag" href="/blog?tag=devops">DevOps</a></li></ul>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardening a flaky integration test after a long weekend · Field Notes</title>
+<meta name="description" content="The documentation described the happy path well and said nothing about what happens on timeout. The migration ran in batches so it could be paused, resumed and verified at each step.">
+<link rel="canonical" href="https://bench.example/blog/hardening-a-flaky-integration-test-after-a-long-weekend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hardening a flaky integration test after a long weekend · Field Notes">
+<meta property="og:description" content="The documentation described the happy path well and said nothing about what happens on timeout. The migration ran in batches so it could be paused, resumed and verified at each step.">
+<meta property="og:image" content="https://bench.example/images/hardening-a-flaky-integration-test-after-a-long-weekend.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/blog" aria-current="page">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="2026-08-16">16 Aug 2026</time> · 4 min read</p>
+<h1>Hardening a flaky integration test after a long weekend</h1>
+<p class="post-summary">The documentation described the happy path well and said nothing about what happens on timeout. The migration ran in batches so it could be paused, resumed and verified at each step.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=databases">Databases</a></li></ul>
+</header>
+<img class="post-cover" src="/images/hardening-a-flaky-integration-test-after-a-long-weekend.webp" alt="Abstract cover illustration for “Hardening a flaky integration test after a long weekend”" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+<p>The slowest part of the deploy was waiting for a health check that checked nothing. The profiler pointed at serialisation, which was not where I would have guessed. Pinning the versions made the build reproducible and the upgrade a deliberate decision. The fix itself was three lines; finding where to put them took two days.</p>
+<p>I started with the simplest version that could possibly work and wrote down every assumption. I wrote a short runbook so the next incident starts with steps instead of guesses. Tail latency told a different story from the average, which looked perfectly healthy. Reading the source was faster than searching for a blog post that matched my exact version. A small reproduction in an empty repository removed every distraction from the real problem.</p>
+<h2>What actually fixed it</h2>
+<p>The documentation described the happy path well and said nothing about what happens on timeout. Logs were useful only after every line carried a request identifier. Measuring before and after turned a hunch into a result I could defend. The real constraint was not the CPU but the number of open file descriptors. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<p>Measuring before and after turned a hunch into a result I could defend. The real constraint was not the CPU but the number of open file descriptors. Small, frequent releases made each change easy to reason about and easy to revert. I kept the old path behind a flag for a week so I could compare both under real traffic. A budget for each page kept the bundle from growing one harmless dependency at a time.</p>
+<p>The error only appeared when two requests raced for the same row inside one transaction. Moving the work off the request path made the page fast and the queue honest. Most of the latency came from a single synchronous call that nobody remembered adding.</p>
+<h2>Numbers after the change</h2>
+<p>Moving the work off the request path made the page fast and the queue honest. Logs were useful only after every line carried a request identifier. Pinning the versions made the build reproducible and the upgrade a deliberate decision. I kept the old path behind a flag for a week so I could compare both under real traffic.</p>
+<p>Small, frequent releases made each change easy to reason about and easy to revert. Clear error messages saved more time than any clever optimisation. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<pre><code class="language-bash">set -euo pipefail
+for host in $(cat hosts.txt); do
+  ssh &quot;$host&quot; 'systemctl is-active app' || echo &quot;$host down&quot;
+done
+</code></pre>
+<ul>
+<li>Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</li>
+<li>The real constraint was not the CPU but the number of open file descriptors.</li>
+<li>Measuring before and after turned a hunch into a result I could defend.</li>
+<li>A budget for each page kept the bundle from growing one harmless dependency at a time.</li>
+</ul>
+<p>A budget for each page kept the bundle from growing one harmless dependency at a time. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. The documentation described the happy path well and said nothing about what happens on timeout. I deleted more code than I added, and the system got faster and easier to read. Retries without jitter turned a short blip into a synchronised wave of traffic.</p>
+<h2>Takeaways</h2>
+<p>The migration ran in batches so it could be paused, resumed and verified at each step. Most tools default to settings that are reasonable for a laptop and surprising on a server. Reading the source was faster than searching for a blog post that matched my exact version. Logs were useful only after every line carried a request identifier. A small reproduction in an empty repository removed every distraction from the real problem.</p>
+<p>Logs were useful only after every line carried a request identifier. The documentation described the happy path well and said nothing about what happens on timeout. Every abstraction leaked a little, and the leaks were where the bugs lived. I kept the old path behind a flag for a week so I could compare both under real traffic.</p>
+<pre><code class="language-sql">SELECT p.slug, count(v.id) AS views
+FROM posts p
+LEFT JOIN views v ON v.post_id = p.id
+  AND v.created_at &gt; now() - interval '7 days'
+GROUP BY p.slug
+ORDER BY views DESC
+LIMIT 10;
+</code></pre>
+<blockquote>
+<p>The slowest part of the deploy was waiting for a health check that checked nothing.</p>
+</blockquote>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. The error only appeared when two requests raced for the same row inside one transaction. The configuration file had grown three ways to say the same thing.</p>
+<h2>What I would do differently</h2>
+<p>Reading the source was faster than searching for a blog post that matched my exact version. The real constraint was not the CPU but the number of open file descriptors. Most of the latency came from a single synchronous call that nobody remembered adding. The benchmark looked impressive until I ran it on the same hardware as production. Moving the work off the request path made the page fast and the queue honest.</p>
+<p>Most tools default to settings that are reasonable for a laptop and surprising on a server. The first measurement was misleading because the cache was already warm. Measuring before and after turned a hunch into a result I could defend.</p>
+<p>Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. The fix itself was three lines; finding where to put them took two days. The profiler pointed at serialisation, which was not where I would have guessed. The benchmark looked impressive until I ran it on the same hardware as production. Reading the source was faster than searching for a blog post that matched my exact version.</p>
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts"><a rel="prev" href="/blog/untangling-database-migrations-under-load">← Untangling database migrations under load</a><a rel="next" href="/blog/simplifying-structured-logging-with-fewer-moving-parts">Simplifying structured logging with fewer moving parts →</a></nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="javascript databases" data-search="hardening feature flags the boring way the configuration file had grown three ways to say the same thing. logs were useful only after every line carried a request identifier.">
+<a class="card-link" href="/blog/hardening-feature-flags-the-boring-way"><img class="card-image" src="/images/hardening-feature-flags-the-boring-way-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Hardening feature flags the boring way</h3></a>
+<p class="card-meta"><time datetime="2026-08-30">30 Aug 2026</time> · 6 min read</p>
+<p class="card-summary">The configuration file had grown three ways to say the same thing. Logs were useful only after every line carried a request identifier.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=javascript">JavaScript</a></li><li><a class="tag" href="/blog?tag=databases">Databases</a></li></ul>
+</article>
+<article class="card" data-post data-tags="databases" data-search="shipping a memory leak the boring way the documentation described the happy path well and said nothing about what happens on timeout. a budget for each page kept the bundle from growing one harmless dependency at a time.">
+<a class="card-link" href="/blog/shipping-a-memory-leak-the-boring-way"><img class="card-image" src="/images/shipping-a-memory-leak-the-boring-way-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Shipping a memory leak the boring way</h3></a>
+<p class="card-meta"><time datetime="2026-07-24">24 Jul 2026</time> · 5 min read</p>
+<p class="card-summary">The documentation described the happy path well and said nothing about what happens on timeout. A budget for each page kept the bundle from growing one harmless dependency at a time.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=databases">Databases</a></li></ul>
+</article>
+<article class="card" data-post data-tags="databases devops security" data-search="replacing a flaky integration test on a small budget the first measurement was misleading because the cache was already warm. logs were useful only after every line carried a request identifier.">
+<a class="card-link" href="/blog/replacing-a-flaky-integration-test-on-a-small-budget"><img class="card-image" src="/images/replacing-a-flaky-integration-test-on-a-small-budget-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Replacing a flaky integration test on a small budget</h3></a>
+<p class="card-meta"><time datetime="2026-07-21">21 Jul 2026</time> · 5 min read</p>
+<p class="card-summary">The first measurement was misleading because the cache was already warm. Logs were useful only after every line carried a request identifier.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=databases">Databases</a></li><li><a class="tag" href="/blog?tag=devops">DevOps</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

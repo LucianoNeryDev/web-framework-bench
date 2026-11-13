@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simplifying feature flags in production · Field Notes</title>
+<meta name="description" content="Tail latency told a different story from the average, which looked perfectly healthy. Every abstraction leaked a little, and the leaks were where the bugs lived.">
+<link rel="canonical" href="https://bench.example/blog/simplifying-feature-flags-in-production">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Simplifying feature flags in production · Field Notes">
+<meta property="og:description" content="Tail latency told a different story from the average, which looked perfectly healthy. Every abstraction leaked a little, and the leaks were where the bugs lived.">
+<meta property="og:image" content="https://bench.example/images/simplifying-feature-flags-in-production.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/blog" aria-current="page">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="2026-09-19">19 Sep 2026</time> · 5 min read</p>
+<h1>Simplifying feature flags in production</h1>
+<p class="post-summary">Tail latency told a different story from the average, which looked perfectly healthy. Every abstraction leaked a little, and the leaks were where the bugs lived.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li></ul>
+</header>
+<img class="post-cover" src="/images/simplifying-feature-flags-in-production.webp" alt="Abstract cover illustration for “Simplifying feature flags in production”" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+<p>Every abstraction leaked a little, and the leaks were where the bugs lived. The error only appeared when two requests raced for the same row inside one transaction. The configuration file had grown three ways to say the same thing. The first measurement was misleading because the cache was already warm.</p>
+<p>Most tools default to settings that are reasonable for a laptop and surprising on a server. I kept the old path behind a flag for a week so I could compare both under real traffic. Writing the test first forced me to decide what correct behaviour actually meant. I started with the simplest version that could possibly work and wrote down every assumption. Moving the work off the request path made the page fast and the queue honest.</p>
+<h2>Trade-offs</h2>
+<p>The migration ran in batches so it could be paused, resumed and verified at each step. The profiler pointed at serialisation, which was not where I would have guessed. A small reproduction in an empty repository removed every distraction from the real problem. The first measurement was misleading because the cache was already warm. The fix itself was three lines; finding where to put them took two days. Retries without jitter turned a short blip into a synchronised wave of traffic.</p>
+<p>Clear error messages saved more time than any clever optimisation. I deleted more code than I added, and the system got faster and easier to read. Every abstraction leaked a little, and the leaks were where the bugs lived. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<pre><code class="language-js">export async function retry(fn, attempts = 4) {
+  for (let i = 0; i &lt; attempts; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const delay = 2 ** i * 100 + Math.random() * 100;
+      await new Promise((r) =&gt; setTimeout(r, delay));
+    }
+  }
+  throw new Error('retry budget exhausted');
+}
+</code></pre>
+<p>The migration ran in batches so it could be paused, resumed and verified at each step. Clear error messages saved more time than any clever optimisation. Every abstraction leaked a little, and the leaks were where the bugs lived. The error only appeared when two requests raced for the same row inside one transaction.</p>
+<h2>Numbers after the change</h2>
+<p>I deleted more code than I added, and the system got faster and easier to read. Clear error messages saved more time than any clever optimisation. Most tools default to settings that are reasonable for a laptop and surprising on a server. The benchmark looked impressive until I ran it on the same hardware as production. Every abstraction leaked a little, and the leaks were where the bugs lived. The error only appeared when two requests raced for the same row inside one transaction.</p>
+<p>I started with the simplest version that could possibly work and wrote down every assumption. Measuring before and after turned a hunch into a result I could defend. Moving the work off the request path made the page fast and the queue honest. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<pre><code class="language-bash">set -euo pipefail
+for host in $(cat hosts.txt); do
+  ssh &quot;$host&quot; 'systemctl is-active app' || echo &quot;$host down&quot;
+done
+</code></pre>
+<ul>
+<li>The first measurement was misleading because the cache was already warm.</li>
+<li>A budget for each page kept the bundle from growing one harmless dependency at a time.</li>
+<li>The slowest part of the deploy was waiting for a health check that checked nothing.</li>
+<li>I kept the old path behind a flag for a week so I could compare both under real traffic.</li>
+</ul>
+<p>The real constraint was not the CPU but the number of open file descriptors. Most tools default to settings that are reasonable for a laptop and surprising on a server. The profiler pointed at serialisation, which was not where I would have guessed.</p>
+<h2>What I would do differently</h2>
+<p>I wrote a short runbook so the next incident starts with steps instead of guesses. Logs were useful only after every line carried a request identifier. Most of the latency came from a single synchronous call that nobody remembered adding. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<p>Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. Clear error messages saved more time than any clever optimisation. Pinning the versions made the build reproducible and the upgrade a deliberate decision.</p>
+<blockquote>
+<p>Measuring before and after turned a hunch into a result I could defend.</p>
+</blockquote>
+<p>A budget for each page kept the bundle from growing one harmless dependency at a time. I deleted more code than I added, and the system got faster and easier to read. Pinning the versions made the build reproducible and the upgrade a deliberate decision.</p>
+<h2>What actually fixed it</h2>
+<p>The slowest part of the deploy was waiting for a health check that checked nothing. The real constraint was not the CPU but the number of open file descriptors. Small, frequent releases made each change easy to reason about and easy to revert. I deleted more code than I added, and the system got faster and easier to read.</p>
+<p>Reading the source was faster than searching for a blog post that matched my exact version. Logs were useful only after every line carried a request identifier. Most tools default to settings that are reasonable for a laptop and surprising on a server.</p>
+<p>Reading the source was faster than searching for a blog post that matched my exact version. The fix itself was three lines; finding where to put them took two days. The slowest part of the deploy was waiting for a health check that checked nothing. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<h2>Where it started</h2>
+<p>I started with the simplest version that could possibly work and wrote down every assumption. The first measurement was misleading because the cache was already warm. I kept the old path behind a flag for a week so I could compare both under real traffic. I deleted more code than I added, and the system got faster and easier to read. Small, frequent releases made each change easy to reason about and easy to revert.</p>
+<p>I wrote a short runbook so the next incident starts with steps instead of guesses. The slowest part of the deploy was waiting for a health check that checked nothing. The migration ran in batches so it could be paused, resumed and verified at each step. Pinning the versions made the build reproducible and the upgrade a deliberate decision. Every abstraction leaked a little, and the leaks were where the bugs lived.</p>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. The migration ran in batches so it could be paused, resumed and verified at each step. Every abstraction leaked a little, and the leaks were where the bugs lived.</p>
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts"><a rel="prev" href="/blog/hardening-css-container-queries-under-load">← Hardening CSS container queries under load</a><a rel="next" href="/blog/simplifying-service-workers-without-downtime">Simplifying service workers without downtime →</a></nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="go performance databases" data-search="profiling structured logging from first principles writing the test first forced me to decide what correct behaviour actually meant. pinning the versions made the build reproducible and the upgrade a deliberate decision.">
+<a class="card-link" href="/blog/profiling-structured-logging-from-first-principles"><img class="card-image" src="/images/profiling-structured-logging-from-first-principles-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Profiling structured logging from first principles</h3></a>
+<p class="card-meta"><time datetime="2026-09-05">5 Sep 2026</time> · 5 min read</p>
+<p class="card-summary">Writing the test first forced me to decide what correct behaviour actually meant. Pinning the versions made the build reproducible and the upgrade a deliberate decision.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=performance">Performance</a></li><li><a class="tag" href="/blog?tag=databases">Databases</a></li></ul>
+</article>
+<article class="card" data-post data-tags="go testing" data-search="simplifying structured logging after a long weekend the profiler pointed at serialisation, which was not where i would have guessed. measuring before and after turned a hunch into a result i could defend.">
+<a class="card-link" href="/blog/simplifying-structured-logging-after-a-long-weekend"><img class="card-image" src="/images/simplifying-structured-logging-after-a-long-weekend-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Simplifying structured logging after a long weekend</h3></a>
+<p class="card-meta"><time datetime="2026-10-05">5 Oct 2026</time> · 5 min read</p>
+<p class="card-summary">The profiler pointed at serialisation, which was not where I would have guessed. Measuring before and after turned a hunch into a result I could defend.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=testing">Testing</a></li></ul>
+</article>
+<article class="card" data-post data-tags="go devops testing" data-search="debugging tls termination in production the configuration file had grown three ways to say the same thing. small, frequent releases made each change easy to reason about and easy to revert.">
+<a class="card-link" href="/blog/debugging-tls-termination-in-production"><img class="card-image" src="/images/debugging-tls-termination-in-production-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Debugging TLS termination in production</h3></a>
+<p class="card-meta"><time datetime="2026-10-11">11 Oct 2026</time> · 5 min read</p>
+<p class="card-summary">The configuration file had grown three ways to say the same thing. Small, frequent releases made each change easy to reason about and easy to revert.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=devops">DevOps</a></li><li><a class="tag" href="/blog?tag=testing">Testing</a></li></ul>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardening feature flags the boring way · Field Notes</title>
+<meta name="description" content="The configuration file had grown three ways to say the same thing. Logs were useful only after every line carried a request identifier.">
+<link rel="canonical" href="https://bench.example/blog/hardening-feature-flags-the-boring-way">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hardening feature flags the boring way · Field Notes">
+<meta property="og:description" content="The configuration file had grown three ways to say the same thing. Logs were useful only after every line carried a request identifier.">
+<meta property="og:image" content="https://bench.example/images/hardening-feature-flags-the-boring-way.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/blog" aria-current="page">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="2026-08-30">30 Aug 2026</time> · 6 min read</p>
+<h1>Hardening feature flags the boring way</h1>
+<p class="post-summary">The configuration file had grown three ways to say the same thing. Logs were useful only after every line carried a request identifier.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=javascript">JavaScript</a></li><li><a class="tag" href="/blog?tag=databases">Databases</a></li></ul>
+</header>
+<img class="post-cover" src="/images/hardening-feature-flags-the-boring-way.webp" alt="Abstract cover illustration for “Hardening feature flags the boring way”" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+<p>Writing the test first forced me to decide what correct behaviour actually meant. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. I kept the old path behind a flag for a week so I could compare both under real traffic. Most tools default to settings that are reasonable for a laptop and surprising on a server.</p>
+<p>The first measurement was misleading because the cache was already warm. I started with the simplest version that could possibly work and wrote down every assumption. The fix itself was three lines; finding where to put them took two days. Measuring before and after turned a hunch into a result I could defend. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<h2>Trade-offs</h2>
+<p>Tail latency told a different story from the average, which looked perfectly healthy. The migration ran in batches so it could be paused, resumed and verified at each step. I deleted more code than I added, and the system got faster and easier to read. Most of the latency came from a single synchronous call that nobody remembered adding. Reading the source was faster than searching for a blog post that matched my exact version.</p>
+<p>Measuring before and after turned a hunch into a result I could defend. A budget for each page kept the bundle from growing one harmless dependency at a time. Reading the source was faster than searching for a blog post that matched my exact version. Most tools default to settings that are reasonable for a laptop and surprising on a server.</p>
+<pre><code class="language-rust">fn parse_line(line: &amp;str) -&gt; Option&lt;(&amp;str, u64)&gt; {
+    let (key, value) = line.split_once('=')?;
+    let value = value.trim().parse().ok()?;
+    Some((key.trim(), value))
+}
+</code></pre>
+<p>The error only appeared when two requests raced for the same row inside one transaction. Pinning the versions made the build reproducible and the upgrade a deliberate decision. I kept the old path behind a flag for a week so I could compare both under real traffic. Small, frequent releases made each change easy to reason about and easy to revert. The configuration file had grown three ways to say the same thing.</p>
+<h2>Where it started</h2>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. Moving the work off the request path made the page fast and the queue honest. Small, frequent releases made each change easy to reason about and easy to revert. The benchmark looked impressive until I ran it on the same hardware as production. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. Reading the source was faster than searching for a blog post that matched my exact version. I kept the old path behind a flag for a week so I could compare both under real traffic. The slowest part of the deploy was waiting for a health check that checked nothing. I wrote a short runbook so the next incident starts with steps instead of guesses.</p>
+<pre><code class="language-js">export async function retry(fn, attempts = 4) {
+  for (let i = 0; i &lt; attempts; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const delay = 2 ** i * 100 + Math.random() * 100;
+      await new Promise((r) =&gt; setTimeout(r, delay));
+    }
+  }
+  throw new Error('retry budget exhausted');
+}
+</code></pre>
+<ul>
+<li>Most tools default to settings that are reasonable for a laptop and surprising on a server.</li>
+<li>The first measurement was misleading because the cache was already warm.</li>
+<li>Tail latency told a different story from the average, which looked perfectly healthy.</li>
+<li>The real constraint was not the CPU but the number of open file descriptors.</li>
+</ul>
+<p>Tail latency told a different story from the average, which looked perfectly healthy. Every abstraction leaked a little, and the leaks were where the bugs lived. The profiler pointed at serialisation, which was not where I would have guessed. Retries without jitter turned a short blip into a synchronised wave of traffic.</p>
+<h2>Measuring the problem</h2>
+<p>The first measurement was misleading because the cache was already warm. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. I deleted more code than I added, and the system got faster and easier to read. The real constraint was not the CPU but the number of open file descriptors. The benchmark looked impressive until I ran it on the same hardware as production.</p>
+<p>I wrote a short runbook so the next incident starts with steps instead of guesses. Most tools default to settings that are reasonable for a laptop and surprising on a server. Retries without jitter turned a short blip into a synchronised wave of traffic. Writing the test first forced me to decide what correct behaviour actually meant.</p>
+<blockquote>
+<p>Most of the latency came from a single synchronous call that nobody remembered adding.</p>
+</blockquote>
+<p>I started with the simplest version that could possibly work and wrote down every assumption. Small, frequent releases made each change easy to reason about and easy to revert. I kept the old path behind a flag for a week so I could compare both under real traffic. A small reproduction in an empty repository removed every distraction from the real problem.</p>
+<h2>Takeaways</h2>
+<p>Every abstraction leaked a little, and the leaks were where the bugs lived. Logs were useful only after every line carried a request identifier. Reading the source was faster than searching for a blog post that matched my exact version. The documentation described the happy path well and said nothing about what happens on timeout.</p>
+<p>Small, frequent releases made each change easy to reason about and easy to revert. I wrote a short runbook so the next incident starts with steps instead of guesses. Tail latency told a different story from the average, which looked perfectly healthy. A budget for each page kept the bundle from growing one harmless dependency at a time.</p>
+<p>The documentation described the happy path well and said nothing about what happens on timeout. Logs were useful only after every line carried a request identifier. The slowest part of the deploy was waiting for a health check that checked nothing. Reading the source was faster than searching for a blog post that matched my exact version.</p>
+<h2>Numbers after the change</h2>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. Every abstraction leaked a little, and the leaks were where the bugs lived. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. The error only appeared when two requests raced for the same row inside one transaction.</p>
+<p>Measuring before and after turned a hunch into a result I could defend. Tail latency told a different story from the average, which looked perfectly healthy. I wrote a short runbook so the next incident starts with steps instead of guesses. I started with the simplest version that could possibly work and wrote down every assumption.</p>
+<p>Retries without jitter turned a short blip into a synchronised wave of traffic. Pinning the versions made the build reproducible and the upgrade a deliberate decision. The fix itself was three lines; finding where to put them took two days. A small reproduction in an empty repository removed every distraction from the real problem. I deleted more code than I added, and the system got faster and easier to read.</p>
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts"><a rel="prev" href="/blog/hardening-error-budgets-on-a-small-budget">← Hardening error budgets on a small budget</a><a rel="next" href="/blog/replacing-css-container-queries-at-the-edge">Replacing CSS container queries at the edge →</a></nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="go javascript databases" data-search="debugging dependency updates after a long weekend logs were useful only after every line carried a request identifier. measuring before and after turned a hunch into a result i could defend.">
+<a class="card-link" href="/blog/debugging-dependency-updates-after-a-long-weekend"><img class="card-image" src="/images/debugging-dependency-updates-after-a-long-weekend-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Debugging dependency updates after a long weekend</h3></a>
+<p class="card-meta"><time datetime="2026-10-14">14 Oct 2026</time> · 4 min read</p>
+<p class="card-summary">Logs were useful only after every line carried a request identifier. Measuring before and after turned a hunch into a result I could defend.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=javascript">JavaScript</a></li><li><a class="tag" href="/blog?tag=databases">Databases</a></li></ul>
+</article>
+<article class="card" data-post data-tags="rust javascript databases" data-search="shipping the build pipeline on a small budget moving the work off the request path made the page fast and the queue honest. tail latency told a different story from the average, which looked perfectly healthy.">
+<a class="card-link" href="/blog/shipping-the-build-pipeline-on-a-small-budget"><img class="card-image" src="/images/shipping-the-build-pipeline-on-a-small-budget-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Shipping the build pipeline on a small budget</h3></a>
+<p class="card-meta"><time datetime="2026-05-31">31 May 2026</time> · 5 min read</p>
+<p class="card-summary">Moving the work off the request path made the page fast and the queue honest. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=rust">Rust</a></li><li><a class="tag" href="/blog?tag=javascript">JavaScript</a></li><li><a class="tag" href="/blog?tag=databases">Databases</a></li></ul>
+</article>
+<article class="card" data-post data-tags="performance databases security" data-search="replacing css container queries at the edge i wrote a short runbook so the next incident starts with steps instead of guesses. writing the test first forced me to decide what correct behaviour actually meant.">
+<a class="card-link" href="/blog/replacing-css-container-queries-at-the-edge"><img class="card-image" src="/images/replacing-css-container-queries-at-the-edge-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Replacing CSS container queries at the edge</h3></a>
+<p class="card-meta"><time datetime="2026-09-03">3 Sep 2026</time> · 5 min read</p>
+<p class="card-summary">I wrote a short runbook so the next incident starts with steps instead of guesses. Writing the test first forced me to decide what correct behaviour actually meant.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=performance">Performance</a></li><li><a class="tag" href="/blog?tag=databases">Databases</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

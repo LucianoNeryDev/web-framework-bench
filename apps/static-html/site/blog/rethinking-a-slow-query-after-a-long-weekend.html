@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rethinking a slow query after a long weekend · Field Notes</title>
+<meta name="description" content="A budget for each page kept the bundle from growing one harmless dependency at a time. The slowest part of the deploy was waiting for a health check that checked nothing.">
+<link rel="canonical" href="https://bench.example/blog/rethinking-a-slow-query-after-a-long-weekend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rethinking a slow query after a long weekend · Field Notes">
+<meta property="og:description" content="A budget for each page kept the bundle from growing one harmless dependency at a time. The slowest part of the deploy was waiting for a health check that checked nothing.">
+<meta property="og:image" content="https://bench.example/images/rethinking-a-slow-query-after-a-long-weekend.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/blog" aria-current="page">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="2026-06-18">18 Jun 2026</time> · 5 min read</p>
+<h1>Rethinking a slow query after a long weekend</h1>
+<p class="post-summary">A budget for each page kept the bundle from growing one harmless dependency at a time. The slowest part of the deploy was waiting for a health check that checked nothing.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=css">CSS</a></li></ul>
+</header>
+<img class="post-cover" src="/images/rethinking-a-slow-query-after-a-long-weekend.webp" alt="Abstract cover illustration for “Rethinking a slow query after a long weekend”" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+<p>Writing the test first forced me to decide what correct behaviour actually meant. The profiler pointed at serialisation, which was not where I would have guessed. I deleted more code than I added, and the system got faster and easier to read. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. Most of the latency came from a single synchronous call that nobody remembered adding. Moving the work off the request path made the page fast and the queue honest. Logs were useful only after every line carried a request identifier. The slowest part of the deploy was waiting for a health check that checked nothing.</p>
+<h2>Trade-offs</h2>
+<p>Moving the work off the request path made the page fast and the queue honest. Most of the latency came from a single synchronous call that nobody remembered adding. Reading the source was faster than searching for a blog post that matched my exact version. I kept the old path behind a flag for a week so I could compare both under real traffic. The slowest part of the deploy was waiting for a health check that checked nothing. I wrote a short runbook so the next incident starts with steps instead of guesses.</p>
+<p>The configuration file had grown three ways to say the same thing. Tail latency told a different story from the average, which looked perfectly healthy. A small reproduction in an empty repository removed every distraction from the real problem.</p>
+<pre><code class="language-js">export async function retry(fn, attempts = 4) {
+  for (let i = 0; i &lt; attempts; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      const delay = 2 ** i * 100 + Math.random() * 100;
+      await new Promise((r) =&gt; setTimeout(r, delay));
+    }
+  }
+  throw new Error('retry budget exhausted');
+}
+</code></pre>
+<p>I wrote a short runbook so the next incident starts with steps instead of guesses. The benchmark looked impressive until I ran it on the same hardware as production. The migration ran in batches so it could be paused, resumed and verified at each step. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<h2>What actually fixed it</h2>
+<p>Measuring before and after turned a hunch into a result I could defend. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. I deleted more code than I added, and the system got faster and easier to read. The configuration file had grown three ways to say the same thing.</p>
+<p>Writing the test first forced me to decide what correct behaviour actually meant. The documentation described the happy path well and said nothing about what happens on timeout. The real constraint was not the CPU but the number of open file descriptors. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<ul>
+<li>I started with the simplest version that could possibly work and wrote down every assumption.</li>
+<li>The slowest part of the deploy was waiting for a health check that checked nothing.</li>
+<li>A budget for each page kept the bundle from growing one harmless dependency at a time.</li>
+<li>Reading the source was faster than searching for a blog post that matched my exact version.</li>
+</ul>
+<p>Logs were useful only after every line carried a request identifier. The configuration file had grown three ways to say the same thing. Most of the latency came from a single synchronous call that nobody remembered adding.</p>
+<h2>Takeaways</h2>
+<p>The real constraint was not the CPU but the number of open file descriptors. Measuring before and after turned a hunch into a result I could defend. I deleted more code than I added, and the system got faster and easier to read. Moving the work off the request path made the page fast and the queue honest. The first measurement was misleading because the cache was already warm.</p>
+<p>Most tools default to settings that are reasonable for a laptop and surprising on a server. The first measurement was misleading because the cache was already warm. The configuration file had grown three ways to say the same thing. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<blockquote>
+<p>Tail latency told a different story from the average, which looked perfectly healthy.</p>
+</blockquote>
+<p>Tail latency told a different story from the average, which looked perfectly healthy. Most tools default to settings that are reasonable for a laptop and surprising on a server. I wrote a short runbook so the next incident starts with steps instead of guesses. The documentation described the happy path well and said nothing about what happens on timeout.</p>
+<h2>Measuring the problem</h2>
+<p>Pinning the versions made the build reproducible and the upgrade a deliberate decision. I kept the old path behind a flag for a week so I could compare both under real traffic. I started with the simplest version that could possibly work and wrote down every assumption. The fix itself was three lines; finding where to put them took two days. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<p>The documentation described the happy path well and said nothing about what happens on timeout. The migration ran in batches so it could be paused, resumed and verified at each step. Clear error messages saved more time than any clever optimisation.</p>
+<p>The real constraint was not the CPU but the number of open file descriptors. The configuration file had grown three ways to say the same thing. I kept the old path behind a flag for a week so I could compare both under real traffic.</p>
+<h2>What I would do differently</h2>
+<p>The first measurement was misleading because the cache was already warm. The configuration file had grown three ways to say the same thing. Small, frequent releases made each change easy to reason about and easy to revert. The documentation described the happy path well and said nothing about what happens on timeout. I deleted more code than I added, and the system got faster and easier to read. The fix itself was three lines; finding where to put them took two days.</p>
+<p>The configuration file had grown three ways to say the same thing. The fix itself was three lines; finding where to put them took two days. A budget for each page kept the bundle from growing one harmless dependency at a time. I started with the simplest version that could possibly work and wrote down every assumption.</p>
+<pre><code class="language-css">.card-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+}
+
+@container (min-width: 40rem) {
+  .card { grid-template-columns: 1fr 2fr; }
+}
+</code></pre>
+<p>The benchmark looked impressive until I ran it on the same hardware as production. Reading the source was faster than searching for a blog post that matched my exact version. I wrote a short runbook so the next incident starts with steps instead of guesses.</p>
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts"><a rel="prev" href="/blog/simplifying-connection-pooling-after-a-long-weekend">← Simplifying connection pooling after a long weekend</a><a rel="next" href="/blog/simplifying-service-workers-from-first-principles">Simplifying service workers from first principles →</a></nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="go css devops" data-search="profiling dependency updates on a small budget clear error messages saved more time than any clever optimisation. i deleted more code than i added, and the system got faster and easier to read.">
+<a class="card-link" href="/blog/profiling-dependency-updates-on-a-small-budget"><img class="card-image" src="/images/profiling-dependency-updates-on-a-small-budget-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Profiling dependency updates on a small budget</h3></a>
+<p class="card-meta"><time datetime="2026-07-19">19 Jul 2026</time> · 5 min read</p>
+<p class="card-summary">Clear error messages saved more time than any clever optimisation. I deleted more code than I added, and the system got faster and easier to read.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=devops">DevOps</a></li></ul>
+</article>
+<article class="card" data-post data-tags="css security" data-search="simplifying service workers from first principles every abstraction leaked a little, and the leaks were where the bugs lived. writing the test first forced me to decide what correct behaviour actually meant.">
+<a class="card-link" href="/blog/simplifying-service-workers-from-first-principles"><img class="card-image" src="/images/simplifying-service-workers-from-first-principles-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Simplifying service workers from first principles</h3></a>
+<p class="card-meta"><time datetime="2026-06-26">26 Jun 2026</time> · 4 min read</p>
+<p class="card-summary">Every abstraction leaked a little, and the leaks were where the bugs lived. Writing the test first forced me to decide what correct behaviour actually meant.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+<article class="card" data-post data-tags="css performance devops" data-search="replacing a flaky integration test in production the error only appeared when two requests raced for the same row inside one transaction. writing the test first forced me to decide what correct behaviour actually meant.">
+<a class="card-link" href="/blog/replacing-a-flaky-integration-test-in-production"><img class="card-image" src="/images/replacing-a-flaky-integration-test-in-production-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Replacing a flaky integration test in production</h3></a>
+<p class="card-meta"><time datetime="2026-07-12">12 Jul 2026</time> · 4 min read</p>
+<p class="card-summary">The error only appeared when two requests raced for the same row inside one transaction. Writing the test first forced me to decide what correct behaviour actually meant.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=performance">Performance</a></li><li><a class="tag" href="/blog?tag=devops">DevOps</a></li></ul>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field Notes</title>
+<meta name="description" content="Notes from a developer's workbench: small discoveries, build logs and longer write-ups.">
+<link rel="canonical" href="https://bench.example/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Field Notes">
+<meta property="og:description" content="Notes from a developer's workbench: small discoveries, build logs and longer write-ups.">
+<meta property="og:image" content="https://bench.example/images/hero.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/" aria-current="page">Home</a><a href="/blog">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<section class="hero">
+<div class="hero-text"><h1>Notes from the workbench</h1><p>Small daily discoveries, build logs and longer project write-ups about the web, tooling and the systems underneath.</p><p><a class="button" href="/blog">Read the blog</a></p></div>
+<img class="hero-image" src="/images/hero.webp" alt="Abstract illustration of overlapping circles" width="1600" height="900" fetchpriority="high">
+</section>
+<section class="latest" aria-labelledby="latest-heading">
+<h2 id="latest-heading">Latest posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="go security" data-search="rethinking connection pooling on a small budget clear error messages saved more time than any clever optimisation. the real constraint was not the cpu but the number of open file descriptors.">
+<a class="card-link" href="/blog/rethinking-connection-pooling-on-a-small-budget"><img class="card-image" src="/images/rethinking-connection-pooling-on-a-small-budget-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Rethinking connection pooling on a small budget</h3></a>
+<p class="card-meta"><time datetime="2026-10-30">30 Oct 2026</time> · 5 min read</p>
+<p class="card-summary">Clear error messages saved more time than any clever optimisation. The real constraint was not the CPU but the number of open file descriptors.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+<article class="card" data-post data-tags="css performance security" data-search="simplifying error budgets on a small budget most of the latency came from a single synchronous call that nobody remembered adding. the migration ran in batches so it could be paused, resumed and verified at each step.">
+<a class="card-link" href="/blog/simplifying-error-budgets-on-a-small-budget"><img class="card-image" src="/images/simplifying-error-budgets-on-a-small-budget-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Simplifying error budgets on a small budget</h3></a>
+<p class="card-meta"><time datetime="2026-10-26">26 Oct 2026</time> · 5 min read</p>
+<p class="card-summary">Most of the latency came from a single synchronous call that nobody remembered adding. The migration ran in batches so it could be paused, resumed and verified at each step.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=performance">Performance</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+<article class="card" data-post data-tags="devops" data-search="untangling structured logging from first principles moving the work off the request path made the page fast and the queue honest. the first measurement was misleading because the cache was already warm.">
+<a class="card-link" href="/blog/untangling-structured-logging-from-first-principles"><img class="card-image" src="/images/untangling-structured-logging-from-first-principles-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Untangling structured logging from first principles</h3></a>
+<p class="card-meta"><time datetime="2026-10-22">22 Oct 2026</time> · 5 min read</p>
+<p class="card-summary">Moving the work off the request path made the page fast and the queue honest. The first measurement was misleading because the cache was already warm.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=devops">DevOps</a></li></ul>
+</article>
+<article class="card" data-post data-tags="go javascript databases" data-search="debugging dependency updates after a long weekend logs were useful only after every line carried a request identifier. measuring before and after turned a hunch into a result i could defend.">
+<a class="card-link" href="/blog/debugging-dependency-updates-after-a-long-weekend"><img class="card-image" src="/images/debugging-dependency-updates-after-a-long-weekend-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Debugging dependency updates after a long weekend</h3></a>
+<p class="card-meta"><time datetime="2026-10-14">14 Oct 2026</time> · 4 min read</p>
+<p class="card-summary">Logs were useful only after every line carried a request identifier. Measuring before and after turned a hunch into a result I could defend.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=javascript">JavaScript</a></li><li><a class="tag" href="/blog?tag=databases">Databases</a></li></ul>
+</article>
+<article class="card" data-post data-tags="go devops testing" data-search="debugging tls termination in production the configuration file had grown three ways to say the same thing. small, frequent releases made each change easy to reason about and easy to revert.">
+<a class="card-link" href="/blog/debugging-tls-termination-in-production"><img class="card-image" src="/images/debugging-tls-termination-in-production-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Debugging TLS termination in production</h3></a>
+<p class="card-meta"><time datetime="2026-10-11">11 Oct 2026</time> · 5 min read</p>
+<p class="card-summary">The configuration file had grown three ways to say the same thing. Small, frequent releases made each change easy to reason about and easy to revert.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=devops">DevOps</a></li><li><a class="tag" href="/blog?tag=testing">Testing</a></li></ul>
+</article>
+<article class="card" data-post data-tags="devops" data-search="shipping background jobs without downtime logs were useful only after every line carried a request identifier. the benchmark looked impressive until i ran it on the same hardware as production.">
+<a class="card-link" href="/blog/shipping-background-jobs-without-downtime"><img class="card-image" src="/images/shipping-background-jobs-without-downtime-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Shipping background jobs without downtime</h3></a>
+<p class="card-meta"><time datetime="2026-10-07">7 Oct 2026</time> · 6 min read</p>
+<p class="card-summary">Logs were useful only after every line carried a request identifier. The benchmark looked impressive until I ran it on the same hardware as production.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=devops">DevOps</a></li></ul>
+</article>
+</div>
+<p class="section-footer"><a href="/blog">All posts →</a></p>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

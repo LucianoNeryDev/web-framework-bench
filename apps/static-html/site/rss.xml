@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>Field Notes</title>
+<link>https://bench.example/</link>
+<description>Notes from a developer's workbench: small discoveries, build logs and longer write-ups.</description>
+<language>en</language>
+<item>
+<title>Rethinking connection pooling on a small budget</title>
+<link>https://bench.example/blog/rethinking-connection-pooling-on-a-small-budget</link>
+<guid>https://bench.example/blog/rethinking-connection-pooling-on-a-small-budget</guid>
+<pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
+<description>Clear error messages saved more time than any clever optimisation. The real constraint was not the CPU but the number of open file descriptors.</description>
+</item>
+<item>
+<title>Simplifying error budgets on a small budget</title>
+<link>https://bench.example/blog/simplifying-error-budgets-on-a-small-budget</link>
+<guid>https://bench.example/blog/simplifying-error-budgets-on-a-small-budget</guid>
+<pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+<description>Most of the latency came from a single synchronous call that nobody remembered adding. The migration ran in batches so it could be paused, resumed and verified at each step.</description>
+</item>
+<item>
+<title>Untangling structured logging from first principles</title>
+<link>https://bench.example/blog/untangling-structured-logging-from-first-principles</link>
+<guid>https://bench.example/blog/untangling-structured-logging-from-first-principles</guid>
+<pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+<description>Moving the work off the request path made the page fast and the queue honest. The first measurement was misleading because the cache was already warm.</description>
+</item>
+<item>
+<title>Debugging dependency updates after a long weekend</title>
+<link>https://bench.example/blog/debugging-dependency-updates-after-a-long-weekend</link>
+<guid>https://bench.example/blog/debugging-dependency-updates-after-a-long-weekend</guid>
+<pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+<description>Logs were useful only after every line carried a request identifier. Measuring before and after turned a hunch into a result I could defend.</description>
+</item>
+<item>
+<title>Debugging TLS termination in production</title>
+<link>https://bench.example/blog/debugging-tls-termination-in-production</link>
+<guid>https://bench.example/blog/debugging-tls-termination-in-production</guid>
+<pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
+<description>The configuration file had grown three ways to say the same thing. Small, frequent releases made each change easy to reason about and easy to revert.</description>
+</item>
+<item>
+<title>Shipping background jobs without downtime</title>
+<link>https://bench.example/blog/shipping-background-jobs-without-downtime</link>
+<guid>https://bench.example/blog/shipping-background-jobs-without-downtime</guid>
+<pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+<description>Logs were useful only after every line carried a request identifier. The benchmark looked impressive until I ran it on the same hardware as production.</description>
+</item>
+<item>
+<title>Simplifying structured logging after a long weekend</title>
+<link>https://bench.example/blog/simplifying-structured-logging-after-a-long-weekend</link>
+<guid>https://bench.example/blog/simplifying-structured-logging-after-a-long-weekend</guid>
+<pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+<description>The profiler pointed at serialisation, which was not where I would have guessed. Measuring before and after turned a hunch into a result I could defend.</description>
+</item>
+<item>
+<title>Automating background jobs after a long weekend</title>
+<link>https://bench.example/blog/automating-background-jobs-after-a-long-weekend</link>
+<guid>https://bench.example/blog/automating-background-jobs-after-a-long-weekend</guid>
+<pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+<description>Most of the latency came from a single synchronous call that nobody remembered adding. I deleted more code than I added, and the system got faster and easier to read.</description>
+</item>
+<item>
+<title>Simplifying service workers without downtime</title>
+<link>https://bench.example/blog/simplifying-service-workers-without-downtime</link>
+<guid>https://bench.example/blog/simplifying-service-workers-without-downtime</guid>
+<pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+<description>The documentation described the happy path well and said nothing about what happens on timeout. Measuring before and after turned a hunch into a result I could defend.</description>
+</item>
+<item>
+<title>Simplifying feature flags in production</title>
+<link>https://bench.example/blog/simplifying-feature-flags-in-production</link>
+<guid>https://bench.example/blog/simplifying-feature-flags-in-production</guid>
+<pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+<description>Tail latency told a different story from the average, which looked perfectly healthy. Every abstraction leaked a little, and the leaks were where the bugs lived.</description>
+</item>
+<item>
+<title>Hardening CSS container queries under load</title>
+<link>https://bench.example/blog/hardening-css-container-queries-under-load</link>
+<guid>https://bench.example/blog/hardening-css-container-queries-under-load</guid>
+<pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+<description>Reading the source was faster than searching for a blog post that matched my exact version. I deleted more code than I added, and the system got faster and easier to read.</description>
+</item>
+<item>
+<title>Profiling structured logging from first principles</title>
+<link>https://bench.example/blog/profiling-structured-logging-from-first-principles</link>
+<guid>https://bench.example/blog/profiling-structured-logging-from-first-principles</guid>
+<pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+<description>Writing the test first forced me to decide what correct behaviour actually meant. Pinning the versions made the build reproducible and the upgrade a deliberate decision.</description>
+</item>
+<item>
+<title>Replacing CSS container queries at the edge</title>
+<link>https://bench.example/blog/replacing-css-container-queries-at-the-edge</link>
+<guid>https://bench.example/blog/replacing-css-container-queries-at-the-edge</guid>
+<pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+<description>I wrote a short runbook so the next incident starts with steps instead of guesses. Writing the test first forced me to decide what correct behaviour actually meant.</description>
+</item>
+<item>
+<title>Hardening feature flags the boring way</title>
+<link>https://bench.example/blog/hardening-feature-flags-the-boring-way</link>
+<guid>https://bench.example/blog/hardening-feature-flags-the-boring-way</guid>
+<pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+<description>The configuration file had grown three ways to say the same thing. Logs were useful only after every line carried a request identifier.</description>
+</item>
+<item>
+<title>Hardening error budgets on a small budget</title>
+<link>https://bench.example/blog/hardening-error-budgets-on-a-small-budget</link>
+<guid>https://bench.example/blog/hardening-error-budgets-on-a-small-budget</guid>
+<pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+<description>Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. I started with the simplest version that could possibly work and wrote down every assumption.</description>
+</item>
+<item>
+<title>Simplifying structured logging with fewer moving parts</title>
+<link>https://bench.example/blog/simplifying-structured-logging-with-fewer-moving-parts</link>
+<guid>https://bench.example/blog/simplifying-structured-logging-with-fewer-moving-parts</guid>
+<pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+<description>The slowest part of the deploy was waiting for a health check that checked nothing. A budget for each page kept the bundle from growing one harmless dependency at a time.</description>
+</item>
+<item>
+<title>Hardening a flaky integration test after a long weekend</title>
+<link>https://bench.example/blog/hardening-a-flaky-integration-test-after-a-long-weekend</link>
+<guid>https://bench.example/blog/hardening-a-flaky-integration-test-after-a-long-weekend</guid>
+<pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+<description>The documentation described the happy path well and said nothing about what happens on timeout. The migration ran in batches so it could be paused, resumed and verified at each step.</description>
+</item>
+<item>
+<title>Untangling database migrations under load</title>
+<link>https://bench.example/blog/untangling-database-migrations-under-load</link>
+<guid>https://bench.example/blog/untangling-database-migrations-under-load</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
+<description>Reading the source was faster than searching for a blog post that matched my exact version. Retries without jitter turned a short blip into a synchronised wave of traffic.</description>
+</item>
+<item>
+<title>Debugging rate limiting after a long weekend</title>
+<link>https://bench.example/blog/debugging-rate-limiting-after-a-long-weekend</link>
+<guid>https://bench.example/blog/debugging-rate-limiting-after-a-long-weekend</guid>
+<pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+<description>Clear error messages saved more time than any clever optimisation. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</description>
+</item>
+<item>
+<title>Shipping a memory leak the boring way</title>
+<link>https://bench.example/blog/shipping-a-memory-leak-the-boring-way</link>
+<guid>https://bench.example/blog/shipping-a-memory-leak-the-boring-way</guid>
+<pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+<description>The documentation described the happy path well and said nothing about what happens on timeout. A budget for each page kept the bundle from growing one harmless dependency at a time.</description>
+</item>
+<item>
+<title>Replacing a flaky integration test on a small budget</title>
+<link>https://bench.example/blog/replacing-a-flaky-integration-test-on-a-small-budget</link>
+<guid>https://bench.example/blog/replacing-a-flaky-integration-test-on-a-small-budget</guid>
+<pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+<description>The first measurement was misleading because the cache was already warm. Logs were useful only after every line carried a request identifier.</description>
+</item>
+<item>
+<title>Profiling dependency updates on a small budget</title>
+<link>https://bench.example/blog/profiling-dependency-updates-on-a-small-budget</link>
+<guid>https://bench.example/blog/profiling-dependency-updates-on-a-small-budget</guid>
+<pubDate>Sun, 19 Jul 2026 00:00:00 GMT</pubDate>
+<description>Clear error messages saved more time than any clever optimisation. I deleted more code than I added, and the system got faster and easier to read.</description>
+</item>
+<item>
+<title>Replacing a flaky integration test in production</title>
+<link>https://bench.example/blog/replacing-a-flaky-integration-test-in-production</link>
+<guid>https://bench.example/blog/replacing-a-flaky-integration-test-in-production</guid>
+<pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
+<description>The error only appeared when two requests raced for the same row inside one transaction. Writing the test first forced me to decide what correct behaviour actually meant.</description>
+</item>
+<item>
+<title>Profiling container images at the edge</title>
+<link>https://bench.example/blog/profiling-container-images-at-the-edge</link>
+<guid>https://bench.example/blog/profiling-container-images-at-the-edge</guid>
+<pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+<description>The error only appeared when two requests raced for the same row inside one transaction. Pinning the versions made the build reproducible and the upgrade a deliberate decision.</description>
+</item>
+<item>
+<title>Simplifying service workers from first principles</title>
+<link>https://bench.example/blog/simplifying-service-workers-from-first-principles</link>
+<guid>https://bench.example/blog/simplifying-service-workers-from-first-principles</guid>
+<pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+<description>Every abstraction leaked a little, and the leaks were where the bugs lived. Writing the test first forced me to decide what correct behaviour actually meant.</description>
+</item>
+<item>
+<title>Rethinking a slow query after a long weekend</title>
+<link>https://bench.example/blog/rethinking-a-slow-query-after-a-long-weekend</link>
+<guid>https://bench.example/blog/rethinking-a-slow-query-after-a-long-weekend</guid>
+<pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+<description>A budget for each page kept the bundle from growing one harmless dependency at a time. The slowest part of the deploy was waiting for a health check that checked nothing.</description>
+</item>
+<item>
+<title>Simplifying connection pooling after a long weekend</title>
+<link>https://bench.example/blog/simplifying-connection-pooling-after-a-long-weekend</link>
+<guid>https://bench.example/blog/simplifying-connection-pooling-after-a-long-weekend</guid>
+<pubDate>Sat, 13 Jun 2026 00:00:00 GMT</pubDate>
+<description>I deleted more code than I added, and the system got faster and easier to read. The profiler pointed at serialisation, which was not where I would have guessed.</description>
+</item>
+<item>
+<title>Hardening cold starts under load</title>
+<link>https://bench.example/blog/hardening-cold-starts-under-load</link>
+<guid>https://bench.example/blog/hardening-cold-starts-under-load</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+<description>A small reproduction in an empty repository removed every distraction from the real problem. The fix itself was three lines; finding where to put them took two days.</description>
+</item>
+<item>
+<title>Shipping the build pipeline on a small budget</title>
+<link>https://bench.example/blog/shipping-the-build-pipeline-on-a-small-budget</link>
+<guid>https://bench.example/blog/shipping-the-build-pipeline-on-a-small-budget</guid>
+<pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
+<description>Moving the work off the request path made the page fast and the queue honest. Tail latency told a different story from the average, which looked perfectly healthy.</description>
+</item>
+<item>
+<title>Debugging connection pooling without downtime</title>
+<link>https://bench.example/blog/debugging-connection-pooling-without-downtime</link>
+<guid>https://bench.example/blog/debugging-connection-pooling-without-downtime</guid>
+<pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+<description>Writing the test first forced me to decide what correct behaviour actually meant. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</description>
+</item>
+<item>
+<title>Shipping background jobs the boring way</title>
+<link>https://bench.example/blog/shipping-background-jobs-the-boring-way</link>
+<guid>https://bench.example/blog/shipping-background-jobs-the-boring-way</guid>
+<pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+<description>The slowest part of the deploy was waiting for a health check that checked nothing. I started with the simplest version that could possibly work and wrote down every assumption.</description>
+</item>
+<item>
+<title>Profiling image optimisation from first principles</title>
+<link>https://bench.example/blog/profiling-image-optimisation-from-first-principles</link>
+<guid>https://bench.example/blog/profiling-image-optimisation-from-first-principles</guid>
+<pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+<description>A budget for each page kept the bundle from growing one harmless dependency at a time. The error only appeared when two requests raced for the same row inside one transaction.</description>
+</item>
+<item>
+<title>Profiling database migrations from first principles</title>
+<link>https://bench.example/blog/profiling-database-migrations-from-first-principles</link>
+<guid>https://bench.example/blog/profiling-database-migrations-from-first-principles</guid>
+<pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+<description>The documentation described the happy path well and said nothing about what happens on timeout. Retries without jitter turned a short blip into a synchronised wave of traffic.</description>
+</item>
+<item>
+<title>Automating image optimisation on a small budget</title>
+<link>https://bench.example/blog/automating-image-optimisation-on-a-small-budget</link>
+<guid>https://bench.example/blog/automating-image-optimisation-on-a-small-budget</guid>
+<pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+<description>Writing the test first forced me to decide what correct behaviour actually meant. Reading the source was faster than searching for a blog post that matched my exact version.</description>
+</item>
+<item>
+<title>Profiling feature flags step by step</title>
+<link>https://bench.example/blog/profiling-feature-flags-step-by-step</link>
+<guid>https://bench.example/blog/profiling-feature-flags-step-by-step</guid>
+<pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+<description>Measuring before and after turned a hunch into a result I could defend. Clear error messages saved more time than any clever optimisation.</description>
+</item>
+<item>
+<title>Simplifying error budgets after a long weekend</title>
+<link>https://bench.example/blog/simplifying-error-budgets-after-a-long-weekend</link>
+<guid>https://bench.example/blog/simplifying-error-budgets-after-a-long-weekend</guid>
+<pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+<description>I kept the old path behind a flag for a week so I could compare both under real traffic. Tail latency told a different story from the average, which looked perfectly healthy.</description>
+</item>
+<item>
+<title>Shipping a flaky integration test without downtime</title>
+<link>https://bench.example/blog/shipping-a-flaky-integration-test-without-downtime</link>
+<guid>https://bench.example/blog/shipping-a-flaky-integration-test-without-downtime</guid>
+<pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+<description>Pinning the versions made the build reproducible and the upgrade a deliberate decision. The fix itself was three lines; finding where to put them took two days.</description>
+</item>
+<item>
+<title>Measuring background jobs from first principles</title>
+<link>https://bench.example/blog/measuring-background-jobs-from-first-principles</link>
+<guid>https://bench.example/blog/measuring-background-jobs-from-first-principles</guid>
+<pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+<description>Most of the latency came from a single synchronous call that nobody remembered adding. I deleted more code than I added, and the system got faster and easier to read.</description>
+</item>
+<item>
+<title>Replacing a memory leak with fewer moving parts</title>
+<link>https://bench.example/blog/replacing-a-memory-leak-with-fewer-moving-parts</link>
+<guid>https://bench.example/blog/replacing-a-memory-leak-with-fewer-moving-parts</guid>
+<pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+<description>The fix itself was three lines; finding where to put them took two days. The first measurement was misleading because the cache was already warm.</description>
+</item>
+<item>
+<title>Profiling image optimisation the boring way</title>
+<link>https://bench.example/blog/profiling-image-optimisation-the-boring-way</link>
+<guid>https://bench.example/blog/profiling-image-optimisation-the-boring-way</guid>
+<pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+<description>The profiler pointed at serialisation, which was not where I would have guessed. Logs were useful only after every line carried a request identifier.</description>
+</item>
+</channel>
+</rss>

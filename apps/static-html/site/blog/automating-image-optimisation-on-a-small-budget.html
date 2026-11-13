@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automating image optimisation on a small budget · Field Notes</title>
+<meta name="description" content="Writing the test first forced me to decide what correct behaviour actually meant. Reading the source was faster than searching for a blog post that matched my exact version.">
+<link rel="canonical" href="https://bench.example/blog/automating-image-optimisation-on-a-small-budget">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Automating image optimisation on a small budget · Field Notes">
+<meta property="og:description" content="Writing the test first forced me to decide what correct behaviour actually meant. Reading the source was faster than searching for a blog post that matched my exact version.">
+<meta property="og:image" content="https://bench.example/images/automating-image-optimisation-on-a-small-budget.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/blog" aria-current="page">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="2026-05-07">7 May 2026</time> · 4 min read</p>
+<h1>Automating image optimisation on a small budget</h1>
+<p class="post-summary">Writing the test first forced me to decide what correct behaviour actually meant. Reading the source was faster than searching for a blog post that matched my exact version.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=testing">Testing</a></li></ul>
+</header>
+<img class="post-cover" src="/images/automating-image-optimisation-on-a-small-budget.webp" alt="Abstract cover illustration for “Automating image optimisation on a small budget”" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+<p>The profiler pointed at serialisation, which was not where I would have guessed. Measuring before and after turned a hunch into a result I could defend. Most tools default to settings that are reasonable for a laptop and surprising on a server. The migration ran in batches so it could be paused, resumed and verified at each step.</p>
+<p>Small, frequent releases made each change easy to reason about and easy to revert. Tail latency told a different story from the average, which looked perfectly healthy. Clear error messages saved more time than any clever optimisation. The error only appeared when two requests raced for the same row inside one transaction. Reading the source was faster than searching for a blog post that matched my exact version.</p>
+<h2>Numbers after the change</h2>
+<p>I deleted more code than I added, and the system got faster and easier to read. The slowest part of the deploy was waiting for a health check that checked nothing. The first measurement was misleading because the cache was already warm. Tail latency told a different story from the average, which looked perfectly healthy. Logs were useful only after every line carried a request identifier. The error only appeared when two requests raced for the same row inside one transaction.</p>
+<p>A budget for each page kept the bundle from growing one harmless dependency at a time. The migration ran in batches so it could be paused, resumed and verified at each step. The first measurement was misleading because the cache was already warm.</p>
+<pre><code class="language-sql">SELECT p.slug, count(v.id) AS views
+FROM posts p
+LEFT JOIN views v ON v.post_id = p.id
+  AND v.created_at &gt; now() - interval '7 days'
+GROUP BY p.slug
+ORDER BY views DESC
+LIMIT 10;
+</code></pre>
+<p>I deleted more code than I added, and the system got faster and easier to read. Most of the latency came from a single synchronous call that nobody remembered adding. I kept the old path behind a flag for a week so I could compare both under real traffic.</p>
+<h2>What I would do differently</h2>
+<p>Clear error messages saved more time than any clever optimisation. The benchmark looked impressive until I ran it on the same hardware as production. A budget for each page kept the bundle from growing one harmless dependency at a time. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+<p>Small, frequent releases made each change easy to reason about and easy to revert. Measuring before and after turned a hunch into a result I could defend. Writing the test first forced me to decide what correct behaviour actually meant. I deleted more code than I added, and the system got faster and easier to read. The migration ran in batches so it could be paused, resumed and verified at each step.</p>
+<ul>
+<li>The benchmark looked impressive until I ran it on the same hardware as production.</li>
+<li>Writing the test first forced me to decide what correct behaviour actually meant.</li>
+<li>Moving the work off the request path made the page fast and the queue honest.</li>
+<li>Tail latency told a different story from the average, which looked perfectly healthy.</li>
+</ul>
+<p>The configuration file had grown three ways to say the same thing. The first measurement was misleading because the cache was already warm. The benchmark looked impressive until I ran it on the same hardware as production.</p>
+<h2>Measuring the problem</h2>
+<p>A budget for each page kept the bundle from growing one harmless dependency at a time. The real constraint was not the CPU but the number of open file descriptors. Retries without jitter turned a short blip into a synchronised wave of traffic. The fix itself was three lines; finding where to put them took two days.</p>
+<p>Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs. Logs were useful only after every line carried a request identifier. I kept the old path behind a flag for a week so I could compare both under real traffic. Small, frequent releases made each change easy to reason about and easy to revert.</p>
+<blockquote>
+<p>The benchmark looked impressive until I ran it on the same hardware as production.</p>
+</blockquote>
+<p>The profiler pointed at serialisation, which was not where I would have guessed. The migration ran in batches so it could be paused, resumed and verified at each step. Reading the source was faster than searching for a blog post that matched my exact version.</p>
+<h2>Where it started</h2>
+<p>The first measurement was misleading because the cache was already warm. Moving the work off the request path made the page fast and the queue honest. I kept the old path behind a flag for a week so I could compare both under real traffic. Retries without jitter turned a short blip into a synchronised wave of traffic. The error only appeared when two requests raced for the same row inside one transaction. Every abstraction leaked a little, and the leaks were where the bugs lived.</p>
+<p>Small, frequent releases made each change easy to reason about and easy to revert. Tail latency told a different story from the average, which looked perfectly healthy. Reading the source was faster than searching for a blog post that matched my exact version.</p>
+<pre><code class="language-sql">SELECT p.slug, count(v.id) AS views
+FROM posts p
+LEFT JOIN views v ON v.post_id = p.id
+  AND v.created_at &gt; now() - interval '7 days'
+GROUP BY p.slug
+ORDER BY views DESC
+LIMIT 10;
+</code></pre>
+<p>Every abstraction leaked a little, and the leaks were where the bugs lived. Small, frequent releases made each change easy to reason about and easy to revert. Clear error messages saved more time than any clever optimisation.</p>
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts"><a rel="prev" href="/blog/profiling-feature-flags-step-by-step">← Profiling feature flags step by step</a><a rel="next" href="/blog/profiling-database-migrations-from-first-principles">Profiling database migrations from first principles →</a></nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="go testing" data-search="profiling image optimisation from first principles a budget for each page kept the bundle from growing one harmless dependency at a time. the error only appeared when two requests raced for the same row inside one transaction.">
+<a class="card-link" href="/blog/profiling-image-optimisation-from-first-principles"><img class="card-image" src="/images/profiling-image-optimisation-from-first-principles-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Profiling image optimisation from first principles</h3></a>
+<p class="card-meta"><time datetime="2026-05-18">18 May 2026</time> · 5 min read</p>
+<p class="card-summary">A budget for each page kept the bundle from growing one harmless dependency at a time. The error only appeared when two requests raced for the same row inside one transaction.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=go">Go</a></li><li><a class="tag" href="/blog?tag=testing">Testing</a></li></ul>
+</article>
+<article class="card" data-post data-tags="rust testing" data-search="simplifying structured logging with fewer moving parts the slowest part of the deploy was waiting for a health check that checked nothing. a budget for each page kept the bundle from growing one harmless dependency at a time.">
+<a class="card-link" href="/blog/simplifying-structured-logging-with-fewer-moving-parts"><img class="card-image" src="/images/simplifying-structured-logging-with-fewer-moving-parts-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Simplifying structured logging with fewer moving parts</h3></a>
+<p class="card-meta"><time datetime="2026-08-18">18 Aug 2026</time> · 5 min read</p>
+<p class="card-summary">The slowest part of the deploy was waiting for a health check that checked nothing. A budget for each page kept the bundle from growing one harmless dependency at a time.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=rust">Rust</a></li><li><a class="tag" href="/blog?tag=testing">Testing</a></li></ul>
+</article>
+<article class="card" data-post data-tags="css testing tooling" data-search="automating background jobs after a long weekend most of the latency came from a single synchronous call that nobody remembered adding. i deleted more code than i added, and the system got faster and easier to read.">
+<a class="card-link" href="/blog/automating-background-jobs-after-a-long-weekend"><img class="card-image" src="/images/automating-background-jobs-after-a-long-weekend-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Automating background jobs after a long weekend</h3></a>
+<p class="card-meta"><time datetime="2026-09-30">30 Sep 2026</time> · 5 min read</p>
+<p class="card-summary">Most of the latency came from a single synchronous call that nobody remembered adding. I deleted more code than I added, and the system got faster and easier to read.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=testing">Testing</a></li><li><a class="tag" href="/blog?tag=tooling">Tooling</a></li></ul>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

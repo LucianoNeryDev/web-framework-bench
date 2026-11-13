@@ -1,0 +1,12 @@
+{
+  "name": "wfb-bench",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "conformance": "node conformance.mjs"
+  },
+  "dependencies": {
+    "node-html-parser": "^9.0.7",
+    "playwright": "^1.65.0"
+  }
+}

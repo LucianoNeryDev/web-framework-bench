@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profiling image optimisation the boring way · Field Notes</title>
+<meta name="description" content="The profiler pointed at serialisation, which was not where I would have guessed. Logs were useful only after every line carried a request identifier.">
+<link rel="canonical" href="https://bench.example/blog/profiling-image-optimisation-the-boring-way">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Profiling image optimisation the boring way · Field Notes">
+<meta property="og:description" content="The profiler pointed at serialisation, which was not where I would have guessed. Logs were useful only after every line carried a request identifier.">
+<meta property="og:image" content="https://bench.example/images/profiling-image-optimisation-the-boring-way.webp">
+<link rel="alternate" type="application/rss+xml" title="Field Notes" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">Field Notes</a><nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/blog" aria-current="page">Blog</a><a href="/about">About</a></nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="2026-04-01">1 Apr 2026</time> · 5 min read</p>
+<h1>Profiling image optimisation the boring way</h1>
+<p class="post-summary">The profiler pointed at serialisation, which was not where I would have guessed. Logs were useful only after every line carried a request identifier.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=rust">Rust</a></li><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</header>
+<img class="post-cover" src="/images/profiling-image-optimisation-the-boring-way.webp" alt="Abstract cover illustration for “Profiling image optimisation the boring way”" width="1200" height="630" fetchpriority="high">
+<div class="post-body">
+<p>Small, frequent releases made each change easy to reason about and easy to revert. The configuration file had grown three ways to say the same thing. A budget for each page kept the bundle from growing one harmless dependency at a time. The first measurement was misleading because the cache was already warm.</p>
+<p>I deleted more code than I added, and the system got faster and easier to read. I kept the old path behind a flag for a week so I could compare both under real traffic. Logs were useful only after every line carried a request identifier. I wrote a short runbook so the next incident starts with steps instead of guesses. A small reproduction in an empty repository removed every distraction from the real problem.</p>
+<h2>Numbers after the change</h2>
+<p>Every abstraction leaked a little, and the leaks were where the bugs lived. I wrote a short runbook so the next incident starts with steps instead of guesses. The documentation described the happy path well and said nothing about what happens on timeout. Clear error messages saved more time than any clever optimisation. Measuring before and after turned a hunch into a result I could defend. Logs were useful only after every line carried a request identifier.</p>
+<p>A small reproduction in an empty repository removed every distraction from the real problem. The benchmark looked impressive until I ran it on the same hardware as production. The migration ran in batches so it could be paused, resumed and verified at each step. Most tools default to settings that are reasonable for a laptop and surprising on a server. Most of the latency came from a single synchronous call that nobody remembered adding.</p>
+<p>The first measurement was misleading because the cache was already warm. Most tools default to settings that are reasonable for a laptop and surprising on a server. The configuration file had grown three ways to say the same thing.</p>
+<h2>What actually fixed it</h2>
+<p>Most of the latency came from a single synchronous call that nobody remembered adding. The documentation described the happy path well and said nothing about what happens on timeout. Most tools default to settings that are reasonable for a laptop and surprising on a server. I kept the old path behind a flag for a week so I could compare both under real traffic.</p>
+<p>I started with the simplest version that could possibly work and wrote down every assumption. The error only appeared when two requests raced for the same row inside one transaction. Most tools default to settings that are reasonable for a laptop and surprising on a server. A budget for each page kept the bundle from growing one harmless dependency at a time.</p>
+<pre><code class="language-rust">fn parse_line(line: &amp;str) -&gt; Option&lt;(&amp;str, u64)&gt; {
+    let (key, value) = line.split_once('=')?;
+    let value = value.trim().parse().ok()?;
+    Some((key.trim(), value))
+}
+</code></pre>
+<ul>
+<li>The real constraint was not the CPU but the number of open file descriptors.</li>
+<li>The error only appeared when two requests raced for the same row inside one transaction.</li>
+<li>I started with the simplest version that could possibly work and wrote down every assumption.</li>
+<li>Most tools default to settings that are reasonable for a laptop and surprising on a server.</li>
+</ul>
+<p>The migration ran in batches so it could be paused, resumed and verified at each step. I kept the old path behind a flag for a week so I could compare both under real traffic. Logs were useful only after every line carried a request identifier. The documentation described the happy path well and said nothing about what happens on timeout.</p>
+<h2>Trade-offs</h2>
+<p>Tail latency told a different story from the average, which looked perfectly healthy. A budget for each page kept the bundle from growing one harmless dependency at a time. The fix itself was three lines; finding where to put them took two days. The configuration file had grown three ways to say the same thing. Logs were useful only after every line carried a request identifier.</p>
+<p>The first measurement was misleading because the cache was already warm. The real constraint was not the CPU but the number of open file descriptors. Most of the latency came from a single synchronous call that nobody remembered adding.</p>
+<blockquote>
+<p>Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+</blockquote>
+<p>Most of the latency came from a single synchronous call that nobody remembered adding. Logs were useful only after every line carried a request identifier. I wrote a short runbook so the next incident starts with steps instead of guesses. The profiler pointed at serialisation, which was not where I would have guessed.</p>
+<h2>What I would do differently</h2>
+<p>A small reproduction in an empty repository removed every distraction from the real problem. A budget for each page kept the bundle from growing one harmless dependency at a time. The first measurement was misleading because the cache was already warm. The fix itself was three lines; finding where to put them took two days. Retries without jitter turned a short blip into a synchronised wave of traffic. Logs were useful only after every line carried a request identifier.</p>
+<p>Most tools default to settings that are reasonable for a laptop and surprising on a server. The real constraint was not the CPU but the number of open file descriptors. The benchmark looked impressive until I ran it on the same hardware as production. The error only appeared when two requests raced for the same row inside one transaction.</p>
+<pre><code class="language-rust">fn parse_line(line: &amp;str) -&gt; Option&lt;(&amp;str, u64)&gt; {
+    let (key, value) = line.split_once('=')?;
+    let value = value.trim().parse().ok()?;
+    Some((key.trim(), value))
+}
+</code></pre>
+<p>The real constraint was not the CPU but the number of open file descriptors. Writing the test first forced me to decide what correct behaviour actually meant. The error only appeared when two requests raced for the same row inside one transaction. I deleted more code than I added, and the system got faster and easier to read. A budget for each page kept the bundle from growing one harmless dependency at a time.</p>
+<h2>Measuring the problem</h2>
+<p>I wrote a short runbook so the next incident starts with steps instead of guesses. Reading the source was faster than searching for a blog post that matched my exact version. The slowest part of the deploy was waiting for a health check that checked nothing. Most of the latency came from a single synchronous call that nobody remembered adding. A budget for each page kept the bundle from growing one harmless dependency at a time.</p>
+<p>Every abstraction leaked a little, and the leaks were where the bugs lived. The first measurement was misleading because the cache was already warm. The benchmark looked impressive until I ran it on the same hardware as production. Logs were useful only after every line carried a request identifier.</p>
+<p>Reading the source was faster than searching for a blog post that matched my exact version. Most tools default to settings that are reasonable for a laptop and surprising on a server. The error only appeared when two requests raced for the same row inside one transaction. The real constraint was not the CPU but the number of open file descriptors. Tail latency told a different story from the average, which looked perfectly healthy.</p>
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts"><a rel="next" href="/blog/replacing-a-memory-leak-with-fewer-moving-parts">Replacing a memory leak with fewer moving parts →</a></nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+<article class="card" data-post data-tags="css security" data-search="simplifying service workers from first principles every abstraction leaked a little, and the leaks were where the bugs lived. writing the test first forced me to decide what correct behaviour actually meant.">
+<a class="card-link" href="/blog/simplifying-service-workers-from-first-principles"><img class="card-image" src="/images/simplifying-service-workers-from-first-principles-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Simplifying service workers from first principles</h3></a>
+<p class="card-meta"><time datetime="2026-06-26">26 Jun 2026</time> · 4 min read</p>
+<p class="card-summary">Every abstraction leaked a little, and the leaks were where the bugs lived. Writing the test first forced me to decide what correct behaviour actually meant.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+<article class="card" data-post data-tags="javascript css security" data-search="debugging rate limiting after a long weekend clear error messages saved more time than any clever optimisation. once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.">
+<a class="card-link" href="/blog/debugging-rate-limiting-after-a-long-weekend"><img class="card-image" src="/images/debugging-rate-limiting-after-a-long-weekend-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Debugging rate limiting after a long weekend</h3></a>
+<p class="card-meta"><time datetime="2026-08-02">2 Aug 2026</time> · 4 min read</p>
+<p class="card-summary">Clear error messages saved more time than any clever optimisation. Once the numbers were on a dashboard, the conversation changed from opinions to trade-offs.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=javascript">JavaScript</a></li><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+<article class="card" data-post data-tags="css performance security" data-search="simplifying error budgets on a small budget most of the latency came from a single synchronous call that nobody remembered adding. the migration ran in batches so it could be paused, resumed and verified at each step.">
+<a class="card-link" href="/blog/simplifying-error-budgets-on-a-small-budget"><img class="card-image" src="/images/simplifying-error-budgets-on-a-small-budget-thumb.webp" alt="" width="600" height="315" loading="lazy" decoding="async"><h3 class="card-title">Simplifying error budgets on a small budget</h3></a>
+<p class="card-meta"><time datetime="2026-10-26">26 Oct 2026</time> · 5 min read</p>
+<p class="card-summary">Most of the latency came from a single synchronous call that nobody remembered adding. The migration ran in batches so it could be paused, resumed and verified at each step.</p>
+<ul class="tag-list"><li><a class="tag" href="/blog?tag=css">CSS</a></li><li><a class="tag" href="/blog?tag=performance">Performance</a></li><li><a class="tag" href="/blog?tag=security">Security</a></li></ul>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 Ada Fieldwork · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>

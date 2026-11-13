@@ -1,0 +1,5 @@
+node_modules/
+.scratch/
+.playwright-cli/
+.claude/
+results/tmp/
