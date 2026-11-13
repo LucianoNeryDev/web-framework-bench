@@ -1,0 +1,25 @@
+# Laravel (Blade) on nginx + PHP-FPM. Build context is the repository root.
+#   WFB_PORT=18180 docker compose -p wfb-laravel -f apps/laravel/compose.yaml up -d --build --wait
+name: wfb-laravel
+
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: apps/laravel/Dockerfile
+      target: server
+    image: wfb/laravel:server
+    restart: unless-stopped
+
+  nginx:
+    build:
+      context: ../..
+      dockerfile: apps/laravel/Dockerfile
+      target: nginx
+    image: wfb/laravel-nginx:server
+    restart: unless-stopped
+    ports:
+      - "${WFB_PORT:-8080}:8080"
+    depends_on:
+      app:
+        condition: service_healthy

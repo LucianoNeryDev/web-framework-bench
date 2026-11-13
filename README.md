@@ -22,7 +22,8 @@ pass the same [conformance check](bench/conformance.mjs) before it is measured.
 | `qwik` | Qwik City | static, server |
 | `go` | Go `net/http` + `html/template`, vanilla JS island | server |
 | `go-htmx` | The same Go server, with htmx for the filter | server |
-| `laravel` | Laravel (Blade) on PHP-FPM | server |
+| `laravel` | Laravel (Blade) on PHP-FPM behind nginx | server |
+| `laravel-octane` | The same Laravel app on Octane with FrankenPHP | server |
 | `wordpress` | WordPress classic theme on PHP-FPM + MariaDB | server, cached |
 | `ghost` | Ghost with a Handlebars theme + MySQL | server, cached |
 

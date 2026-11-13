@@ -43,6 +43,9 @@ export const targets = [
     id: "laravel", app: "laravel", mode: "server", label: "Laravel (PHP-FPM)", kind: "compose", server: true,
     compose: "apps/laravel/compose.yaml", env: {}, entry: "nginx", appService: "app", db: null,
   },
+  image("laravel-octane", "laravel", "octane", "Laravel (Octane, FrankenPHP)", {
+    image: "wfb/laravel:octane", buildTarget: "server-octane",
+  }),
   {
     id: "wordpress", app: "wordpress", mode: "server", label: "WordPress", kind: "compose", server: true,
     compose: "apps/wordpress/compose.yaml", env: { WFB_CACHE: "off" }, entry: "nginx", appService: "wordpress", db: "db",

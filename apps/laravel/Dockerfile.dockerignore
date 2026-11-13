@@ -1,0 +1,12 @@
+# The build context is the repository root; send only what this target needs.
+*
+!apps/laravel
+!content/posts.json
+!shared/public
+apps/laravel/vendor
+apps/laravel/.env
+apps/laravel/NOTES.md
+apps/laravel/database/content
+apps/laravel/database/*.sqlite*
+apps/laravel/bootstrap/cache/*.php
+apps/laravel/storage/framework/views/*.php
