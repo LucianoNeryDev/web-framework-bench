@@ -1,0 +1,15 @@
+{
+  "static-html": { "minutes": null, "iterations": 1, "deviations": "reference", "friction": "Hand-written; 40 post files generated once from a template" },
+  "hugo": { "minutes": 59, "iterations": 3, "deviations": "none checked; tabs kept in code, heading ids", "friction": "0.169 renames (hugo.Data, locale), XML escaping, uglyURLs sitemap paths; minutes shared with go" },
+  "go": { "minutes": 59, "iterations": 1, "deviations": "filtered list renders hidden cards (vanilla); htmx keeps empty params in URL", "friction": "Go 1.26 ServeMux redirects; minutes shared with hugo" },
+  "sveltekit": { "minutes": 72, "iterations": 5, "deviations": "none checked", "friction": "Kit 3 moved config to vite.config, $lib to #lib; real 404.html needs a prerendered /404 route; searchParams forbidden in prerender" },
+  "react-router": { "minutes": 79, "iterations": 2, "deviations": "v8 instead of v7; 404/index.html renamed in Dockerfile", "friction": "v8 API changes only visible under tsc; silent server start" },
+  "angular": { "minutes": 60, "iterations": 4, "deviations": "allowedHosts *; data-* hooks absent", "friction": "no 404.html for ** route; base href vs skip link; fileReplacements per render mode" },
+  "nuxt": { "minutes": 97, "iterations": 3, "deviations": "post body duplicated in payload", "friction": "experimental.prerenderErrorPages found in source; JSON error pages for non-HTML Accept; prerender routes leak into nuxt build" },
+  "wordpress": { "minutes": 93, "iterations": 3, "deviations": "wp-json/xmlrpc/login still answer; trailing-slash URLs 200", "friction": "tag is a reserved query var; root-relative asset filters; volume shadows theme; 13 head/feature removals" },
+  "next": { "minutes": 139, "iterations": 4, "deviations": "rewrite for notFound() in dynamic pages; /_not-found always prerendered", "friction": "notFound() returns empty error shell; segment config cannot vary by mode; output: export rejects route handlers" },
+  "qwik": { "minutes": 119, "iterations": 7, "deviations": "post body serialized twice; framework attributes", "friction": "adapter prerenders by default (ssg: null); lazy handlers needed sync$ for theme; RouterHead key leak" },
+  "astro": { "minutes": 149, "iterations": 4, "deviations": "none", "friction": "@astrojs/rss trailing slash; @astrojs/sitemap lists only prerendered routes" },
+  "laravel": { "minutes": 130, "iterations": 2, "deviations": "session/CSRF middleware removed; hidden cards on filter", "friction": "Blade inline directives after word chars; opcache stale views; starter assumes DB cache/session/queue" },
+  "ghost": { "minutes": 143, "iterations": 8, "deviations": "no server-side filtering; Ghost re-renders post HTML; nginx maps URLs and feeds", "friction": "no custom fields (data via generated partials); trailing slashes; slow first boot; ghost_head injects CDN scripts" }
+}

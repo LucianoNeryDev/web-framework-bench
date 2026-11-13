@@ -476,9 +476,9 @@ async function npmAudit(app) {
 function trivy(images) {
   const totals = { os: { HIGH: 0, CRITICAL: 0 }, lang: { HIGH: 0, CRITICAL: 0 } };
   for (const img of images) {
-    const out = sh(`docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v wfb-trivy-cache:/root/.cache aquasec/trivy:0.67.2 ` +
+    const out = sh(`docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v wfb-trivy-cache:/root/.cache aquasec/trivy:0.76.2 ` +
       `image --quiet --format json --scanners vuln --severity HIGH,CRITICAL ${img}`, { allowFail: true, timeout: 20 * 60_000 });
-    if (!out) continue;
+    if (!out) { totals.errors = [...(totals.errors || []), img]; continue; }
     for (const res of JSON.parse(out).Results || []) {
       const cls = res.Class === "os-pkgs" ? "os" : "lang";
       for (const v of res.Vulnerabilities || []) totals[cls][v.Severity] = (totals[cls][v.Severity] || 0) + 1;

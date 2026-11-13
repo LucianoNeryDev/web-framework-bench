@@ -99,9 +99,9 @@ export async function startTarget(t) {
     sh(`docker run -d --name ${RUN} --network ${NET} --network-alias ${RUN} --cpuset-cpus ${TARGET_CPUS} ` +
       `--memory ${TARGET_MEM} --memory-swap ${TARGET_MEM} -p 127.0.0.1:${PORT}:8080 ${envFlags(t.env)} ${t.image}`);
   } else {
-    sh(`${composeCmd(t)} up -d --wait --wait-timeout 600`, { env: composeEnv(t), timeout: 15 * 60_000 });
+    sh(`${composeCmd(t)} up -d --wait --wait-timeout 2400`, { env: composeEnv(t), timeout: 45 * 60_000 });
   }
-  const readyMs = await waitFor(`http://127.0.0.1:${PORT}/`, { timeout: 600_000 });
+  const readyMs = await waitFor(`http://127.0.0.1:${PORT}/`, { timeout: 2_400_000 });
   const coldStartMs = Date.now() - t0;
   if (t.kind === "compose") {
     // Same per-container limits as single-image targets; the whole stack shares the target cores.
