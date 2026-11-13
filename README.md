@@ -17,7 +17,7 @@ pass the same [conformance check](bench/conformance.mjs) before it is measured.
 | `next` | Next.js (React) | static, server |
 | `astro` | Astro | static, server |
 | `sveltekit` | SvelteKit | static, server |
-| `react-router` | React Router v7, framework mode | static, server |
+| `react-router` | React Router v8, framework mode (the successor of Remix; v7 was the plan, v8 is the current major) | static, server |
 | `angular` | Angular with `@angular/ssr` | static, server |
 | `qwik` | Qwik City | static, server |
 | `go` | Go `net/http` + `html/template`, vanilla JS island | server |

@@ -1,0 +1,6 @@
+node_modules/
+build/
+.react-router/
+# copied from content/ and shared/ at build time (see Dockerfile and NOTES.md)
+public/
+app/data/
