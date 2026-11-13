@@ -1,0 +1,10 @@
+**/node_modules
+apps/*
+!apps/qwik
+apps/qwik/dist
+apps/qwik/server
+apps/qwik/tmp
+apps/qwik/public
+results
+bench
+.git

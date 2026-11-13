@@ -1,0 +1,7 @@
+node_modules
+dist
+server
+tmp
+# copied from shared/public/ at build time (see Dockerfile); never committed here
+public
+*.tsbuildinfo
