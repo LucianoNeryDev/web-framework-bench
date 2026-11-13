@@ -222,7 +222,7 @@ export const edgeBase = () => `http://${ipOf(EDGE)}:8080`;
 export async function oha(t, path, { concurrency, seconds, urlsFile, extra = "" }) {
   const target = urlsFile ? `--urls-from-file ${urlsFile}` : `'${targetBase(t)}${path}'`;
   const out = await shAsync(
-    `taskset -c ${CLIENT_CPUS} ${OHA} --no-tui --output-format json -w -z ${seconds}s -c ${concurrency} -t 10s ${extra} ${target}`,
+    `taskset -c ${CLIENT_CPUS} ${OHA} --no-tui --output-format json --disable-compression -w -z ${seconds}s -c ${concurrency} -t 10s ${extra} ${target}`,
   );
   const r = JSON.parse(out);
   const codes = r.statusCodeDistribution || {};
