@@ -6,6 +6,8 @@
     "conformance": "node conformance.mjs"
   },
   "dependencies": {
+    "chrome-launcher": "^1.2.3",
+    "lighthouse": "^13.6.0",
     "node-html-parser": "^9.0.7",
     "playwright": "^1.65.0"
   }
