@@ -25,7 +25,7 @@ FROM sources AS build-server
 RUN npm run build:server
 
 # Static mode: every route prerendered (outputMode "static"), served by the shared nginx config.
-FROM nginx:1.29-alpine AS static
+FROM nginx:1.30-alpine AS static
 COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-static /repo/apps/angular/dist/angular/browser/ /usr/share/nginx/html/
 # The host umask is 077; make the copied files readable by the nginx worker.

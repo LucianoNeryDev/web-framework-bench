@@ -18,7 +18,7 @@ FROM source AS build-static
 ENV WFB_MODE=static
 RUN node scripts/prepare-mode.mjs static && npx next build
 
-FROM nginx:1.29-alpine AS static
+FROM nginx:1.30-alpine AS static
 COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf
 COPY shared/public/ /usr/share/nginx/html/
 COPY --from=build-static /app/out/ /usr/share/nginx/html/

@@ -21,7 +21,7 @@ RUN chmod -R a+rX /repo/content /repo/apps/qwik/src /repo/apps/qwik/public /repo
 FROM base AS build-static
 RUN npm run build:static
 
-FROM nginx:1.29-alpine AS static
+FROM nginx:1.30-alpine AS static
 COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf
 COPY shared/public/ /usr/share/nginx/html/
 COPY --from=build-static /repo/apps/qwik/dist/ /usr/share/nginx/html/

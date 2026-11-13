@@ -5,7 +5,7 @@ Finished (UTC): Fri Nov 13 03:59:30 PM UTC 2026
 
 ## Versions
 - astro 7.4.11, @astrojs/node 11.1.12 (server mode only), @astrojs/rss 4.0.19 (RSS endpoint), npm lockfile committed
-- Node: `node:26-slim` (26.13.0) for build and server mode; nginx `nginx:1.29-alpine` for static mode
+- Node: `node:26-slim` (26.13.0) for build and server mode; nginx `nginx:1.30-alpine` for static mode
 - No UI framework, no TypeScript package (Vite strips the `.ts` types), no `@astrojs/sitemap`
 
 ## Modes

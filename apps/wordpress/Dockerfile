@@ -33,7 +33,7 @@ WORKDIR /var/www/wordpress
 ENTRYPOINT ["wfb-entrypoint.sh"]
 CMD ["php-fpm"]
 
-FROM nginx:1.29-alpine AS nginx
+FROM nginx:1.30-alpine AS nginx
 COPY --from=docroot /var/www/wordpress /var/www/wordpress
 COPY apps/wordpress/docker/nginx/server.conf apps/wordpress/docker/nginx/cached.conf /etc/nginx/wfb/
 COPY apps/wordpress/docker/nginx/05-wfb-cache.sh /docker-entrypoint.d/05-wfb-cache.sh

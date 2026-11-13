@@ -10,7 +10,7 @@ Finished: Fri Nov 13 03:31:34 PM UTC 2026
 | WordPress | 7.1.4 (official image `wordpress:7.1.4-php8.5-fpm-alpine`, the newest PHP the image ships) |
 | PHP | 8.5.12, PHP-FPM, OPcache on with the image's recommended settings (128 MB, `revalidate_freq=2`) |
 | MariaDB | 12.3.3 (`mariadb:12.3.3`, the current LTS; `mariadb:lts` points at the same digest) |
-| nginx | `nginx:1.29-alpine` |
+| nginx | `nginx:1.30-alpine` |
 | WP-CLI | 2.12.0 (phar, SHA-512 checked in the Dockerfile) |
 
 No plugins: the bundled Akismet, Hello Dolly and Twenty Twenty-* themes are removed from the image.

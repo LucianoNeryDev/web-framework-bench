@@ -23,7 +23,7 @@ FROM source AS build-server
 ENV WFB_MODE=server
 RUN npm run build && chmod -R a+rX /app/build
 
-FROM nginx:1.29-alpine AS static
+FROM nginx:1.30-alpine AS static
 COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-static /app/build/client/ /usr/share/nginx/html/
 # static.conf serves error_page 404 /404.html: React Router pre-renders /404 as 404/index.html, so

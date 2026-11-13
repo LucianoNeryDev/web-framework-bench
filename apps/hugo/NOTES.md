@@ -2,7 +2,7 @@
 
 ## Versions
 - Hugo v0.169.0 extended (`ghcr.io/gohugoio/hugo:v0.169.0`, build stage only; Goldmark is Hugo's built-in Markdown renderer)
-- nginx 1.29-alpine (`nginx:1.29-alpine`) serving the output with `shared/nginx/static.conf`
+- nginx 1.29-alpine (`nginx:1.30-alpine`) serving the output with `shared/nginx/static.conf`
 - No Hugo modules, themes, npm packages or lockfile: the project has no third-party dependencies.
 
 ## Modes

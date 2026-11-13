@@ -10,7 +10,7 @@ COPY content/posts.json data/posts.json
 COPY shared/public/ static/
 RUN hugo --environment production --gc
 
-FROM nginx:1.29-alpine AS static
+FROM nginx:1.30-alpine AS static
 COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /src/public/ /usr/share/nginx/html/
 # The host umask is 077; make the copied files readable by the nginx worker.

@@ -26,7 +26,7 @@ FROM source AS build-server
 ENV WFB_MODE=server
 RUN npx astro build
 
-FROM nginx:1.29-alpine AS static
+FROM nginx:1.30-alpine AS static
 COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-static /app/dist/ /usr/share/nginx/html/
 RUN chmod -R a+rX /usr/share/nginx/html

@@ -2,7 +2,7 @@
 
 ## Versions
 - nuxt 4.6.4 (Nitro 2 via nitropack 2.13.6, Vite), vue 3.5.45, vue-router 5.5.0. No Nuxt modules.
-- Node 26.13.0 (`node:26.13.0-slim`) for build and the server image; `nginx:1.29-alpine` for the static image.
+- Node 26.13.0 (`node:26.13.0-slim`) for build and the server image; `nginx:1.30-alpine` for the static image.
 - npm lockfile: `package-lock.json` (installed with `npm ci`).
 
 ## Modes

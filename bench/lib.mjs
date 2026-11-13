@@ -151,7 +151,7 @@ export async function startEdge() {
   mkdirSync(dirname(conf), { recursive: true });
   writeFileSync(conf, EDGE_CONF, { mode: 0o644 });
   sh(`docker run -d --name ${EDGE} --network ${NET} --cpuset-cpus ${CLIENT_CPUS} -p 127.0.0.1:${EDGE_PORT}:8080 ` +
-    `-v ${conf}:/etc/nginx/conf.d/default.conf:ro nginx:1.29-alpine`);
+    `-v ${conf}:/etc/nginx/conf.d/default.conf:ro nginx:1.30-alpine`);
   await waitFor(`http://127.0.0.1:${EDGE_PORT}/`);
 }
 

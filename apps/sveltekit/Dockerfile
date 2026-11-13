@@ -18,7 +18,7 @@ FROM base AS build-static
 ENV WFB_MODE=static
 RUN npm run build
 
-FROM nginx:1.29-alpine AS static
+FROM nginx:1.30-alpine AS static
 COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf
 COPY shared/public/ /usr/share/nginx/html/
 COPY --from=build-static /repo/apps/sveltekit/build/ /usr/share/nginx/html/

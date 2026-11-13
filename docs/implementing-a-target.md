@@ -23,7 +23,7 @@ apps/<id>/
 - **Images** are tagged `wfb/<id>:<mode>`. Multi-container targets use `compose.yaml` with project name
   `wfb-<id>` and publish the entry container on a port given by `${WFB_PORT:-8080}`.
 - **Port 8080** inside the container, for the entry container.
-- **Static mode** runs on `nginx:1.29-alpine` with `shared/nginx/static.conf` as the only server config, the
+- **Static mode** runs on `nginx:1.30-alpine` with `shared/nginx/static.conf` as the only server config, the
   build output in `/usr/share/nginx/html`, and `shared/public/` copied alongside it.
 - **Server mode** runs the framework's documented production server, as one process unless multiple workers
   are the documented default (PHP-FPM is; a Node server is not). No PM2, no cluster mode.
