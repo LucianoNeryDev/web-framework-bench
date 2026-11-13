@@ -1,0 +1,14 @@
+{{- /* Per-page head values as a dict: title, description, image, type, path, current. */ -}}
+{{- $site := hugo.Data.posts.site -}}
+{{- $m := dict "title" $site.title "description" $site.description "image" "/images/hero.webp" "type" "website" "path" "/" "current" "/" -}}
+{{- if eq .Kind "404" -}}
+  {{- $m = dict "title" (print "Page not found · " $site.title) "description" "This page does not exist." "image" "/images/hero.webp" "type" "website" "path" "/404" "current" "" -}}
+{{- else if .IsSection -}}
+  {{- $m = dict "title" (print .Title " · " $site.title) "description" (printf "All %d posts on %s." (len .Pages) $site.title) "image" "/images/hero.webp" "type" "website" "path" "/blog" "current" "/blog" -}}
+{{- else if eq .Section "blog" -}}
+  {{- $rec := index (partialCached "posts-by-slug.html" "") .Slug -}}
+  {{- $m = dict "title" (print .Title " · " $site.title) "description" $rec.summary "image" $rec.cover.src "type" "article" "path" (partial "path.html" .) "current" "/blog" -}}
+{{- else if .IsPage -}}
+  {{- $m = dict "title" (print .Title " · " $site.title) "description" (printf "About %s and %s." $site.author $site.title) "image" "/images/avatar.webp" "type" "website" "path" (partial "path.html" .) "current" (partial "path.html" .) -}}
+{{- end -}}
+{{- return $m -}}

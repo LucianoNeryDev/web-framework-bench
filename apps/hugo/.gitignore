@@ -1,0 +1,9 @@
+# Hugo output and caches
+/public/
+/resources/
+/.hugo_build.lock
+# Copied in at build time (Dockerfile), never committed
+/data/
+/static/
+/content/blog/*
+!/content/blog/_index.md

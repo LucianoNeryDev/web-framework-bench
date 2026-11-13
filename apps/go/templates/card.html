@@ -1,0 +1,7 @@
+{{define "card"}}<article class="card" data-post data-tags="{{range $i, $t := .Tags}}{{if $i}} {{end}}{{$t}}{{end}}" data-search="{{.Search}}"{{if .Hidden}} hidden{{end}}>
+<a class="card-link" href="/blog/{{.Slug}}"><img class="card-image" src="{{.Cover.Thumb}}" alt="" width="{{.Cover.ThumbWidth}}" height="{{.Cover.ThumbHeight}}"{{if not .Eager}} loading="lazy"{{end}} decoding="async"><h3 class="card-title">{{.Title}}</h3></a>
+<p class="card-meta"><time datetime="{{.Date}}">{{.DateLabel}}</time> · {{.ReadingMinutes}} min read</p>
+<p class="card-summary">{{.Summary}}</p>
+{{template "taglist" .}}
+</article>{{end}}
+{{define "taglist"}}<ul class="tag-list">{{range .TagViews}}<li><a class="tag" href="/blog?tag={{.Slug}}">{{.Name}}</a></li>{{end}}</ul>{{end}}

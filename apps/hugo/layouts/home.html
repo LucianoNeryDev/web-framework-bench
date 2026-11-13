@@ -1,0 +1,16 @@
+{{ define "main" -}}
+{{- $site := hugo.Data.posts.site -}}
+<section class="hero">
+<div class="hero-text"><h1>{{ $site.heroTitle }}</h1><p>{{ $site.heroText }}</p><p><a class="button" href="/blog">Read the blog</a></p></div>
+<img class="hero-image" src="/images/hero.webp" alt="Abstract illustration of overlapping circles" width="1600" height="900" fetchpriority="high">
+</section>
+<section class="latest" aria-labelledby="latest-heading">
+<h2 id="latest-heading">Latest posts</h2>
+<div class="card-grid">
+{{ range first 6 (where site.RegularPages "Section" "blog").ByDate.Reverse -}}
+{{ partial "card.html" (dict "page" . "eager" false) }}
+{{ end -}}
+</div>
+<p class="section-footer"><a href="/blog">All posts →</a></p>
+</section>
+{{- end }}

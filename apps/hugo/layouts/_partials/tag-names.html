@@ -1,0 +1,5 @@
+{{- $m := dict -}}
+{{- range hugo.Data.posts.tags -}}
+  {{- $m = merge $m (dict .slug .name) -}}
+{{- end -}}
+{{- return $m -}}

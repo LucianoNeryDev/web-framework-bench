@@ -1,0 +1,2 @@
+{{- /* Contract path of a page: no .html, no /index, no trailing slash. */ -}}
+{{- if .IsHome -}}/{{- else -}}{{- strings.TrimSuffix "/index" (strings.TrimSuffix ".html" .RelPermalink) -}}{{- end -}}

@@ -1,0 +1,29 @@
+{{define "layout"}}<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Meta.Title}}</title>
+<meta name="description" content="{{.Meta.Description}}">
+<link rel="canonical" href="{{.Site.URL}}{{.Meta.Path}}">
+<meta property="og:type" content="{{.Meta.Type}}">
+<meta property="og:title" content="{{.Meta.Title}}">
+<meta property="og:description" content="{{.Meta.Description}}">
+<meta property="og:image" content="{{.Site.URL}}{{.Meta.Image}}">
+<link rel="alternate" type="application/rss+xml" title="{{.Site.Title}}" href="/rss.xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<link rel="stylesheet" href="/style.css">
+{{if .HTMX}}<script src="/htmx.min.js" defer></script>
+{{end}}<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container"><a class="brand" href="/">{{.Site.Title}}</a><nav class="site-nav" aria-label="Main">{{range .Nav}}<a href="{{.Href}}"{{if eq .Href $.Meta.Current}} aria-current="page"{{end}}>{{.Label}}</a>{{end}}</nav><button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>◐</button></div></header>
+<main id="main" class="container">
+{{template "content" .}}
+</main>
+<footer class="site-footer"><div class="container"><p>© 2026 {{.Site.Author}} · <a href="/rss.xml">RSS</a></p></div></footer>
+</body>
+</html>
+{{end}}

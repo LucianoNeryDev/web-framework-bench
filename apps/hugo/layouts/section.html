@@ -1,0 +1,23 @@
+{{ define "main" -}}
+{{- $posts := .Pages.ByDate.Reverse -}}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<form class="filters" role="search" action="/blog" method="get" data-filters>
+<label for="q">Search posts</label>
+<input id="q" name="q" type="search" placeholder="Search titles and summaries" autocomplete="off">
+<div class="tag-filter" role="group" aria-label="Filter by tag">
+<button type="button" class="chip" data-tag="" aria-pressed="true">All</button>
+{{ range hugo.Data.posts.tags -}}
+<button type="button" class="chip" data-tag="{{ .slug }}" aria-pressed="false">{{ .name }}</button>
+{{ end -}}
+</div>
+</form>
+<h2 class="visually-hidden">Posts</h2>
+<p class="result-count" aria-live="polite" data-result-count>Showing {{ len $posts }} of {{ len $posts }} posts</p>
+<div class="card-grid" data-post-list>
+{{ range $i, $p := $posts -}}
+{{ partial "card.html" (dict "page" $p "eager" (lt $i 3)) }}
+{{ end -}}
+</div>
+<p class="empty" data-empty hidden>No posts match.</p>
+{{- end }}

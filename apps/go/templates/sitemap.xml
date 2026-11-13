@@ -1,0 +1,8 @@
+{{- $latest := (index .Posts 0).Date -}}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>{{.Site.URL}}/</loc><lastmod>{{$latest}}</lastmod></url>
+<url><loc>{{.Site.URL}}/blog</loc><lastmod>{{$latest}}</lastmod></url>
+<url><loc>{{.Site.URL}}/about</loc></url>
+{{range .Posts}}<url><loc>{{$.Site.URL}}/blog/{{.Slug}}</loc><lastmod>{{.Date}}</lastmod></url>
+{{end}}</urlset>

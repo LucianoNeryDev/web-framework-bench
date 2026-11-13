@@ -1,0 +1,19 @@
+{{define "content"}}<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="{{.Post.Date}}">{{.Post.DateLabel}}</time> · {{.Post.ReadingMinutes}} min read</p>
+<h1>{{.Post.Title}}</h1>
+<p class="post-summary">{{.Post.Summary}}</p>
+{{template "taglist" .Post}}
+</header>
+<img class="post-cover" src="{{.Post.Cover.Src}}" alt="{{.Post.Cover.Alt}}" width="{{.Post.Cover.Width}}" height="{{.Post.Cover.Height}}" fetchpriority="high">
+<div class="post-body">
+{{.Post.HTML}}
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts">{{with .Post.PrevPost}}<a rel="prev" href="/blog/{{.Slug}}">← {{.Title}}</a>{{end}}{{with .Post.NextPost}}<a rel="next" href="/blog/{{.Slug}}">{{.Title}} →</a>{{end}}</nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+{{range .Post.RelatedPost}}{{template "card" (card .)}}
+{{end}}</div>
+</section>{{end}}

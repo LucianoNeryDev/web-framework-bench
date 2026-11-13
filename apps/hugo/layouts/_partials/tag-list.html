@@ -1,0 +1,2 @@
+{{- $names := partialCached "tag-names.html" "" -}}
+<ul class="tag-list">{{ range . }}<li><a class="tag" href="/blog?tag={{ . }}">{{ index $names . }}</a></li>{{ end }}</ul>

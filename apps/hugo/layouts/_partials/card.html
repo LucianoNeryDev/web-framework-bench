@@ -1,0 +1,8 @@
+{{- $page := .page -}}
+{{- $rec := index (partialCached "posts-by-slug.html" "") $page.Slug -}}
+<article class="card" data-post data-tags="{{ delimit $page.Params.tags " " }}" data-search="{{ lower (print $page.Title " " $rec.summary) }}">
+<a class="card-link" href="/blog/{{ $page.Slug }}"><img class="card-image" src="{{ $rec.cover.thumb }}" alt="" width="{{ $rec.cover.thumbWidth }}" height="{{ $rec.cover.thumbHeight }}"{{ if not .eager }} loading="lazy"{{ end }} decoding="async"><h3 class="card-title">{{ $page.Title }}</h3></a>
+<p class="card-meta"><time datetime="{{ $rec.date }}">{{ $rec.dateLabel }}</time> · {{ $rec.readingMinutes }} min read</p>
+<p class="card-summary">{{ $rec.summary }}</p>
+{{ partial "tag-list.html" $page.Params.tags }}
+</article>

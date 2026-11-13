@@ -1,0 +1,28 @@
+{{define "content"}}<h1>Blog</h1>
+<p>Everything I have written, newest first. Search titles and summaries, or narrow by tag.</p>
+<form class="filters" role="search" action="/blog" method="get"{{if .HTMX}} hx-get="/blog" hx-trigger="input changed delay:250ms, submit" hx-target="#results" hx-swap="innerHTML" hx-replace-url="true" hx-sync="this:replace"{{else}} data-filters{{end}}>
+<label for="q">Search posts</label>
+<input id="q" name="q" type="search" placeholder="Search titles and summaries" autocomplete="off"{{if .Blog.Q}} value="{{.Blog.Q}}"{{end}}>
+<div class="tag-filter" id="tag-filter" role="group" aria-label="Filter by tag">
+{{template "chips" .Blog}}</div>
+</form>
+<h2 class="visually-hidden">Posts</h2>
+<div id="results">
+{{template "results" .Blog}}</div>{{end}}
+
+{{define "chips"}}{{if and .HTMX .Tag}}<input type="hidden" name="tag" value="{{.Tag}}">
+{{end}}<button type="button" class="chip" data-tag="" aria-pressed="{{if .Tag}}false{{else}}true{{end}}"{{if .HTMX}} hx-get="/blog" hx-include="#q"{{end}}>All</button>
+{{range .Tags}}<button type="button" class="chip" data-tag="{{.Slug}}" aria-pressed="{{if eq .Slug $.Tag}}true{{else}}false{{end}}"{{if $.HTMX}} hx-get="/blog?tag={{.Slug}}" hx-include="#q"{{end}}>{{.Name}}</button>
+{{end}}{{end}}
+
+{{define "results"}}<p class="result-count" aria-live="polite" data-result-count>Showing {{.Count}} of {{.Total}} posts</p>
+<div class="card-grid" data-post-list>
+{{range .Cards}}{{template "card" .}}
+{{end}}</div>
+<p class="empty" data-empty{{if .Count}} hidden{{end}}>No posts match.</p>
+{{end}}
+
+{{/* htmx response: the result region, plus the chips swapped out of band so aria-pressed follows the filter. */}}
+{{define "fragment"}}<div class="tag-filter" id="tag-filter" role="group" aria-label="Filter by tag" hx-swap-oob="true">
+{{template "chips" .}}</div>
+{{template "results" .}}{{end}}

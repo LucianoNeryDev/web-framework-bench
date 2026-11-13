@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>{{xml .Site.Title}}</title>
+<link>{{.Site.URL}}/</link>
+<description>{{xml .Site.Description}}</description>
+<language>en</language>
+{{range .Posts}}<item>
+<title>{{xml .Title}}</title>
+<link>{{$.Site.URL}}/blog/{{.Slug}}</link>
+<guid>{{$.Site.URL}}/blog/{{.Slug}}</guid>
+<pubDate>{{.PubDate}}</pubDate>
+<description>{{xml .Summary}}</description>
+</item>
+{{end}}</channel>
+</rss>

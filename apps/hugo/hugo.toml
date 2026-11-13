@@ -1,0 +1,31 @@
+# Field Notes on Hugo. Site metadata, tags and the pre-computed per-post values come from
+# data/posts.json (copied from content/posts.json at build time, see Dockerfile).
+baseURL = "https://bench.example/"
+title = "Field Notes"
+locale = "en"
+
+# Pages are written as blog/<slug>.html and blog.html; nginx resolves the extensionless routes.
+uglyURLs = true
+
+# Hugo would otherwise inject <meta name="generator"> on the home page.
+disableHugoGeneratorInject = true
+
+# No tag or category listing pages: the filter lives on /blog.
+disableKinds = ["taxonomy", "term"]
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html"]
+  page = ["html"]
+
+# The contract wants the feed at /rss.xml, not Hugo's default /index.xml.
+[outputFormats.rss]
+  baseName = "rss"
+
+[markup]
+  [markup.highlight]
+    # Plain <pre><code class="language-x"> so the text matches posts.json.
+    codeFences = false
+    guessSyntax = false
+  [markup.goldmark.extensions.typographer]
+    disable = true

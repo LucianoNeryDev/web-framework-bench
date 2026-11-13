@@ -1,0 +1,6 @@
+{{- /* posts.json records keyed by slug (pre-computed dateLabel, readingMinutes, cover, prev, next, related). Cached: built once per build. */ -}}
+{{- $m := dict -}}
+{{- range hugo.Data.posts.posts -}}
+  {{- $m = merge $m (dict .slug .) -}}
+{{- end -}}
+{{- return $m -}}

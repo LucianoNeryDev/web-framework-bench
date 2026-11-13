@@ -1,0 +1,21 @@
+{{- $site := hugo.Data.posts.site -}}
+{{- $by := partialCached "posts-by-slug.html" "" -}}
+{{ printf `<?xml version="1.0" encoding="UTF-8"?>` | safeHTML }}
+<rss version="2.0">
+<channel>
+<title>{{ $site.title }}</title>
+<link>{{ $site.url }}/</link>
+<description>{{ $site.description }}</description>
+<language>en</language>
+{{ range (where site.RegularPages "Section" "blog").ByDate.Reverse -}}
+{{ $rec := index $by .Slug -}}
+<item>
+<title>{{ .Title }}</title>
+<link>{{ $site.url }}/blog/{{ .Slug }}</link>
+<guid>{{ $site.url }}/blog/{{ .Slug }}</guid>
+<pubDate>{{ .Date.UTC.Format "Mon, 02 Jan 2006 15:04:05 GMT" }}</pubDate>
+<description>{{ $rec.summary }}</description>
+</item>
+{{ end -}}
+</channel>
+</rss>

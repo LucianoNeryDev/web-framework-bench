@@ -1,0 +1,28 @@
+{{ define "main" -}}
+{{- $by := partialCached "posts-by-slug.html" "" -}}
+{{- $rec := index $by .Slug -}}
+<article class="post">
+<header class="post-header">
+<p class="post-meta"><time datetime="{{ $rec.date }}">{{ $rec.dateLabel }}</time> · {{ $rec.readingMinutes }} min read</p>
+<h1>{{ .Title }}</h1>
+<p class="post-summary">{{ $rec.summary }}</p>
+{{ partial "tag-list.html" .Params.tags }}
+</header>
+<img class="post-cover" src="{{ $rec.cover.src }}" alt="{{ $rec.cover.alt }}" width="{{ $rec.cover.width }}" height="{{ $rec.cover.height }}" fetchpriority="high">
+<div class="post-body">
+{{ .Content }}
+</div>
+</article>
+<nav class="post-nav" aria-label="Adjacent posts">
+{{- with $rec.prev }}{{ $prev := index $by . }}<a rel="prev" href="/blog/{{ $prev.slug }}">← {{ $prev.title }}</a>{{ end -}}
+{{- with $rec.next }}{{ $next := index $by . }}<a rel="next" href="/blog/{{ $next.slug }}">{{ $next.title }} →</a>{{ end -}}
+</nav>
+<section class="related" aria-labelledby="related-heading">
+<h2 id="related-heading">Related posts</h2>
+<div class="card-grid">
+{{ range $rec.related -}}
+{{ partial "card.html" (dict "page" (site.GetPage (print "/blog/" .)) "eager" false) }}
+{{ end -}}
+</div>
+</section>
+{{- end }}

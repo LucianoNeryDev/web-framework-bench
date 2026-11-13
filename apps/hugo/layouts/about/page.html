@@ -1,0 +1,7 @@
+{{ define "main" -}}
+<section class="about">
+<h1>{{ .Title }}</h1>
+<img class="about-avatar" src="/images/avatar.webp" alt="Portrait of {{ hugo.Data.posts.site.author }}" width="160" height="160">
+{{ .Content }}
+</section>
+{{- end }}
