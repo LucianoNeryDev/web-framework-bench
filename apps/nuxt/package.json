@@ -1,0 +1,17 @@
+{
+  "name": "wfb-nuxt",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:public": "cp -r ../../shared/public/. public/",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate --envName static",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "nuxt": "4.6.4",
+    "vue": "3.5.45",
+    "vue-router": "5.5.0"
+  }
+}

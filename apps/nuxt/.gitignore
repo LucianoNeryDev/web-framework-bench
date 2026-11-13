@@ -1,0 +1,10 @@
+node_modules
+.nuxt
+.output
+.data
+.nitro
+.cache
+dist
+# copied from ../../shared/public at build time (see Dockerfile and the sync:public script)
+public/*
+!public/.gitkeep

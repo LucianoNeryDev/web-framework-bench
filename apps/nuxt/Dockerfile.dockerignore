@@ -1,0 +1,11 @@
+# Build-context filter for apps/nuxt/Dockerfile (BuildKit reads <Dockerfile>.dockerignore).
+# The context is the repository root, which also holds every other target's node_modules and build output.
+*
+!content/posts.json
+!shared/public
+!shared/nginx/static.conf
+!apps/nuxt/package.json
+!apps/nuxt/package-lock.json
+!apps/nuxt/nuxt.config.ts
+!apps/nuxt/app
+!apps/nuxt/server
