@@ -238,10 +238,18 @@ async function interact(t) {
       });
 
       // Time until the blog filter responds: click the "Go" chip until the list shows only Go posts.
+      // Some islands filter through the server (htmx, React Router loaders), so after each click wait for the
+      // fetch/XHR requests that click started before clicking again; re-clicking would cancel them.
+      const xhr = new Map();
+      const isXhr = (r) => ["fetch", "xhr"].includes(r.resourceType());
+      page.on("request", (r) => isXhr(r) && xhr.set(r, Date.now()));
+      page.on("requestfinished", (r) => xhr.delete(r));
+      page.on("requestfailed", (r) => xhr.delete(r));
       await page.goto(`${edgeBase()}/blog`, { waitUntil: "commit" });
       let readyMs = null;
       const deadline = Date.now() + 60_000;
       while (Date.now() < deadline) {
+        const clickedAt = Date.now();
         readyMs = await page.evaluate((want) => {
           const chip = [...document.querySelectorAll(".tag-filter .chip")].find((c) => c.textContent.trim() === "Go");
           const visible = [...document.querySelectorAll("[data-post-list] .card")].filter((c) => c.offsetParent !== null).length;
@@ -250,7 +258,12 @@ async function interact(t) {
           return null;
         }, goCount).catch(() => null);
         if (readyMs != null) break;
-        await sleep(50);
+        await sleep(100);
+        const started = () => [...xhr.values()].some((t) => t >= clickedAt - 5);
+        if (started()) {
+          while (started() && Date.now() < deadline) await sleep(25);
+          await sleep(100); // let the response render before checking again
+        }
       }
       await page.waitForLoadState("networkidle").catch(() => {});
       const nav = await page.evaluate(() => {
