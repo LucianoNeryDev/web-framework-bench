@@ -3,7 +3,7 @@
 ## Versions
 - react-router, @react-router/dev, @react-router/node, @react-router/serve: 8.5.1 (npm `latest`; the 7.x line is at 7.18.5, see Deviations)
 - react / react-dom 19.3.1, vite 8.3.8, typescript 7.0.2, isbot 5.2.3
-- Runtime: node 24.22.3 (alpine) for build and server mode, nginx 1.29-alpine for static mode
+- Runtime: node 24.22.3 (alpine) for build and server mode, nginx 1.30-alpine for static mode
 - Lockfile: `package-lock.json` (npm ci in the Dockerfile)
 
 ## Modes

@@ -10,7 +10,7 @@ Finished: 2026-11-13 15:56 UTC
 - Vite 7.3.7, vite-tsconfig-paths 4.3.2, TypeScript 5.4.5 (all as scaffolded by `create-qwik@1.20.4`, pinned exactly).
 - Server mode: Express 4.22.0 (the version `qwik add express` pins), undici 8.12.4 (runtime import of the Node adapter).
 - Node 24 (`node:24-alpine`) in the images; Node 26.8.1 on the host (host runs were only used for iteration).
-- nginx 1.29-alpine for static mode.
+- nginx 1.30-alpine for static mode.
 - Starter and adapters were generated with `npm create qwik@1.20.4 empty`, `qwik add express`, `qwik add static`,
   then trimmed (no eslint, prettier, CSS-modules plugin, dotenv, compression, dev/preview entries).
 

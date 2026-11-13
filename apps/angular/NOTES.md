@@ -4,7 +4,7 @@
 - Angular 22.2.6 (`@angular/core`, `common`, `compiler`, `platform-browser`, `platform-server`, `router`, `compiler-cli`), standalone components, signals, zoneless (no `zone.js`)
 - `@angular/ssr` 22.2.7, `@angular/build` 22.2.7 (application builder, esbuild), `@angular/cli` 22.2.7
 - Express 5.3.0, rxjs 7.8.2, tslib 2.9.1, TypeScript 6.0.3 (Angular 22 needs `>=6.0 <6.1`)
-- Node 26.13.0 (`node:26.13.0-slim`, build stages and the server image), nginx 1.29-alpine for static mode
+- Node 26.13.0 (`node:26.13.0-slim`, build stages and the server image), nginx 1.30-alpine for static mode
 - Exact versions are pinned in `package.json`; `package-lock.json` is committed.
 
 ## Modes

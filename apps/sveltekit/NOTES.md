@@ -4,7 +4,7 @@
 - SvelteKit `@sveltejs/kit` 3.2.0, Svelte 5.57.3 (runes), `@sveltejs/vite-plugin-svelte` 7.3.1, Vite 8.3.8
 - `@sveltejs/adapter-static` 4.0.1, `@sveltejs/adapter-node` 6.0.2
 - TypeScript 6.0.3, svelte-check 4.7.8 (dev only; `npm run check` passes with 0 errors, 0 warnings)
-- Node 24 (`node:24-alpine`) for build and for the server image, nginx 1.29-alpine for static
+- Node 24 (`node:24-alpine`) for build and for the server image, nginx 1.30-alpine for static
 - Everything is a devDependency: the adapter-node output bundles its dependencies, so the server image
   carries only `build/` and `package.json` (no `node_modules`).
 

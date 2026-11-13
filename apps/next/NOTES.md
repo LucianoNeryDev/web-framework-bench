@@ -6,7 +6,7 @@ Finished: 2026-11-13 15:49 UTC
 ## Versions
 - Next.js 16.4.6 (App Router, React Server Components, Turbopack production build), pinned exactly
 - React / React DOM 19.3.1
-- Node 24.22.3 (`node:24.22.3-alpine3.23`) for build and run; nginx 1.29-alpine for the static image
+- Node 24.22.3 (`node:24.22.3-alpine3.23`) for build and run; nginx 1.30-alpine for the static image
 - No other dependencies: plain JavaScript (JSX), no TypeScript, no CSS tooling, no `next/image`, no `next/font`
 
 ## Modes
