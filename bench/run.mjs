@@ -18,7 +18,7 @@ import { request } from "node:http";
 import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { basename, extname, join } from "node:path";
 import {
-  CLIENT_CPUS, PORT, ROOT, TARGET_CPUS, containersOf, edgeBase, targetBase, log, loadResult, memoryNow, oha, posts, restartTarget, saveResult,
+  CLIENT_CPUS, PORT, ROOT, TARGET_CPUS, TARGET_IP, dsh, dshAsync, targetUrl, containersOf, edgeBase, targetBase, log, loadResult, memoryNow, oha, posts, restartTarget, saveResult,
   serviceContainer, sh, shAsync, sleep, startEdge, startSampler, startTarget, stopTarget, waitFor,
 } from "./lib.mjs";
 import { select } from "./targets.mjs";
@@ -55,7 +55,7 @@ const median = (xs) => {
 async function conformance(t) {
   await startTarget(t);
   try {
-    const out = sh(`node bench/conformance.mjs http://127.0.0.1:${PORT} ${t.server ? "--server" : ""} 2>&1 || true`);
+    const out = sh(`node bench/conformance.mjs ${targetUrl()} ${t.server ? "--server" : ""} 2>&1 || true`);
     const last = out.split("\n").at(-1);
     const [passed, total] = last.match(/(\d+)\/(\d+)/).slice(1).map(Number);
     saveResult(t, "conformance", { passed, total, ok: passed === total, failures: out.split("\n").filter((l) => l.startsWith("FAIL")) });
@@ -90,23 +90,23 @@ async function build(t) {
     const t0 = Date.now();
     let out;
     if (t.kind === "image") {
-      out = await shAsync(`docker build --no-cache --progress=plain -f ${t.dockerfile} ${t.buildTarget ? `--target ${t.buildTarget}` : ""} -t ${t.image} . 2>&1`);
+      out = await dshAsync(`docker build --no-cache --progress=plain -f ${t.dockerfile} ${t.buildTarget ? `--target ${t.buildTarget}` : ""} -t ${t.image} . 2>&1`);
     } else {
-      out = await shAsync(`docker compose -p wfb-${t.id} -f ${t.compose} --progress plain build --no-cache 2>&1`, { env: { ...t.env, WFB_PORT: String(PORT) } });
+      out = await dshAsync(`docker compose -p wfb-${t.id} -f ${t.compose} --progress plain build --no-cache 2>&1`, { env: { ...t.env, WFB_PORT: String(PORT) } });
     }
     runs.push((Date.now() - t0) / 1000);
     result = parseSteps(out);
   }
   const images = t.kind === "image"
     ? [t.image]
-    : sh(`docker compose -p wfb-${t.id} -f ${t.compose} config --images`, { env: { ...t.env, WFB_PORT: String(PORT) } }).split("\n").filter(Boolean);
-  const imageMB = +(images.reduce((s, img) => s + Number(sh(`docker image inspect -f '{{.Size}}' ${img}`, { allowFail: true }) || 0), 0) / 2 ** 20).toFixed(1);
+    : dsh(`docker compose -p wfb-${t.id} -f ${t.compose} config --images`, { env: { ...t.env, WFB_PORT: String(PORT) } }).split("\n").filter(Boolean);
+  const imageMB = +(images.reduce((s, img) => s + Number(dsh(`docker image inspect -f '{{.Size}}' ${img}`, { allowFail: true }) || 0), 0) / 2 ** 20).toFixed(1);
   let outputKB = null, outputJsKB = null;
   if (t.mode === "static") {
     const shared = Number(sh(`du -sb shared/public | cut -f1`));
-    const total = Number(sh(`docker run --rm --entrypoint sh ${t.image} -c 'du -sb /usr/share/nginx/html | cut -f1'`));
+    const total = Number(dsh(`docker run --rm --entrypoint sh ${t.image} -c 'du -sb /usr/share/nginx/html | cut -f1'`));
     outputKB = +((total - shared) / 1024).toFixed(1);
-    outputJsKB = +(Number(sh(`docker run --rm --entrypoint sh ${t.image} -c "find /usr/share/nginx/html -name '*.js' ! -path '*/app.js' -exec cat {} + | wc -c"`)) / 1024).toFixed(1);
+    outputJsKB = +(Number(dsh(`docker run --rm --entrypoint sh ${t.image} -c "find /usr/share/nginx/html -name '*.js' ! -path '*/app.js' -exec cat {} + | wc -c"`)) / 1024).toFixed(1);
   }
   saveResult(t, "build", {
     coldBuildSeconds: +median(runs).toFixed(1), runs, installSeconds: result.installSeconds, buildSeconds: result.buildSeconds,
@@ -127,9 +127,9 @@ async function load(t) {
     for (const [name, path] of Object.entries(ROUTES)) {
       await oha(t, path, { concurrency: 10, seconds: 5 }); // warm up this route (JIT, opcache, template caches)
       for (const c of CONCURRENCY) {
-        const sampler = startSampler(containers);
+        const sampler = await startSampler(containers);
         const r = await oha(t, path, { concurrency: c, seconds: DURATION });
-        runs[`${name}@${c}`] = { route: path, concurrency: c, ...r, ...sampler.stop() };
+        runs[`${name}@${c}`] = { route: path, concurrency: c, ...r, ...(await sampler.stop()) };
         log(`${t.id} ${name}@${c}: ${r.rps} rps, p50 ${r.p50} ms, p99 ${r.p99} ms, errors ${r.errors}, non-2xx ${JSON.stringify(r.status)}`);
         await sleep(2000);
       }
@@ -306,7 +306,7 @@ async function interact(t) {
 
 function rawRequest(method, path, headers = {}) {
   return new Promise((resolve) => {
-    const req = request({ host: "127.0.0.1", port: PORT, method, path, headers, timeout: 15_000 }, (res) => {
+    const req = request({ host: TARGET_IP, port: PORT, method, path, headers, timeout: 15_000 }, (res) => {
       let body = "";
       res.setEncoding("utf8");
       res.on("data", (d) => (body += d.length + body.length < 2e6 ? d : ""));
@@ -371,9 +371,9 @@ async function robust(t) {
 
     // 2. Overload: 1000 concurrent connections on a post page.
     {
-      const sampler = startSampler(containers);
+      const sampler = await startSampler(containers);
       const r = await oha(t, POST, { concurrency: 1000, seconds: 15 });
-      out.overload = { ...r, ...sampler.stop() };
+      out.overload = { ...r, ...(await sampler.stop()) };
       const alive = await rawRequest("GET", "/");
       out.overload.healthyAfter = alive.status === 200;
       log(`${t.id} overload: ${r.rps} rps, success ${r.successRate}, p99 ${r.p99} ms`);
@@ -384,9 +384,9 @@ async function robust(t) {
       const urls = [...["/", "/blog", "/about", "/blog?q=cache"], ...posts.map((p) => `/blog/${p.slug}`)].map((p) => `${targetBase(t)}${p}`);
       writeFileSync(join(ROOT, "results/tmp/soak-urls.txt"), urls.join("\n") + "\n", { mode: 0o644 });
       const memStart = memoryNow(containers);
-      const sampler = startSampler(containers, 1000);
+      const sampler = await startSampler(containers, 1000);
       const r = await oha(t, null, { concurrency: 50, seconds: SOAK, urlsFile: join(ROOT, "results/tmp/soak-urls.txt") });
-      const s = sampler.stop();
+      const s = await sampler.stop();
       out.soak = { seconds: SOAK, ...r, ...s, memStartMB: +(memStart / 2 ** 20).toFixed(1), memGrowthMB: +(s.memEndMB - memStart / 2 ** 20).toFixed(1) };
       log(`${t.id} soak: ${r.rps} rps, errors ${r.errors}, memory ${out.soak.memStartMB} -> ${s.memEndMB} MB`);
     }
@@ -394,13 +394,13 @@ async function robust(t) {
     // 4. Crash: SIGKILL the application container, start it again, time until / is 200.
     {
       const victim = serviceContainer(t, t.appService ?? null);
-      sh(`docker kill -s KILL ${victim} >/dev/null`);
+      dsh(`docker kill -s KILL ${victim} >/dev/null`);
       const during = await rawRequest("GET", "/");
       const t0 = Date.now();
-      sh(`docker start ${victim} >/dev/null`);
-      if (t.kind === "image") sh(`docker update --cpuset-cpus ${TARGET_CPUS} ${victim} >/dev/null`, { allowFail: true });
+      dsh(`docker start ${victim} >/dev/null`);
+      if (t.kind === "image") dsh(`docker update --cpuset-cpus ${TARGET_CPUS} ${victim} >/dev/null`, { allowFail: true });
       // Recovery is checked on a cache-busting URL: a page cache answering from memory is not a recovered backend.
-      await waitFor(`http://127.0.0.1:${PORT}/?wfb-recovery=${Date.now()}`, { timeout: 300_000 });
+      await waitFor(`${targetUrl()}/?wfb-recovery=${Date.now()}`, { timeout: 300_000 });
       out.crash = { statusWhileDown: during.status, recoveryMs: Date.now() - t0 };
       log(`${t.id} crash: while down ${during.status}, recovered in ${out.crash.recoveryMs} ms`);
     }
@@ -408,14 +408,14 @@ async function robust(t) {
     // 5. Database outage, for targets that have one.
     if (t.db) {
       const db = serviceContainer(t, t.db);
-      sh(`docker stop -t 5 ${db} >/dev/null`);
+      dsh(`docker stop -t 5 ${db} >/dev/null`);
       await sleep(2000);
       const home = await rawRequest("GET", "/");
       const post = await rawRequest("GET", POST);
       const t0 = Date.now();
-      sh(`docker start ${db} >/dev/null`);
+      dsh(`docker start ${db} >/dev/null`);
       let recoveredMs = null;
-      try { await waitFor(`http://127.0.0.1:${PORT}${POST}?wfb-recovery=${Date.now()}`, { timeout: 180_000 }); recoveredMs = Date.now() - t0; } catch {}
+      try { await waitFor(`${targetUrl()}${POST}?wfb-recovery=${Date.now()}`, { timeout: 180_000 }); recoveredMs = Date.now() - t0; } catch {}
       out.dbOutage = { homeWhileDown: home.status, postWhileDown: post.status, recoveredWithoutAppRestartMs: recoveredMs };
       log(`${t.id} db outage: / ${home.status}, post ${post.status}, recovered ${recoveredMs} ms`);
     }
@@ -497,7 +497,7 @@ async function npmAudit(app) {
 function trivy(images) {
   const totals = { os: { HIGH: 0, CRITICAL: 0 }, lang: { HIGH: 0, CRITICAL: 0 } };
   for (const img of images) {
-    const out = sh(`docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v wfb-trivy-cache:/root/.cache aquasec/trivy:0.76.2 ` +
+    const out = dsh(`docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v wfb-trivy-cache:/root/.cache aquasec/trivy:0.76.2 ` +
       `image --quiet --format json --scanners vuln --severity HIGH,CRITICAL ${img}`, { allowFail: true, timeout: 20 * 60_000 });
     if (!out) { totals.errors = [...(totals.errors || []), img]; continue; }
     for (const res of JSON.parse(out).Results || []) {
