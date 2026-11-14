@@ -428,7 +428,7 @@ async function robust(t) {
 // --- code ------------------------------------------------------------------------------------
 
 const LOCKFILES = new Set(["package-lock.json", "pnpm-lock.yaml", "yarn.lock", "bun.lock", "bun.lockb", "composer.lock", "go.sum"]);
-const SKIP = (f) => LOCKFILES.has(basename(f)) || /\.min\.(js|css)$/.test(f) || /(^|\/)(NOTES|README)\.md$/.test(f) || /\.(webp|png|jpg|ico|svg|woff2?)$/.test(f);
+const SKIP = (f) => LOCKFILES.has(basename(f)) || /\.lock$/.test(f) || /\.min\.(js|css)$/.test(f) || /(^|\/)(NOTES|README)\.md$/.test(f) || /\.(webp|png|jpg|ico|svg|woff2?)$/.test(f);
 
 function sourceStats(app) {
   const files = sh(`git ls-files -co --exclude-standard apps/${app}`).split("\n").filter(Boolean).filter((f) => !SKIP(f) && existsSync(join(ROOT, f)));
