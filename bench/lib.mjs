@@ -12,8 +12,10 @@ export const NET = "wfb-bench";
 export const RUN = "wfb-run"; // container name / network alias of the target entry point
 export const EDGE = "wfb-edge";
 // The target gets two dedicated cores; load generators and browsers run on the others.
+// i7-4790S: 4 cores x 2 threads; logical CPUs n and n+4 share a physical core. The target owns physical cores 0
+// and 1 (CPUs 0,1) with their SMT siblings 4,5 left idle; clients use physical cores 2 and 3 (CPUs 2,3,6,7).
 export const TARGET_CPUS = process.env.WFB_TARGET_CPUS || "0,1";
-export const CLIENT_CPUS = process.env.WFB_CLIENT_CPUS || "4-7";
+export const CLIENT_CPUS = process.env.WFB_CLIENT_CPUS || "2,3,6,7";
 export const TARGET_MEM = process.env.WFB_TARGET_MEM || "1g";
 // oha 1.16.0 release binary (bench/bin/oha, see bench/setup.sh); runs on the host, pinned with the harness.
 export const OHA = process.env.WFB_OHA || join(dirname(fileURLToPath(import.meta.url)), "bin", "oha");

@@ -7,12 +7,15 @@ Every target builds the same site ([contract](site-spec.md)) and must pass the
 
 ## Hardware and isolation
 
-- One machine (8 cores, 16 GB RAM, Debian 13, Docker 26). Nothing else is meant to run during a measurement.
-- **The target gets two cores and 1 GiB per container** (`--cpuset-cpus 0,1 --memory 1g`). Multi-container
+- One machine: Intel Core i7-4790S (4 cores, 8 threads, 3.2-4.0 GHz), 16 GB RAM, Debian 13, Docker 26. It
+  is a shared home server: a CI runner and two idle databases kept running, so expect some noise.
+- **The target gets two physical cores and 1 GiB per container** (`--cpuset-cpus 0,1 --memory 1g`). The
+  SMT siblings of those cores (logical CPUs 4 and 5) stay idle, so nothing competes with the target through
+  hyperthreading. Multi-container
   targets (a CMS with its database, PHP-FPM behind nginx) keep the same per-container limits and share the
   same two cores. That is how a small VPS runs them.
-- **Clients run on other cores** (4-7): the load generator, the edge proxy, Chromium and the harness itself
-  (`taskset`). Load and target never compete for the same cores.
+- **Clients run on the other two physical cores** (logical CPUs 2, 3, 6, 7): the load generator, the edge
+  proxy, Chromium and the harness itself (`taskset`). Load and target never share a physical core.
 - The load generator ([oha](https://github.com/hatoo/oha)) runs in a container on a dedicated Docker network
   and talks to the target directly, without compression. That measures the framework, not gzip.
 - Browser measurements go through an **edge proxy**: one nginx with identical gzip settings in front of every

@@ -18,7 +18,7 @@ import { request } from "node:http";
 import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { basename, extname, join } from "node:path";
 import {
-  CLIENT_CPUS, PORT, ROOT, containersOf, edgeBase, targetBase, log, loadResult, memoryNow, oha, posts, restartTarget, saveResult,
+  CLIENT_CPUS, PORT, ROOT, TARGET_CPUS, containersOf, edgeBase, targetBase, log, loadResult, memoryNow, oha, posts, restartTarget, saveResult,
   serviceContainer, sh, shAsync, sleep, startEdge, startSampler, startTarget, stopTarget, waitFor,
 } from "./lib.mjs";
 import { select } from "./targets.mjs";
@@ -398,7 +398,7 @@ async function robust(t) {
       const during = await rawRequest("GET", "/");
       const t0 = Date.now();
       sh(`docker start ${victim} >/dev/null`);
-      if (t.kind === "image") sh(`docker update --cpuset-cpus 0,1 ${victim} >/dev/null`, { allowFail: true });
+      if (t.kind === "image") sh(`docker update --cpuset-cpus ${TARGET_CPUS} ${victim} >/dev/null`, { allowFail: true });
       // Recovery is checked on a cache-busting URL: a page cache answering from memory is not a recovered backend.
       await waitFor(`http://127.0.0.1:${PORT}/?wfb-recovery=${Date.now()}`, { timeout: 300_000 });
       out.crash = { statusWhileDown: during.status, recoveryMs: Date.now() - t0 };
