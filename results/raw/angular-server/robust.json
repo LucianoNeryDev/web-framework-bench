@@ -1,0 +1,226 @@
+{
+  "target": "angular-server",
+  "phase": "robust",
+  "at": "2026-11-14T11:19:13.434Z",
+  "probes": [
+    {
+      "name": "traversal-encoded",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "traversal-slash",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "null-byte",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "invalid-utf8",
+      "method": "GET",
+      "status": 500,
+      "serverError": true,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "xss-query",
+      "method": "GET",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "array-param",
+      "method": "GET",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "long-query",
+      "method": "GET",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "long-path",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "huge-cookie",
+      "method": "GET",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "head",
+      "method": "HEAD",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "post-page",
+      "method": "POST",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "options",
+      "method": "OPTIONS",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "delete",
+      "method": "DELETE",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "trailing-slash",
+      "method": "GET",
+      "status": 200,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "uppercase",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "dotenv",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "git-config",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "package-json",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "composer-json",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    },
+    {
+      "name": "server-source",
+      "method": "GET",
+      "status": 404,
+      "serverError": false,
+      "reflected": false,
+      "exposed": false
+    }
+  ],
+  "probeSummary": {
+    "serverErrors": [
+      "invalid-utf8:500"
+    ],
+    "reflectedXss": false,
+    "exposedFiles": []
+  },
+  "overload": {
+    "rps": 154.6,
+    "successRate": 0.5758942958427329,
+    "requests": 1787,
+    "errors": 1316,
+    "status": {
+      "200": 1787
+    },
+    "errorKinds": {
+      "timeout": 1316
+    },
+    "p50": 3150.91,
+    "p90": 3596.29,
+    "p99": 3812.59,
+    "p999": 7401.17,
+    "max": 8491.88,
+    "mean": 3235.92,
+    "bytesPerReq": 19038,
+    "memPeakMB": 351.6,
+    "memAvgMB": 296.7,
+    "memEndMB": 348.2,
+    "cpuCores": 1.417,
+    "healthyAfter": true
+  },
+  "soak": {
+    "seconds": 180,
+    "rps": 116.9,
+    "successRate": 1,
+    "requests": 21081,
+    "errors": 0,
+    "status": {
+      "200": 21081
+    },
+    "errorKinds": {},
+    "p50": 427.14,
+    "p90": 464.26,
+    "p99": 505.46,
+    "p999": 1498.59,
+    "max": 3985.16,
+    "mean": 427.34,
+    "bytesPerReq": 18501,
+    "memPeakMB": 348.5,
+    "memAvgMB": 186,
+    "memEndMB": 172.9,
+    "cpuCores": 1.374,
+    "memStartMB": 348.2,
+    "memGrowthMB": -175.3
+  },
+  "crash": {
+    "statusWhileDown": "error:ECONNREFUSED",
+    "recoveryMs": 788
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "target": "react-router-static",
+  "phase": "code",
+  "at": "2026-11-14T11:58:32.084Z",
+  "source": {
+    "files": 24,
+    "lines": 671,
+    "byExt": {
+      ".gitignore": 6,
+      "Dockerfile": 37,
+      ".dockerignore": 6,
+      ".tsx": 420,
+      ".ts": 156,
+      ".json": 46
+    }
+  },
+  "dependencies": {
+    "direct": 12,
+    "transitive": 218,
+    "ecosystems": [
+      "npm"
+    ]
+  },
+  "npmAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "trivy": {
+    "os": {
+      "HIGH": 3,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  }
+}

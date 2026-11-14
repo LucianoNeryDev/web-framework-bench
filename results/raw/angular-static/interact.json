@@ -1,0 +1,69 @@
+{
+  "target": "angular-static",
+  "phase": "interact",
+  "at": "2026-11-14T12:22:15.054Z",
+  "profile": "412x823, 4x CPU slowdown, 150 ms RTT, 1.6 Mbps down",
+  "runs": 5,
+  "summary": {
+    "filterReadyMs": 1418.5999999999767,
+    "domContentLoaded": 1179,
+    "load": 1179,
+    "fcp": 304,
+    "scriptBytes": 99254,
+    "scriptCount": 3,
+    "inpMs": 152,
+    "interactions": 12
+  },
+  "samples": [
+    {
+      "filterReadyMs": 1418.5999999999767,
+      "domContentLoaded": 1180.6999999999534,
+      "load": 1181.5999999999767,
+      "fcp": 320,
+      "scriptBytes": 99254,
+      "scriptCount": 3,
+      "inpMs": 152,
+      "interactions": 12
+    },
+    {
+      "filterReadyMs": 1411.5,
+      "domContentLoaded": 1174.1999999999534,
+      "load": 1174.2999999998137,
+      "fcp": 304,
+      "scriptBytes": 99254,
+      "scriptCount": 3,
+      "inpMs": 160,
+      "interactions": 12
+    },
+    {
+      "filterReadyMs": 1424.2000000001863,
+      "domContentLoaded": 1179.1000000000931,
+      "load": 1179.1000000000931,
+      "fcp": 228,
+      "scriptBytes": 99254,
+      "scriptCount": 3,
+      "inpMs": 152,
+      "interactions": 12
+    },
+    {
+      "filterReadyMs": 1431.1999999999534,
+      "domContentLoaded": 1179,
+      "load": 1179,
+      "fcp": 312,
+      "scriptBytes": 99254,
+      "scriptCount": 3,
+      "inpMs": 152,
+      "interactions": 12
+    },
+    {
+      "filterReadyMs": 1416.9000000001397,
+      "domContentLoaded": 1169.7000000001863,
+      "load": 1169.7000000001863,
+      "fcp": 300,
+      "scriptBytes": 99254,
+      "scriptCount": 3,
+      "inpMs": 144,
+      "interactions": 12
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "target": "next-static",
+  "phase": "code",
+  "at": "2026-11-14T11:58:07.009Z",
+  "source": {
+    "files": 26,
+    "lines": 544,
+    "byExt": {
+      ".gitignore": 7,
+      "Dockerfile": 38,
+      ".dockerignore": 10,
+      ".jsx": 370,
+      ".js": 74,
+      ".mjs": 31,
+      ".json": 14
+    }
+  },
+  "dependencies": {
+    "direct": 3,
+    "transitive": 54,
+    "ecosystems": [
+      "npm"
+    ]
+  },
+  "npmAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "trivy": {
+    "os": {
+      "HIGH": 3,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  }
+}

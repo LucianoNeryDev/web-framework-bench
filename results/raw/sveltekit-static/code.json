@@ -1,0 +1,42 @@
+{
+  "target": "sveltekit-static",
+  "phase": "code",
+  "at": "2026-11-14T11:58:25.245Z",
+  "source": {
+    "files": 31,
+    "lines": 589,
+    "byExt": {
+      ".gitignore": 5,
+      "Dockerfile": 36,
+      ".dockerignore": 7,
+      ".json": 32,
+      ".ts": 208,
+      ".html": 14,
+      ".svelte": 287
+    }
+  },
+  "dependencies": {
+    "direct": 9,
+    "transitive": 89,
+    "ecosystems": [
+      "npm"
+    ]
+  },
+  "npmAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "trivy": {
+    "os": {
+      "HIGH": 3,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  }
+}

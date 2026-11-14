@@ -1,0 +1,87 @@
+{
+  "target": "nuxt-server",
+  "phase": "build",
+  "at": "2026-11-14T07:37:09.211Z",
+  "coldBuildSeconds": 27.9,
+  "runs": [
+    27.855
+  ],
+  "installSeconds": 8.6,
+  "buildSeconds": 8.7,
+  "steps": [
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/node:26.13.0-slim",
+      "seconds": 0.7
+    },
+    {
+      "step": "FROM docker.io/library/node:26.13.0-slim@sha256:5adad64f9a1fca2d51972caa65983634c8a774eb300d72b20f7f2a0f60368072",
+      "seconds": 3.3
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "WORKDIR /app",
+      "seconds": 1.6
+    },
+    {
+      "step": "WORKDIR /repo/apps/nuxt",
+      "seconds": 1.6
+    },
+    {
+      "step": "COPY apps/nuxt/package.json apps/nuxt/package-lock.json ./",
+      "seconds": 0
+    },
+    {
+      "step": "RUN npm ci --no-audit --no-fund",
+      "seconds": 8.6
+    },
+    {
+      "step": "COPY content/posts.json /repo/content/posts.json",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY apps/nuxt/nuxt.config.ts ./",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/nuxt/app ./app",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/nuxt/server ./server",
+      "seconds": 0
+    },
+    {
+      "step": "COPY shared/public/ ./public/",
+      "seconds": 0
+    },
+    {
+      "step": "RUN chmod -R a+rX /repo/content /repo/apps/nuxt/app /repo/apps/nuxt/server /repo/apps/nuxt/public /repo/apps/nuxt/nuxt.c",
+      "seconds": 0.4
+    },
+    {
+      "step": "RUN npm run build",
+      "seconds": 8.5
+    },
+    {
+      "step": "COPY --from=build-server /repo/apps/nuxt/.output ./.output",
+      "seconds": 0.1
+    },
+    {
+      "step": "RUN chmod -R a+rX /app",
+      "seconds": 0.6
+    }
+  ],
+  "images": [
+    "wfb/nuxt:server"
+  ],
+  "imageMB": 344.1,
+  "outputKB": null,
+  "outputJsKB": null
+}

@@ -1,0 +1,33 @@
+{
+  "target": "hugo",
+  "phase": "code",
+  "at": "2026-11-14T11:57:54.672Z",
+  "source": {
+    "files": 20,
+    "lines": 243,
+    "byExt": {
+      ".gitignore": 9,
+      "Dockerfile": 16,
+      ".md": 14,
+      ".toml": 25,
+      ".html": 151,
+      ".xml": 28
+    }
+  },
+  "dependencies": {
+    "direct": 0,
+    "transitive": 0,
+    "ecosystems": []
+  },
+  "npmAudit": null,
+  "trivy": {
+    "os": {
+      "HIGH": 3,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  }
+}

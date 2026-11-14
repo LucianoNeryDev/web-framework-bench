@@ -1,0 +1,91 @@
+{
+  "target": "astro-static",
+  "phase": "build",
+  "at": "2026-11-14T07:38:35.778Z",
+  "coldBuildSeconds": 18.1,
+  "runs": [
+    18.115
+  ],
+  "installSeconds": 6.4,
+  "buildSeconds": 2.6,
+  "steps": [
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/nginx:1.30-alpine",
+      "seconds": 0.8
+    },
+    {
+      "step": "load metadata for docker.io/library/node:26-slim",
+      "seconds": 0.8
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM docker.io/library/node:26-slim@sha256:e6bedef217677b276c591795e169840edd9096dbf13f29df8ef8d1856b8820bc",
+      "seconds": 4.9
+    },
+    {
+      "step": "FROM docker.io/library/nginx:1.30-alpine@sha256:901e593c95dc85f5a729f5765516321366ef4ac401821431d408897e95287d0a",
+      "seconds": 1.9
+    },
+    {
+      "step": "COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf",
+      "seconds": 2.1
+    },
+    {
+      "step": "WORKDIR /app",
+      "seconds": 1
+    },
+    {
+      "step": "COPY apps/astro/package.json apps/astro/package-lock.json ./",
+      "seconds": 0
+    },
+    {
+      "step": "RUN npm ci",
+      "seconds": 6.4
+    },
+    {
+      "step": "COPY apps/astro/ ./",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY content/posts.json src/data/posts.json",
+      "seconds": 0
+    },
+    {
+      "step": "COPY shared/public/ public/",
+      "seconds": 0
+    },
+    {
+      "step": "RUN rm -f public/app.js",
+      "seconds": 0.2
+    },
+    {
+      "step": "RUN chmod -R a+rX public src *.json *.mjs",
+      "seconds": 0.4
+    },
+    {
+      "step": "RUN npx astro build",
+      "seconds": 2.5
+    },
+    {
+      "step": "COPY --from=build-static /app/dist/ /usr/share/nginx/html/",
+      "seconds": 0
+    },
+    {
+      "step": "RUN chmod -R a+rX /usr/share/nginx/html",
+      "seconds": 0.4
+    }
+  ],
+  "images": [
+    "wfb/astro:static"
+  ],
+  "imageMB": 91.9,
+  "outputKB": 628.8,
+  "outputJsKB": 0
+}

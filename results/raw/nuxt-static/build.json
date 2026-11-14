@@ -1,0 +1,99 @@
+{
+  "target": "nuxt-static",
+  "phase": "build",
+  "at": "2026-11-14T07:36:40.243Z",
+  "coldBuildSeconds": 23.9,
+  "runs": [
+    23.902
+  ],
+  "installSeconds": 8.8,
+  "buildSeconds": 6.9,
+  "steps": [
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/nginx:1.30-alpine",
+      "seconds": 0.6
+    },
+    {
+      "step": "load metadata for docker.io/library/node:26.13.0-slim",
+      "seconds": 1.1
+    },
+    {
+      "step": "FROM docker.io/library/nginx:1.30-alpine@sha256:901e593c95dc85f5a729f5765516321366ef4ac401821431d408897e95287d0a",
+      "seconds": 1.7
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM docker.io/library/node:26.13.0-slim@sha256:5adad64f9a1fca2d51972caa65983634c8a774eb300d72b20f7f2a0f60368072",
+      "seconds": 4.1
+    },
+    {
+      "step": "COPY shared/nginx/static.conf /etc/nginx/conf.d/default.conf",
+      "seconds": 0.7
+    },
+    {
+      "step": "COPY shared/public/ /usr/share/nginx/html/",
+      "seconds": 0.4
+    },
+    {
+      "step": "WORKDIR /repo/apps/nuxt",
+      "seconds": 0.9
+    },
+    {
+      "step": "COPY apps/nuxt/package.json apps/nuxt/package-lock.json ./",
+      "seconds": 0
+    },
+    {
+      "step": "RUN npm ci --no-audit --no-fund",
+      "seconds": 8.8
+    },
+    {
+      "step": "COPY content/posts.json /repo/content/posts.json",
+      "seconds": 0.2
+    },
+    {
+      "step": "COPY apps/nuxt/nuxt.config.ts ./",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/nuxt/app ./app",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/nuxt/server ./server",
+      "seconds": 0
+    },
+    {
+      "step": "COPY shared/public/ ./public/",
+      "seconds": 0
+    },
+    {
+      "step": "RUN chmod -R a+rX /repo/content /repo/apps/nuxt/app /repo/apps/nuxt/server /repo/apps/nuxt/public /repo/apps/nuxt/nuxt.c",
+      "seconds": 0.4
+    },
+    {
+      "step": "RUN npm run generate",
+      "seconds": 6.8
+    },
+    {
+      "step": "COPY --from=build-static /repo/apps/nuxt/.output/public/ /usr/share/nginx/html/",
+      "seconds": 0
+    },
+    {
+      "step": "RUN chmod -R a+rX /usr/share/nginx/html /etc/nginx/conf.d",
+      "seconds": 0.5
+    }
+  ],
+  "images": [
+    "wfb/nuxt:static"
+  ],
+  "imageMB": 95.6,
+  "outputKB": 1492.9,
+  "outputJsKB": 218
+}

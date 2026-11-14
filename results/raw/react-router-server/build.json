@@ -1,0 +1,83 @@
+{
+  "target": "react-router-server",
+  "phase": "build",
+  "at": "2026-11-14T07:40:26.645Z",
+  "coldBuildSeconds": 20.9,
+  "runs": [
+    20.889
+  ],
+  "installSeconds": 12.4,
+  "buildSeconds": 2.4,
+  "steps": [
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/node:24.22.3-alpine",
+      "seconds": 0.6
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM docker.io/library/node:24.22.3-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5",
+      "seconds": 1.8
+    },
+    {
+      "step": "WORKDIR /app",
+      "seconds": 1.1
+    },
+    {
+      "step": "COPY apps/react-router/package.json apps/react-router/package-lock.json ./",
+      "seconds": 0
+    },
+    {
+      "step": "RUN npm ci --omit=dev --no-audit --no-fund",
+      "seconds": 5.5
+    },
+    {
+      "step": "RUN npm ci --no-audit --no-fund",
+      "seconds": 6.9
+    },
+    {
+      "step": "COPY apps/react-router/react-router.config.ts apps/react-router/vite.config.ts apps/react-router/tsconfig.json ./",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY apps/react-router/app/ app/",
+      "seconds": 0
+    },
+    {
+      "step": "COPY content/posts.json app/data/posts.json",
+      "seconds": 0
+    },
+    {
+      "step": "COPY shared/public/ public/",
+      "seconds": 0
+    },
+    {
+      "step": "RUN chmod -R a+rX /app/app /app/public",
+      "seconds": 0.4
+    },
+    {
+      "step": "RUN npm run build && chmod -R a+rX /app/build",
+      "seconds": 2.2
+    },
+    {
+      "step": "COPY --from=build-server /app/build ./build",
+      "seconds": 0.1
+    },
+    {
+      "step": "RUN chmod -R a+rX /app",
+      "seconds": 3.2
+    }
+  ],
+  "images": [
+    "wfb/react-router:server"
+  ],
+  "imageMB": 331.2,
+  "outputKB": null,
+  "outputJsKB": null
+}

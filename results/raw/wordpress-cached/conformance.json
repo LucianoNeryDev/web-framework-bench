@@ -1,0 +1,9 @@
+{
+  "target": "wordpress-cached",
+  "phase": "conformance",
+  "at": "2026-11-14T07:48:41.767Z",
+  "passed": 1259,
+  "total": 1259,
+  "ok": true,
+  "failures": []
+}

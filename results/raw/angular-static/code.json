@@ -1,0 +1,41 @@
+{
+  "target": "angular-static",
+  "phase": "code",
+  "at": "2026-11-14T11:58:39.055Z",
+  "source": {
+    "files": 29,
+    "lines": 796,
+    "byExt": {
+      ".gitignore": 5,
+      "Dockerfile": 36,
+      ".json": 106,
+      ".ts": 589,
+      ".html": 14,
+      ".mjs": 46
+    }
+  },
+  "dependencies": {
+    "direct": 16,
+    "transitive": 436,
+    "ecosystems": [
+      "npm"
+    ]
+  },
+  "npmAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "trivy": {
+    "os": {
+      "HIGH": 3,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  }
+}

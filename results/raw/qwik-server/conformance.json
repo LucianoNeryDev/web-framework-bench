@@ -1,0 +1,9 @@
+{
+  "target": "qwik-server",
+  "phase": "conformance",
+  "at": "2026-11-14T07:47:08.008Z",
+  "passed": 1257,
+  "total": 1257,
+  "ok": true,
+  "failures": []
+}

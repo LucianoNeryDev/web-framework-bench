@@ -1,0 +1,34 @@
+{
+  "target": "wordpress",
+  "phase": "code",
+  "at": "2026-11-14T11:59:16.115Z",
+  "source": {
+    "files": 21,
+    "lines": 970,
+    "byExt": {
+      ".gitignore": 1,
+      "Dockerfile": 39,
+      ".yaml": 65,
+      ".sh": 33,
+      ".conf": 73,
+      ".php": 751,
+      ".css": 8
+    }
+  },
+  "dependencies": {
+    "direct": 0,
+    "transitive": 0,
+    "ecosystems": []
+  },
+  "npmAudit": null,
+  "trivy": {
+    "os": {
+      "HIGH": 3,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 25,
+      "CRITICAL": 1
+    }
+  }
+}

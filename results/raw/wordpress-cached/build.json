@@ -1,0 +1,6 @@
+{
+  "target": "wordpress-cached",
+  "phase": "build",
+  "at": "2026-11-14T07:44:12.268Z",
+  "sharedWith": "wordpress"
+}

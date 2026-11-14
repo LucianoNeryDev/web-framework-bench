@@ -1,0 +1,133 @@
+{
+  "target": "wordpress",
+  "phase": "build",
+  "at": "2026-11-14T07:44:12.268Z",
+  "coldBuildSeconds": 27.3,
+  "runs": [
+    27.326
+  ],
+  "installSeconds": 0,
+  "buildSeconds": 0.2,
+  "steps": [
+    {
+      "step": "load local bake definitions",
+      "seconds": 0
+    },
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/wordpress:7.1.4-php8.5-fpm-alpine",
+      "seconds": 1
+    },
+    {
+      "step": "load metadata for docker.io/library/nginx:1.30-alpine",
+      "seconds": 0.8
+    },
+    {
+      "step": "load .dockerignore",
+      "seconds": 0
+    },
+    {
+      "step": "FROM docker.io/library/wordpress:7.1.4-php8.5-fpm-alpine@sha256:b7c701c23c9f3e45b0e15c6e318c80933bcc6d0d79f08c4d5b10631b",
+      "seconds": 5.5
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM docker.io/library/nginx:1.30-alpine@sha256:901e593c95dc85f5a729f5765516321366ef4ac401821431d408897e95287d0a",
+      "seconds": 1.8
+    },
+    {
+      "step": "RUN cp -a /usr/src/wordpress /var/www/wordpress  && rm -rf /var/www/wordpress/wp-content/themes/twenty* /var/www/wordpre",
+      "seconds": 5.3
+    },
+    {
+      "step": "RUN curl -fsSL -o /usr/local/bin/wp \"https://github.com/wp-cli/wp-cli/releases/download/v2.12.0/wp-cli-2.12.0.phar\"  && ",
+      "seconds": 5.3
+    },
+    {
+      "step": "COPY --from=docroot /var/www/wordpress /var/www/wordpress",
+      "seconds": 1.8
+    },
+    {
+      "step": "COPY --from=docroot /var/www/wordpress /var/www/wordpress",
+      "seconds": 1.8
+    },
+    {
+      "step": "COPY apps/wordpress/wp-config.php /var/www/wordpress/wp-config.php",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY apps/wordpress/docker/nginx/server.conf apps/wordpress/docker/nginx/cached.conf /etc/nginx/wfb/",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY apps/wordpress/docker/nginx/05-wfb-cache.sh /docker-entrypoint.d/05-wfb-cache.sh",
+      "seconds": 0
+    },
+    {
+      "step": "COPY content/posts.json apps/wordpress/docker/seed.php /usr/src/wfb/",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/wordpress/docker/wfb-entrypoint.sh /usr/local/bin/wfb-entrypoint.sh",
+      "seconds": 0
+    },
+    {
+      "step": "COPY shared/public/ /var/www/wordpress/",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/wordpress/wp-content/ /var/www/wordpress/wp-content/",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/wordpress/wp-content/ /var/www/wordpress/wp-content/",
+      "seconds": 0
+    },
+    {
+      "step": "RUN cd /var/www/wordpress && chmod a+rX . && chmod -R a+rX /etc/nginx/wfb wp-content style.css app.js favicon.svg images",
+      "seconds": 0.7
+    },
+    {
+      "step": "RUN php -r 'foreach ([\"AUTH_KEY\",\"SECURE_AUTH_KEY\",\"LOGGED_IN_KEY\",\"NONCE_KEY\",\"AUTH_SALT\",\"SECURE_AUTH_SALT\",\"LOGGED_IN",
+      "seconds": 0.5
+    },
+    {
+      "step": "WORKDIR /var/www/wordpress",
+      "seconds": 0.1
+    },
+    {
+      "step": "exporting to image",
+      "seconds": 11.5
+    },
+    {
+      "step": "exporting to image",
+      "seconds": 7.9
+    },
+    {
+      "step": "resolving provenance for metadata file",
+      "seconds": 0
+    },
+    {
+      "step": "resolving provenance for metadata file",
+      "seconds": 0
+    }
+  ],
+  "images": [
+    "wfb/wordpress:nginx",
+    "mariadb:12.3.3",
+    "wfb/wordpress:fpm"
+  ],
+  "imageMB": 803.3,
+  "outputKB": null,
+  "outputJsKB": null
+}

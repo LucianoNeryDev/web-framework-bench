@@ -1,0 +1,42 @@
+{
+  "target": "astro-server",
+  "phase": "code",
+  "at": "2026-11-14T11:58:23.039Z",
+  "source": {
+    "files": 20,
+    "lines": 352,
+    "byExt": {
+      ".gitignore": 6,
+      "Dockerfile": 38,
+      ".dockerignore": 5,
+      ".mjs": 12,
+      ".json": 17,
+      ".astro": 224,
+      ".ts": 50
+    }
+  },
+  "dependencies": {
+    "direct": 3,
+    "transitive": 296,
+    "ecosystems": [
+      "npm"
+    ]
+  },
+  "npmAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "trivy": {
+    "os": {
+      "HIGH": 48,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 6,
+      "CRITICAL": 0
+    }
+  }
+}

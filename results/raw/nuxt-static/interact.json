@@ -1,0 +1,69 @@
+{
+  "target": "nuxt-static",
+  "phase": "interact",
+  "at": "2026-11-14T12:18:00.334Z",
+  "profile": "412x823, 4x CPU slowdown, 150 ms RTT, 1.6 Mbps down",
+  "runs": 5,
+  "summary": {
+    "filterReadyMs": 1461.5,
+    "domContentLoaded": 1043.8999999999069,
+    "load": 1043.8999999999069,
+    "fcp": 432,
+    "scriptBytes": 87630,
+    "scriptCount": 9,
+    "inpMs": 176,
+    "interactions": 10
+  },
+  "samples": [
+    {
+      "filterReadyMs": 1441,
+      "domContentLoaded": 1048.5999999999767,
+      "load": 1048.5999999999767,
+      "fcp": 464,
+      "scriptBytes": 87630,
+      "scriptCount": 9,
+      "inpMs": 168,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 1466.0999999999767,
+      "domContentLoaded": 1036,
+      "load": 1036,
+      "fcp": 428,
+      "scriptBytes": 87630,
+      "scriptCount": 9,
+      "inpMs": 176,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 1466.5999999999767,
+      "domContentLoaded": 1043.8999999999069,
+      "load": 1043.8999999999069,
+      "fcp": 420,
+      "scriptBytes": 87630,
+      "scriptCount": 9,
+      "inpMs": 176,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 1461.5,
+      "domContentLoaded": 1045.9000000000233,
+      "load": 1045.9000000000233,
+      "fcp": 432,
+      "scriptBytes": 87630,
+      "scriptCount": 9,
+      "inpMs": 184,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 1460.9000000000233,
+      "domContentLoaded": 1043.0999999999767,
+      "load": 1043.0999999999767,
+      "fcp": 456,
+      "scriptBytes": 87630,
+      "scriptCount": 9,
+      "inpMs": 176,
+      "interactions": 10
+    }
+  ]
+}

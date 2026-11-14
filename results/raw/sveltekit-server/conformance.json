@@ -1,0 +1,9 @@
+{
+  "target": "sveltekit-server",
+  "phase": "conformance",
+  "at": "2026-11-14T07:46:32.048Z",
+  "passed": 1257,
+  "total": 1257,
+  "ok": true,
+  "failures": []
+}

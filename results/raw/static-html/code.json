@@ -1,0 +1,31 @@
+{
+  "target": "static-html",
+  "phase": "code",
+  "at": "2026-11-14T11:57:52.858Z",
+  "source": {
+    "files": 48,
+    "lines": 5180,
+    "byExt": {
+      "Dockerfile": 7,
+      ".html": 4666,
+      ".xml": 335,
+      ".mjs": 172
+    }
+  },
+  "dependencies": {
+    "direct": 0,
+    "transitive": 0,
+    "ecosystems": []
+  },
+  "npmAudit": null,
+  "trivy": {
+    "os": {
+      "HIGH": 3,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  }
+}

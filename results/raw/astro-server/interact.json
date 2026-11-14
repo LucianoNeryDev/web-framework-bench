@@ -1,0 +1,69 @@
+{
+  "target": "astro-server",
+  "phase": "interact",
+  "at": "2026-11-14T12:20:09.329Z",
+  "profile": "412x823, 4x CPU slowdown, 150 ms RTT, 1.6 Mbps down",
+  "runs": 5,
+  "summary": {
+    "filterReadyMs": 549.0999999999767,
+    "domContentLoaded": 438.39999999990687,
+    "load": 493.5999999999767,
+    "fcp": 440,
+    "scriptBytes": 0,
+    "scriptCount": 0,
+    "inpMs": 40,
+    "interactions": 11
+  },
+  "samples": [
+    {
+      "filterReadyMs": 555.0999999999767,
+      "domContentLoaded": 445.0999999999767,
+      "load": 498.5,
+      "fcp": 452,
+      "scriptBytes": 0,
+      "scriptCount": 0,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 545,
+      "domContentLoaded": 434.80000000004657,
+      "load": 491.30000000004657,
+      "fcp": 440,
+      "scriptBytes": 0,
+      "scriptCount": 0,
+      "inpMs": 32,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 534.1000000000931,
+      "domContentLoaded": 424,
+      "load": 484.9000000000233,
+      "fcp": 432,
+      "scriptBytes": 0,
+      "scriptCount": 0,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 556.5,
+      "domContentLoaded": 446.70000000006985,
+      "load": 496.5,
+      "fcp": 448,
+      "scriptBytes": 0,
+      "scriptCount": 0,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 549.0999999999767,
+      "domContentLoaded": 438.39999999990687,
+      "load": 493.5999999999767,
+      "fcp": 436,
+      "scriptBytes": 0,
+      "scriptCount": 0,
+      "inpMs": 40,
+      "interactions": 10
+    }
+  ]
+}

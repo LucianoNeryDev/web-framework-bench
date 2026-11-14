@@ -1,0 +1,69 @@
+{
+  "target": "go-htmx",
+  "phase": "interact",
+  "at": "2026-11-14T12:24:22.170Z",
+  "profile": "412x823, 4x CPU slowdown, 150 ms RTT, 1.6 Mbps down",
+  "runs": 5,
+  "summary": {
+    "filterReadyMs": 1045.9000000001397,
+    "domContentLoaded": 610.3000000000466,
+    "load": 634.6999999999534,
+    "fcp": 444,
+    "scriptBytes": 18587,
+    "scriptCount": 2,
+    "inpMs": 80,
+    "interactions": 5
+  },
+  "samples": [
+    {
+      "filterReadyMs": 1039.1000000000931,
+      "domContentLoaded": 609,
+      "load": 630.7000000001863,
+      "fcp": 440,
+      "scriptBytes": 18587,
+      "scriptCount": 2,
+      "inpMs": 80,
+      "interactions": 5
+    },
+    {
+      "filterReadyMs": 1085.9000000001397,
+      "domContentLoaded": 610.3000000000466,
+      "load": 650.1999999999534,
+      "fcp": 456,
+      "scriptBytes": 18587,
+      "scriptCount": 2,
+      "inpMs": 80,
+      "interactions": 6
+    },
+    {
+      "filterReadyMs": 1056.4000000001397,
+      "domContentLoaded": 621.5,
+      "load": 639.3000000000466,
+      "fcp": 456,
+      "scriptBytes": 18587,
+      "scriptCount": 2,
+      "inpMs": 80,
+      "interactions": 5
+    },
+    {
+      "filterReadyMs": 1031.6000000000931,
+      "domContentLoaded": 607,
+      "load": 627.1000000000931,
+      "fcp": 428,
+      "scriptBytes": 18587,
+      "scriptCount": 2,
+      "inpMs": 24,
+      "interactions": 5
+    },
+    {
+      "filterReadyMs": 1045.9000000001397,
+      "domContentLoaded": 611.9000000001397,
+      "load": 634.6999999999534,
+      "fcp": 444,
+      "scriptBytes": 18587,
+      "scriptCount": 2,
+      "inpMs": 72,
+      "interactions": 6
+    }
+  ]
+}

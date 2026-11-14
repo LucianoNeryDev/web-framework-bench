@@ -1,0 +1,91 @@
+{
+  "target": "go",
+  "phase": "build",
+  "at": "2026-11-14T07:42:47.672Z",
+  "coldBuildSeconds": 38.2,
+  "runs": [
+    38.171
+  ],
+  "installSeconds": 0.3,
+  "buildSeconds": 27.1,
+  "steps": [
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/golang:1.27.4-alpine",
+      "seconds": 1.1
+    },
+    {
+      "step": "load metadata for gcr.io/distroless/static-debian12:nonroot",
+      "seconds": 1.4
+    },
+    {
+      "step": "load .dockerignore",
+      "seconds": 0
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab",
+      "seconds": 3.2
+    },
+    {
+      "step": "FROM docker.io/library/golang:1.27.4-alpine@sha256:0a5f7fe796599ff487605987432e7619ae45beeb2fba4c2ce0b907879932aebf",
+      "seconds": 5.3
+    },
+    {
+      "step": "WORKDIR /src",
+      "seconds": 2
+    },
+    {
+      "step": "COPY apps/go/go.mod ./",
+      "seconds": 0
+    },
+    {
+      "step": "RUN go mod download",
+      "seconds": 0.3
+    },
+    {
+      "step": "COPY apps/go/ ./",
+      "seconds": 0.1
+    },
+    {
+      "step": "RUN CGO_ENABLED=0 go build -trimpath -ldflags=\"-s -w\" -o /out/server .",
+      "seconds": 26.9
+    },
+    {
+      "step": "COPY shared/public/ /out/public/",
+      "seconds": 0
+    },
+    {
+      "step": "COPY content/posts.json /out/posts.json",
+      "seconds": 0
+    },
+    {
+      "step": "RUN chmod -R a+rX /out",
+      "seconds": 0.4
+    },
+    {
+      "step": "COPY --from=build /out/server /app/server",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY --from=build /out/posts.json /app/posts.json",
+      "seconds": 0
+    },
+    {
+      "step": "COPY --from=build /out/public/ /public/",
+      "seconds": 0
+    }
+  ],
+  "images": [
+    "wfb/go:server"
+  ],
+  "imageMB": 21.5,
+  "outputKB": null,
+  "outputJsKB": null
+}

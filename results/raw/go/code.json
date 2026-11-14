@@ -1,0 +1,35 @@
+{
+  "target": "go",
+  "phase": "code",
+  "at": "2026-11-14T11:58:50.631Z",
+  "source": {
+    "files": 15,
+    "lines": 542,
+    "byExt": {
+      ".gitignore": 2,
+      "Dockerfile": 23,
+      ".go": 390,
+      ".mod": 2,
+      ".html": 101,
+      ".xml": 24
+    }
+  },
+  "dependencies": {
+    "direct": 0,
+    "transitive": 0,
+    "ecosystems": [
+      "go"
+    ]
+  },
+  "npmAudit": null,
+  "trivy": {
+    "os": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  }
+}

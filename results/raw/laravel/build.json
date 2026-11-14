@@ -1,0 +1,140 @@
+{
+  "target": "laravel",
+  "phase": "build",
+  "at": "2026-11-14T07:43:09.893Z",
+  "coldBuildSeconds": 20.6,
+  "runs": [
+    20.609
+  ],
+  "installSeconds": 3.8,
+  "buildSeconds": 0.2,
+  "steps": [
+    {
+      "step": "load local bake definitions",
+      "seconds": 0
+    },
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/php:8.4-fpm-alpine",
+      "seconds": 1.1
+    },
+    {
+      "step": "load metadata for docker.io/library/nginx:1.30-alpine",
+      "seconds": 1
+    },
+    {
+      "step": "load metadata for docker.io/library/composer:2.11.2",
+      "seconds": 1.1
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM docker.io/library/nginx:1.30-alpine@sha256:901e593c95dc85f5a729f5765516321366ef4ac401821431d408897e95287d0a",
+      "seconds": 1.5
+    },
+    {
+      "step": "FROM docker.io/library/php:8.4-fpm-alpine@sha256:511af6fa3ef55c4ea0c68bb47096ba4b81771ab4949bde7813807bf177efda11",
+      "seconds": 3.9
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM docker.io/library/composer:2.11.2@sha256:5bcb28b8d0edc4091125f8218f9d088f998bdfc843f8fbb9a4beb4dcd8625684",
+      "seconds": 7.1
+    },
+    {
+      "step": "COPY apps/laravel/docker/nginx.conf /etc/nginx/conf.d/default.conf",
+      "seconds": 1
+    },
+    {
+      "step": "COPY shared/public/ /var/www/html/public/",
+      "seconds": 0.1
+    },
+    {
+      "step": "RUN chmod -R a+rX /var/www/html /etc/nginx/conf.d",
+      "seconds": 0.6
+    },
+    {
+      "step": "exporting to image",
+      "seconds": 0.7
+    },
+    {
+      "step": "resolving provenance for metadata file",
+      "seconds": 0
+    },
+    {
+      "step": "RUN apk add --no-cache fcgi  && mv \"/usr/local/etc/php/php.ini-production\" \"/usr/local/etc/php/php.ini\"",
+      "seconds": 1.9
+    },
+    {
+      "step": "COPY apps/laravel/docker/php.ini /usr/local/etc/php/conf.d/zz-wfb.ini",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/laravel/docker/php-fpm.conf /usr/local/etc/php-fpm.d/zz-wfb.conf",
+      "seconds": 0
+    },
+    {
+      "step": "WORKDIR /var/www/html",
+      "seconds": 0
+    },
+    {
+      "step": "WORKDIR /app",
+      "seconds": 0.4
+    },
+    {
+      "step": "COPY apps/laravel/composer.json apps/laravel/composer.lock ./",
+      "seconds": 0
+    },
+    {
+      "step": "RUN composer install --no-dev --no-scripts --no-autoloader --no-interaction --prefer-dist",
+      "seconds": 3.8
+    },
+    {
+      "step": "COPY apps/laravel/ ./",
+      "seconds": 0.1
+    },
+    {
+      "step": "RUN composer dump-autoload --no-dev --no-scripts --classmap-authoritative --no-interaction",
+      "seconds": 1.4
+    },
+    {
+      "step": "COPY --from=vendor /app ./",
+      "seconds": 0.8
+    },
+    {
+      "step": "COPY shared/public/ ./public/",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY content/posts.json ./database/content/posts.json",
+      "seconds": 0
+    },
+    {
+      "step": "RUN php artisan package:discover --ansi  && touch database/database.sqlite  && php artisan migrate --seed --force --no-i",
+      "seconds": 1.1
+    },
+    {
+      "step": "exporting to image",
+      "seconds": 3.4
+    },
+    {
+      "step": "resolving provenance for metadata file",
+      "seconds": 0
+    }
+  ],
+  "images": [
+    "wfb/laravel-nginx:server",
+    "wfb/laravel:server"
+  ],
+  "imageMB": 267.1,
+  "outputKB": null,
+  "outputJsKB": null
+}

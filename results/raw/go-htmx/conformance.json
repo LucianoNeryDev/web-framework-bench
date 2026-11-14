@@ -1,0 +1,9 @@
+{
+  "target": "go-htmx",
+  "phase": "conformance",
+  "at": "2026-11-14T07:47:18.601Z",
+  "passed": 1257,
+  "total": 1257,
+  "ok": true,
+  "failures": []
+}

@@ -1,44 +1,96 @@
 # Web framework bench
 
-The same small developer blog, built in 15 web stacks and measured the same way: build cost, server
-throughput and latency, real-browser page performance, resource use, robustness, maintainability, operations
-(analytics, monitoring) and development effort.
+The same small developer blog, built in 15 web stacks (24 configurations) and measured the same way on two
+Google Cloud VMs: build cost, server throughput and latency, real-browser page performance, resource use,
+robustness, maintainability, monitoring, analytics and development effort.
 
-Every target implements one contract, [Field Notes](docs/site-spec.md), from one shared dataset, and must
-pass the same [conformance check](bench/conformance.mjs) before it is measured.
+Every target implements one contract, [Field Notes](docs/site-spec.md), from one shared dataset, and passes
+the same 1,214-1,259 [conformance checks](bench/conformance.mjs) before it is measured.
+
+## Results at a glance
+
+Target VM: `n2-standard-2` (2 vCPU, 8 GB). Load and browsers on a separate VM. Full tables:
+[results](docs/results.md). What they mean: [findings](docs/findings.md).
+
+| Target | Post page, req/s at 100 connections | p99 ms | Idle memory MB | JS on /blog, KB | Filter ready on a slow phone, ms |
+|---|---:|---:|---:|---:|---:|
+| Any static build (HTML, Hugo, Astro, SvelteKit, Nuxt, Next, React Router, Angular, Qwik) | 16,600-18,300 | 10-11 | 3.3 | 0-140 | 550-1,830 |
+| Go `net/http` | 3,427 | 148 | 7 | 1.2 | 556 |
+| Astro SSR | 1,631 | 90 | 31 | 0 | 549 |
+| SvelteKit SSR | 979 | 124 | 25 | 44 | 1,109 |
+| React Router SSR | 487 | 244 | 36 | 119 | 1,830 |
+| Nuxt SSR | 288 | 397 | 37 | 86 | 1,430 |
+| Qwik City SSR | 214 | 1,148 | 34 | 48 | 988 |
+| Laravel (Octane) | 208 | 531 | 105 | 1.2 | 554 |
+| Next.js SSR | 168 | 2,010 | 60 | 141 | 1,707 |
+| Laravel (PHP-FPM) | 144 | 757 | 38 | 1.2 | 557 |
+| Angular SSR | 123 | 4,282 | 39 | 97 | 1,414 |
+| WordPress / with page cache | 50 / 13,791 | 2,095 / 14 | 178 | 1.2 | 556 |
+| Ghost / with page cache | 42 / 12,096 | 3,666 / 16 | 846 | 1.2 | 553 |
+
+Server mode renders every page per request with no cache, on purpose: it measures the rendering engine.
+Short version: prerender content sites, and the framework then only decides how much JavaScript the browser
+gets. The [findings](docs/findings.md) cover robustness, security, maintainability and what to pick.
 
 ## Targets
 
 | Target | Stack | Modes |
 |---|---|---|
 | `static-html` | Hand-written HTML, CSS and JS on nginx (the reference) | static |
-| `hugo` | Hugo | static |
-| `nuxt` | Nuxt (Vue) | static, server |
-| `next` | Next.js (React) | static, server |
-| `astro` | Astro | static, server |
-| `sveltekit` | SvelteKit | static, server |
-| `react-router` | React Router v8, framework mode (the successor of Remix; v7 was the plan, v8 is the current major) | static, server |
-| `angular` | Angular with `@angular/ssr` | static, server |
-| `qwik` | Qwik City | static, server |
-| `go` | Go `net/http` + `html/template`, vanilla JS island | server |
-| `go-htmx` | The same Go server, with htmx for the filter | server |
-| `laravel` | Laravel (Blade) on PHP-FPM behind nginx | server |
+| `hugo` | Hugo 0.169 | static |
+| `nuxt` | Nuxt 4.6 (Vue) | static, server |
+| `next` | Next.js 16.4 (React, App Router) | static, server |
+| `astro` | Astro 7.4 | static, server |
+| `sveltekit` | SvelteKit 3.2 (Svelte 5) | static, server |
+| `react-router` | React Router 8.5, framework mode (the successor of Remix) | static, server |
+| `angular` | Angular 22.2 with `@angular/ssr` | static, server |
+| `qwik` | Qwik City 1.20 (the stable line) | static, server |
+| `go` | Go 1.27 `net/http` + `html/template`, vanilla JS island | server |
+| `go-htmx` | The same Go server, with htmx 2.0 for the filter | server |
+| `laravel` | Laravel 13 (Blade) on PHP-FPM 8.4 behind nginx | server |
 | `laravel-octane` | The same Laravel app on Octane with FrankenPHP | server |
-| `wordpress` | WordPress classic theme on PHP-FPM + MariaDB | server, cached |
-| `ghost` | Ghost with a Handlebars theme + MySQL | server, cached |
+| `wordpress` | WordPress 7.1 classic theme on PHP-FPM + MariaDB | server, cached |
+| `ghost` | Ghost 6.77 with a Handlebars theme + MySQL | server, cached |
+
+## Run it yourself
+
+```bash
+bench/setup.sh                              # harness dependencies, Chromium, oha
+node bench/run.mjs build static-html        # build one target (or: all)
+node bench/run.mjs conformance static-html  # check it against the contract
+bench/run-all.sh                            # every phase for every target
+node bench/report.mjs                       # regenerate docs/results.md
+```
+
+On one machine the target and the load generator share hardware, so the published numbers come from two VMs:
+[`bench/cloud/create-vms.sh`](bench/cloud/create-vms.sh) provisions them on Google Cloud and the harness drives
+the target over SSH. See the [methodology](docs/methodology.md).
+
+The databases and CMS admin accounts in `apps/*/compose.yaml` use throwaway credentials on private Docker
+networks. They exist only to run the benchmark; never reuse them.
 
 ## Layout
 
 ```
 content/    the shared dataset (generate.py, posts.json, posts/*.md)
 shared/     files every target ships unchanged (style.css, app.js, images, nginx config)
-apps/<id>/  one directory per target
-bench/      conformance check and measurement harness
-docs/       contract, methodology, research, results
-results/    raw measurements and summaries
+apps/<id>/  one directory per target, each with NOTES.md (versions, decisions, deviations, effort)
+bench/      conformance check, measurement harness, cloud scripts
+docs/       contract, methodology, research, results, findings
+results/    raw measurements (results/raw/<target>/<phase>.json) and summary.json
 ```
 
 ## Documentation
 
+- [Findings](docs/findings.md): what the numbers mean and what to pick.
+- [Results](docs/results.md): every measured number.
+- [Methodology](docs/methodology.md): how each number is produced, and the threats to validity.
 - [Site contract](docs/site-spec.md): what every target must build.
 - [Implementing a target](docs/implementing-a-target.md): packaging and verification rules.
+- [Research](docs/research/): maintainability, analytics, monitoring and security notes per stack, with sources.
+
+## License and credit
+
+MIT, see [LICENSE](LICENSE). If you use this work, keep the copyright notice; a link back to
+[lucianonery.dev](https://lucianonery.dev) is appreciated. Maintained for our own needs: issues and pull requests
+are welcome, with no support commitment.

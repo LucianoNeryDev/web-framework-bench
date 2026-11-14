@@ -1,0 +1,69 @@
+{
+  "target": "react-router-server",
+  "phase": "interact",
+  "at": "2026-11-14T12:21:48.514Z",
+  "profile": "412x823, 4x CPU slowdown, 150 ms RTT, 1.6 Mbps down",
+  "runs": 5,
+  "summary": {
+    "filterReadyMs": 1830,
+    "domContentLoaded": 488.9000000000233,
+    "load": 1013.4000000000233,
+    "fcp": 484,
+    "scriptBytes": 120743,
+    "scriptCount": 8,
+    "inpMs": 32,
+    "interactions": 10
+  },
+  "samples": [
+    {
+      "filterReadyMs": 1839.4000000000233,
+      "domContentLoaded": 488.9000000000233,
+      "load": 1013.5999999999767,
+      "fcp": 492,
+      "scriptBytes": 120743,
+      "scriptCount": 8,
+      "inpMs": 32,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 1840.5999999999767,
+      "domContentLoaded": 482.5,
+      "load": 1013.4000000000233,
+      "fcp": 480,
+      "scriptBytes": 120743,
+      "scriptCount": 8,
+      "inpMs": 32,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 1827.5,
+      "domContentLoaded": 492.80000000004657,
+      "load": 1009.5999999999767,
+      "fcp": 480,
+      "scriptBytes": 120743,
+      "scriptCount": 8,
+      "inpMs": 40,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 1825,
+      "domContentLoaded": 487.4000000000233,
+      "load": 1014.1999999999534,
+      "fcp": 484,
+      "scriptBytes": 120743,
+      "scriptCount": 8,
+      "inpMs": 32,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 1830,
+      "domContentLoaded": 494.69999999995343,
+      "load": 1011.3999999999069,
+      "fcp": 484,
+      "scriptBytes": 120743,
+      "scriptCount": 8,
+      "inpMs": 32,
+      "interactions": 10
+    }
+  ]
+}

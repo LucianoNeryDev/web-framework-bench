@@ -1,0 +1,680 @@
+RUN-ALL START 2026-11-14T07:35:52Z 
+PHASE build 2026-11-14T07:35:52Z
+[07:35:52] static-html: build
+[07:35:56] static-html: cold build 2.0s, image 91.9 MB
+[07:35:56] hugo: build
+[07:36:13] hugo: cold build 15.1s, image 91.9 MB
+[07:36:13] nuxt-static: build
+[07:36:40] nuxt-static: cold build 23.9s, image 95.6 MB
+[07:36:40] nuxt-server: build
+[07:37:09] nuxt-server: cold build 27.9s, image 344.1 MB
+[07:37:09] next-static: build
+[07:37:41] next-static: cold build 29.8s, image 99.5 MB
+[07:37:41] next-server: build
+[07:38:15] next-server: cold build 33.0s, image 287.7 MB
+[07:38:15] astro-static: build
+[07:38:35] astro-static: cold build 18.1s, image 91.9 MB
+[07:38:35] astro-server: build
+[07:39:10] astro-server: cold build 33.5s, image 607.7 MB
+[07:39:10] sveltekit-static: build
+[07:39:29] sveltekit-static: cold build 16.9s, image 96 MB
+[07:39:29] sveltekit-server: build
+[07:39:47] sveltekit-server: cold build 16.7s, image 237.9 MB
+[07:39:47] react-router-static: build
+[07:40:04] react-router-static: cold build 15.6s, image 93.7 MB
+[07:40:04] react-router-server: build
+[07:40:26] react-router-server: cold build 20.9s, image 331.2 MB
+[07:40:26] angular-static: build
+[07:40:56] angular-static: cold build 27.1s, image 93 MB
+[07:40:56] angular-server: build
+[07:41:24] angular-server: cold build 27.1s, image 342.6 MB
+[07:41:24] qwik-static: build
+[07:41:46] qwik-static: cold build 19.9s, image 96.9 MB
+[07:41:46] qwik-server: build
+[07:42:08] qwik-server: cold build 20.8s, image 252.9 MB
+[07:42:08] go: build
+[07:42:47] go: cold build 38.2s, image 21.5 MB
+[07:42:47] go-htmx: build
+[07:42:47] laravel: build
+[07:43:09] laravel: cold build 20.6s, image 267.1 MB
+[07:43:09] laravel-octane: build
+[07:43:43] laravel-octane: cold build 32.0s, image 309.5 MB
+[07:43:43] wordpress: build
+[07:44:12] wordpress: cold build 27.3s, image 803.3 MB
+[07:44:12] wordpress-cached: build
+[07:44:12] ghost: build
+[07:45:32] ghost: cold build 75.7s, image 2339.7 MB
+[07:45:32] ghost-cached: build
+PHASE conformance 2026-11-14T07:45:32Z
+[07:45:32] static-html: conformance
+[07:45:39] static-html: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:45:39] hugo: conformance
+[07:45:44] hugo: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:45:45] nuxt-static: conformance
+[07:45:50] nuxt-static: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:45:50] nuxt-server: conformance
+[07:45:57] nuxt-server: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:45:57] next-static: conformance
+[07:46:02] next-static: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:46:03] next-server: conformance
+[07:46:10] next-server: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:46:10] astro-static: conformance
+[07:46:15] astro-static: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:46:16] astro-server: conformance
+[07:46:21] astro-server: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:46:21] sveltekit-static: conformance
+[07:46:26] sveltekit-static: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:46:26] sveltekit-server: conformance
+[07:46:32] sveltekit-server: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:46:32] react-router-static: conformance
+[07:46:37] react-router-static: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:46:37] react-router-server: conformance
+[07:46:43] react-router-server: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:46:44] angular-static: conformance
+[07:46:49] angular-static: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:46:49] angular-server: conformance
+[07:46:55] angular-server: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:46:56] qwik-static: conformance
+[07:47:01] qwik-static: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:47:01] qwik-server: conformance
+[07:47:08] qwik-server: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:47:08] go: conformance
+[07:47:13] go: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:47:13] go-htmx: conformance
+[07:47:18] go-htmx: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:47:19] laravel: conformance
+[07:47:34] laravel: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:47:35] laravel-octane: conformance
+[07:47:41] laravel-octane: 1257/1257 checks passed against http://10.198.0.3:18999 (server mode)
+[07:47:42] wordpress: conformance
+[07:48:15] wordpress: 1259/1259 checks passed against http://10.198.0.3:18999 (server mode)
+[07:48:16] wordpress-cached: conformance
+[07:48:41] wordpress-cached: 1259/1259 checks passed against http://10.198.0.3:18999 (server mode)
+[07:48:43] ghost: conformance
+[07:49:48] ghost: 1214/1214 checks passed against http://10.198.0.3:18999
+[07:50:00] ghost-cached: conformance
+[07:50:47] ghost-cached: 1214/1214 checks passed against http://10.198.0.3:18999
+PHASE load 2026-11-14T07:51:00Z
+[07:51:00] static-html: load
+[07:51:32] static-html home@10: 18258 rps, p50 0.48 ms, p99 1.25 ms, errors 0, non-2xx {"200":365199}
+[07:51:55] static-html home@100: 18006.3 rps, p50 5.38 ms, p99 10.71 ms, errors 0, non-2xx {"200":360253}
+[07:52:23] static-html blog@10: 17372.8 rps, p50 0.52 ms, p99 1.3 ms, errors 0, non-2xx {"200":347500}
+[07:52:46] static-html blog@100: 17808.5 rps, p50 5.43 ms, p99 10.59 ms, errors 0, non-2xx {"200":356277}
+[07:53:14] static-html post@10: 18377.3 rps, p50 0.48 ms, p99 1.24 ms, errors 0, non-2xx {"200":367586}
+[07:53:37] static-html post@100: 18298.9 rps, p50 5.25 ms, p99 10.43 ms, errors 0, non-2xx {"200":366109}
+[07:54:05] static-html filtered@10: 17085.7 rps, p50 0.53 ms, p99 1.34 ms, errors 0, non-2xx {"200":341751}
+[07:54:28] static-html filtered@100: 17459.8 rps, p50 5.54 ms, p99 11.28 ms, errors 0, non-2xx {"200":349331}
+[07:54:56] static-html notFound@10: 18827.9 rps, p50 0.46 ms, p99 1.31 ms, errors 0, non-2xx {"404":376625}
+[07:55:19] static-html notFound@100: 18087.2 rps, p50 5.29 ms, p99 10.37 ms, errors 0, non-2xx {"404":361886}
+[07:55:23] hugo: load
+[07:55:55] hugo home@10: 17820.6 rps, p50 0.49 ms, p99 1.31 ms, errors 0, non-2xx {"200":356457}
+[07:56:18] hugo home@100: 17996.5 rps, p50 5.34 ms, p99 10.16 ms, errors 0, non-2xx {"200":360092}
+[07:56:46] hugo blog@10: 16810.5 rps, p50 0.54 ms, p99 1.33 ms, errors 0, non-2xx {"200":336242}
+[07:57:09] hugo blog@100: 17124.1 rps, p50 5.64 ms, p99 10.68 ms, errors 0, non-2xx {"200":342630}
+[07:57:37] hugo post@10: 18231.7 rps, p50 0.49 ms, p99 1.23 ms, errors 0, non-2xx {"200":364666}
+[07:58:00] hugo post@100: 18203.7 rps, p50 5.23 ms, p99 10.7 ms, errors 0, non-2xx {"200":364240}
+[07:58:28] hugo filtered@10: 16750.9 rps, p50 0.55 ms, p99 1.3 ms, errors 0, non-2xx {"200":335039}
+[07:58:51] hugo filtered@100: 17133.6 rps, p50 5.61 ms, p99 11.15 ms, errors 0, non-2xx {"200":342805}
+[07:59:19] hugo notFound@10: 18442.2 rps, p50 0.48 ms, p99 1.29 ms, errors 0, non-2xx {"404":368880}
+[07:59:42] hugo notFound@100: 18407.9 rps, p50 5.09 ms, p99 10.61 ms, errors 0, non-2xx {"404":368345}
+[07:59:46] nuxt-static: load
+[08:00:18] nuxt-static home@10: 15154.6 rps, p50 0.49 ms, p99 3.87 ms, errors 0, non-2xx {"200":303130}
+[08:00:41] nuxt-static home@100: 17809.6 rps, p50 5.41 ms, p99 9.99 ms, errors 0, non-2xx {"200":356362}
+[08:01:09] nuxt-static blog@10: 16927.2 rps, p50 0.54 ms, p99 1.32 ms, errors 0, non-2xx {"200":338580}
+[08:01:32] nuxt-static blog@100: 17439.4 rps, p50 5.48 ms, p99 11.92 ms, errors 0, non-2xx {"200":348960}
+[08:02:00] nuxt-static post@10: 17160.4 rps, p50 0.52 ms, p99 1.34 ms, errors 0, non-2xx {"200":343233}
+[08:02:23] nuxt-static post@100: 17190 rps, p50 5.61 ms, p99 10.73 ms, errors 0, non-2xx {"200":343948}
+[08:02:51] nuxt-static filtered@10: 16786.2 rps, p50 0.55 ms, p99 1.24 ms, errors 0, non-2xx {"200":335760}
+[08:03:14] nuxt-static filtered@100: 16881.9 rps, p50 5.69 ms, p99 10.64 ms, errors 0, non-2xx {"200":337738}
+[08:03:42] nuxt-static notFound@10: 18442.2 rps, p50 0.48 ms, p99 1.29 ms, errors 0, non-2xx {"404":368881}
+[08:04:05] nuxt-static notFound@100: 17989.5 rps, p50 5.25 ms, p99 10.3 ms, errors 0, non-2xx {"404":359931}
+[08:04:08] nuxt-server: load
+[08:04:41] nuxt-server home@10: 315.8 rps, p50 28.73 ms, p99 57.21 ms, errors 0, non-2xx {"200":6320}
+[08:05:04] nuxt-server home@100: 299.3 rps, p50 315.99 ms, p99 527.7 ms, errors 0, non-2xx {"200":6071}
+[08:05:32] nuxt-server blog@10: 135.9 rps, p50 68.89 ms, p99 113.79 ms, errors 0, non-2xx {"200":2730}
+[08:05:55] nuxt-server blog@100: 118.5 rps, p50 687.02 ms, p99 5598.24 ms, errors 26, non-2xx {"200":2370}
+[08:06:23] nuxt-server post@10: 312.7 rps, p50 29.27 ms, p99 55.16 ms, errors 0, non-2xx {"200":6260}
+[08:06:46] nuxt-server post@100: 288.4 rps, p50 342.27 ms, p99 397.31 ms, errors 0, non-2xx {"200":5824}
+[08:07:14] nuxt-server filtered@10: 217.3 rps, p50 42.74 ms, p99 77.15 ms, errors 0, non-2xx {"200":4350}
+[08:07:37] nuxt-server filtered@100: 200.5 rps, p50 478.21 ms, p99 1889.42 ms, errors 0, non-2xx {"200":4098}
+[08:08:05] nuxt-server notFound@10: 422.4 rps, p50 21.43 ms, p99 46.3 ms, errors 0, non-2xx {"404":8450}
+[08:08:28] nuxt-server notFound@100: 442 rps, p50 225.69 ms, p99 250.46 ms, errors 0, non-2xx {"404":8898}
+[08:08:32] next-static: load
+[08:09:04] next-static home@10: 17426.6 rps, p50 0.52 ms, p99 1.26 ms, errors 0, non-2xx {"200":348562}
+[08:09:27] next-static home@100: 17551.7 rps, p50 5.45 ms, p99 10.98 ms, errors 0, non-2xx {"200":351190}
+[08:09:55] next-static blog@10: 10827.2 rps, p50 0.82 ms, p99 2.49 ms, errors 0, non-2xx {"200":216568}
+[08:10:18] next-static blog@100: 10864.7 rps, p50 8.63 ms, p99 22.52 ms, errors 0, non-2xx {"200":217397}
+[08:10:46] next-static post@10: 16588.2 rps, p50 0.56 ms, p99 1.33 ms, errors 0, non-2xx {"200":331802}
+[08:11:09] next-static post@100: 17602.5 rps, p50 5.46 ms, p99 11.27 ms, errors 0, non-2xx {"200":352185}
+[08:11:37] next-static filtered@10: 10909.1 rps, p50 0.8 ms, p99 2.58 ms, errors 0, non-2xx {"200":218215}
+[08:12:00] next-static filtered@100: 10820.7 rps, p50 8.7 ms, p99 23.21 ms, errors 0, non-2xx {"200":216532}
+[08:12:28] next-static notFound@10: 17635.7 rps, p50 0.52 ms, p99 1.32 ms, errors 0, non-2xx {"404":352749}
+[08:12:51] next-static notFound@100: 18349.3 rps, p50 5.17 ms, p99 10.29 ms, errors 0, non-2xx {"404":367157}
+[08:12:54] next-server: load
+[08:13:27] next-server home@10: 174.8 rps, p50 52.8 ms, p99 105.59 ms, errors 0, non-2xx {"200":3505}
+[08:13:50] next-server home@100: 178.7 rps, p50 543.77 ms, p99 1514.64 ms, errors 0, non-2xx {"200":3636}
+[08:14:18] next-server blog@10: 91.4 rps, p50 98.83 ms, p99 179.45 ms, errors 0, non-2xx {"200":1832}
+[08:14:42] next-server blog@100: 85.7 rps, p50 1113.75 ms, p99 5689.42 ms, errors 7, non-2xx {"200":1738}
+[08:15:10] next-server post@10: 163.6 rps, p50 56.36 ms, p99 112.61 ms, errors 0, non-2xx {"200":3275}
+[08:15:33] next-server post@100: 168.4 rps, p50 581.24 ms, p99 2010.26 ms, errors 0, non-2xx {"200":3433}
+[08:16:01] next-server filtered@10: 105.9 rps, p50 86.77 ms, p99 147.91 ms, errors 0, non-2xx {"200":2120}
+[08:16:24] next-server filtered@100: 111.7 rps, p50 854.79 ms, p99 4793.48 ms, errors 0, non-2xx {"200":2263}
+[08:16:52] next-server notFound@10: 1349 rps, p50 6.47 ms, p99 16.85 ms, errors 0, non-2xx {"404":26991}
+[08:17:15] next-server notFound@100: 1390.1 rps, p50 70.12 ms, p99 135.16 ms, errors 0, non-2xx {"404":27901}
+[08:17:19] astro-static: load
+[08:17:51] astro-static home@10: 18055.2 rps, p50 0.48 ms, p99 1.37 ms, errors 0, non-2xx {"200":361145}
+[08:18:14] astro-static home@100: 17788.3 rps, p50 5.3 ms, p99 10.71 ms, errors 0, non-2xx {"200":355929}
+[08:18:42] astro-static blog@10: 17011.3 rps, p50 0.54 ms, p99 1.33 ms, errors 0, non-2xx {"200":340267}
+[08:19:05] astro-static blog@100: 17405.2 rps, p50 5.53 ms, p99 11.13 ms, errors 0, non-2xx {"200":348221}
+[08:19:33] astro-static post@10: 18072.5 rps, p50 0.49 ms, p99 1.27 ms, errors 0, non-2xx {"200":361474}
+[08:19:56] astro-static post@100: 18139.3 rps, p50 5.27 ms, p99 9.84 ms, errors 0, non-2xx {"200":362911}
+[08:20:24] astro-static filtered@10: 16491.5 rps, p50 0.53 ms, p99 1.76 ms, errors 0, non-2xx {"200":329863}
+[08:20:47] astro-static filtered@100: 17700.7 rps, p50 5.39 ms, p99 10.7 ms, errors 0, non-2xx {"200":354123}
+[08:21:15] astro-static notFound@10: 17740.2 rps, p50 0.49 ms, p99 1.43 ms, errors 0, non-2xx {"404":354844}
+[08:21:38] astro-static notFound@100: 18340.4 rps, p50 5.18 ms, p99 10.48 ms, errors 0, non-2xx {"404":366971}
+[08:21:42] astro-server: load
+[08:22:14] astro-server home@10: 1852.9 rps, p50 4.71 ms, p99 18.49 ms, errors 0, non-2xx {"200":37072}
+[08:22:37] astro-server home@100: 1882.9 rps, p50 49.3 ms, p99 82.76 ms, errors 0, non-2xx {"200":37756}
+[08:23:05] astro-server blog@10: 1100.4 rps, p50 8.66 ms, p99 24.45 ms, errors 0, non-2xx {"200":22018}
+[08:23:28] astro-server blog@100: 1061.3 rps, p50 87.6 ms, p99 131.94 ms, errors 0, non-2xx {"200":21337}
+[08:23:56] astro-server post@10: 1672.6 rps, p50 5.24 ms, p99 20.59 ms, errors 0, non-2xx {"200":33463}
+[08:24:18] astro-server post@100: 1630.9 rps, p50 57.46 ms, p99 90.25 ms, errors 0, non-2xx {"200":32710}
+[08:24:46] astro-server filtered@10: 1051.4 rps, p50 9.1 ms, p99 24.18 ms, errors 0, non-2xx {"200":21038}
+[08:25:09] astro-server filtered@100: 1036.6 rps, p50 90.24 ms, p99 134.82 ms, errors 0, non-2xx {"200":20820}
+[08:25:37] astro-server notFound@10: 2004.1 rps, p50 4.27 ms, p99 18.75 ms, errors 0, non-2xx {"404":40105}
+[08:26:00] astro-server notFound@100: 1950.8 rps, p50 48.33 ms, p99 78.29 ms, errors 0, non-2xx {"404":39105}
+[08:26:14] sveltekit-static: load
+[08:26:46] sveltekit-static home@10: 17842.6 rps, p50 0.48 ms, p99 1.4 ms, errors 0, non-2xx {"200":356885}
+[08:27:09] sveltekit-static home@100: 17581.2 rps, p50 5.34 ms, p99 11.4 ms, errors 0, non-2xx {"200":351811}
+[08:27:37] sveltekit-static blog@10: 16508.5 rps, p50 0.55 ms, p99 1.47 ms, errors 0, non-2xx {"200":330194}
+[08:28:00] sveltekit-static blog@100: 17147.1 rps, p50 5.39 ms, p99 13.13 ms, errors 0, non-2xx {"200":343093}
+[08:28:28] sveltekit-static post@10: 17587.8 rps, p50 0.51 ms, p99 1.22 ms, errors 0, non-2xx {"200":351789}
+[08:28:51] sveltekit-static post@100: 17190.8 rps, p50 5.57 ms, p99 11.22 ms, errors 0, non-2xx {"200":343964}
+[08:29:19] sveltekit-static filtered@10: 16164.2 rps, p50 0.52 ms, p99 2.37 ms, errors 0, non-2xx {"200":323330}
+[08:29:42] sveltekit-static filtered@100: 17096 rps, p50 5.62 ms, p99 11.01 ms, errors 0, non-2xx {"200":342047}
+[08:30:10] sveltekit-static notFound@10: 18366 rps, p50 0.48 ms, p99 1.2 ms, errors 0, non-2xx {"404":367350}
+[08:30:33] sveltekit-static notFound@100: 18230.2 rps, p50 5.2 ms, p99 11.03 ms, errors 0, non-2xx {"404":364715}
+[08:30:36] sveltekit-server: load
+[08:31:08] sveltekit-server home@10: 1178 rps, p50 6.73 ms, p99 23.29 ms, errors 0, non-2xx {"200":23568}
+[08:31:31] sveltekit-server home@100: 1196.3 rps, p50 78.13 ms, p99 116.01 ms, errors 0, non-2xx {"200":24030}
+[08:31:59] sveltekit-server blog@10: 509.8 rps, p50 16.15 ms, p99 46.55 ms, errors 0, non-2xx {"200":10207}
+[08:32:22] sveltekit-server blog@100: 521.6 rps, p50 185.2 ms, p99 218.4 ms, errors 0, non-2xx {"200":10528}
+[08:32:50] sveltekit-server post@10: 906.1 rps, p50 9.61 ms, p99 27.95 ms, errors 0, non-2xx {"200":18140}
+[08:33:13] sveltekit-server post@100: 979.1 rps, p50 97.69 ms, p99 123.64 ms, errors 0, non-2xx {"200":19694}
+[08:33:41] sveltekit-server filtered@10: 652.3 rps, p50 12.83 ms, p99 40.06 ms, errors 0, non-2xx {"200":13055}
+[08:34:04] sveltekit-server filtered@100: 646.3 rps, p50 152.9 ms, p99 182.43 ms, errors 0, non-2xx {"200":13034}
+[08:34:32] sveltekit-server notFound@10: 1897.6 rps, p50 3.92 ms, p99 14.84 ms, errors 0, non-2xx {"404":37961}
+[08:34:55] sveltekit-server notFound@100: 1925.8 rps, p50 47.44 ms, p99 82.12 ms, errors 0, non-2xx {"404":38628}
+[08:34:59] react-router-static: load
+[08:35:31] react-router-static home@10: 17942.6 rps, p50 0.5 ms, p99 1.26 ms, errors 0, non-2xx {"200":358896}
+[08:35:54] react-router-static home@100: 18011.1 rps, p50 5.3 ms, p99 9.88 ms, errors 0, non-2xx {"200":360357}
+[08:36:22] react-router-static blog@10: 16127.5 rps, p50 0.56 ms, p99 1.4 ms, errors 0, non-2xx {"200":322587}
+[08:36:45] react-router-static blog@100: 16332 rps, p50 5.85 ms, p99 11.45 ms, errors 0, non-2xx {"200":326792}
+[08:37:13] react-router-static post@10: 17129.2 rps, p50 0.52 ms, p99 1.27 ms, errors 0, non-2xx {"200":342620}
+[08:37:36] react-router-static post@100: 17104.4 rps, p50 5.59 ms, p99 10.93 ms, errors 0, non-2xx {"200":342243}
+[08:38:04] react-router-static filtered@10: 14443.1 rps, p50 0.55 ms, p99 4.38 ms, errors 0, non-2xx {"200":288894}
+[08:38:27] react-router-static filtered@100: 16573 rps, p50 5.62 ms, p99 11.74 ms, errors 0, non-2xx {"200":331651}
+[08:38:55] react-router-static notFound@10: 18496.7 rps, p50 0.47 ms, p99 1.26 ms, errors 0, non-2xx {"404":369968}
+[08:39:18] react-router-static notFound@100: 18873 rps, p50 5 ms, p99 10.42 ms, errors 0, non-2xx {"404":377612}
+[08:39:21] react-router-server: load
+[08:39:54] react-router-server home@10: 518.5 rps, p50 17.57 ms, p99 45.16 ms, errors 0, non-2xx {"200":10378}
+[08:40:17] react-router-server home@100: 551.8 rps, p50 171.15 ms, p99 231.58 ms, errors 0, non-2xx {"200":11157}
+[08:40:45] react-router-server blog@10: 230.5 rps, p50 41.01 ms, p99 85.23 ms, errors 0, non-2xx {"200":4619}
+[08:41:08] react-router-server blog@100: 240 rps, p50 406.24 ms, p99 477.39 ms, errors 0, non-2xx {"200":4900}
+[08:41:36] react-router-server post@10: 484.4 rps, p50 19.28 ms, p99 46.2 ms, errors 0, non-2xx {"200":9696}
+[08:41:59] react-router-server post@100: 486.6 rps, p50 193.02 ms, p99 244.06 ms, errors 0, non-2xx {"200":9822}
+[08:42:27] react-router-server filtered@10: 449.4 rps, p50 21.08 ms, p99 48.66 ms, errors 0, non-2xx {"200":8997}
+[08:42:50] react-router-server filtered@100: 434 rps, p50 218.84 ms, p99 273.75 ms, errors 0, non-2xx {"200":8771}
+[08:43:18] react-router-server notFound@10: 786.4 rps, p50 11.04 ms, p99 31.16 ms, errors 0, non-2xx {"404":15736}
+[08:43:41] react-router-server notFound@100: 785.3 rps, p50 119.83 ms, p99 170.05 ms, errors 0, non-2xx {"404":15806}
+[08:43:45] angular-static: load
+[08:44:17] angular-static home@10: 17571 rps, p50 0.49 ms, p99 1.41 ms, errors 0, non-2xx {"200":351450}
+[08:44:40] angular-static home@100: 17964.7 rps, p50 5.36 ms, p99 10.59 ms, errors 0, non-2xx {"200":359411}
+[08:45:08] angular-static blog@10: 16859.6 rps, p50 0.54 ms, p99 1.27 ms, errors 0, non-2xx {"200":337229}
+[08:45:31] angular-static blog@100: 17128.8 rps, p50 5.51 ms, p99 11.77 ms, errors 0, non-2xx {"200":342711}
+[08:45:59] angular-static post@10: 17116.1 rps, p50 0.52 ms, p99 1.3 ms, errors 0, non-2xx {"200":342357}
+[08:46:22] angular-static post@100: 17345 rps, p50 5.54 ms, p99 10.38 ms, errors 0, non-2xx {"200":347047}
+[08:46:50] angular-static filtered@10: 15630.3 rps, p50 0.53 ms, p99 2.63 ms, errors 0, non-2xx {"200":312637}
+[08:47:13] angular-static filtered@100: 17384 rps, p50 5.47 ms, p99 10.88 ms, errors 0, non-2xx {"200":347819}
+[08:47:41] angular-static notFound@10: 18214.5 rps, p50 0.49 ms, p99 1.22 ms, errors 0, non-2xx {"404":364340}
+[08:48:04] angular-static notFound@100: 18356.4 rps, p50 5.15 ms, p99 9.97 ms, errors 0, non-2xx {"404":367310}
+[08:48:07] angular-server: load
+[08:48:40] angular-server home@10: 130.4 rps, p50 69.37 ms, p99 119.94 ms, errors 0, non-2xx {"200":2617}
+[08:49:03] angular-server home@100: 132.2 rps, p50 715.97 ms, p99 4036.88 ms, errors 1, non-2xx {"200":2721}
+[08:49:32] angular-server blog@10: 41.3 rps, p50 247.32 ms, p99 303.64 ms, errors 0, non-2xx {"200":832}
+[08:49:56] angular-server blog@100: 43.7 rps, p50 1550.97 ms, p99 5435.07 ms, errors 68, non-2xx {"200":867}
+[08:50:24] angular-server post@10: 124.5 rps, p50 73.75 ms, p99 115.89 ms, errors 0, non-2xx {"200":2496}
+[08:50:47] angular-server post@100: 122.8 rps, p50 778.2 ms, p99 4281.83 ms, errors 3, non-2xx {"200":2536}
+[08:51:15] angular-server filtered@10: 88.5 rps, p50 103.39 ms, p99 157.48 ms, errors 0, non-2xx {"200":1778}
+[08:51:39] angular-server filtered@100: 87.6 rps, p50 945.92 ms, p99 6974.32 ms, errors 17, non-2xx {"200":1781}
+[08:52:07] angular-server notFound@10: 264.6 rps, p50 34.36 ms, p99 79.8 ms, errors 0, non-2xx {"404":5299}
+[08:52:30] angular-server notFound@100: 258.5 rps, p50 383.64 ms, p99 442.16 ms, errors 0, non-2xx {"404":5240}
+[08:52:44] qwik-static: load
+[08:53:16] qwik-static home@10: 16632.5 rps, p50 0.49 ms, p99 2.35 ms, errors 0, non-2xx {"200":332672}
+[08:53:39] qwik-static home@100: 18258 rps, p50 5.19 ms, p99 10.56 ms, errors 0, non-2xx {"200":365299}
+[08:54:07] qwik-static blog@10: 8020 rps, p50 1.06 ms, p99 4.4 ms, errors 0, non-2xx {"200":160425}
+[08:54:30] qwik-static blog@100: 7884.1 rps, p50 11.49 ms, p99 37.21 ms, errors 0, non-2xx {"200":157782}
+[08:54:58] qwik-static post@10: 15693.6 rps, p50 0.56 ms, p99 1.76 ms, errors 0, non-2xx {"200":313911}
+[08:55:21] qwik-static post@100: 16612.5 rps, p50 5.76 ms, p99 10.36 ms, errors 0, non-2xx {"200":332412}
+[08:55:49] qwik-static filtered@10: 8007.4 rps, p50 1.05 ms, p99 4.43 ms, errors 0, non-2xx {"200":160181}
+[08:56:12] qwik-static filtered@100: 7843.5 rps, p50 11.33 ms, p99 34.4 ms, errors 0, non-2xx {"200":157932}
+[08:56:40] qwik-static notFound@10: 17848.1 rps, p50 0.48 ms, p99 1.45 ms, errors 0, non-2xx {"404":356992}
+[08:57:03] qwik-static notFound@100: 18245.1 rps, p50 5.21 ms, p99 10.41 ms, errors 0, non-2xx {"404":365052}
+[08:57:06] qwik-server: load
+[08:57:38] qwik-server home@10: 278.2 rps, p50 33.98 ms, p99 76.38 ms, errors 0, non-2xx {"200":5572}
+[08:58:02] qwik-server home@100: 272.3 rps, p50 340.97 ms, p99 630.45 ms, errors 0, non-2xx {"200":5543}
+[08:58:30] qwik-server blog@10: 45.9 rps, p50 223.78 ms, p99 270.8 ms, errors 0, non-2xx {"200":930}
+[08:58:54] qwik-server blog@100: 49.6 rps, p50 1375.02 ms, p99 4310.47 ms, errors 70, non-2xx {"200":992}
+[08:59:22] qwik-server post@10: 208.5 rps, p50 40.13 ms, p99 101.66 ms, errors 0, non-2xx {"200":4185}
+[08:59:46] qwik-server post@100: 213.5 rps, p50 453.05 ms, p99 1147.45 ms, errors 0, non-2xx {"200":4372}
+[09:00:14] qwik-server filtered@10: 109.4 rps, p50 83.33 ms, p99 134.25 ms, errors 0, non-2xx {"200":2201}
+[09:00:37] qwik-server filtered@100: 115.9 rps, p50 700.76 ms, p99 5441.07 ms, errors 25, non-2xx {"200":2388}
+[09:01:05] qwik-server notFound@10: 589.8 rps, p50 15.49 ms, p99 38.97 ms, errors 0, non-2xx {"404":11806}
+[09:01:28] qwik-server notFound@100: 598.6 rps, p50 158.26 ms, p99 211.46 ms, errors 0, non-2xx {"404":12083}
+[09:01:42] go: load
+[09:02:14] go home@10: 3283.3 rps, p50 2.73 ms, p99 8.02 ms, errors 0, non-2xx {"200":65677}
+[09:02:37] go home@100: 2864.4 rps, p50 23.51 ms, p99 163 ms, errors 0, non-2xx {"200":57394}
+[09:03:05] go blog@10: 578.3 rps, p50 14.36 ms, p99 56.99 ms, errors 0, non-2xx {"200":11576}
+[09:03:28] go blog@100: 576.9 rps, p50 79.37 ms, p99 917.51 ms, errors 0, non-2xx {"200":11630}
+[09:03:56] go post@10: 3852.5 rps, p50 2.3 ms, p99 7.34 ms, errors 0, non-2xx {"200":77068}
+[09:04:19] go post@100: 3426.6 rps, p50 18.89 ms, p99 147.57 ms, errors 0, non-2xx {"200":68641}
+[09:04:47] go filtered@10: 572.2 rps, p50 14.74 ms, p99 56.88 ms, errors 0, non-2xx {"200":11454}
+[09:05:10] go filtered@100: 575.6 rps, p50 79.46 ms, p99 893.11 ms, errors 0, non-2xx {"200":11607}
+[09:05:38] go notFound@10: 14475.7 rps, p50 0.6 ms, p99 2.42 ms, errors 0, non-2xx {"404":289541}
+[09:06:01] go notFound@100: 11996.2 rps, p50 7.13 ms, p99 27.75 ms, errors 0, non-2xx {"404":240063}
+[09:06:04] go-htmx: load
+[09:06:36] go-htmx home@10: 3314.4 rps, p50 2.69 ms, p99 8.11 ms, errors 0, non-2xx {"200":66320}
+[09:06:59] go-htmx home@100: 2873.9 rps, p50 22.37 ms, p99 168.03 ms, errors 0, non-2xx {"200":57585}
+[09:07:27] go-htmx blog@10: 575.1 rps, p50 14.5 ms, p99 56.85 ms, errors 0, non-2xx {"200":11511}
+[09:07:50] go-htmx blog@100: 570.3 rps, p50 73.25 ms, p99 921.26 ms, errors 0, non-2xx {"200":11501}
+[09:08:18] go-htmx post@10: 3788.4 rps, p50 2.35 ms, p99 7.43 ms, errors 0, non-2xx {"200":75796}
+[09:08:41] go-htmx post@100: 3372.8 rps, p50 15.1 ms, p99 157.33 ms, errors 0, non-2xx {"200":67567}
+[09:09:09] go-htmx filtered@10: 1646.5 rps, p50 5.61 ms, p99 15.32 ms, errors 0, non-2xx {"200":32937}
+[09:09:32] go-htmx filtered@100: 1512.3 rps, p50 37.06 ms, p99 318.73 ms, errors 0, non-2xx {"200":30346}
+[09:10:00] go-htmx notFound@10: 14213.8 rps, p50 0.62 ms, p99 2.46 ms, errors 0, non-2xx {"404":284305}
+[09:10:23] go-htmx notFound@100: 11898.4 rps, p50 7.14 ms, p99 28.63 ms, errors 0, non-2xx {"404":238096}
+[09:10:26] laravel: load
+[09:11:09] laravel home@10: 161.8 rps, p50 61.57 ms, p99 97.93 ms, errors 0, non-2xx {"200":3243}
+[09:11:33] laravel home@100: 163 rps, p50 610.81 ms, p99 682.62 ms, errors 0, non-2xx {"200":3352}
+[09:12:01] laravel blog@10: 69.3 rps, p50 142.75 ms, p99 196.53 ms, errors 0, non-2xx {"200":1397}
+[09:12:25] laravel blog@100: 69.6 rps, p50 1434 ms, p99 1500.43 ms, errors 0, non-2xx {"200":1487}
+[09:12:53] laravel post@10: 142.6 rps, p50 69.58 ms, p99 106.13 ms, errors 0, non-2xx {"200":2860}
+[09:13:17] laravel post@100: 144.3 rps, p50 689.51 ms, p99 756.69 ms, errors 0, non-2xx {"200":2982}
+[09:13:45] laravel filtered@10: 70.1 rps, p50 142.44 ms, p99 202.27 ms, errors 0, non-2xx {"200":1410}
+[09:14:09] laravel filtered@100: 70.3 rps, p50 1418.09 ms, p99 1490.51 ms, errors 0, non-2xx {"200":1504}
+[09:14:37] laravel notFound@10: 406.9 rps, p50 24 ms, p99 41.02 ms, errors 0, non-2xx {"404":8148}
+[09:15:00] laravel notFound@100: 411.1 rps, p50 236.95 ms, p99 312.05 ms, errors 0, non-2xx {"404":8325}
+[09:15:05] laravel-octane: load
+[09:15:38] laravel-octane home@10: 259.2 rps, p50 38.18 ms, p99 59.95 ms, errors 0, non-2xx {"200":5192}
+[09:16:01] laravel-octane home@100: 258.1 rps, p50 384.75 ms, p99 425.09 ms, errors 0, non-2xx {"200":5263}
+[09:16:29] laravel-octane blog@10: 69.8 rps, p50 143.06 ms, p99 184.67 ms, errors 0, non-2xx {"200":1403}
+[09:16:53] laravel-octane blog@100: 69.4 rps, p50 1435.57 ms, p99 1496.07 ms, errors 0, non-2xx {"200":1485}
+[09:17:21] laravel-octane post@10: 210.7 rps, p50 46.94 ms, p99 72.02 ms, errors 0, non-2xx {"200":4223}
+[09:17:45] laravel-octane post@100: 208.2 rps, p50 478.15 ms, p99 530.68 ms, errors 0, non-2xx {"200":4256}
+[09:18:13] laravel-octane filtered@10: 70.8 rps, p50 141.09 ms, p99 187.46 ms, errors 0, non-2xx {"200":1423}
+[09:18:37] laravel-octane filtered@100: 70.4 rps, p50 1414.41 ms, p99 1473.72 ms, errors 0, non-2xx {"200":1509}
+[09:19:05] laravel-octane notFound@10: 835.6 rps, p50 11.68 ms, p99 23.53 ms, errors 0, non-2xx {"404":16725}
+[09:19:28] laravel-octane notFound@100: 823.4 rps, p50 119.89 ms, p99 156.34 ms, errors 0, non-2xx {"404":16566}
+[09:19:32] wordpress: load
+[09:20:22] wordpress home@10: 53.7 rps, p50 187.04 ms, p99 231.59 ms, errors 0, non-2xx {"200":1081}
+[09:20:47] wordpress home@100: 53 rps, p50 1873.35 ms, p99 2011.6 ms, errors 0, non-2xx {"200":1159}
+[09:21:15] wordpress blog@10: 44.2 rps, p50 226.84 ms, p99 280.46 ms, errors 0, non-2xx {"200":892}
+[09:21:40] wordpress blog@100: 43.9 rps, p50 2265.4 ms, p99 2357.12 ms, errors 0, non-2xx {"200":977}
+[09:22:09] wordpress post@10: 50.6 rps, p50 198.33 ms, p99 244.28 ms, errors 0, non-2xx {"200":1020}
+[09:22:33] wordpress post@100: 50 rps, p50 1995.49 ms, p99 2095.12 ms, errors 0, non-2xx {"200":1096}
+[09:23:02] wordpress filtered@10: 42.2 rps, p50 237.07 ms, p99 308.2 ms, errors 0, non-2xx {"200":851}
+[09:23:27] wordpress filtered@100: 42.7 rps, p50 2330.24 ms, p99 2429.23 ms, errors 0, non-2xx {"200":951}
+[09:23:55] wordpress notFound@10: 53.5 rps, p50 187.13 ms, p99 247.28 ms, errors 0, non-2xx {"404":1077}
+[09:24:20] wordpress notFound@100: 53.8 rps, p50 1854.64 ms, p99 1936.22 ms, errors 0, non-2xx {"404":1173}
+[09:24:30] wordpress-cached: load
+[09:25:20] wordpress-cached home@10: 13622.8 rps, p50 0.65 ms, p99 2.04 ms, errors 0, non-2xx {"200":272481}
+[09:25:43] wordpress-cached home@100: 13545.9 rps, p50 7.08 ms, p99 14.07 ms, errors 0, non-2xx {"200":271049}
+[09:26:11] wordpress-cached blog@10: 13395.8 rps, p50 0.67 ms, p99 2.15 ms, errors 0, non-2xx {"200":267946}
+[09:26:34] wordpress-cached blog@100: 13896.7 rps, p50 6.87 ms, p99 13.95 ms, errors 0, non-2xx {"200":278112}
+[09:27:02] wordpress-cached post@10: 14096.2 rps, p50 0.65 ms, p99 1.67 ms, errors 0, non-2xx {"200":281959}
+[09:27:25] wordpress-cached post@100: 13791.1 rps, p50 6.99 ms, p99 14 ms, errors 0, non-2xx {"200":275979}
+[09:27:53] wordpress-cached filtered@10: 13607.1 rps, p50 0.68 ms, p99 1.84 ms, errors 0, non-2xx {"200":272174}
+[09:28:16] wordpress-cached filtered@100: 13898.4 rps, p50 6.91 ms, p99 13.91 ms, errors 0, non-2xx {"200":278149}
+[09:28:44] wordpress-cached notFound@10: 14375.6 rps, p50 0.62 ms, p99 1.73 ms, errors 0, non-2xx {"404":287549}
+[09:29:07] wordpress-cached notFound@100: 14076.3 rps, p50 6.82 ms, p99 13.61 ms, errors 0, non-2xx {"404":281674}
+[09:29:23] ghost: load
+[09:30:36] ghost home@10: 74.4 rps, p50 129.13 ms, p99 217.19 ms, errors 0, non-2xx {"200":1493}
+[09:31:00] ghost home@100: 72.2 rps, p50 1355.01 ms, p99 3659.32 ms, errors 0, non-2xx {"200":1512}
+[09:31:29] ghost blog@10: 16.2 rps, p50 611.24 ms, p99 850.51 ms, errors 0, non-2xx {"200":332}
+[09:31:58] ghost blog@100: 16.2 rps, p50 5787.39 ms, p99 9741.35 ms, errors 30, non-2xx {"200":383}
+[09:32:26] ghost post@10: 44.2 rps, p50 221.81 ms, p99 409.09 ms, errors 0, non-2xx {"200":889}
+[09:32:50] ghost post@100: 42.1 rps, p50 2352.38 ms, p99 3666.29 ms, errors 0, non-2xx {"200":898}
+[09:33:19] ghost filtered@10: 16.4 rps, p50 599.3 ms, p99 808.89 ms, errors 0, non-2xx {"200":335}
+[09:33:48] ghost filtered@100: 16.4 rps, p50 5820.09 ms, p99 9472.71 ms, errors 27, non-2xx {"200":392}
+[09:34:16] ghost notFound@10: 280.7 rps, p50 35.08 ms, p99 49.19 ms, errors 0, non-2xx {"404":5620}
+[09:34:39] ghost notFound@100: 302.4 rps, p50 323.64 ms, p99 586.57 ms, errors 0, non-2xx {"404":6112}
+[09:34:55] ghost-cached: load
+[09:36:09] ghost-cached home@10: 11131.6 rps, p50 0.85 ms, p99 2.55 ms, errors 0, non-2xx {"200":222655}
+[09:36:32] ghost-cached home@100: 11444.2 rps, p50 8.39 ms, p99 16.51 ms, errors 0, non-2xx {"200":229036}
+[09:37:00] ghost-cached blog@10: 12197.1 rps, p50 0.78 ms, p99 1.78 ms, errors 0, non-2xx {"200":243963}
+[09:37:23] ghost-cached blog@100: 12284.5 rps, p50 7.81 ms, p99 14.81 ms, errors 0, non-2xx {"200":245836}
+[09:37:51] ghost-cached post@10: 12209 rps, p50 0.78 ms, p99 1.96 ms, errors 0, non-2xx {"200":244214}
+[09:38:14] ghost-cached post@100: 12096.4 rps, p50 7.8 ms, p99 15.7 ms, errors 0, non-2xx {"200":242046}
+[09:38:42] ghost-cached filtered@10: 12125.7 rps, p50 0.78 ms, p99 1.92 ms, errors 0, non-2xx {"200":242541}
+[09:39:05] ghost-cached filtered@100: 12185.3 rps, p50 7.93 ms, p99 15.63 ms, errors 0, non-2xx {"200":243850}
+[09:39:34] ghost-cached notFound@10: 12571.6 rps, p50 0.76 ms, p99 1.8 ms, errors 0, non-2xx {"404":251454}
+[09:39:57] ghost-cached notFound@100: 12231.7 rps, p50 7.89 ms, p99 15.25 ms, errors 0, non-2xx {"404":244799}
+PHASE lighthouse 2026-11-14T09:40:13Z
+[09:40:13] static-html: lighthouse
+[09:40:44] static-html home: perf 100, LCP 1429.2 ms, TBT 0 ms, JS 1.2 KB
+[09:41:16] static-html blog: perf 100, LCP 1128.8 ms, TBT 0 ms, JS 1.2 KB
+[09:41:45] static-html post: perf 100, LCP 1203 ms, TBT 0 ms, JS 1.2 KB
+[09:41:46] hugo: lighthouse
+[09:42:16] hugo home: perf 100, LCP 1427.5 ms, TBT 0 ms, JS 1.2 KB
+[09:42:48] hugo blog: perf 100, LCP 1128.2 ms, TBT 0 ms, JS 1.2 KB
+[09:43:17] hugo post: perf 100, LCP 1202.6 ms, TBT 0 ms, JS 1.2 KB
+[09:43:18] nuxt-static: lighthouse
+[09:43:49] nuxt-static home: perf 100, LCP 1906.6 ms, TBT 53 ms, JS 86 KB
+[09:44:23] nuxt-static blog: perf 99, LCP 1808.3 ms, TBT 86.5 ms, JS 86 KB
+[09:44:53] nuxt-static post: perf 100, LCP 1618.2 ms, TBT 37 ms, JS 86 KB
+[09:44:54] nuxt-server: lighthouse
+[09:45:29] nuxt-server home: perf 99, LCP 1975.1 ms, TBT 71.5 ms, JS 85.8 KB
+[09:46:06] nuxt-server blog: perf 99, LCP 1820.8 ms, TBT 89.5 ms, JS 85.8 KB
+[09:46:40] nuxt-server post: perf 100, LCP 1680.6 ms, TBT 60.5 ms, JS 85.8 KB
+[09:46:41] next-static: lighthouse
+[09:47:11] next-static home: perf 97, LCP 2472 ms, TBT 109.5 ms, JS 140.5 KB
+[09:47:46] next-static blog: perf 98, LCP 1906.9 ms, TBT 136 ms, JS 140.5 KB
+[09:48:16] next-static post: perf 97, LCP 2284.5 ms, TBT 124.5 ms, JS 140.5 KB
+[09:48:17] next-server: lighthouse
+[09:48:49] next-server home: perf 96, LCP 2502.3 ms, TBT 119 ms, JS 139.3 KB
+[09:49:22] next-server blog: perf 99, LCP 1921.5 ms, TBT 122.5 ms, JS 140.7 KB
+[09:49:52] next-server post: perf 97, LCP 2290.3 ms, TBT 113.5 ms, JS 139.3 KB
+[09:49:53] astro-static: lighthouse
+[09:50:23] astro-static home: perf 100, LCP 1427.2 ms, TBT 0 ms, JS 0 KB
+[09:50:55] astro-static blog: perf 100, LCP 1128.2 ms, TBT 0 ms, JS 0 KB
+[09:51:24] astro-static post: perf 100, LCP 1053 ms, TBT 0 ms, JS 0 KB
+[09:51:25] astro-server: lighthouse
+[09:51:55] astro-server home: perf 100, LCP 1433.6 ms, TBT 0 ms, JS 0 KB
+[09:52:27] astro-server blog: perf 100, LCP 1132 ms, TBT 0 ms, JS 0 KB
+[09:52:56] astro-server post: perf 100, LCP 1055.3 ms, TBT 0 ms, JS 0 KB
+[09:52:57] sveltekit-static: lighthouse
+[09:53:27] sveltekit-static home: perf 100, LCP 1874.7 ms, TBT 5 ms, JS 43.3 KB
+[09:54:00] sveltekit-static blog: perf 100, LCP 1917.8 ms, TBT 20 ms, JS 44 KB
+[09:54:29] sveltekit-static post: perf 100, LCP 1712.1 ms, TBT 3.5 ms, JS 43.6 KB
+[09:54:31] sveltekit-server: lighthouse
+[09:55:01] sveltekit-server home: perf 100, LCP 1835.5 ms, TBT 0 ms, JS 43.2 KB
+[09:55:34] sveltekit-server blog: perf 99, LCP 1992.8 ms, TBT 15 ms, JS 44 KB
+[09:56:03] sveltekit-server post: perf 100, LCP 1759 ms, TBT 11 ms, JS 43.6 KB
+[09:56:04] react-router-static: lighthouse
+[09:56:35] react-router-static home: perf 99, LCP 2198 ms, TBT 7 ms, JS 118.7 KB
+[09:57:07] react-router-static blog: perf 100, LCP 1757.1 ms, TBT 3 ms, JS 119.3 KB
+[09:57:37] react-router-static post: perf 99, LCP 2055.4 ms, TBT 0 ms, JS 118.9 KB
+[09:57:38] react-router-server: lighthouse
+[09:58:09] react-router-server home: perf 99, LCP 2265.4 ms, TBT 1.5 ms, JS 118.1 KB
+[09:58:42] react-router-server blog: perf 99, LCP 2114.9 ms, TBT 2 ms, JS 118.6 KB
+[09:59:12] react-router-server post: perf 99, LCP 2073.7 ms, TBT 6 ms, JS 118.2 KB
+[09:59:13] angular-static: lighthouse
+[09:59:43] angular-static home: perf 94, LCP 2349.9 ms, TBT 223.5 ms, JS 95 KB
+[10:00:16] angular-static blog: perf 97, LCP 2025.1 ms, TBT 154.5 ms, JS 96.9 KB
+[10:00:47] angular-static post: perf 93, LCP 1973.4 ms, TBT 308 ms, JS 98.6 KB
+[10:00:48] angular-server: lighthouse
+[10:01:19] angular-server home: perf 95, LCP 2346.9 ms, TBT 190 ms, JS 95.1 KB
+[10:01:53] angular-server blog: perf 98, LCP 2023.7 ms, TBT 121.5 ms, JS 97.2 KB
+[10:02:23] angular-server post: perf 94, LCP 1952 ms, TBT 252.5 ms, JS 98.9 KB
+[10:02:24] qwik-static: lighthouse
+[10:02:55] qwik-static home: perf 100, LCP 1884.5 ms, TBT 11 ms, JS 44 KB
+[10:03:28] qwik-static blog: perf 100, LCP 1697.3 ms, TBT 0 ms, JS 46.6 KB
+[10:03:58] qwik-static post: perf 100, LCP 1256.8 ms, TBT 0 ms, JS 44 KB
+[10:03:59] qwik-server: lighthouse
+[10:04:30] qwik-server home: perf 100, LCP 1900.1 ms, TBT 0 ms, JS 44.8 KB
+[10:05:04] qwik-server blog: perf 100, LCP 1660.8 ms, TBT 3 ms, JS 47.5 KB
+[10:05:34] qwik-server post: perf 100, LCP 1573.9 ms, TBT 0 ms, JS 44.8 KB
+[10:05:35] go: lighthouse
+[10:06:04] go home: perf 100, LCP 1428.1 ms, TBT 0 ms, JS 1.2 KB
+[10:06:36] go blog: perf 100, LCP 1128.5 ms, TBT 0 ms, JS 1.2 KB
+[10:07:05] go post: perf 100, LCP 1203.3 ms, TBT 0 ms, JS 1.2 KB
+[10:07:06] go-htmx: lighthouse
+[10:07:35] go-htmx home: perf 100, LCP 1449.1 ms, TBT 0 ms, JS 18.1 KB
+[10:08:07] go-htmx blog: perf 100, LCP 1331.5 ms, TBT 0 ms, JS 18.1 KB
+[10:08:36] go-htmx post: perf 100, LCP 1246.7 ms, TBT 0 ms, JS 18.1 KB
+[10:08:37] laravel: lighthouse
+[10:09:17] laravel home: perf 100, LCP 1427.9 ms, TBT 0 ms, JS 1.2 KB
+[10:09:49] laravel blog: perf 100, LCP 1129.1 ms, TBT 0 ms, JS 1.2 KB
+[10:10:18] laravel post: perf 100, LCP 1204.1 ms, TBT 0 ms, JS 1.2 KB
+[10:10:19] laravel-octane: lighthouse
+[10:10:50] laravel-octane home: perf 100, LCP 1429.6 ms, TBT 0 ms, JS 1.2 KB
+[10:11:22] laravel-octane blog: perf 100, LCP 1130.4 ms, TBT 0 ms, JS 1.2 KB
+[10:11:51] laravel-octane post: perf 100, LCP 1203.5 ms, TBT 0 ms, JS 1.2 KB
+[10:11:52] wordpress: lighthouse
+[10:12:41] wordpress home: perf 100, LCP 1502.2 ms, TBT 0 ms, JS 1.2 KB
+[10:13:13] wordpress blog: perf 100, LCP 1127.7 ms, TBT 0 ms, JS 1.2 KB
+[10:13:43] wordpress post: perf 100, LCP 1203.6 ms, TBT 0 ms, JS 1.2 KB
+[10:13:45] wordpress-cached: lighthouse
+[10:14:34] wordpress-cached home: perf 100, LCP 1429.2 ms, TBT 0 ms, JS 1.2 KB
+[10:15:06] wordpress-cached blog: perf 100, LCP 1127.6 ms, TBT 0 ms, JS 1.2 KB
+[10:15:35] wordpress-cached post: perf 100, LCP 1203.5 ms, TBT 0 ms, JS 1.2 KB
+[10:15:37] ghost: lighthouse
+[10:16:47] ghost home: perf 100, LCP 1428.2 ms, TBT 0 ms, JS 1.2 KB
+[10:17:20] ghost blog: perf 100, LCP 1129.4 ms, TBT 0 ms, JS 1.2 KB
+[10:17:50] ghost post: perf 100, LCP 1203.5 ms, TBT 0 ms, JS 1.2 KB
+[10:17:53] ghost-cached: lighthouse
+[10:19:04] ghost-cached home: perf 100, LCP 1427.4 ms, TBT 0 ms, JS 1.2 KB
+[10:19:36] ghost-cached blog: perf 100, LCP 1128.4 ms, TBT 0 ms, JS 1.2 KB
+[10:20:05] ghost-cached post: perf 100, LCP 1203 ms, TBT 0 ms, JS 1.2 KB
+PHASE interact 2026-11-14T10:20:08Z
+[10:20:08] static-html: interact
+[10:20:29] static-html: filter ready 558 ms, INP 40 ms, JS 1.2 KB
+[10:20:29] hugo: interact
+[10:20:48] hugo: filter ready 556 ms, INP 40 ms, JS 1.2 KB
+[10:20:48] nuxt-static: interact
+[10:21:16] nuxt-static: filter ready 1713 ms, INP 176 ms, JS 85.6 KB
+[10:21:16] nuxt-server: interact
+[10:21:43] nuxt-server: filter ready 1445 ms, INP 184 ms, JS 85.1 KB
+[10:21:43] next-static: interact
+[10:22:21] next-static: filter ready 4168 ms, INP 80 ms, JS 140.1 KB
+[10:22:21] next-server: interact
+[10:22:50] next-server: filter ready 2306 ms, INP 80 ms, JS 139.9 KB
+[10:22:50] astro-static: interact
+[10:23:09] astro-static: filter ready 548 ms, INP 40 ms, JS 0.0 KB
+[10:23:09] astro-server: interact
+[10:23:29] astro-server: filter ready 552 ms, INP 40 ms, JS 0.0 KB
+[10:23:29] sveltekit-static: interact
+[10:23:52] sveltekit-static: filter ready 1113 ms, INP 56 ms, JS 43.5 KB
+[10:23:52] sveltekit-server: interact
+[10:24:15] sveltekit-server: filter ready 1113 ms, INP 56 ms, JS 43.5 KB
+[10:24:15] react-router-static: interact
+[10:24:42] react-router-static: filter ready 1639 ms, INP 48 ms, JS 118.9 KB
+[10:24:42] react-router-server: interact
+[10:25:10] react-router-server: filter ready 2035 ms, INP 40 ms, JS 117.9 KB
+[10:25:10] angular-static: interact
+[10:25:37] angular-static: filter ready 1436 ms, INP 176 ms, JS 96.9 KB
+[10:25:37] angular-server: interact
+[10:26:04] angular-server: filter ready 1437 ms, INP 168 ms, JS 96.9 KB
+[10:26:04] qwik-static: interact
+[10:26:29] qwik-static: filter ready 983 ms, INP 32 ms, JS 45.6 KB
+[10:26:29] qwik-server: interact
+[10:26:55] qwik-server: filter ready 998 ms, INP 32 ms, JS 45.6 KB
+[10:26:55] go: interact
+[10:27:14] go: filter ready 554 ms, INP 40 ms, JS 1.2 KB
+[10:27:14] go-htmx: interact
+[10:27:44] go-htmx: filter ready 1056 ms, INP 32 ms, JS 18.2 KB
+[10:27:44] laravel: interact
+[10:28:15] laravel: filter ready 548 ms, INP 40 ms, JS 1.2 KB
+[10:28:15] laravel-octane: interact
+[10:28:35] laravel-octane: filter ready 561 ms, INP 40 ms, JS 1.2 KB
+[10:28:35] wordpress: interact
+[10:29:13] wordpress: filter ready 552 ms, INP 40 ms, JS 1.2 KB
+[10:29:13] wordpress-cached: interact
+[10:29:51] wordpress-cached: filter ready 549 ms, INP 40 ms, JS 1.2 KB
+[10:29:51] ghost: interact
+[10:30:56] ghost: filter ready 556 ms, INP 40 ms, JS 1.2 KB
+[10:30:56] ghost-cached: interact
+[10:32:01] ghost-cached: filter ready 573 ms, INP 40 ms, JS 1.2 KB
+PHASE robust 2026-11-14T10:32:01Z
+[10:32:01] static-html: robust
+[10:32:02] static-html probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:32:18] static-html overload: 16348.4 rps, success 1, p99 91.98 ms
+[10:35:21] static-html soak: 17825.5 rps, errors 0, memory 3.4 -> 3.5 MB
+[10:35:22] static-html crash: while down error:ECONNREFUSED, recovered in 597 ms
+[10:35:22] hugo: robust
+[10:35:23] hugo probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:35:39] hugo overload: 16337.3 rps, success 1, p99 87.97 ms
+[10:38:42] hugo soak: 17831.9 rps, errors 0, memory 3.5 -> 3.5 MB
+[10:38:43] hugo crash: while down error:ECONNREFUSED, recovered in 603 ms
+[10:38:44] nuxt-static: robust
+[10:38:44] nuxt-static probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:39:00] nuxt-static overload: 15219.8 rps, success 1, p99 98.67 ms
+[10:42:03] nuxt-static soak: 16955.2 rps, errors 0, memory 3.5 -> 3.5 MB
+[10:42:04] nuxt-static crash: while down error:ECONNREFUSED, recovered in 590 ms
+[10:42:05] nuxt-server: robust
+[10:42:06] nuxt-server probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:42:25] nuxt-server overload: 300.1 rps, success 0.7706337509211496, p99 7884.43 ms
+[10:45:27] nuxt-server soak: 287.1 rps, errors 0, memory 179.9 -> 120 MB
+[10:45:28] nuxt-server crash: while down error:ECONNREFUSED, recovered in 809 ms
+[10:45:28] next-static: robust
+[10:45:29] next-static probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:45:45] next-static overload: 15697.4 rps, success 1, p99 91.48 ms
+[10:48:48] next-static soak: 16849.9 rps, errors 0, memory 3.5 -> 3.6 MB
+[10:48:49] next-static crash: while down error:ECONNREFUSED, recovered in 589 ms
+[10:48:49] next-server: robust
+[10:48:51] next-server probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:49:12] next-server overload: 180.6 rps, success 0.6244749369924391, p99 9305.92 ms
+[10:52:14] next-server soak: 160.7 rps, errors 0, memory 174.1 -> 181.5 MB
+[10:52:15] next-server crash: while down error:ECONNREFUSED, recovered in 1357 ms
+[10:52:16] astro-static: robust
+[10:52:17] astro-static probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:52:33] astro-static overload: 16460.6 rps, success 1, p99 86.4 ms
+[10:55:35] astro-static soak: 17898.9 rps, errors 0, memory 3.5 -> 3.5 MB
+[10:55:36] astro-static crash: while down error:ECONNREFUSED, recovered in 606 ms
+[10:55:37] astro-server: robust
+[10:55:38] astro-server probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:55:55] astro-server overload: 1354.4 rps, success 0.9435495102362936, p99 2459.24 ms
+[10:58:56] astro-server soak: 1579.1 rps, errors 0, memory 110.7 -> 110.2 MB
+[10:58:58] astro-server crash: while down error:ECONNREFUSED, recovered in 685 ms
+[10:58:58] sveltekit-static: robust
+[10:58:59] sveltekit-static probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[10:59:15] sveltekit-static overload: 15942.2 rps, success 1, p99 87.66 ms
+[11:02:18] sveltekit-static soak: 17264.9 rps, errors 0, memory 3.4 -> 3.5 MB
+[11:02:19] sveltekit-static crash: while down error:ECONNREFUSED, recovered in 584 ms
+[11:02:19] sveltekit-server: robust
+[11:02:20] sveltekit-server probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:02:37] sveltekit-server overload: 827.8 rps, success 0.8848969226172692, p99 584.35 ms
+[11:05:39] sveltekit-server soak: 874.6 rps, errors 0, memory 91.4 -> 106.2 MB
+[11:05:40] sveltekit-server crash: while down error:ECONNREFUSED, recovered in 674 ms
+[11:05:40] react-router-static: robust
+[11:05:41] react-router-static probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:05:57] react-router-static overload: 15314.8 rps, success 1, p99 97.52 ms
+[11:09:00] react-router-static soak: 16773.8 rps, errors 0, memory 3.5 -> 3.5 MB
+[11:09:01] react-router-static crash: while down error:ECONNREFUSED, recovered in 605 ms
+[11:09:02] react-router-server: robust
+[11:09:03] react-router-server probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:09:23] react-router-server overload: 398.3 rps, success 0.825229785533502, p99 6989.83 ms
+[11:12:24] react-router-server soak: 468.6 rps, errors 0, memory 120.9 -> 121.5 MB
+[11:12:26] react-router-server crash: while down error:ECONNREFUSED, recovered in 994 ms
+[11:12:26] angular-static: robust
+[11:12:27] angular-static probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:12:43] angular-static overload: 15499.7 rps, success 1, p99 89.6 ms
+[11:15:46] angular-static soak: 16880.6 rps, errors 0, memory 3.5 -> 3.5 MB
+[11:15:47] angular-static crash: while down error:ECONNREFUSED, recovered in 607 ms
+[11:15:47] angular-server: robust
+[11:15:49] angular-server probes: {"serverErrors":["invalid-utf8:500"],"reflectedXss":false,"exposedFiles":[]}
+[11:16:10] angular-server overload: 154.6 rps, success 0.5758942958427329, p99 3812.59 ms
+[11:19:12] angular-server soak: 116.9 rps, errors 0, memory 348.2 -> 172.9 MB
+[11:19:13] angular-server crash: while down error:ECONNREFUSED, recovered in 788 ms
+[11:19:13] qwik-static: robust
+[11:19:14] qwik-static probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:19:30] qwik-static overload: 15248.3 rps, success 1, p99 89.47 ms
+[11:22:33] qwik-static soak: 16146.4 rps, errors 0, memory 3.5 -> 3.6 MB
+[11:22:34] qwik-static crash: while down error:ECONNREFUSED, recovered in 618 ms
+[11:22:34] qwik-server: robust
+[11:22:36] qwik-server probes: {"serverErrors":["invalid-utf8:500"],"reflectedXss":false,"exposedFiles":[]}
+[11:22:57] qwik-server overload: 209.5 rps, success 0.7766967252017086, p99 4214.25 ms
+[11:25:59] qwik-server soak: 198.5 rps, errors 0, memory 116.2 -> 117.3 MB
+[11:26:00] qwik-server crash: while down error:ECONNREFUSED, recovered in 886 ms
+[11:26:00] go: robust
+[11:26:01] go probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:26:17] go overload: 3457.2 rps, success 1, p99 689.9 ms
+[11:29:19] go soak: 2724 rps, errors 0, memory 51.4 -> 51.2 MB
+[11:29:20] go crash: while down error:ECONNREFUSED, recovered in 601 ms
+[11:29:21] go-htmx: robust
+[11:29:21] go-htmx probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:29:38] go-htmx overload: 3436 rps, success 1, p99 688.05 ms
+[11:32:39] go-htmx soak: 3057.9 rps, errors 0, memory 60.2 -> 50.3 MB
+[11:32:40] go-htmx crash: while down error:ECONNREFUSED, recovered in 621 ms
+[11:32:41] laravel: robust
+[11:32:53] laravel probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:33:16] laravel overload: 155.8 rps, success 0.9496169711255156, p99 7007.88 ms
+[11:36:18] laravel soak: 138 rps, errors 0, memory 42.1 -> 43.1 MB
+[11:36:34] laravel crash: while down timeout, recovered in 885 ms
+[11:36:40] laravel-octane: robust
+[11:36:42] laravel-octane probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:37:03] laravel-octane overload: 203.7 rps, success 1, p99 4981.7 ms
+[11:40:04] laravel-octane soak: 191.4 rps, errors 0, memory 163.5 -> 169.5 MB
+[11:40:06] laravel-octane crash: while down error:ECONNREFUSED, recovered in 1334 ms
+[11:40:06] wordpress: robust
+[11:40:27] wordpress probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:41:08] wordpress overload: 101.5 rps, success 0.29010642491131255, p99 9844.16 ms
+[11:44:12] wordpress soak: 47.9 rps, errors 0, memory 207.5 -> 201.1 MB
+[11:44:29] wordpress crash: while down timeout, recovered in 1968 ms
+[11:44:35] wordpress db outage: / 500, post 500, recovered 3216 ms
+[11:44:37] wordpress-cached: robust
+[11:44:55] wordpress-cached probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:45:11] wordpress-cached overload: 12492.2 rps, success 1, p99 116.86 ms
+[11:48:14] wordpress-cached soak: 13620.6 rps, errors 0, memory 184.2 -> 193.3 MB
+[11:48:17] wordpress-cached crash: while down 200, recovered in 1798 ms
+[11:48:21] wordpress-cached db outage: / 200, post 200, recovered 1958 ms
+[11:48:23] ghost: robust
+[11:49:06] ghost probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:49:29] ghost overload: 117 rps, success 0.2923861852433281, p99 9715.35 ms
+[11:52:32] ghost soak: 35.6 rps, errors 0, memory 1088.7 -> 1310.6 MB
+[11:52:53] ghost crash: while down timeout, recovered in 4582 ms
+[11:53:10] ghost db outage: / 200, post 500, recovered 2504 ms
+[11:53:13] ghost-cached: robust
+[11:53:56] ghost-cached probes: {"serverErrors":[],"reflectedXss":false,"exposedFiles":[]}
+[11:54:13] ghost-cached overload: 11183.1 rps, success 1, p99 122.56 ms
+[11:57:15] ghost-cached soak: 11903.3 rps, errors 0, memory 845 -> 698.9 MB
+[11:57:20] ghost-cached crash: while down 200, recovered in 4442 ms
+[11:57:28] ghost-cached db outage: / 200, post 200, recovered 2213 ms
+PHASE code 2026-11-14T11:57:31Z
+[11:57:31] static-html: code
+[11:57:52] static-html: 5180 lines, 0 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:57:52] hugo: code
+[11:57:54] hugo: 243 lines, 0 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:57:54] nuxt-static: code
+[11:57:58] nuxt-static: 501 lines, 600 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:57:58] nuxt-server: code
+[11:58:04] nuxt-server: 501 lines, 600 packages, trivy {"os":{"HIGH":48,"CRITICAL":0},"lang":{"HIGH":6,"CRITICAL":0}}
+[11:58:04] next-static: code
+[11:58:07] next-static: 544 lines, 54 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:58:07] next-server: code
+[11:58:12] next-server: 544 lines, 54 packages, trivy {"os":{"HIGH":0,"CRITICAL":0},"lang":{"HIGH":6,"CRITICAL":0}}
+[11:58:12] astro-static: code
+[11:58:14] astro-static: 352 lines, 296 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:58:14] astro-server: code
+[11:58:23] astro-server: 352 lines, 296 packages, trivy {"os":{"HIGH":48,"CRITICAL":0},"lang":{"HIGH":6,"CRITICAL":0}}
+[11:58:23] sveltekit-static: code
+[11:58:25] sveltekit-static: 589 lines, 89 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:58:25] sveltekit-server: code
+[11:58:29] sveltekit-server: 589 lines, 89 packages, trivy {"os":{"HIGH":0,"CRITICAL":0},"lang":{"HIGH":6,"CRITICAL":0}}
+[11:58:29] react-router-static: code
+[11:58:32] react-router-static: 671 lines, 218 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:58:32] react-router-server: code
+[11:58:36] react-router-server: 671 lines, 218 packages, trivy {"os":{"HIGH":0,"CRITICAL":0},"lang":{"HIGH":21,"CRITICAL":0}}
+[11:58:36] angular-static: code
+[11:58:39] angular-static: 796 lines, 436 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:58:39] angular-server: code
+[11:58:43] angular-server: 796 lines, 436 packages, trivy {"os":{"HIGH":48,"CRITICAL":0},"lang":{"HIGH":6,"CRITICAL":0}}
+[11:58:43] qwik-static: code
+[11:58:45] qwik-static: 999 lines, 326 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:58:45] qwik-server: code
+[11:58:49] qwik-server: 999 lines, 326 packages, trivy {"os":{"HIGH":0,"CRITICAL":0},"lang":{"HIGH":6,"CRITICAL":0}}
+[11:58:49] go: code
+[11:58:50] go: 542 lines, 0 packages, trivy {"os":{"HIGH":0,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:58:50] go-htmx: code
+[11:58:50] laravel: code
+[11:58:55] laravel: 1914 lines, 74 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":0,"CRITICAL":0}}
+[11:58:55] laravel-octane: code
+[11:58:59] laravel-octane: 1914 lines, 74 packages, trivy {"os":{"HIGH":0,"CRITICAL":0},"lang":{"HIGH":1,"CRITICAL":0}}
+[11:58:59] wordpress: code
+[11:59:16] wordpress: 970 lines, 0 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":25,"CRITICAL":1}}
+[11:59:16] wordpress-cached: code
+[11:59:16] ghost: code
+[11:59:45] ghost: 606 lines, 0 packages, trivy {"os":{"HIGH":3,"CRITICAL":0},"lang":{"HIGH":133,"CRITICAL":4}}
+[11:59:45] ghost-cached: code
+summary for 24 targets -> results/summary.json, docs/results.md
+RUN-ALL DONE 2026-11-14T11:59:45Z

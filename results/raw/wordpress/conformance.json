@@ -1,0 +1,9 @@
+{
+  "target": "wordpress",
+  "phase": "conformance",
+  "at": "2026-11-14T07:48:15.691Z",
+  "passed": 1259,
+  "total": 1259,
+  "ok": true,
+  "failures": []
+}

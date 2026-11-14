@@ -1,0 +1,9 @@
+{
+  "target": "next-static",
+  "phase": "conformance",
+  "at": "2026-11-14T07:46:02.627Z",
+  "passed": 1214,
+  "total": 1214,
+  "ok": true,
+  "failures": []
+}

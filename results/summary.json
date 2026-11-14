@@ -1,0 +1,5794 @@
+[
+  {
+    "id": "static-html",
+    "app": "static-html",
+    "label": "HTML + nginx",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 2,
+      "installSeconds": 0,
+      "buildSeconds": 0,
+      "imageMB": 91.9,
+      "outputKB": 622.4,
+      "outputJsKB": 0
+    },
+    "start": {
+      "coldStartMs": 544,
+      "restartMs": 755,
+      "idleMemMB": 3.3,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 18258,
+        "p50": 0.48,
+        "p99": 1.25,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.461,
+        "memPeakMB": 3.7
+      },
+      "home@100": {
+        "rps": 18006.3,
+        "p50": 5.38,
+        "p99": 10.71,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.471,
+        "memPeakMB": 4.5
+      },
+      "blog@10": {
+        "rps": 17372.8,
+        "p50": 0.52,
+        "p99": 1.3,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.386,
+        "memPeakMB": 3.8
+      },
+      "blog@100": {
+        "rps": 17808.5,
+        "p50": 5.43,
+        "p99": 10.59,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.45,
+        "memPeakMB": 4.6
+      },
+      "post@10": {
+        "rps": 18377.3,
+        "p50": 0.48,
+        "p99": 1.24,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.474,
+        "memPeakMB": 3.7
+      },
+      "post@100": {
+        "rps": 18298.9,
+        "p50": 5.25,
+        "p99": 10.43,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.475,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 17085.7,
+        "p50": 0.53,
+        "p99": 1.34,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.369,
+        "memPeakMB": 3.8
+      },
+      "filtered@100": {
+        "rps": 17459.8,
+        "p50": 5.54,
+        "p99": 11.28,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.427,
+        "memPeakMB": 4.6
+      },
+      "notFound@10": {
+        "rps": 18827.9,
+        "p50": 0.46,
+        "p99": 1.31,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.476,
+        "memPeakMB": 3.7
+      },
+      "notFound@100": {
+        "rps": 18087.2,
+        "p50": 5.29,
+        "p99": 10.37,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.436,
+        "memPeakMB": 4.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 754,
+        "lcp": 1429.2,
+        "tbt": 0,
+        "cls": 0,
+        "si": 754,
+        "tti": 1451.7,
+        "totalKB": 87,
+        "scriptKB": 1.2,
+        "documentKB": 2.5,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 34.2,
+        "mainThreadMs": 403.8,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.8,
+        "lcp": 1128.8,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.8,
+        "tti": 1136.3,
+        "totalKB": 75.8,
+        "scriptKB": 1.2,
+        "documentKB": 5.7,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 28.5,
+        "mainThreadMs": 438.5,
+        "domSize": 527,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753,
+        "lcp": 1203,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753,
+        "tti": 1203,
+        "totalKB": 29,
+        "scriptKB": 1.2,
+        "documentKB": 3.5,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 21.6,
+        "mainThreadMs": 347.8,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 554.6000000000931,
+      "domContentLoaded": 443.5,
+      "load": 497.80000000004657,
+      "fcp": 456,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 16348.4,
+        "p99": 91.98,
+        "healthyAfter": true,
+        "memPeakMB": 11.9
+      },
+      "soak": {
+        "rps": 17825.5,
+        "errors": 0,
+        "memStartMB": 3.4,
+        "memEndMB": 3.5,
+        "memGrowthMB": 0.1
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 597
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 5180,
+      "files": 48,
+      "directDeps": 0,
+      "transitiveDeps": 0,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": null,
+      "iterations": 1,
+      "deviations": "reference",
+      "friction": "Hand-written; 40 post files generated once from a template"
+    }
+  },
+  {
+    "id": "hugo",
+    "app": "hugo",
+    "label": "Hugo",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 15.1,
+      "installSeconds": 0,
+      "buildSeconds": 10.7,
+      "imageMB": 91.9,
+      "outputKB": 626.9,
+      "outputJsKB": 0
+    },
+    "start": {
+      "coldStartMs": 515,
+      "restartMs": 785,
+      "idleMemMB": 3.3,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 17820.6,
+        "p50": 0.49,
+        "p99": 1.31,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.43,
+        "memPeakMB": 4
+      },
+      "home@100": {
+        "rps": 17996.5,
+        "p50": 5.34,
+        "p99": 10.16,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.459,
+        "memPeakMB": 4.5
+      },
+      "blog@10": {
+        "rps": 16810.5,
+        "p50": 0.54,
+        "p99": 1.33,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.394,
+        "memPeakMB": 3.8
+      },
+      "blog@100": {
+        "rps": 17124.1,
+        "p50": 5.64,
+        "p99": 10.68,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.439,
+        "memPeakMB": 4.6
+      },
+      "post@10": {
+        "rps": 18231.7,
+        "p50": 0.49,
+        "p99": 1.23,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.46,
+        "memPeakMB": 3.8
+      },
+      "post@100": {
+        "rps": 18203.7,
+        "p50": 5.23,
+        "p99": 10.7,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.466,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 16750.9,
+        "p50": 0.55,
+        "p99": 1.3,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.398,
+        "memPeakMB": 3.9
+      },
+      "filtered@100": {
+        "rps": 17133.6,
+        "p50": 5.61,
+        "p99": 11.15,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.444,
+        "memPeakMB": 4.7
+      },
+      "notFound@10": {
+        "rps": 18442.2,
+        "p50": 0.48,
+        "p99": 1.29,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.443,
+        "memPeakMB": 3.8
+      },
+      "notFound@100": {
+        "rps": 18407.9,
+        "p50": 5.09,
+        "p99": 10.61,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.459,
+        "memPeakMB": 4.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.5,
+        "lcp": 1427.5,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.5,
+        "tti": 1450,
+        "totalKB": 87.1,
+        "scriptKB": 1.2,
+        "documentKB": 2.5,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 32.6,
+        "mainThreadMs": 341.2,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.2,
+        "lcp": 1128.2,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.2,
+        "tti": 1135.7,
+        "totalKB": 75.8,
+        "scriptKB": 1.2,
+        "documentKB": 5.7,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 37.6,
+        "mainThreadMs": 416.7,
+        "domSize": 527,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.6,
+        "lcp": 1202.6,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.6,
+        "tti": 1202.6,
+        "totalKB": 29,
+        "scriptKB": 1.2,
+        "documentKB": 3.5,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 22.1,
+        "mainThreadMs": 290.8,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 559.5999999999767,
+      "domContentLoaded": 436.0999999999767,
+      "load": 500.4000000000233,
+      "fcp": 456,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 16337.3,
+        "p99": 87.97,
+        "healthyAfter": true,
+        "memPeakMB": 11.9
+      },
+      "soak": {
+        "rps": 17831.9,
+        "errors": 0,
+        "memStartMB": 3.5,
+        "memEndMB": 3.5,
+        "memGrowthMB": 0
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 603
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 243,
+      "files": 20,
+      "directDeps": 0,
+      "transitiveDeps": 0,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 59,
+      "iterations": 3,
+      "deviations": "none checked; tabs kept in code, heading ids",
+      "friction": "0.169 renames (hugo.Data, locale), XML escaping, uglyURLs sitemap paths; minutes shared with go"
+    }
+  },
+  {
+    "id": "nuxt-static",
+    "app": "nuxt",
+    "label": "Nuxt (SSG)",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 23.9,
+      "installSeconds": 8.8,
+      "buildSeconds": 6.9,
+      "imageMB": 95.6,
+      "outputKB": 1492.9,
+      "outputJsKB": 218
+    },
+    "start": {
+      "coldStartMs": 531,
+      "restartMs": 798,
+      "idleMemMB": 3.3,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 15154.6,
+        "p50": 0.49,
+        "p99": 3.87,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.209,
+        "memPeakMB": 3.7
+      },
+      "home@100": {
+        "rps": 17809.6,
+        "p50": 5.41,
+        "p99": 9.99,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.457,
+        "memPeakMB": 4.5
+      },
+      "blog@10": {
+        "rps": 16927.2,
+        "p50": 0.54,
+        "p99": 1.32,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.398,
+        "memPeakMB": 3.8
+      },
+      "blog@100": {
+        "rps": 17439.4,
+        "p50": 5.48,
+        "p99": 11.92,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.457,
+        "memPeakMB": 4.5
+      },
+      "post@10": {
+        "rps": 17160.4,
+        "p50": 0.52,
+        "p99": 1.34,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.461,
+        "memPeakMB": 3.7
+      },
+      "post@100": {
+        "rps": 17190,
+        "p50": 5.61,
+        "p99": 10.73,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.469,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 16786.2,
+        "p50": 0.55,
+        "p99": 1.24,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.397,
+        "memPeakMB": 3.8
+      },
+      "filtered@100": {
+        "rps": 16881.9,
+        "p50": 5.69,
+        "p99": 10.64,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.428,
+        "memPeakMB": 4.5
+      },
+      "notFound@10": {
+        "rps": 18442.2,
+        "p50": 0.48,
+        "p99": 1.29,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.452,
+        "memPeakMB": 3.7
+      },
+      "notFound@100": {
+        "rps": 17989.5,
+        "p50": 5.25,
+        "p99": 10.3,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.434,
+        "memPeakMB": 4.7
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.9,
+        "lcp": 1906.6,
+        "tbt": 53,
+        "cls": 0,
+        "si": 752.9,
+        "tti": 2081.7,
+        "totalKB": 182.9,
+        "scriptKB": 86,
+        "documentKB": 3,
+        "requests": 25,
+        "scriptRequests": 9,
+        "bootupMs": 377.3,
+        "mainThreadMs": 837.8,
+        "domSize": 106,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.4,
+        "lcp": 1808.3,
+        "tbt": 86.5,
+        "cls": 0,
+        "si": 752.4,
+        "tti": 2140.1,
+        "totalKB": 171.2,
+        "scriptKB": 86,
+        "documentKB": 5.8,
+        "requests": 26,
+        "scriptRequests": 9,
+        "bootupMs": 450.8,
+        "mainThreadMs": 971.2,
+        "domSize": 531,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.5,
+        "lcp": 1618.2,
+        "tbt": 37,
+        "cls": 0,
+        "si": 752.5,
+        "tti": 1755.7,
+        "totalKB": 124.9,
+        "scriptKB": 86,
+        "documentKB": 4.1,
+        "requests": 18,
+        "scriptRequests": 9,
+        "bootupMs": 340,
+        "mainThreadMs": 784.7,
+        "domSize": 113,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1461.5,
+      "domContentLoaded": 1043.8999999999069,
+      "load": 1043.8999999999069,
+      "fcp": 432,
+      "scriptBytes": 87630,
+      "scriptCount": 9,
+      "inpMs": 176,
+      "interactions": 10
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 15219.8,
+        "p99": 98.67,
+        "healthyAfter": true,
+        "memPeakMB": 11.9
+      },
+      "soak": {
+        "rps": 16955.2,
+        "errors": 0,
+        "memStartMB": 3.5,
+        "memEndMB": 3.5,
+        "memGrowthMB": 0
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 590
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 501,
+      "files": 27,
+      "directDeps": 3,
+      "transitiveDeps": 600,
+      "npmAudit": {
+        "info": 0,
+        "low": 6,
+        "moderate": 6,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 97,
+      "iterations": 3,
+      "deviations": "post body duplicated in payload",
+      "friction": "experimental.prerenderErrorPages found in source; JSON error pages for non-HTML Accept; prerender routes leak into nuxt build"
+    }
+  },
+  {
+    "id": "nuxt-server",
+    "app": "nuxt",
+    "label": "Nuxt (SSR)",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 27.9,
+      "installSeconds": 8.6,
+      "buildSeconds": 8.7,
+      "imageMB": 344.1,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 859,
+      "restartMs": 981,
+      "idleMemMB": 37.2,
+      "afterLoadMemMB": 137.8
+    },
+    "load": {
+      "home@10": {
+        "rps": 315.8,
+        "p50": 28.73,
+        "p99": 57.21,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.343,
+        "memPeakMB": 125.1
+      },
+      "home@100": {
+        "rps": 299.3,
+        "p50": 315.99,
+        "p99": 527.7,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.379,
+        "memPeakMB": 149.9
+      },
+      "blog@10": {
+        "rps": 135.9,
+        "p50": 68.89,
+        "p99": 113.79,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.445,
+        "memPeakMB": 136.3
+      },
+      "blog@100": {
+        "rps": 118.5,
+        "p50": 687.02,
+        "p99": 5598.24,
+        "errors": 26,
+        "non2xx": 0,
+        "cpuCores": 1.537,
+        "memPeakMB": 158.5
+      },
+      "post@10": {
+        "rps": 312.7,
+        "p50": 29.27,
+        "p99": 55.16,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.388,
+        "memPeakMB": 144.8
+      },
+      "post@100": {
+        "rps": 288.4,
+        "p50": 342.27,
+        "p99": 397.31,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.469,
+        "memPeakMB": 164.7
+      },
+      "filtered@10": {
+        "rps": 217.3,
+        "p50": 42.74,
+        "p99": 77.15,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.368,
+        "memPeakMB": 151.2
+      },
+      "filtered@100": {
+        "rps": 200.5,
+        "p50": 478.21,
+        "p99": 1889.42,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.468,
+        "memPeakMB": 158.5
+      },
+      "notFound@10": {
+        "rps": 422.4,
+        "p50": 21.43,
+        "p99": 46.3,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.311,
+        "memPeakMB": 153.6
+      },
+      "notFound@100": {
+        "rps": 442,
+        "p50": 225.69,
+        "p99": 250.46,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.33,
+        "memPeakMB": 140.2
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 759.3,
+        "lcp": 1975.1,
+        "tbt": 71.5,
+        "cls": 0,
+        "si": 759.3,
+        "tti": 2096.9,
+        "totalKB": 173,
+        "scriptKB": 85.8,
+        "documentKB": 3.4,
+        "requests": 20,
+        "scriptRequests": 9,
+        "bootupMs": 371,
+        "mainThreadMs": 848.2,
+        "domSize": 106,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 757.4,
+        "lcp": 1820.8,
+        "tbt": 89.5,
+        "cls": 0,
+        "si": 786.8,
+        "tti": 2134,
+        "totalKB": 163.7,
+        "scriptKB": 85.8,
+        "documentKB": 8.6,
+        "requests": 21,
+        "scriptRequests": 9,
+        "bootupMs": 438.6,
+        "mainThreadMs": 920,
+        "domSize": 531,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 762.6,
+        "lcp": 1680.6,
+        "tbt": 60.5,
+        "cls": 0,
+        "si": 762.6,
+        "tti": 1845.1,
+        "totalKB": 115.4,
+        "scriptKB": 85.8,
+        "documentKB": 4.9,
+        "requests": 14,
+        "scriptRequests": 9,
+        "bootupMs": 347.8,
+        "mainThreadMs": 797.9,
+        "domSize": 113,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1430.0999999999767,
+      "domContentLoaded": 1040.9000000000233,
+      "load": 1041,
+      "fcp": 464,
+      "scriptBytes": 87166,
+      "scriptCount": 9,
+      "inpMs": 176,
+      "interactions": 10
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.7706337509211496,
+        "rps": 300.1,
+        "p99": 7884.43,
+        "healthyAfter": true,
+        "memPeakMB": 182.9
+      },
+      "soak": {
+        "rps": 287.1,
+        "errors": 0,
+        "memStartMB": 179.9,
+        "memEndMB": 120,
+        "memGrowthMB": -59.9
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 809
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 501,
+      "files": 27,
+      "directDeps": 3,
+      "transitiveDeps": 600,
+      "npmAudit": {
+        "info": 0,
+        "low": 6,
+        "moderate": 6,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 48,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 6,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 97,
+      "iterations": 3,
+      "deviations": "post body duplicated in payload",
+      "friction": "experimental.prerenderErrorPages found in source; JSON error pages for non-HTML Accept; prerender routes leak into nuxt build"
+    }
+  },
+  {
+    "id": "next-static",
+    "app": "next",
+    "label": "Next.js (export)",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 29.8,
+      "installSeconds": 10.7,
+      "buildSeconds": 11.1,
+      "imageMB": 99.5,
+      "outputKB": 4943.9,
+      "outputJsKB": 567.4
+    },
+    "start": {
+      "coldStartMs": 522,
+      "restartMs": 742,
+      "idleMemMB": 3.3,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 17426.6,
+        "p50": 0.52,
+        "p99": 1.26,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.416,
+        "memPeakMB": 3.9
+      },
+      "home@100": {
+        "rps": 17551.7,
+        "p50": 5.45,
+        "p99": 10.98,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.433,
+        "memPeakMB": 4.6
+      },
+      "blog@10": {
+        "rps": 10827.2,
+        "p50": 0.82,
+        "p99": 2.49,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.099,
+        "memPeakMB": 4.7
+      },
+      "blog@100": {
+        "rps": 10864.7,
+        "p50": 8.63,
+        "p99": 22.52,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.276,
+        "memPeakMB": 11
+      },
+      "post@10": {
+        "rps": 16588.2,
+        "p50": 0.56,
+        "p99": 1.33,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.39,
+        "memPeakMB": 3.8
+      },
+      "post@100": {
+        "rps": 17602.5,
+        "p50": 5.46,
+        "p99": 11.27,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.461,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 10909.1,
+        "p50": 0.8,
+        "p99": 2.58,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.089,
+        "memPeakMB": 4.7
+      },
+      "filtered@100": {
+        "rps": 10820.7,
+        "p50": 8.7,
+        "p99": 23.21,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.26,
+        "memPeakMB": 11.3
+      },
+      "notFound@10": {
+        "rps": 17635.7,
+        "p50": 0.52,
+        "p99": 1.32,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.415,
+        "memPeakMB": 3.7
+      },
+      "notFound@100": {
+        "rps": 18349.3,
+        "p50": 5.17,
+        "p99": 10.29,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.469,
+        "memPeakMB": 4.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 97,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 661.3,
+        "lcp": 2472,
+        "tbt": 109.5,
+        "cls": 0,
+        "si": 661.3,
+        "tti": 2575.4,
+        "totalKB": 375.2,
+        "scriptKB": 140.5,
+        "documentKB": 4.9,
+        "requests": 32,
+        "scriptRequests": 8,
+        "bootupMs": 558.5,
+        "mainThreadMs": 1030.4,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 98,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 635,
+        "lcp": 1906.9,
+        "tbt": 136,
+        "cls": 0,
+        "si": 635,
+        "tti": 2667.5,
+        "totalKB": 438.2,
+        "scriptKB": 140.5,
+        "documentKB": 11.3,
+        "requests": 40,
+        "scriptRequests": 8,
+        "bootupMs": 660.6,
+        "mainThreadMs": 1284.7,
+        "domSize": 534,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 97,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 665.9,
+        "lcp": 2284.5,
+        "tbt": 124.5,
+        "cls": 0,
+        "si": 665.9,
+        "tti": 2465.2,
+        "totalKB": 334.2,
+        "scriptKB": 140.5,
+        "documentKB": 6.4,
+        "requests": 30,
+        "scriptRequests": 8,
+        "bootupMs": 565.9,
+        "mainThreadMs": 1038.4,
+        "domSize": 116,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1830.7999999999302,
+      "domContentLoaded": 495.20000000006985,
+      "load": 1645.5999999999767,
+      "fcp": 484,
+      "scriptBytes": 143490,
+      "scriptCount": 8,
+      "inpMs": 72,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 15697.4,
+        "p99": 91.48,
+        "healthyAfter": true,
+        "memPeakMB": 12
+      },
+      "soak": {
+        "rps": 16849.9,
+        "errors": 0,
+        "memStartMB": 3.5,
+        "memEndMB": 3.6,
+        "memGrowthMB": 0.1
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 589
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 544,
+      "files": 26,
+      "directDeps": 3,
+      "transitiveDeps": 54,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 139,
+      "iterations": 4,
+      "deviations": "rewrite for notFound() in dynamic pages; /_not-found always prerendered",
+      "friction": "notFound() returns empty error shell; segment config cannot vary by mode; output: export rejects route handlers"
+    }
+  },
+  {
+    "id": "next-server",
+    "app": "next",
+    "label": "Next.js (SSR)",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 33,
+      "installSeconds": 11.2,
+      "buildSeconds": 11.9,
+      "imageMB": 287.7,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 1569,
+      "restartMs": 1515,
+      "idleMemMB": 59.6,
+      "afterLoadMemMB": 178.1
+    },
+    "load": {
+      "home@10": {
+        "rps": 174.8,
+        "p50": 52.8,
+        "p99": 105.59,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.347,
+        "memPeakMB": 129.5
+      },
+      "home@100": {
+        "rps": 178.7,
+        "p50": 543.77,
+        "p99": 1514.64,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.36,
+        "memPeakMB": 159.8
+      },
+      "blog@10": {
+        "rps": 91.4,
+        "p50": 98.83,
+        "p99": 179.45,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.318,
+        "memPeakMB": 157.5
+      },
+      "blog@100": {
+        "rps": 85.7,
+        "p50": 1113.75,
+        "p99": 5689.42,
+        "errors": 7,
+        "non2xx": 0,
+        "cpuCores": 1.383,
+        "memPeakMB": 202.3
+      },
+      "post@10": {
+        "rps": 163.6,
+        "p50": 56.36,
+        "p99": 112.61,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.318,
+        "memPeakMB": 185.7
+      },
+      "post@100": {
+        "rps": 168.4,
+        "p50": 581.24,
+        "p99": 2010.26,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.344,
+        "memPeakMB": 196.5
+      },
+      "filtered@10": {
+        "rps": 105.9,
+        "p50": 86.77,
+        "p99": 147.91,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.338,
+        "memPeakMB": 186.5
+      },
+      "filtered@100": {
+        "rps": 111.7,
+        "p50": 854.79,
+        "p99": 4793.48,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.323,
+        "memPeakMB": 199.9
+      },
+      "notFound@10": {
+        "rps": 1349,
+        "p50": 6.47,
+        "p99": 16.85,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.056,
+        "memPeakMB": 184.3
+      },
+      "notFound@100": {
+        "rps": 1390.1,
+        "p50": 70.12,
+        "p99": 135.16,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1,
+        "memPeakMB": 179.6
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 96,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 669.6,
+        "lcp": 2502.3,
+        "tbt": 119,
+        "cls": 0,
+        "si": 669.6,
+        "tti": 2609.8,
+        "totalKB": 237.1,
+        "scriptKB": 139.3,
+        "documentKB": 5,
+        "requests": 23,
+        "scriptRequests": 7,
+        "bootupMs": 523,
+        "mainThreadMs": 938.7,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 699.8,
+        "lcp": 1921.5,
+        "tbt": 122.5,
+        "cls": 0,
+        "si": 699.8,
+        "tti": 2606.6,
+        "totalKB": 238.6,
+        "scriptKB": 140.7,
+        "documentKB": 11.3,
+        "requests": 29,
+        "scriptRequests": 8,
+        "bootupMs": 566.5,
+        "mainThreadMs": 1171.5,
+        "domSize": 534,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 97,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 679.1,
+        "lcp": 2290.3,
+        "tbt": 113.5,
+        "cls": 0,
+        "si": 679.1,
+        "tti": 2455.3,
+        "totalKB": 184.2,
+        "scriptKB": 139.3,
+        "documentKB": 6.6,
+        "requests": 21,
+        "scriptRequests": 7,
+        "bootupMs": 520.9,
+        "mainThreadMs": 969.7,
+        "domSize": 116,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1706.6000000000931,
+      "domContentLoaded": 486.19999999995343,
+      "load": 1623.7000000000698,
+      "fcp": 476,
+      "scriptBytes": 143281,
+      "scriptCount": 8,
+      "inpMs": 72,
+      "interactions": 10
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.6244749369924391,
+        "rps": 180.6,
+        "p99": 9305.92,
+        "healthyAfter": true,
+        "memPeakMB": 222.6
+      },
+      "soak": {
+        "rps": 160.7,
+        "errors": 0,
+        "memStartMB": 174.1,
+        "memEndMB": 181.5,
+        "memGrowthMB": 7.4
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 1357
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 544,
+      "files": 26,
+      "directDeps": 3,
+      "transitiveDeps": 54,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 6,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 139,
+      "iterations": 4,
+      "deviations": "rewrite for notFound() in dynamic pages; /_not-found always prerendered",
+      "friction": "notFound() returns empty error shell; segment config cannot vary by mode; output: export rejects route handlers"
+    }
+  },
+  {
+    "id": "astro-static",
+    "app": "astro",
+    "label": "Astro (SSG)",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 18.1,
+      "installSeconds": 6.4,
+      "buildSeconds": 2.6,
+      "imageMB": 91.9,
+      "outputKB": 628.8,
+      "outputJsKB": 0
+    },
+    "start": {
+      "coldStartMs": 499,
+      "restartMs": 787,
+      "idleMemMB": 3.3,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 18055.2,
+        "p50": 0.48,
+        "p99": 1.37,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.446,
+        "memPeakMB": 3.7
+      },
+      "home@100": {
+        "rps": 17788.3,
+        "p50": 5.3,
+        "p99": 10.71,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.437,
+        "memPeakMB": 4.4
+      },
+      "blog@10": {
+        "rps": 17011.3,
+        "p50": 0.54,
+        "p99": 1.33,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.378,
+        "memPeakMB": 3.8
+      },
+      "blog@100": {
+        "rps": 17405.2,
+        "p50": 5.53,
+        "p99": 11.13,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.422,
+        "memPeakMB": 4.6
+      },
+      "post@10": {
+        "rps": 18072.5,
+        "p50": 0.49,
+        "p99": 1.27,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.453,
+        "memPeakMB": 3.7
+      },
+      "post@100": {
+        "rps": 18139.3,
+        "p50": 5.27,
+        "p99": 9.84,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.469,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 16491.5,
+        "p50": 0.53,
+        "p99": 1.76,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.322,
+        "memPeakMB": 3.9
+      },
+      "filtered@100": {
+        "rps": 17700.7,
+        "p50": 5.39,
+        "p99": 10.7,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.448,
+        "memPeakMB": 4.6
+      },
+      "notFound@10": {
+        "rps": 17740.2,
+        "p50": 0.49,
+        "p99": 1.43,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.394,
+        "memPeakMB": 3.7
+      },
+      "notFound@100": {
+        "rps": 18340.4,
+        "p50": 5.18,
+        "p99": 10.48,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.451,
+        "memPeakMB": 4.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.2,
+        "lcp": 1427.2,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.2,
+        "tti": 1449.7,
+        "totalKB": 85.9,
+        "scriptKB": 0,
+        "documentKB": 2.6,
+        "requests": 10,
+        "scriptRequests": 0,
+        "bootupMs": 37.8,
+        "mainThreadMs": 329.7,
+        "domSize": 103,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.2,
+        "lcp": 1128.2,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.2,
+        "tti": 1135.7,
+        "totalKB": 75.3,
+        "scriptKB": 0,
+        "documentKB": 6.3,
+        "requests": 11,
+        "scriptRequests": 0,
+        "bootupMs": 36.9,
+        "mainThreadMs": 468.7,
+        "domSize": 529,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753,
+        "lcp": 1053,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753,
+        "tti": 1053,
+        "totalKB": 27.9,
+        "scriptKB": 0,
+        "documentKB": 3.6,
+        "requests": 4,
+        "scriptRequests": 0,
+        "bootupMs": 26,
+        "mainThreadMs": 318.3,
+        "domSize": 110,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 553.1999999999534,
+      "domContentLoaded": 444.79999999993015,
+      "load": 497.4000000000233,
+      "fcp": 448,
+      "scriptBytes": 0,
+      "scriptCount": 0,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 16460.6,
+        "p99": 86.4,
+        "healthyAfter": true,
+        "memPeakMB": 11.9
+      },
+      "soak": {
+        "rps": 17898.9,
+        "errors": 0,
+        "memStartMB": 3.5,
+        "memEndMB": 3.5,
+        "memGrowthMB": 0
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 606
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 352,
+      "files": 20,
+      "directDeps": 3,
+      "transitiveDeps": 296,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 149,
+      "iterations": 4,
+      "deviations": "none",
+      "friction": "@astrojs/rss trailing slash; @astrojs/sitemap lists only prerendered routes"
+    }
+  },
+  {
+    "id": "astro-server",
+    "app": "astro",
+    "label": "Astro (SSR)",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 33.5,
+      "installSeconds": 23.6,
+      "buildSeconds": 2.9,
+      "imageMB": 607.7,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 697,
+      "restartMs": 10846,
+      "idleMemMB": 31,
+      "afterLoadMemMB": 104.8
+    },
+    "load": {
+      "home@10": {
+        "rps": 1852.9,
+        "p50": 4.71,
+        "p99": 18.49,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.161,
+        "memPeakMB": 96.5
+      },
+      "home@100": {
+        "rps": 1882.9,
+        "p50": 49.3,
+        "p99": 82.76,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.153,
+        "memPeakMB": 119.3
+      },
+      "blog@10": {
+        "rps": 1100.4,
+        "p50": 8.66,
+        "p99": 24.45,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.132,
+        "memPeakMB": 103.2
+      },
+      "blog@100": {
+        "rps": 1061.3,
+        "p50": 87.6,
+        "p99": 131.94,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.15,
+        "memPeakMB": 146.7
+      },
+      "post@10": {
+        "rps": 1672.6,
+        "p50": 5.24,
+        "p99": 20.59,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.152,
+        "memPeakMB": 96.8
+      },
+      "post@100": {
+        "rps": 1630.9,
+        "p50": 57.46,
+        "p99": 90.25,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.163,
+        "memPeakMB": 121.2
+      },
+      "filtered@10": {
+        "rps": 1051.4,
+        "p50": 9.1,
+        "p99": 24.18,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.129,
+        "memPeakMB": 120.3
+      },
+      "filtered@100": {
+        "rps": 1036.6,
+        "p50": 90.24,
+        "p99": 134.82,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.146,
+        "memPeakMB": 146.4
+      },
+      "notFound@10": {
+        "rps": 2004.1,
+        "p50": 4.27,
+        "p99": 18.75,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.167,
+        "memPeakMB": 129.6
+      },
+      "notFound@100": {
+        "rps": 1950.8,
+        "p50": 48.33,
+        "p99": 78.29,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.178,
+        "memPeakMB": 112.8
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 758.6,
+        "lcp": 1433.6,
+        "tbt": 0,
+        "cls": 0,
+        "si": 758.6,
+        "tti": 1456.1,
+        "totalKB": 86.2,
+        "scriptKB": 0,
+        "documentKB": 2.5,
+        "requests": 10,
+        "scriptRequests": 0,
+        "bootupMs": 37.9,
+        "mainThreadMs": 295.4,
+        "domSize": 103,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 757,
+        "lcp": 1132,
+        "tbt": 0,
+        "cls": 0,
+        "si": 757,
+        "tti": 1139.5,
+        "totalKB": 75.6,
+        "scriptKB": 0,
+        "documentKB": 6.2,
+        "requests": 11,
+        "scriptRequests": 0,
+        "bootupMs": 44.4,
+        "mainThreadMs": 419.5,
+        "domSize": 529,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 755.3,
+        "lcp": 1055.3,
+        "tbt": 0,
+        "cls": 0,
+        "si": 755.3,
+        "tti": 1055.3,
+        "totalKB": 27.9,
+        "scriptKB": 0,
+        "documentKB": 3.5,
+        "requests": 4,
+        "scriptRequests": 0,
+        "bootupMs": 31.1,
+        "mainThreadMs": 378.8,
+        "domSize": 110,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 549.0999999999767,
+      "domContentLoaded": 438.39999999990687,
+      "load": 493.5999999999767,
+      "fcp": 440,
+      "scriptBytes": 0,
+      "scriptCount": 0,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.9435495102362936,
+        "rps": 1354.4,
+        "p99": 2459.24,
+        "healthyAfter": true,
+        "memPeakMB": 114.8
+      },
+      "soak": {
+        "rps": 1579.1,
+        "errors": 0,
+        "memStartMB": 110.7,
+        "memEndMB": 110.2,
+        "memGrowthMB": -0.5
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 685
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 352,
+      "files": 20,
+      "directDeps": 3,
+      "transitiveDeps": 296,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 48,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 6,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 149,
+      "iterations": 4,
+      "deviations": "none",
+      "friction": "@astrojs/rss trailing slash; @astrojs/sitemap lists only prerendered routes"
+    }
+  },
+  {
+    "id": "sveltekit-static",
+    "app": "sveltekit",
+    "label": "SvelteKit (SSG)",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 16.9,
+      "installSeconds": 3.7,
+      "buildSeconds": 5.5,
+      "imageMB": 96,
+      "outputKB": 1792,
+      "outputJsKB": 104.3
+    },
+    "start": {
+      "coldStartMs": 526,
+      "restartMs": 728,
+      "idleMemMB": 3.3,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 17842.6,
+        "p50": 0.48,
+        "p99": 1.4,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.439,
+        "memPeakMB": 3.7
+      },
+      "home@100": {
+        "rps": 17581.2,
+        "p50": 5.34,
+        "p99": 11.4,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.439,
+        "memPeakMB": 4.4
+      },
+      "blog@10": {
+        "rps": 16508.5,
+        "p50": 0.55,
+        "p99": 1.47,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.349,
+        "memPeakMB": 3.8
+      },
+      "blog@100": {
+        "rps": 17147.1,
+        "p50": 5.39,
+        "p99": 13.13,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.421,
+        "memPeakMB": 4.6
+      },
+      "post@10": {
+        "rps": 17587.8,
+        "p50": 0.51,
+        "p99": 1.22,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.445,
+        "memPeakMB": 3.8
+      },
+      "post@100": {
+        "rps": 17190.8,
+        "p50": 5.57,
+        "p99": 11.22,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.44,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 16164.2,
+        "p50": 0.52,
+        "p99": 2.37,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.313,
+        "memPeakMB": 3.9
+      },
+      "filtered@100": {
+        "rps": 17096,
+        "p50": 5.62,
+        "p99": 11.01,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.418,
+        "memPeakMB": 4.8
+      },
+      "notFound@10": {
+        "rps": 18366,
+        "p50": 0.48,
+        "p99": 1.2,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.453,
+        "memPeakMB": 3.7
+      },
+      "notFound@100": {
+        "rps": 18230.2,
+        "p50": 5.2,
+        "p99": 11.03,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.457,
+        "memPeakMB": 4.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.6,
+        "lcp": 1874.7,
+        "tbt": 5,
+        "cls": 0,
+        "si": 754.1,
+        "tti": 1914.2,
+        "totalKB": 130,
+        "scriptKB": 43.3,
+        "documentKB": 3.3,
+        "requests": 25,
+        "scriptRequests": 15,
+        "bootupMs": 136.1,
+        "mainThreadMs": 589.6,
+        "domSize": 105,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.5,
+        "lcp": 1917.8,
+        "tbt": 20,
+        "cls": 0,
+        "si": 753.5,
+        "tti": 1966.2,
+        "totalKB": 120.3,
+        "scriptKB": 44,
+        "documentKB": 7.3,
+        "requests": 26,
+        "scriptRequests": 15,
+        "bootupMs": 167.2,
+        "mainThreadMs": 716.3,
+        "domSize": 530,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.6,
+        "lcp": 1712.1,
+        "tbt": 3.5,
+        "cls": 0,
+        "si": 753.6,
+        "tti": 1743.4,
+        "totalKB": 72.7,
+        "scriptKB": 43.6,
+        "documentKB": 4.8,
+        "requests": 19,
+        "scriptRequests": 15,
+        "bootupMs": 134.9,
+        "mainThreadMs": 566,
+        "domSize": 112,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1117.9000000000233,
+      "domContentLoaded": 475.4000000000233,
+      "load": 975.7000000000698,
+      "fcp": 468,
+      "scriptBytes": 44537,
+      "scriptCount": 15,
+      "inpMs": 56,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 15942.2,
+        "p99": 87.66,
+        "healthyAfter": true,
+        "memPeakMB": 11.9
+      },
+      "soak": {
+        "rps": 17264.9,
+        "errors": 0,
+        "memStartMB": 3.4,
+        "memEndMB": 3.5,
+        "memGrowthMB": 0.1
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 584
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 589,
+      "files": 31,
+      "directDeps": 9,
+      "transitiveDeps": 89,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 72,
+      "iterations": 5,
+      "deviations": "none checked",
+      "friction": "Kit 3 moved config to vite.config, $lib to #lib; real 404.html needs a prerendered /404 route; searchParams forbidden in prerender"
+    }
+  },
+  {
+    "id": "sveltekit-server",
+    "app": "sveltekit",
+    "label": "SvelteKit (SSR)",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 16.7,
+      "installSeconds": 3.7,
+      "buildSeconds": 5.6,
+      "imageMB": 237.9,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 679,
+      "restartMs": 849,
+      "idleMemMB": 25.1,
+      "afterLoadMemMB": 119.3
+    },
+    "load": {
+      "home@10": {
+        "rps": 1178,
+        "p50": 6.73,
+        "p99": 23.29,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.341,
+        "memPeakMB": 88.1
+      },
+      "home@100": {
+        "rps": 1196.3,
+        "p50": 78.13,
+        "p99": 116.01,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.299,
+        "memPeakMB": 94.3
+      },
+      "blog@10": {
+        "rps": 509.8,
+        "p50": 16.15,
+        "p99": 46.55,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.332,
+        "memPeakMB": 116.3
+      },
+      "blog@100": {
+        "rps": 521.6,
+        "p50": 185.2,
+        "p99": 218.4,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.355,
+        "memPeakMB": 125
+      },
+      "post@10": {
+        "rps": 906.1,
+        "p50": 9.61,
+        "p99": 27.95,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.369,
+        "memPeakMB": 110.2
+      },
+      "post@100": {
+        "rps": 979.1,
+        "p50": 97.69,
+        "p99": 123.64,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.272,
+        "memPeakMB": 118.6
+      },
+      "filtered@10": {
+        "rps": 652.3,
+        "p50": 12.83,
+        "p99": 40.06,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.258,
+        "memPeakMB": 131
+      },
+      "filtered@100": {
+        "rps": 646.3,
+        "p50": 152.9,
+        "p99": 182.43,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.324,
+        "memPeakMB": 138.4
+      },
+      "notFound@10": {
+        "rps": 1897.6,
+        "p50": 3.92,
+        "p99": 14.84,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.236,
+        "memPeakMB": 120.4
+      },
+      "notFound@100": {
+        "rps": 1925.8,
+        "p50": 47.44,
+        "p99": 82.12,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.218,
+        "memPeakMB": 121.1
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 758.8,
+        "lcp": 1835.5,
+        "tbt": 0,
+        "cls": 0,
+        "si": 758.8,
+        "tti": 1876.6,
+        "totalKB": 129.8,
+        "scriptKB": 43.2,
+        "documentKB": 3.3,
+        "requests": 25,
+        "scriptRequests": 15,
+        "bootupMs": 143.9,
+        "mainThreadMs": 595.9,
+        "domSize": 105,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 756.4,
+        "lcp": 1992.8,
+        "tbt": 15,
+        "cls": 0,
+        "si": 756.4,
+        "tti": 2000.4,
+        "totalKB": 120.1,
+        "scriptKB": 44,
+        "documentKB": 7.3,
+        "requests": 26,
+        "scriptRequests": 15,
+        "bootupMs": 164,
+        "mainThreadMs": 597.9,
+        "domSize": 530,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 756.6,
+        "lcp": 1759,
+        "tbt": 11,
+        "cls": 0,
+        "si": 756.6,
+        "tti": 1759,
+        "totalKB": 72.6,
+        "scriptKB": 43.6,
+        "documentKB": 4.8,
+        "requests": 19,
+        "scriptRequests": 15,
+        "bootupMs": 141.1,
+        "mainThreadMs": 572.3,
+        "domSize": 112,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1108.6000000000931,
+      "domContentLoaded": 468.60000000009313,
+      "load": 968.2000000000698,
+      "fcp": 464,
+      "scriptBytes": 44537,
+      "scriptCount": 15,
+      "inpMs": 56,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.8848969226172692,
+        "rps": 827.8,
+        "p99": 584.35,
+        "healthyAfter": true,
+        "memPeakMB": 108.1
+      },
+      "soak": {
+        "rps": 874.6,
+        "errors": 0,
+        "memStartMB": 91.4,
+        "memEndMB": 106.2,
+        "memGrowthMB": 14.8
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 674
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 589,
+      "files": 31,
+      "directDeps": 9,
+      "transitiveDeps": 89,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 6,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 72,
+      "iterations": 5,
+      "deviations": "none checked",
+      "friction": "Kit 3 moved config to vite.config, $lib to #lib; real 404.html needs a prerendered /404 route; searchParams forbidden in prerender"
+    }
+  },
+  {
+    "id": "react-router-static",
+    "app": "react-router",
+    "label": "React Router (prerender)",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 15.6,
+      "installSeconds": 5.4,
+      "buildSeconds": 3.6,
+      "imageMB": 93.7,
+      "outputKB": 2124.6,
+      "outputJsKB": 363.3
+    },
+    "start": {
+      "coldStartMs": 511,
+      "restartMs": 771,
+      "idleMemMB": 3.3,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 17942.6,
+        "p50": 0.5,
+        "p99": 1.26,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.448,
+        "memPeakMB": 3.7
+      },
+      "home@100": {
+        "rps": 18011.1,
+        "p50": 5.3,
+        "p99": 9.88,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.465,
+        "memPeakMB": 4.5
+      },
+      "blog@10": {
+        "rps": 16127.5,
+        "p50": 0.56,
+        "p99": 1.4,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.369,
+        "memPeakMB": 3.9
+      },
+      "blog@100": {
+        "rps": 16332,
+        "p50": 5.85,
+        "p99": 11.45,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.423,
+        "memPeakMB": 4.7
+      },
+      "post@10": {
+        "rps": 17129.2,
+        "p50": 0.52,
+        "p99": 1.27,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.456,
+        "memPeakMB": 3.8
+      },
+      "post@100": {
+        "rps": 17104.4,
+        "p50": 5.59,
+        "p99": 10.93,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.463,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 14443.1,
+        "p50": 0.55,
+        "p99": 4.38,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.217,
+        "memPeakMB": 4.1
+      },
+      "filtered@100": {
+        "rps": 16573,
+        "p50": 5.62,
+        "p99": 11.74,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.428,
+        "memPeakMB": 4.6
+      },
+      "notFound@10": {
+        "rps": 18496.7,
+        "p50": 0.47,
+        "p99": 1.26,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.454,
+        "memPeakMB": 3.7
+      },
+      "notFound@100": {
+        "rps": 18873,
+        "p50": 5,
+        "p99": 10.42,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.488,
+        "memPeakMB": 4.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 755.6,
+        "lcp": 2198,
+        "tbt": 7,
+        "cls": 0,
+        "si": 755.6,
+        "tti": 2361,
+        "totalKB": 206.3,
+        "scriptKB": 118.7,
+        "documentKB": 4.1,
+        "requests": 19,
+        "scriptRequests": 9,
+        "bootupMs": 259.9,
+        "mainThreadMs": 711.4,
+        "domSize": 110,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.7,
+        "lcp": 1757.1,
+        "tbt": 3,
+        "cls": 0,
+        "si": 753.7,
+        "tti": 1777.1,
+        "totalKB": 197.5,
+        "scriptKB": 119.3,
+        "documentKB": 9.2,
+        "requests": 20,
+        "scriptRequests": 9,
+        "bootupMs": 363.5,
+        "mainThreadMs": 896.6,
+        "domSize": 537,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 757,
+        "lcp": 2055.4,
+        "tbt": 0,
+        "cls": 0,
+        "si": 757,
+        "tti": 2063.8,
+        "totalKB": 148.8,
+        "scriptKB": 118.9,
+        "documentKB": 5.7,
+        "requests": 13,
+        "scriptRequests": 9,
+        "bootupMs": 241.1,
+        "mainThreadMs": 657.8,
+        "domSize": 117,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1642,
+      "domContentLoaded": 517.7000000000698,
+      "load": 1034.0999999999767,
+      "fcp": 508,
+      "scriptBytes": 121717,
+      "scriptCount": 9,
+      "inpMs": 56,
+      "interactions": 12
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 15314.8,
+        "p99": 97.52,
+        "healthyAfter": true,
+        "memPeakMB": 11.9
+      },
+      "soak": {
+        "rps": 16773.8,
+        "errors": 0,
+        "memStartMB": 3.5,
+        "memEndMB": 3.5,
+        "memGrowthMB": 0
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 605
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 671,
+      "files": 24,
+      "directDeps": 12,
+      "transitiveDeps": 218,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 79,
+      "iterations": 2,
+      "deviations": "v8 instead of v7; 404/index.html renamed in Dockerfile",
+      "friction": "v8 API changes only visible under tsc; silent server start"
+    }
+  },
+  {
+    "id": "react-router-server",
+    "app": "react-router",
+    "label": "React Router (SSR)",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 20.9,
+      "installSeconds": 12.4,
+      "buildSeconds": 2.4,
+      "imageMB": 331.2,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 909,
+      "restartMs": 1079,
+      "idleMemMB": 35.9,
+      "afterLoadMemMB": 117.2
+    },
+    "load": {
+      "home@10": {
+        "rps": 518.5,
+        "p50": 17.57,
+        "p99": 45.16,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.193,
+        "memPeakMB": 94.8
+      },
+      "home@100": {
+        "rps": 551.8,
+        "p50": 171.15,
+        "p99": 231.58,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.123,
+        "memPeakMB": 117.8
+      },
+      "blog@10": {
+        "rps": 230.5,
+        "p50": 41.01,
+        "p99": 85.23,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.085,
+        "memPeakMB": 118.2
+      },
+      "blog@100": {
+        "rps": 240,
+        "p50": 406.24,
+        "p99": 477.39,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.082,
+        "memPeakMB": 119.8
+      },
+      "post@10": {
+        "rps": 484.4,
+        "p50": 19.28,
+        "p99": 46.2,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.144,
+        "memPeakMB": 119.5
+      },
+      "post@100": {
+        "rps": 486.6,
+        "p50": 193.02,
+        "p99": 244.06,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.144,
+        "memPeakMB": 120.1
+      },
+      "filtered@10": {
+        "rps": 449.4,
+        "p50": 21.08,
+        "p99": 48.66,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.113,
+        "memPeakMB": 118.1
+      },
+      "filtered@100": {
+        "rps": 434,
+        "p50": 218.84,
+        "p99": 273.75,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.116,
+        "memPeakMB": 119
+      },
+      "notFound@10": {
+        "rps": 786.4,
+        "p50": 11.04,
+        "p99": 31.16,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.141,
+        "memPeakMB": 117.9
+      },
+      "notFound@100": {
+        "rps": 785.3,
+        "p50": 119.83,
+        "p99": 170.05,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.135,
+        "memPeakMB": 118.6
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 761.4,
+        "lcp": 2265.4,
+        "tbt": 1.5,
+        "cls": 0,
+        "si": 761.4,
+        "tti": 2285.8,
+        "totalKB": 206.9,
+        "scriptKB": 118.1,
+        "documentKB": 4.4,
+        "requests": 19,
+        "scriptRequests": 8,
+        "bootupMs": 267.1,
+        "mainThreadMs": 646.6,
+        "domSize": 110,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 762.1,
+        "lcp": 2114.9,
+        "tbt": 2,
+        "cls": 0,
+        "si": 762.1,
+        "tti": 2217.3,
+        "totalKB": 198.2,
+        "scriptKB": 118.6,
+        "documentKB": 9.5,
+        "requests": 20,
+        "scriptRequests": 8,
+        "bootupMs": 341.5,
+        "mainThreadMs": 844.7,
+        "domSize": 535,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 99,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 765.8,
+        "lcp": 2073.7,
+        "tbt": 6,
+        "cls": 0,
+        "si": 765.8,
+        "tti": 2073.7,
+        "totalKB": 149.4,
+        "scriptKB": 118.2,
+        "documentKB": 6,
+        "requests": 13,
+        "scriptRequests": 8,
+        "bootupMs": 254.4,
+        "mainThreadMs": 616.4,
+        "domSize": 117,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1830,
+      "domContentLoaded": 488.9000000000233,
+      "load": 1013.4000000000233,
+      "fcp": 484,
+      "scriptBytes": 120743,
+      "scriptCount": 8,
+      "inpMs": 32,
+      "interactions": 10
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.825229785533502,
+        "rps": 398.3,
+        "p99": 6989.83,
+        "healthyAfter": true,
+        "memPeakMB": 123.7
+      },
+      "soak": {
+        "rps": 468.6,
+        "errors": 0,
+        "memStartMB": 120.9,
+        "memEndMB": 121.5,
+        "memGrowthMB": 0.6
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 994
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 671,
+      "files": 24,
+      "directDeps": 12,
+      "transitiveDeps": 218,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 21,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 79,
+      "iterations": 2,
+      "deviations": "v8 instead of v7; 404/index.html renamed in Dockerfile",
+      "friction": "v8 API changes only visible under tsc; silent server start"
+    }
+  },
+  {
+    "id": "angular-static",
+    "app": "angular",
+    "label": "Angular (prerender)",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 27.1,
+      "installSeconds": 10.1,
+      "buildSeconds": 9.7,
+      "imageMB": 93,
+      "outputKB": 1595.4,
+      "outputJsKB": 591.6
+    },
+    "start": {
+      "coldStartMs": 514,
+      "restartMs": 776,
+      "idleMemMB": 3.4,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 17571,
+        "p50": 0.49,
+        "p99": 1.41,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.413,
+        "memPeakMB": 3.8
+      },
+      "home@100": {
+        "rps": 17964.7,
+        "p50": 5.36,
+        "p99": 10.59,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.454,
+        "memPeakMB": 4.5
+      },
+      "blog@10": {
+        "rps": 16859.6,
+        "p50": 0.54,
+        "p99": 1.27,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.394,
+        "memPeakMB": 4.1
+      },
+      "blog@100": {
+        "rps": 17128.8,
+        "p50": 5.51,
+        "p99": 11.77,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.433,
+        "memPeakMB": 4.6
+      },
+      "post@10": {
+        "rps": 17116.1,
+        "p50": 0.52,
+        "p99": 1.3,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.458,
+        "memPeakMB": 3.8
+      },
+      "post@100": {
+        "rps": 17345,
+        "p50": 5.54,
+        "p99": 10.38,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.48,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 15630.3,
+        "p50": 0.53,
+        "p99": 2.63,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.286,
+        "memPeakMB": 3.8
+      },
+      "filtered@100": {
+        "rps": 17384,
+        "p50": 5.47,
+        "p99": 10.88,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.451,
+        "memPeakMB": 4.6
+      },
+      "notFound@10": {
+        "rps": 18214.5,
+        "p50": 0.49,
+        "p99": 1.22,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.44,
+        "memPeakMB": 3.8
+      },
+      "notFound@100": {
+        "rps": 18356.4,
+        "p50": 5.15,
+        "p99": 9.97,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.459,
+        "memPeakMB": 4.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 94,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 691.4,
+        "lcp": 2349.9,
+        "tbt": 223.5,
+        "cls": 0,
+        "si": 820.1,
+        "tti": 2369.8,
+        "totalKB": 182.3,
+        "scriptKB": 95,
+        "documentKB": 4.2,
+        "requests": 12,
+        "scriptRequests": 2,
+        "bootupMs": 475.6,
+        "mainThreadMs": 951.4,
+        "domSize": 111,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 97,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 705.9,
+        "lcp": 2025.1,
+        "tbt": 154.5,
+        "cls": 0,
+        "si": 819.1,
+        "tti": 2260,
+        "totalKB": 172.7,
+        "scriptKB": 96.9,
+        "documentKB": 7,
+        "requests": 14,
+        "scriptRequests": 3,
+        "bootupMs": 565.8,
+        "mainThreadMs": 1196.8,
+        "domSize": 537,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 93,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 696.9,
+        "lcp": 1973.4,
+        "tbt": 308,
+        "cls": 0,
+        "si": 707.7,
+        "tti": 2056.1,
+        "totalKB": 128,
+        "scriptKB": 98.6,
+        "documentKB": 5.4,
+        "requests": 8,
+        "scriptRequests": 4,
+        "bootupMs": 490.7,
+        "mainThreadMs": 998.3,
+        "domSize": 119,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1418.5999999999767,
+      "domContentLoaded": 1179,
+      "load": 1179,
+      "fcp": 304,
+      "scriptBytes": 99254,
+      "scriptCount": 3,
+      "inpMs": 152,
+      "interactions": 12
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 15499.7,
+        "p99": 89.6,
+        "healthyAfter": true,
+        "memPeakMB": 11.9
+      },
+      "soak": {
+        "rps": 16880.6,
+        "errors": 0,
+        "memStartMB": 3.5,
+        "memEndMB": 3.5,
+        "memGrowthMB": 0
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 607
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 796,
+      "files": 29,
+      "directDeps": 16,
+      "transitiveDeps": 436,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 60,
+      "iterations": 4,
+      "deviations": "allowedHosts *; data-* hooks absent",
+      "friction": "no 404.html for ** route; base href vs skip link; fileReplacements per render mode"
+    }
+  },
+  {
+    "id": "angular-server",
+    "app": "angular",
+    "label": "Angular (SSR)",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 27.1,
+      "installSeconds": 10,
+      "buildSeconds": 10.4,
+      "imageMB": 342.6,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 806,
+      "restartMs": 11000,
+      "idleMemMB": 39.1,
+      "afterLoadMemMB": 186.7
+    },
+    "load": {
+      "home@10": {
+        "rps": 130.4,
+        "p50": 69.37,
+        "p99": 119.94,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.357,
+        "memPeakMB": 153
+      },
+      "home@100": {
+        "rps": 132.2,
+        "p50": 715.97,
+        "p99": 4036.88,
+        "errors": 1,
+        "non2xx": 0,
+        "cpuCores": 1.426,
+        "memPeakMB": 216.3
+      },
+      "blog@10": {
+        "rps": 41.3,
+        "p50": 247.32,
+        "p99": 303.64,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.459,
+        "memPeakMB": 210.1
+      },
+      "blog@100": {
+        "rps": 43.7,
+        "p50": 1550.97,
+        "p99": 5435.07,
+        "errors": 68,
+        "non2xx": 0,
+        "cpuCores": 1.451,
+        "memPeakMB": 316.1
+      },
+      "post@10": {
+        "rps": 124.5,
+        "p50": 73.75,
+        "p99": 115.89,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.297,
+        "memPeakMB": 289.4
+      },
+      "post@100": {
+        "rps": 122.8,
+        "p50": 778.2,
+        "p99": 4281.83,
+        "errors": 3,
+        "non2xx": 0,
+        "cpuCores": 1.359,
+        "memPeakMB": 208
+      },
+      "filtered@10": {
+        "rps": 88.5,
+        "p50": 103.39,
+        "p99": 157.48,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.347,
+        "memPeakMB": 207.6
+      },
+      "filtered@100": {
+        "rps": 87.6,
+        "p50": 945.92,
+        "p99": 6974.32,
+        "errors": 17,
+        "non2xx": 0,
+        "cpuCores": 1.427,
+        "memPeakMB": 255.6
+      },
+      "notFound@10": {
+        "rps": 264.6,
+        "p50": 34.36,
+        "p99": 79.8,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.222,
+        "memPeakMB": 240
+      },
+      "notFound@100": {
+        "rps": 258.5,
+        "p50": 383.64,
+        "p99": 442.16,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.296,
+        "memPeakMB": 197.1
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 95,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 683.9,
+        "lcp": 2346.9,
+        "tbt": 190,
+        "cls": 0,
+        "si": 856.1,
+        "tti": 2367.4,
+        "totalKB": 183.1,
+        "scriptKB": 95.1,
+        "documentKB": 4.2,
+        "requests": 12,
+        "scriptRequests": 2,
+        "bootupMs": 472.7,
+        "mainThreadMs": 979.1,
+        "domSize": 111,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 98,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 707.5,
+        "lcp": 2023.7,
+        "tbt": 121.5,
+        "cls": 0,
+        "si": 870,
+        "tti": 2229.9,
+        "totalKB": 173.5,
+        "scriptKB": 97.2,
+        "documentKB": 7,
+        "requests": 14,
+        "scriptRequests": 3,
+        "bootupMs": 528,
+        "mainThreadMs": 1123.7,
+        "domSize": 537,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 94,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 696.5,
+        "lcp": 1952,
+        "tbt": 252.5,
+        "cls": 0,
+        "si": 739.8,
+        "tti": 2110.2,
+        "totalKB": 128.5,
+        "scriptKB": 98.9,
+        "documentKB": 5.4,
+        "requests": 8,
+        "scriptRequests": 4,
+        "bootupMs": 452.6,
+        "mainThreadMs": 1026.7,
+        "domSize": 119,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1413.5,
+      "domContentLoaded": 1168.3000000000466,
+      "load": 1168.4000000001397,
+      "fcp": 300,
+      "scriptBytes": 99254,
+      "scriptCount": 3,
+      "inpMs": 152,
+      "interactions": 12
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [
+          "invalid-utf8:500"
+        ],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.5758942958427329,
+        "rps": 154.6,
+        "p99": 3812.59,
+        "healthyAfter": true,
+        "memPeakMB": 351.6
+      },
+      "soak": {
+        "rps": 116.9,
+        "errors": 0,
+        "memStartMB": 348.2,
+        "memEndMB": 172.9,
+        "memGrowthMB": -175.3
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 788
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 796,
+      "files": 29,
+      "directDeps": 16,
+      "transitiveDeps": 436,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 48,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 6,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 60,
+      "iterations": 4,
+      "deviations": "allowedHosts *; data-* hooks absent",
+      "friction": "no 404.html for ** route; base href vs skip link; fileReplacements per render mode"
+    }
+  },
+  {
+    "id": "qwik-static",
+    "app": "qwik",
+    "label": "Qwik City (SSG)",
+    "mode": "static",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 19.9,
+      "installSeconds": 6.4,
+      "buildSeconds": 7.6,
+      "imageMB": 96.9,
+      "outputKB": 2535.9,
+      "outputJsKB": 99.7
+    },
+    "start": {
+      "coldStartMs": 518,
+      "restartMs": 767,
+      "idleMemMB": 3.3,
+      "afterLoadMemMB": 3.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 16632.5,
+        "p50": 0.49,
+        "p99": 2.35,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.336,
+        "memPeakMB": 3.7
+      },
+      "home@100": {
+        "rps": 18258,
+        "p50": 5.19,
+        "p99": 10.56,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.476,
+        "memPeakMB": 4.5
+      },
+      "blog@10": {
+        "rps": 8020,
+        "p50": 1.06,
+        "p99": 4.4,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 0.983,
+        "memPeakMB": 5
+      },
+      "blog@100": {
+        "rps": 7884.1,
+        "p50": 11.49,
+        "p99": 37.21,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.164,
+        "memPeakMB": 12.6
+      },
+      "post@10": {
+        "rps": 15693.6,
+        "p50": 0.56,
+        "p99": 1.76,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.345,
+        "memPeakMB": 3.8
+      },
+      "post@100": {
+        "rps": 16612.5,
+        "p50": 5.76,
+        "p99": 10.36,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.427,
+        "memPeakMB": 4.5
+      },
+      "filtered@10": {
+        "rps": 8007.4,
+        "p50": 1.05,
+        "p99": 4.43,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 0.992,
+        "memPeakMB": 5.2
+      },
+      "filtered@100": {
+        "rps": 7843.5,
+        "p50": 11.33,
+        "p99": 34.4,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.118,
+        "memPeakMB": 12.8
+      },
+      "notFound@10": {
+        "rps": 17848.1,
+        "p50": 0.48,
+        "p99": 1.45,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.411,
+        "memPeakMB": 3.8
+      },
+      "notFound@100": {
+        "rps": 18245.1,
+        "p50": 5.21,
+        "p99": 10.41,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.449,
+        "memPeakMB": 4.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 754,
+        "lcp": 1884.5,
+        "tbt": 11,
+        "cls": 0,
+        "si": 754.8,
+        "tti": 1892.6,
+        "totalKB": 144.6,
+        "scriptKB": 44,
+        "documentKB": 6.1,
+        "requests": 35,
+        "scriptRequests": 20,
+        "bootupMs": 156.5,
+        "mainThreadMs": 625.2,
+        "domSize": 107,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 903.4,
+        "lcp": 1697.3,
+        "tbt": 0,
+        "cls": 0,
+        "si": 903.4,
+        "tti": 1712.3,
+        "totalKB": 147.6,
+        "scriptKB": 46.6,
+        "documentKB": 20.9,
+        "requests": 39,
+        "scriptRequests": 23,
+        "bootupMs": 152.5,
+        "mainThreadMs": 662.4,
+        "domSize": 532,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.7,
+        "lcp": 1256.8,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.7,
+        "tti": 1256.8,
+        "totalKB": 94.4,
+        "scriptKB": 44,
+        "documentKB": 8,
+        "requests": 30,
+        "scriptRequests": 20,
+        "bootupMs": 145.3,
+        "mainThreadMs": 592.8,
+        "domSize": 114,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 976.3999999999069,
+      "domContentLoaded": 463.39999999990687,
+      "load": 705.3999999999069,
+      "fcp": 456,
+      "scriptBytes": 46708,
+      "scriptCount": 23,
+      "inpMs": 32,
+      "interactions": 5
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 15248.3,
+        "p99": 89.47,
+        "healthyAfter": true,
+        "memPeakMB": 12
+      },
+      "soak": {
+        "rps": 16146.4,
+        "errors": 0,
+        "memStartMB": 3.5,
+        "memEndMB": 3.6,
+        "memGrowthMB": 0.1
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 618
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 999,
+      "files": 32,
+      "directDeps": 9,
+      "transitiveDeps": 326,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 1,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 119,
+      "iterations": 7,
+      "deviations": "post body serialized twice; framework attributes",
+      "friction": "adapter prerenders by default (ssg: null); lazy handlers needed sync$ for theme; RouterHead key leak"
+    }
+  },
+  {
+    "id": "qwik-server",
+    "app": "qwik",
+    "label": "Qwik City (SSR)",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 20.8,
+      "installSeconds": 11.9,
+      "buildSeconds": 6.4,
+      "imageMB": 252.9,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 878,
+      "restartMs": 11036,
+      "idleMemMB": 34.2,
+      "afterLoadMemMB": 113
+    },
+    "load": {
+      "home@10": {
+        "rps": 278.2,
+        "p50": 33.98,
+        "p99": 76.38,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.094,
+        "memPeakMB": 96.1
+      },
+      "home@100": {
+        "rps": 272.3,
+        "p50": 340.97,
+        "p99": 630.45,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.111,
+        "memPeakMB": 98.1
+      },
+      "blog@10": {
+        "rps": 45.9,
+        "p50": 223.78,
+        "p99": 270.8,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.329,
+        "memPeakMB": 107.8
+      },
+      "blog@100": {
+        "rps": 49.6,
+        "p50": 1375.02,
+        "p99": 4310.47,
+        "errors": 70,
+        "non2xx": 0,
+        "cpuCores": 1.374,
+        "memPeakMB": 110.5
+      },
+      "post@10": {
+        "rps": 208.5,
+        "p50": 40.13,
+        "p99": 101.66,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.303,
+        "memPeakMB": 116.3
+      },
+      "post@100": {
+        "rps": 213.5,
+        "p50": 453.05,
+        "p99": 1147.45,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.294,
+        "memPeakMB": 115.7
+      },
+      "filtered@10": {
+        "rps": 109.4,
+        "p50": 83.33,
+        "p99": 134.25,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.315,
+        "memPeakMB": 117.1
+      },
+      "filtered@100": {
+        "rps": 115.9,
+        "p50": 700.76,
+        "p99": 5441.07,
+        "errors": 25,
+        "non2xx": 0,
+        "cpuCores": 1.282,
+        "memPeakMB": 117.1
+      },
+      "notFound@10": {
+        "rps": 589.8,
+        "p50": 15.49,
+        "p99": 38.97,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.138,
+        "memPeakMB": 115.5
+      },
+      "notFound@100": {
+        "rps": 598.6,
+        "p50": 158.26,
+        "p99": 211.46,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.107,
+        "memPeakMB": 116.9
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 759.1,
+        "lcp": 1900.1,
+        "tbt": 0,
+        "cls": 0,
+        "si": 759.1,
+        "tti": 1909.2,
+        "totalKB": 145.9,
+        "scriptKB": 44.8,
+        "documentKB": 6.1,
+        "requests": 35,
+        "scriptRequests": 20,
+        "bootupMs": 154.5,
+        "mainThreadMs": 620.7,
+        "domSize": 107,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 907.2,
+        "lcp": 1660.8,
+        "tbt": 3,
+        "cls": 0,
+        "si": 907.2,
+        "tti": 1675.8,
+        "totalKB": 149.1,
+        "scriptKB": 47.5,
+        "documentKB": 20.9,
+        "requests": 39,
+        "scriptRequests": 23,
+        "bootupMs": 142,
+        "mainThreadMs": 777.5,
+        "domSize": 532,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 758.1,
+        "lcp": 1573.9,
+        "tbt": 0,
+        "cls": 0,
+        "si": 758.1,
+        "tti": 1573.9,
+        "totalKB": 95.5,
+        "scriptKB": 44.8,
+        "documentKB": 8,
+        "requests": 30,
+        "scriptRequests": 20,
+        "bootupMs": 156.5,
+        "mainThreadMs": 635.2,
+        "domSize": 114,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 988,
+      "domContentLoaded": 467,
+      "load": 705.5,
+      "fcp": 456,
+      "scriptBytes": 46708,
+      "scriptCount": 23,
+      "inpMs": 32,
+      "interactions": 6
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [
+          "invalid-utf8:500"
+        ],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.7766967252017086,
+        "rps": 209.5,
+        "p99": 4214.25,
+        "healthyAfter": true,
+        "memPeakMB": 122.9
+      },
+      "soak": {
+        "rps": 198.5,
+        "errors": 0,
+        "memStartMB": 116.2,
+        "memEndMB": 117.3,
+        "memGrowthMB": 1.1
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 886
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 999,
+      "files": 32,
+      "directDeps": 9,
+      "transitiveDeps": 326,
+      "npmAudit": {
+        "info": 0,
+        "low": 0,
+        "moderate": 1,
+        "high": 0,
+        "critical": 0
+      },
+      "trivy": {
+        "os": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 6,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 119,
+      "iterations": 7,
+      "deviations": "post body serialized twice; framework attributes",
+      "friction": "adapter prerenders by default (ssg: null); lazy handlers needed sync$ for theme; RouterHead key leak"
+    }
+  },
+  {
+    "id": "go",
+    "app": "go",
+    "label": "Go net/http",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 38.2,
+      "installSeconds": 0.3,
+      "buildSeconds": 27.1,
+      "imageMB": 21.5,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 455,
+      "restartMs": 631,
+      "idleMemMB": 7,
+      "afterLoadMemMB": 19.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 3283.3,
+        "p50": 2.73,
+        "p99": 8.02,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.873,
+        "memPeakMB": 14.7
+      },
+      "home@100": {
+        "rps": 2864.4,
+        "p50": 23.51,
+        "p99": 163,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.865,
+        "memPeakMB": 19.5
+      },
+      "blog@10": {
+        "rps": 578.3,
+        "p50": 14.36,
+        "p99": 56.99,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.868,
+        "memPeakMB": 19.6
+      },
+      "blog@100": {
+        "rps": 576.9,
+        "p50": 79.37,
+        "p99": 917.51,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.905,
+        "memPeakMB": 30.8
+      },
+      "post@10": {
+        "rps": 3852.5,
+        "p50": 2.3,
+        "p99": 7.34,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.864,
+        "memPeakMB": 21.5
+      },
+      "post@100": {
+        "rps": 3426.6,
+        "p50": 18.89,
+        "p99": 147.57,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.863,
+        "memPeakMB": 23.5
+      },
+      "filtered@10": {
+        "rps": 572.2,
+        "p50": 14.74,
+        "p99": 56.88,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.877,
+        "memPeakMB": 20.1
+      },
+      "filtered@100": {
+        "rps": 575.6,
+        "p50": 79.46,
+        "p99": 893.11,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.904,
+        "memPeakMB": 26.7
+      },
+      "notFound@10": {
+        "rps": 14475.7,
+        "p50": 0.6,
+        "p99": 2.42,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.876,
+        "memPeakMB": 19.7
+      },
+      "notFound@100": {
+        "rps": 11996.2,
+        "p50": 7.13,
+        "p99": 27.75,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.874,
+        "memPeakMB": 22.7
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.1,
+        "lcp": 1428.1,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.1,
+        "tti": 1450.6,
+        "totalKB": 86.8,
+        "scriptKB": 1.2,
+        "documentKB": 2.4,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 30.8,
+        "mainThreadMs": 294,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.5,
+        "lcp": 1128.5,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.5,
+        "tti": 1136,
+        "totalKB": 75.6,
+        "scriptKB": 1.2,
+        "documentKB": 5.7,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 31.2,
+        "mainThreadMs": 432.8,
+        "domSize": 528,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.3,
+        "lcp": 1203.3,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.3,
+        "tti": 1203.3,
+        "totalKB": 28.8,
+        "scriptKB": 1.2,
+        "documentKB": 3.4,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 20.8,
+        "mainThreadMs": 339.9,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 555.6000000000931,
+      "domContentLoaded": 439.60000000009313,
+      "load": 498.80000000004657,
+      "fcp": 460,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 3457.2,
+        "p99": 689.9,
+        "healthyAfter": true,
+        "memPeakMB": 61.7
+      },
+      "soak": {
+        "rps": 2724,
+        "errors": 0,
+        "memStartMB": 51.4,
+        "memEndMB": 51.2,
+        "memGrowthMB": -0.2
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 601
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 542,
+      "files": 15,
+      "directDeps": 0,
+      "transitiveDeps": 0,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 59,
+      "iterations": 1,
+      "deviations": "filtered list renders hidden cards (vanilla); htmx keeps empty params in URL",
+      "friction": "Go 1.26 ServeMux redirects; minutes shared with hugo"
+    }
+  },
+  {
+    "id": "go-htmx",
+    "app": "go",
+    "label": "Go + htmx",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 38.2,
+      "installSeconds": 0.3,
+      "buildSeconds": 27.1,
+      "imageMB": 21.5,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 492,
+      "restartMs": 661,
+      "idleMemMB": 7,
+      "afterLoadMemMB": 21.3
+    },
+    "load": {
+      "home@10": {
+        "rps": 3314.4,
+        "p50": 2.69,
+        "p99": 8.11,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.876,
+        "memPeakMB": 14.9
+      },
+      "home@100": {
+        "rps": 2873.9,
+        "p50": 22.37,
+        "p99": 168.03,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.868,
+        "memPeakMB": 20.3
+      },
+      "blog@10": {
+        "rps": 575.1,
+        "p50": 14.5,
+        "p99": 56.85,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.876,
+        "memPeakMB": 17.6
+      },
+      "blog@100": {
+        "rps": 570.3,
+        "p50": 73.25,
+        "p99": 921.26,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.901,
+        "memPeakMB": 28.8
+      },
+      "post@10": {
+        "rps": 3788.4,
+        "p50": 2.35,
+        "p99": 7.43,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.847,
+        "memPeakMB": 19.4
+      },
+      "post@100": {
+        "rps": 3372.8,
+        "p50": 15.1,
+        "p99": 157.33,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.855,
+        "memPeakMB": 24.3
+      },
+      "filtered@10": {
+        "rps": 1646.5,
+        "p50": 5.61,
+        "p99": 15.32,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.879,
+        "memPeakMB": 19.5
+      },
+      "filtered@100": {
+        "rps": 1512.3,
+        "p50": 37.06,
+        "p99": 318.73,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.875,
+        "memPeakMB": 23.7
+      },
+      "notFound@10": {
+        "rps": 14213.8,
+        "p50": 0.62,
+        "p99": 2.46,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.848,
+        "memPeakMB": 20
+      },
+      "notFound@100": {
+        "rps": 11898.4,
+        "p50": 7.14,
+        "p99": 28.63,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.868,
+        "memPeakMB": 22.7
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 754.5,
+        "lcp": 1449.1,
+        "tbt": 0,
+        "cls": 0,
+        "si": 754.5,
+        "tti": 1469.6,
+        "totalKB": 103.7,
+        "scriptKB": 18.1,
+        "documentKB": 2.4,
+        "requests": 12,
+        "scriptRequests": 2,
+        "bootupMs": 27.7,
+        "mainThreadMs": 416.5,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 755.2,
+        "lcp": 1331.5,
+        "tbt": 0,
+        "cls": 0,
+        "si": 755.2,
+        "tti": 1336.9,
+        "totalKB": 92.6,
+        "scriptKB": 18.1,
+        "documentKB": 5.8,
+        "requests": 13,
+        "scriptRequests": 2,
+        "bootupMs": 95.5,
+        "mainThreadMs": 494.4,
+        "domSize": 528,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 754.1,
+        "lcp": 1246.7,
+        "tbt": 0,
+        "cls": 0,
+        "si": 754.1,
+        "tti": 1246.7,
+        "totalKB": 45.7,
+        "scriptKB": 18.1,
+        "documentKB": 3.4,
+        "requests": 6,
+        "scriptRequests": 2,
+        "bootupMs": 28.2,
+        "mainThreadMs": 327.9,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 1045.9000000001397,
+      "domContentLoaded": 610.3000000000466,
+      "load": 634.6999999999534,
+      "fcp": 444,
+      "scriptBytes": 18587,
+      "scriptCount": 2,
+      "inpMs": 80,
+      "interactions": 5
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 3436,
+        "p99": 688.05,
+        "healthyAfter": true,
+        "memPeakMB": 85.5
+      },
+      "soak": {
+        "rps": 3057.9,
+        "errors": 0,
+        "memStartMB": 60.2,
+        "memEndMB": 50.3,
+        "memGrowthMB": -9.9
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 621
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 542,
+      "files": 15,
+      "directDeps": 0,
+      "transitiveDeps": 0,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 59,
+      "iterations": 1,
+      "deviations": "filtered list renders hidden cards (vanilla); htmx keeps empty params in URL",
+      "friction": "Go 1.26 ServeMux redirects; minutes shared with hugo"
+    }
+  },
+  {
+    "id": "laravel",
+    "app": "laravel",
+    "label": "Laravel (PHP-FPM)",
+    "mode": "server",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 20.6,
+      "installSeconds": 3.8,
+      "buildSeconds": 0.2,
+      "imageMB": 267.1,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 9047,
+      "restartMs": 1477,
+      "idleMemMB": 38.3,
+      "afterLoadMemMB": 37.7
+    },
+    "load": {
+      "home@10": {
+        "rps": 161.8,
+        "p50": 61.57,
+        "p99": 97.93,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.863,
+        "memPeakMB": 50.7
+      },
+      "home@100": {
+        "rps": 163,
+        "p50": 610.81,
+        "p99": 682.62,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.868,
+        "memPeakMB": 51.3
+      },
+      "blog@10": {
+        "rps": 69.3,
+        "p50": 142.75,
+        "p99": 196.53,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.902,
+        "memPeakMB": 49.4
+      },
+      "blog@100": {
+        "rps": 69.6,
+        "p50": 1434,
+        "p99": 1500.43,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.872,
+        "memPeakMB": 50.4
+      },
+      "post@10": {
+        "rps": 142.6,
+        "p50": 69.58,
+        "p99": 106.13,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.867,
+        "memPeakMB": 46
+      },
+      "post@100": {
+        "rps": 144.3,
+        "p50": 689.51,
+        "p99": 756.69,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.881,
+        "memPeakMB": 48.8
+      },
+      "filtered@10": {
+        "rps": 70.1,
+        "p50": 142.44,
+        "p99": 202.27,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.901,
+        "memPeakMB": 51.6
+      },
+      "filtered@100": {
+        "rps": 70.3,
+        "p50": 1418.09,
+        "p99": 1490.51,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.877,
+        "memPeakMB": 54.4
+      },
+      "notFound@10": {
+        "rps": 406.9,
+        "p50": 24,
+        "p99": 41.02,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.825,
+        "memPeakMB": 50.6
+      },
+      "notFound@100": {
+        "rps": 411.1,
+        "p50": 236.95,
+        "p99": 312.05,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.837,
+        "memPeakMB": 44.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.8,
+        "lcp": 1427.9,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.8,
+        "tti": 1450.4,
+        "totalKB": 87,
+        "scriptKB": 1.2,
+        "documentKB": 2.5,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 32.7,
+        "mainThreadMs": 362.8,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 754.1,
+        "lcp": 1129.1,
+        "tbt": 0,
+        "cls": 0,
+        "si": 754.1,
+        "tti": 1136.6,
+        "totalKB": 75.8,
+        "scriptKB": 1.2,
+        "documentKB": 5.7,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 33.3,
+        "mainThreadMs": 371.4,
+        "domSize": 527,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 754.1,
+        "lcp": 1204.1,
+        "tbt": 0,
+        "cls": 0,
+        "si": 754.1,
+        "tti": 1204.1,
+        "totalKB": 29,
+        "scriptKB": 1.2,
+        "documentKB": 3.5,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 25.2,
+        "mainThreadMs": 293.5,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 556.5,
+      "domContentLoaded": 446.60000000009313,
+      "load": 500.70000000018626,
+      "fcp": 456,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 12
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.9496169711255156,
+        "rps": 155.8,
+        "p99": 7007.88,
+        "healthyAfter": true,
+        "memPeakMB": 71.7
+      },
+      "soak": {
+        "rps": 138,
+        "errors": 0,
+        "memStartMB": 42.1,
+        "memEndMB": 43.1,
+        "memGrowthMB": 1
+      },
+      "crash": {
+        "statusWhileDown": "timeout",
+        "recoveryMs": 885
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 1914,
+      "files": 62,
+      "directDeps": 1,
+      "transitiveDeps": 74,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 130,
+      "iterations": 2,
+      "deviations": "session/CSRF middleware removed; hidden cards on filter",
+      "friction": "Blade inline directives after word chars; opcache stale views; starter assumes DB cache/session/queue"
+    }
+  },
+  {
+    "id": "laravel-octane",
+    "app": "laravel",
+    "label": "Laravel (Octane, FrankenPHP)",
+    "mode": "octane",
+    "conformance": "1257/1257",
+    "build": {
+      "coldSeconds": 32,
+      "installSeconds": 6.8,
+      "buildSeconds": 0.1,
+      "imageMB": 309.5,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 1311,
+      "restartMs": 1475,
+      "idleMemMB": 105.3,
+      "afterLoadMemMB": 109.5
+    },
+    "load": {
+      "home@10": {
+        "rps": 259.2,
+        "p50": 38.18,
+        "p99": 59.95,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.911,
+        "memPeakMB": 111.6
+      },
+      "home@100": {
+        "rps": 258.1,
+        "p50": 384.75,
+        "p99": 425.09,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.9,
+        "memPeakMB": 107.8
+      },
+      "blog@10": {
+        "rps": 69.8,
+        "p50": 143.06,
+        "p99": 184.67,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.923,
+        "memPeakMB": 105.5
+      },
+      "blog@100": {
+        "rps": 69.4,
+        "p50": 1435.57,
+        "p99": 1496.07,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.949,
+        "memPeakMB": 111
+      },
+      "post@10": {
+        "rps": 210.7,
+        "p50": 46.94,
+        "p99": 72.02,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.91,
+        "memPeakMB": 105.4
+      },
+      "post@100": {
+        "rps": 208.2,
+        "p50": 478.15,
+        "p99": 530.68,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.904,
+        "memPeakMB": 112.1
+      },
+      "filtered@10": {
+        "rps": 70.8,
+        "p50": 141.09,
+        "p99": 187.46,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.924,
+        "memPeakMB": 117.1
+      },
+      "filtered@100": {
+        "rps": 70.4,
+        "p50": 1414.41,
+        "p99": 1473.72,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.907,
+        "memPeakMB": 118.9
+      },
+      "notFound@10": {
+        "rps": 835.6,
+        "p50": 11.68,
+        "p99": 23.53,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.903,
+        "memPeakMB": 112.1
+      },
+      "notFound@100": {
+        "rps": 823.4,
+        "p50": 119.89,
+        "p99": 156.34,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.91,
+        "memPeakMB": 116.8
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 754.6,
+        "lcp": 1429.6,
+        "tbt": 0,
+        "cls": 0,
+        "si": 754.6,
+        "tti": 1452.1,
+        "totalKB": 87.4,
+        "scriptKB": 1.2,
+        "documentKB": 2.5,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 30.6,
+        "mainThreadMs": 355.2,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 755.4,
+        "lcp": 1130.4,
+        "tbt": 0,
+        "cls": 0,
+        "si": 755.4,
+        "tti": 1137.9,
+        "totalKB": 76.2,
+        "scriptKB": 1.2,
+        "documentKB": 5.7,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 35.6,
+        "mainThreadMs": 357.5,
+        "domSize": 527,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.5,
+        "lcp": 1203.5,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.5,
+        "tti": 1203.5,
+        "totalKB": 29.1,
+        "scriptKB": 1.2,
+        "documentKB": 3.5,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 21.5,
+        "mainThreadMs": 296.1,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 553.8000000000466,
+      "domContentLoaded": 382.80000000004657,
+      "load": 496.80000000004657,
+      "fcp": 452,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 12
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 203.7,
+        "p99": 4981.7,
+        "healthyAfter": true,
+        "memPeakMB": 185.6
+      },
+      "soak": {
+        "rps": 191.4,
+        "errors": 0,
+        "memStartMB": 163.5,
+        "memEndMB": 169.5,
+        "memGrowthMB": 6
+      },
+      "crash": {
+        "statusWhileDown": "error:ECONNREFUSED",
+        "recoveryMs": 1334
+      },
+      "dbOutage": null
+    },
+    "code": {
+      "lines": 1914,
+      "files": 62,
+      "directDeps": 1,
+      "transitiveDeps": 74,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 0,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 1,
+          "CRITICAL": 0
+        }
+      }
+    },
+    "effort": {
+      "minutes": 130,
+      "iterations": 2,
+      "deviations": "session/CSRF middleware removed; hidden cards on filter",
+      "friction": "Blade inline directives after word chars; opcache stale views; starter assumes DB cache/session/queue"
+    }
+  },
+  {
+    "id": "wordpress",
+    "app": "wordpress",
+    "label": "WordPress",
+    "mode": "server",
+    "conformance": "1259/1259",
+    "build": {
+      "coldSeconds": 27.3,
+      "installSeconds": 0,
+      "buildSeconds": 0.2,
+      "imageMB": 803.3,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 15358,
+      "restartMs": 6819,
+      "idleMemMB": 177.7,
+      "afterLoadMemMB": 194
+    },
+    "load": {
+      "home@10": {
+        "rps": 53.7,
+        "p50": 187.04,
+        "p99": 231.59,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.858,
+        "memPeakMB": 206
+      },
+      "home@100": {
+        "rps": 53,
+        "p50": 1873.35,
+        "p99": 2011.6,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.864,
+        "memPeakMB": 207.7
+      },
+      "blog@10": {
+        "rps": 44.2,
+        "p50": 226.84,
+        "p99": 280.46,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.865,
+        "memPeakMB": 208.2
+      },
+      "blog@100": {
+        "rps": 43.9,
+        "p50": 2265.4,
+        "p99": 2357.12,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.895,
+        "memPeakMB": 211.3
+      },
+      "post@10": {
+        "rps": 50.6,
+        "p50": 198.33,
+        "p99": 244.28,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.864,
+        "memPeakMB": 209.2
+      },
+      "post@100": {
+        "rps": 50,
+        "p50": 1995.49,
+        "p99": 2095.12,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.875,
+        "memPeakMB": 210
+      },
+      "filtered@10": {
+        "rps": 42.2,
+        "p50": 237.07,
+        "p99": 308.2,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.86,
+        "memPeakMB": 214.1
+      },
+      "filtered@100": {
+        "rps": 42.7,
+        "p50": 2330.24,
+        "p99": 2429.23,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.867,
+        "memPeakMB": 210.5
+      },
+      "notFound@10": {
+        "rps": 53.5,
+        "p50": 187.13,
+        "p99": 247.28,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.893,
+        "memPeakMB": 214.5
+      },
+      "notFound@100": {
+        "rps": 53.8,
+        "p50": 1854.64,
+        "p99": 1936.22,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.864,
+        "memPeakMB": 210.9
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.2,
+        "lcp": 1502.2,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.2,
+        "tti": 1517.2,
+        "totalKB": 87,
+        "scriptKB": 1.2,
+        "documentKB": 2.5,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 25.7,
+        "mainThreadMs": 380.6,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.7,
+        "lcp": 1127.7,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.7,
+        "tti": 1135.2,
+        "totalKB": 75.8,
+        "scriptKB": 1.2,
+        "documentKB": 5.7,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 35.2,
+        "mainThreadMs": 407,
+        "domSize": 527,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.6,
+        "lcp": 1203.6,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.6,
+        "tti": 1203.6,
+        "totalKB": 28.9,
+        "scriptKB": 1.2,
+        "documentKB": 3.5,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 26,
+        "mainThreadMs": 341.5,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 556.1999999999534,
+      "domContentLoaded": 374.5999999998603,
+      "load": 496.79999999981374,
+      "fcp": 456,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.29010642491131255,
+        "rps": 101.5,
+        "p99": 9844.16,
+        "healthyAfter": false,
+        "memPeakMB": 225.7
+      },
+      "soak": {
+        "rps": 47.9,
+        "errors": 0,
+        "memStartMB": 207.5,
+        "memEndMB": 201.1,
+        "memGrowthMB": -6.4
+      },
+      "crash": {
+        "statusWhileDown": "timeout",
+        "recoveryMs": 1968
+      },
+      "dbOutage": {
+        "homeWhileDown": 500,
+        "postWhileDown": 500,
+        "recoveredWithoutAppRestartMs": 3216
+      }
+    },
+    "code": {
+      "lines": 970,
+      "files": 21,
+      "directDeps": 0,
+      "transitiveDeps": 0,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 25,
+          "CRITICAL": 1
+        }
+      }
+    },
+    "effort": {
+      "minutes": 93,
+      "iterations": 3,
+      "deviations": "wp-json/xmlrpc/login still answer; trailing-slash URLs 200",
+      "friction": "tag is a reserved query var; root-relative asset filters; volume shadows theme; 13 head/feature removals"
+    }
+  },
+  {
+    "id": "wordpress-cached",
+    "app": "wordpress",
+    "label": "WordPress (page cache)",
+    "mode": "cached",
+    "conformance": "1259/1259",
+    "build": {
+      "coldSeconds": 27.3,
+      "installSeconds": 0,
+      "buildSeconds": 0.2,
+      "imageMB": 803.3,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 14841,
+      "restartMs": 1455,
+      "idleMemMB": 179.6,
+      "afterLoadMemMB": 183.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 13622.8,
+        "p50": 0.65,
+        "p99": 2.04,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.455,
+        "memPeakMB": 179.9
+      },
+      "home@100": {
+        "rps": 13545.9,
+        "p50": 7.08,
+        "p99": 14.07,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.48,
+        "memPeakMB": 181.2
+      },
+      "blog@10": {
+        "rps": 13395.8,
+        "p50": 0.67,
+        "p99": 2.15,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.393,
+        "memPeakMB": 179.7
+      },
+      "blog@100": {
+        "rps": 13896.7,
+        "p50": 6.87,
+        "p99": 13.95,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.468,
+        "memPeakMB": 180.5
+      },
+      "post@10": {
+        "rps": 14096.2,
+        "p50": 0.65,
+        "p99": 1.67,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.477,
+        "memPeakMB": 185.1
+      },
+      "post@100": {
+        "rps": 13791.1,
+        "p50": 6.99,
+        "p99": 14,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.468,
+        "memPeakMB": 180.5
+      },
+      "filtered@10": {
+        "rps": 13607.1,
+        "p50": 0.68,
+        "p99": 1.84,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.448,
+        "memPeakMB": 185.8
+      },
+      "filtered@100": {
+        "rps": 13898.4,
+        "p50": 6.91,
+        "p99": 13.91,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.477,
+        "memPeakMB": 182.5
+      },
+      "notFound@10": {
+        "rps": 14375.6,
+        "p50": 0.62,
+        "p99": 1.73,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.492,
+        "memPeakMB": 183.8
+      },
+      "notFound@100": {
+        "rps": 14076.3,
+        "p50": 6.82,
+        "p99": 13.61,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.487,
+        "memPeakMB": 184.5
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.7,
+        "lcp": 1429.2,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.7,
+        "tti": 1451.7,
+        "totalKB": 87.1,
+        "scriptKB": 1.2,
+        "documentKB": 2.5,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 30.9,
+        "mainThreadMs": 358.4,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.6,
+        "lcp": 1127.6,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.6,
+        "tti": 1135.1,
+        "totalKB": 75.8,
+        "scriptKB": 1.2,
+        "documentKB": 5.7,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 41.1,
+        "mainThreadMs": 432.6,
+        "domSize": 527,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.5,
+        "lcp": 1203.5,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.5,
+        "tti": 1203.5,
+        "totalKB": 29,
+        "scriptKB": 1.2,
+        "documentKB": 3.5,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 22.4,
+        "mainThreadMs": 292.7,
+        "domSize": 109,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 558.6000000000931,
+      "domContentLoaded": 447.60000000009313,
+      "load": 497.10000000009313,
+      "fcp": 448,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 12492.2,
+        "p99": 116.86,
+        "healthyAfter": true,
+        "memPeakMB": 198.6
+      },
+      "soak": {
+        "rps": 13620.6,
+        "errors": 0,
+        "memStartMB": 184.2,
+        "memEndMB": 193.3,
+        "memGrowthMB": 9.1
+      },
+      "crash": {
+        "statusWhileDown": 200,
+        "recoveryMs": 1798
+      },
+      "dbOutage": {
+        "homeWhileDown": 200,
+        "postWhileDown": 200,
+        "recoveredWithoutAppRestartMs": 1958
+      }
+    },
+    "code": {
+      "lines": 970,
+      "files": 21,
+      "directDeps": 0,
+      "transitiveDeps": 0,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 25,
+          "CRITICAL": 1
+        }
+      }
+    },
+    "effort": {
+      "minutes": 93,
+      "iterations": 3,
+      "deviations": "wp-json/xmlrpc/login still answer; trailing-slash URLs 200",
+      "friction": "tag is a reserved query var; root-relative asset filters; volume shadows theme; 13 head/feature removals"
+    }
+  },
+  {
+    "id": "ghost",
+    "app": "ghost",
+    "label": "Ghost",
+    "mode": "server",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 75.7,
+      "installSeconds": 0,
+      "buildSeconds": 0.2,
+      "imageMB": 2339.7,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 38773,
+      "restartMs": 10395,
+      "idleMemMB": 845.6,
+      "afterLoadMemMB": 1294.4
+    },
+    "load": {
+      "home@10": {
+        "rps": 74.4,
+        "p50": 129.13,
+        "p99": 217.19,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.279,
+        "memPeakMB": 1030.6
+      },
+      "home@100": {
+        "rps": 72.2,
+        "p50": 1355.01,
+        "p99": 3659.32,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.245,
+        "memPeakMB": 1194.9
+      },
+      "blog@10": {
+        "rps": 16.2,
+        "p50": 611.24,
+        "p99": 850.51,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.168,
+        "memPeakMB": 1249.4
+      },
+      "blog@100": {
+        "rps": 16.2,
+        "p50": 5787.39,
+        "p99": 9741.35,
+        "errors": 30,
+        "non2xx": 0,
+        "cpuCores": 1.172,
+        "memPeakMB": 1257.9
+      },
+      "post@10": {
+        "rps": 44.2,
+        "p50": 221.81,
+        "p99": 409.09,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.319,
+        "memPeakMB": 1312.6
+      },
+      "post@100": {
+        "rps": 42.1,
+        "p50": 2352.38,
+        "p99": 3666.29,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.28,
+        "memPeakMB": 1302.4
+      },
+      "filtered@10": {
+        "rps": 16.4,
+        "p50": 599.3,
+        "p99": 808.89,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.163,
+        "memPeakMB": 1316.8
+      },
+      "filtered@100": {
+        "rps": 16.4,
+        "p50": 5820.09,
+        "p99": 9472.71,
+        "errors": 27,
+        "non2xx": 0,
+        "cpuCores": 1.171,
+        "memPeakMB": 1324.2
+      },
+      "notFound@10": {
+        "rps": 280.7,
+        "p50": 35.08,
+        "p99": 49.19,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.149,
+        "memPeakMB": 1295
+      },
+      "notFound@100": {
+        "rps": 302.4,
+        "p50": 323.64,
+        "p99": 586.57,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.141,
+        "memPeakMB": 1297
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.2,
+        "lcp": 1428.2,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.2,
+        "tti": 1450.7,
+        "totalKB": 87.2,
+        "scriptKB": 1.2,
+        "documentKB": 2.6,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 26.8,
+        "mainThreadMs": 284.1,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 754.4,
+        "lcp": 1129.4,
+        "tbt": 0,
+        "cls": 0,
+        "si": 754.4,
+        "tti": 1136.9,
+        "totalKB": 76,
+        "scriptKB": 1.2,
+        "documentKB": 5.9,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 34.6,
+        "mainThreadMs": 476.6,
+        "domSize": 527,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.5,
+        "lcp": 1203.5,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.5,
+        "tti": 1203.5,
+        "totalKB": 29.2,
+        "scriptKB": 1.2,
+        "documentKB": 3.7,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 29.4,
+        "mainThreadMs": 339.5,
+        "domSize": 108,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 553.1000000000931,
+      "domContentLoaded": 443.5,
+      "load": 500.10000000009313,
+      "fcp": 448,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 0.2923861852433281,
+        "rps": 117,
+        "p99": 9715.35,
+        "healthyAfter": true,
+        "memPeakMB": 1067.4
+      },
+      "soak": {
+        "rps": 35.6,
+        "errors": 0,
+        "memStartMB": 1088.7,
+        "memEndMB": 1310.6,
+        "memGrowthMB": 221.9
+      },
+      "crash": {
+        "statusWhileDown": "timeout",
+        "recoveryMs": 4582
+      },
+      "dbOutage": {
+        "homeWhileDown": 200,
+        "postWhileDown": 500,
+        "recoveredWithoutAppRestartMs": 2504
+      }
+    },
+    "code": {
+      "lines": 606,
+      "files": 25,
+      "directDeps": 0,
+      "transitiveDeps": 0,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 133,
+          "CRITICAL": 4
+        }
+      }
+    },
+    "effort": {
+      "minutes": 143,
+      "iterations": 8,
+      "deviations": "no server-side filtering; Ghost re-renders post HTML; nginx maps URLs and feeds",
+      "friction": "no custom fields (data via generated partials); trailing slashes; slow first boot; ghost_head injects CDN scripts"
+    }
+  },
+  {
+    "id": "ghost-cached",
+    "app": "ghost",
+    "label": "Ghost (proxy cache)",
+    "mode": "cached",
+    "conformance": "1214/1214",
+    "build": {
+      "coldSeconds": 75.7,
+      "installSeconds": 0,
+      "buildSeconds": 0.2,
+      "imageMB": 2339.7,
+      "outputKB": null,
+      "outputJsKB": null
+    },
+    "start": {
+      "coldStartMs": 39220,
+      "restartMs": 3817,
+      "idleMemMB": 839.6,
+      "afterLoadMemMB": 715.6
+    },
+    "load": {
+      "home@10": {
+        "rps": 11131.6,
+        "p50": 0.85,
+        "p99": 2.55,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.483,
+        "memPeakMB": 841.9
+      },
+      "home@100": {
+        "rps": 11444.2,
+        "p50": 8.39,
+        "p99": 16.51,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.495,
+        "memPeakMB": 683.1
+      },
+      "blog@10": {
+        "rps": 12197.1,
+        "p50": 0.78,
+        "p99": 1.78,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.446,
+        "memPeakMB": 691.8
+      },
+      "blog@100": {
+        "rps": 12284.5,
+        "p50": 7.81,
+        "p99": 14.81,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.469,
+        "memPeakMB": 693.8
+      },
+      "post@10": {
+        "rps": 12209,
+        "p50": 0.78,
+        "p99": 1.96,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.466,
+        "memPeakMB": 695.1
+      },
+      "post@100": {
+        "rps": 12096.4,
+        "p50": 7.8,
+        "p99": 15.7,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.467,
+        "memPeakMB": 697.7
+      },
+      "filtered@10": {
+        "rps": 12125.7,
+        "p50": 0.78,
+        "p99": 1.92,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.439,
+        "memPeakMB": 700.8
+      },
+      "filtered@100": {
+        "rps": 12185.3,
+        "p50": 7.93,
+        "p99": 15.63,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.449,
+        "memPeakMB": 694.8
+      },
+      "notFound@10": {
+        "rps": 12571.6,
+        "p50": 0.76,
+        "p99": 1.8,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.463,
+        "memPeakMB": 705.2
+      },
+      "notFound@100": {
+        "rps": 12231.7,
+        "p50": 7.89,
+        "p99": 15.25,
+        "errors": 0,
+        "non2xx": 0,
+        "cpuCores": 1.459,
+        "memPeakMB": 716.6
+      }
+    },
+    "lighthouse": {
+      "home": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 752.4,
+        "lcp": 1427.4,
+        "tbt": 0,
+        "cls": 0,
+        "si": 752.4,
+        "tti": 1449.9,
+        "totalKB": 87.2,
+        "scriptKB": 1.2,
+        "documentKB": 2.7,
+        "requests": 11,
+        "scriptRequests": 1,
+        "bootupMs": 29.4,
+        "mainThreadMs": 346.7,
+        "domSize": 102,
+        "lighthouseVersion": "13.6.0"
+      },
+      "blog": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753.4,
+        "lcp": 1128.4,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753.4,
+        "tti": 1135.9,
+        "totalKB": 76,
+        "scriptKB": 1.2,
+        "documentKB": 5.9,
+        "requests": 12,
+        "scriptRequests": 1,
+        "bootupMs": 29.8,
+        "mainThreadMs": 386.6,
+        "domSize": 527,
+        "lighthouseVersion": "13.6.0"
+      },
+      "post": {
+        "performance": 100,
+        "accessibility": 100,
+        "bestPractices": 78,
+        "seo": 92,
+        "fcp": 753,
+        "lcp": 1203,
+        "tbt": 0,
+        "cls": 0,
+        "si": 753,
+        "tti": 1203,
+        "totalKB": 29.2,
+        "scriptKB": 1.2,
+        "documentKB": 3.7,
+        "requests": 5,
+        "scriptRequests": 1,
+        "bootupMs": 22.3,
+        "mainThreadMs": 337.8,
+        "domSize": 108,
+        "lighthouseVersion": "13.6.0"
+      }
+    },
+    "interact": {
+      "filterReadyMs": 581.5,
+      "domContentLoaded": 449.5,
+      "load": 503.80000000004657,
+      "fcp": 456,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 12
+    },
+    "robust": {
+      "probes": {
+        "serverErrors": [],
+        "reflectedXss": false,
+        "exposedFiles": []
+      },
+      "overload": {
+        "successRate": 1,
+        "rps": 11183.1,
+        "p99": 122.56,
+        "healthyAfter": true,
+        "memPeakMB": 859.6
+      },
+      "soak": {
+        "rps": 11903.3,
+        "errors": 0,
+        "memStartMB": 845,
+        "memEndMB": 698.9,
+        "memGrowthMB": -146.1
+      },
+      "crash": {
+        "statusWhileDown": 200,
+        "recoveryMs": 4442
+      },
+      "dbOutage": {
+        "homeWhileDown": 200,
+        "postWhileDown": 200,
+        "recoveredWithoutAppRestartMs": 2213
+      }
+    },
+    "code": {
+      "lines": 606,
+      "files": 25,
+      "directDeps": 0,
+      "transitiveDeps": 0,
+      "npmAudit": null,
+      "trivy": {
+        "os": {
+          "HIGH": 3,
+          "CRITICAL": 0
+        },
+        "lang": {
+          "HIGH": 133,
+          "CRITICAL": 4
+        }
+      }
+    },
+    "effort": {
+      "minutes": 143,
+      "iterations": 8,
+      "deviations": "no server-side filtering; Ghost re-renders post HTML; nginx maps URLs and feeds",
+      "friction": "no custom fields (data via generated partials); trailing slashes; slow first boot; ghost_head injects CDN scripts"
+    }
+  }
+]

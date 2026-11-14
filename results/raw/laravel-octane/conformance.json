@@ -1,0 +1,9 @@
+{
+  "target": "laravel-octane",
+  "phase": "conformance",
+  "at": "2026-11-14T07:47:41.844Z",
+  "passed": 1257,
+  "total": 1257,
+  "ok": true,
+  "failures": []
+}

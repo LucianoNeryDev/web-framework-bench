@@ -1,0 +1,69 @@
+{
+  "target": "laravel",
+  "phase": "interact",
+  "at": "2026-11-14T12:24:53.170Z",
+  "profile": "412x823, 4x CPU slowdown, 150 ms RTT, 1.6 Mbps down",
+  "runs": 5,
+  "summary": {
+    "filterReadyMs": 556.5,
+    "domContentLoaded": 446.60000000009313,
+    "load": 500.70000000018626,
+    "fcp": 456,
+    "scriptBytes": 1228,
+    "scriptCount": 1,
+    "inpMs": 40,
+    "interactions": 12
+  },
+  "samples": [
+    {
+      "filterReadyMs": 559.6000000000931,
+      "domContentLoaded": 450.30000000004657,
+      "load": 500.70000000018626,
+      "fcp": 452,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 556.5,
+      "domContentLoaded": 446.60000000009313,
+      "load": 502.39999999990687,
+      "fcp": 456,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 545.0999999998603,
+      "domContentLoaded": 435.5999999998603,
+      "load": 490.39999999990687,
+      "fcp": 440,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 12
+    },
+    {
+      "filterReadyMs": 584.5999999998603,
+      "domContentLoaded": 468.0999999998603,
+      "load": 502.29999999981374,
+      "fcp": 468,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 12
+    },
+    {
+      "filterReadyMs": 552,
+      "domContentLoaded": 376,
+      "load": 499,
+      "fcp": 456,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 12
+    }
+  ]
+}

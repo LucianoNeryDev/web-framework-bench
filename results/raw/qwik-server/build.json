@@ -1,0 +1,91 @@
+{
+  "target": "qwik-server",
+  "phase": "build",
+  "at": "2026-11-14T07:42:08.392Z",
+  "coldBuildSeconds": 20.8,
+  "runs": [
+    20.797
+  ],
+  "installSeconds": 11.9,
+  "buildSeconds": 6.4,
+  "steps": [
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/node:24-alpine",
+      "seconds": 0.6
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5",
+      "seconds": 1.8
+    },
+    {
+      "step": "WORKDIR /app",
+      "seconds": 1.1
+    },
+    {
+      "step": "WORKDIR /repo/apps/qwik",
+      "seconds": 1.1
+    },
+    {
+      "step": "COPY apps/qwik/package.json apps/qwik/package-lock.json ./",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/qwik/package.json apps/qwik/package-lock.json ./",
+      "seconds": 0
+    },
+    {
+      "step": "RUN npm ci --omit=dev",
+      "seconds": 3.8
+    },
+    {
+      "step": "RUN npm ci",
+      "seconds": 8.1
+    },
+    {
+      "step": "COPY apps/qwik/ ./",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY content/posts.json /repo/content/posts.json",
+      "seconds": 0
+    },
+    {
+      "step": "COPY shared/public/ ./public/",
+      "seconds": 0
+    },
+    {
+      "step": "RUN chmod -R a+rX /repo/content /repo/apps/qwik/src /repo/apps/qwik/public /repo/apps/qwik/adapters     && chmod a+rX /r",
+      "seconds": 0.4
+    },
+    {
+      "step": "RUN npm run build:server",
+      "seconds": 6.3
+    },
+    {
+      "step": "COPY --from=build-server /repo/apps/qwik/server ./server",
+      "seconds": 0
+    },
+    {
+      "step": "COPY --from=build-server /repo/apps/qwik/dist ./dist",
+      "seconds": 0
+    },
+    {
+      "step": "RUN chmod -R a+rX /app/dist /app/server",
+      "seconds": 0.4
+    }
+  ],
+  "images": [
+    "wfb/qwik:server"
+  ],
+  "imageMB": 252.9,
+  "outputKB": null,
+  "outputJsKB": null
+}

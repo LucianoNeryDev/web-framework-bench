@@ -1,0 +1,69 @@
+{
+  "target": "next-static",
+  "phase": "interact",
+  "at": "2026-11-14T12:19:01.072Z",
+  "profile": "412x823, 4x CPU slowdown, 150 ms RTT, 1.6 Mbps down",
+  "runs": 5,
+  "summary": {
+    "filterReadyMs": 1830.7999999999302,
+    "domContentLoaded": 495.20000000006985,
+    "load": 1645.5999999999767,
+    "fcp": 484,
+    "scriptBytes": 143490,
+    "scriptCount": 8,
+    "inpMs": 72,
+    "interactions": 11
+  },
+  "samples": [
+    {
+      "filterReadyMs": 1830.7999999999302,
+      "domContentLoaded": 499.5,
+      "load": 1645.5999999999767,
+      "fcp": 488,
+      "scriptBytes": 143490,
+      "scriptCount": 8,
+      "inpMs": 80,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 1820.5,
+      "domContentLoaded": 475.0999999999767,
+      "load": 1636.2999999999302,
+      "fcp": 464,
+      "scriptBytes": 143490,
+      "scriptCount": 8,
+      "inpMs": 72,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 1838.2000000000698,
+      "domContentLoaded": 495.20000000006985,
+      "load": 1648.2000000000698,
+      "fcp": 484,
+      "scriptBytes": 143490,
+      "scriptCount": 8,
+      "inpMs": 72,
+      "interactions": 12
+    },
+    {
+      "filterReadyMs": 1825.7999999999302,
+      "domContentLoaded": 494.39999999990687,
+      "load": 1640.8999999999069,
+      "fcp": 480,
+      "scriptBytes": 143490,
+      "scriptCount": 8,
+      "inpMs": 72,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 1841.7000000000698,
+      "domContentLoaded": 498.30000000004657,
+      "load": 1655.5,
+      "fcp": 488,
+      "scriptBytes": 143490,
+      "scriptCount": 8,
+      "inpMs": 80,
+      "interactions": 10
+    }
+  ]
+}

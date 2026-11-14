@@ -1,0 +1,95 @@
+{
+  "target": "angular-server",
+  "phase": "build",
+  "at": "2026-11-14T07:41:24.530Z",
+  "coldBuildSeconds": 27.1,
+  "runs": [
+    27.147
+  ],
+  "installSeconds": 10,
+  "buildSeconds": 10.4,
+  "steps": [
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/library/node:26.13.0-slim",
+      "seconds": 0.8
+    },
+    {
+      "step": "load .dockerignore",
+      "seconds": 0
+    },
+    {
+      "step": "FROM docker.io/library/node:26.13.0-slim@sha256:5adad64f9a1fca2d51972caa65983634c8a774eb300d72b20f7f2a0f60368072",
+      "seconds": 2.6
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "WORKDIR /repo/apps/angular",
+      "seconds": 1.6
+    },
+    {
+      "step": "WORKDIR /app",
+      "seconds": 1.6
+    },
+    {
+      "step": "COPY apps/angular/package.json apps/angular/package-lock.json ./",
+      "seconds": 0
+    },
+    {
+      "step": "RUN npm ci",
+      "seconds": 10
+    },
+    {
+      "step": "WORKDIR /repo",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY content/posts.json content/posts.json",
+      "seconds": 0
+    },
+    {
+      "step": "COPY shared/public shared/public",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/angular/angular.json apps/angular/tsconfig.json apps/angular/tsconfig.app.json apps/angular/",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/angular/tools apps/angular/tools",
+      "seconds": 0
+    },
+    {
+      "step": "COPY apps/angular/src apps/angular/src",
+      "seconds": 0
+    },
+    {
+      "step": "WORKDIR /repo/apps/angular",
+      "seconds": 0
+    },
+    {
+      "step": "RUN npm run build:server",
+      "seconds": 10.2
+    },
+    {
+      "step": "COPY --from=build-server /repo/apps/angular/dist/angular/ ./dist/angular/",
+      "seconds": 0.1
+    },
+    {
+      "step": "RUN chmod -R a+rX /app",
+      "seconds": 0.5
+    }
+  ],
+  "images": [
+    "wfb/angular:server"
+  ],
+  "imageMB": 342.6,
+  "outputKB": null,
+  "outputJsKB": null
+}

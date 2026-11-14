@@ -1,0 +1,69 @@
+{
+  "target": "wordpress",
+  "phase": "interact",
+  "at": "2026-11-14T12:25:59.638Z",
+  "profile": "412x823, 4x CPU slowdown, 150 ms RTT, 1.6 Mbps down",
+  "runs": 5,
+  "summary": {
+    "filterReadyMs": 556.1999999999534,
+    "domContentLoaded": 374.5999999998603,
+    "load": 496.79999999981374,
+    "fcp": 456,
+    "scriptBytes": 1228,
+    "scriptCount": 1,
+    "inpMs": 40,
+    "interactions": 11
+  },
+  "samples": [
+    {
+      "filterReadyMs": 554.0999999998603,
+      "domContentLoaded": 374.5999999998603,
+      "load": 496.79999999981374,
+      "fcp": 452,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 556.5,
+      "domContentLoaded": 374.5999999998603,
+      "load": 496.5999999998603,
+      "fcp": 456,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    },
+    {
+      "filterReadyMs": 560.3000000000466,
+      "domContentLoaded": 381.4000000001397,
+      "load": 503.60000000009313,
+      "fcp": 464,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 10
+    },
+    {
+      "filterReadyMs": 556.1999999999534,
+      "domContentLoaded": 376.69999999995343,
+      "load": 498.80000000004657,
+      "fcp": 460,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 12
+    },
+    {
+      "filterReadyMs": 550.1000000000931,
+      "domContentLoaded": 368,
+      "load": 496.30000000004657,
+      "fcp": 444,
+      "scriptBytes": 1228,
+      "scriptCount": 1,
+      "inpMs": 40,
+      "interactions": 11
+    }
+  ]
+}

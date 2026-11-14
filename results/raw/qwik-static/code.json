@@ -1,0 +1,41 @@
+{
+  "target": "qwik-static",
+  "phase": "code",
+  "at": "2026-11-14T11:58:45.702Z",
+  "source": {
+    "files": 32,
+    "lines": 999,
+    "byExt": {
+      ".gitignore": 7,
+      "Dockerfile": 41,
+      ".dockerignore": 10,
+      ".ts": 297,
+      ".json": 55,
+      ".tsx": 589
+    }
+  },
+  "dependencies": {
+    "direct": 9,
+    "transitive": 326,
+    "ecosystems": [
+      "npm"
+    ]
+  },
+  "npmAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 1,
+    "high": 0,
+    "critical": 0
+  },
+  "trivy": {
+    "os": {
+      "HIGH": 3,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  }
+}

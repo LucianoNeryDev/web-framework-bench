@@ -1,0 +1,42 @@
+{
+  "target": "laravel-octane",
+  "phase": "code",
+  "at": "2026-11-14T11:58:59.837Z",
+  "source": {
+    "files": 62,
+    "lines": 1914,
+    "byExt": {
+      ".editorconfig": 14,
+      ".example": 12,
+      ".gitattributes": 9,
+      ".gitignore": 44,
+      "Dockerfile": 73,
+      ".dockerignore": 12,
+      ".php": 1586,
+      "artisan": 12,
+      ".yaml": 23,
+      ".json": 77,
+      ".conf": 26,
+      ".ini": 6,
+      ".htaccess": 20
+    }
+  },
+  "dependencies": {
+    "direct": 1,
+    "transitive": 74,
+    "ecosystems": [
+      "composer"
+    ]
+  },
+  "npmAudit": null,
+  "trivy": {
+    "os": {
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 1,
+      "CRITICAL": 0
+    }
+  }
+}

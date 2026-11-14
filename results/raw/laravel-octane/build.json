@@ -1,0 +1,95 @@
+{
+  "target": "laravel-octane",
+  "phase": "build",
+  "at": "2026-11-14T07:43:43.215Z",
+  "coldBuildSeconds": 32,
+  "runs": [
+    31.982
+  ],
+  "installSeconds": 6.8,
+  "buildSeconds": 0.1,
+  "steps": [
+    {
+      "step": "load build definition from Dockerfile",
+      "seconds": 0
+    },
+    {
+      "step": "load metadata for docker.io/dunglas/frankenphp:1.13.5-php8.4-alpine",
+      "seconds": 1.1
+    },
+    {
+      "step": "load metadata for docker.io/library/composer:2.11.2",
+      "seconds": 0.6
+    },
+    {
+      "step": "FROM docker.io/dunglas/frankenphp:1.13.5-php8.4-alpine@sha256:0b9e020d7c3c17157d8fb051f67ce329b816fcbba456a19c45613fe0ef",
+      "seconds": 5.5
+    },
+    {
+      "step": "load build context",
+      "seconds": 0.1
+    },
+    {
+      "step": "FROM docker.io/library/composer:2.11.2@sha256:5bcb28b8d0edc4091125f8218f9d088f998bdfc843f8fbb9a4beb4dcd8625684",
+      "seconds": 4.9
+    },
+    {
+      "step": "WORKDIR /app",
+      "seconds": 3.6
+    },
+    {
+      "step": "RUN install-php-extensions pcntl",
+      "seconds": 18.1
+    },
+    {
+      "step": "COPY apps/laravel/composer.octane.json apps/laravel/composer.octane.lock ./",
+      "seconds": 1.5
+    },
+    {
+      "step": "RUN composer install --no-dev --no-scripts --no-autoloader --no-interaction --prefer-dist",
+      "seconds": 6.8
+    },
+    {
+      "step": "COPY apps/laravel/ ./",
+      "seconds": 0.1
+    },
+    {
+      "step": "RUN composer dump-autoload --no-dev --no-scripts --classmap-authoritative --no-interaction",
+      "seconds": 2.2
+    },
+    {
+      "step": "RUN mv \"/usr/local/etc/php/php.ini-production\" \"/usr/local/etc/php/php.ini\"",
+      "seconds": 0.3
+    },
+    {
+      "step": "COPY apps/laravel/docker/php.ini /usr/local/etc/php/conf.d/zz-wfb.ini",
+      "seconds": 0
+    },
+    {
+      "step": "WORKDIR /app",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY --from=vendor-octane /app ./",
+      "seconds": 0.7
+    },
+    {
+      "step": "COPY shared/public/ ./public/",
+      "seconds": 0.1
+    },
+    {
+      "step": "COPY content/posts.json ./database/content/posts.json",
+      "seconds": 0
+    },
+    {
+      "step": "RUN php artisan package:discover --ansi  && touch database/database.sqlite  && php artisan migrate --seed --force --no-i",
+      "seconds": 1.2
+    }
+  ],
+  "images": [
+    "wfb/laravel:octane"
+  ],
+  "imageMB": 309.5,
+  "outputKB": null,
+  "outputJsKB": null
+}

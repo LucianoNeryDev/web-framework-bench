@@ -1,0 +1,42 @@
+{
+  "target": "nuxt-server",
+  "phase": "code",
+  "at": "2026-11-14T11:58:04.704Z",
+  "source": {
+    "files": 27,
+    "lines": 501,
+    "byExt": {
+      ".gitignore": 10,
+      "Dockerfile": 34,
+      ".dockerignore": 11,
+      ".vue": 234,
+      ".ts": 195,
+      ".json": 17,
+      ".gitkeep": 0
+    }
+  },
+  "dependencies": {
+    "direct": 3,
+    "transitive": 600,
+    "ecosystems": [
+      "npm"
+    ]
+  },
+  "npmAudit": {
+    "info": 0,
+    "low": 6,
+    "moderate": 6,
+    "high": 0,
+    "critical": 0
+  },
+  "trivy": {
+    "os": {
+      "HIGH": 48,
+      "CRITICAL": 0
+    },
+    "lang": {
+      "HIGH": 6,
+      "CRITICAL": 0
+    }
+  }
+}

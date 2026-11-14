@@ -1,0 +1,9 @@
+{
+  "target": "angular-static",
+  "phase": "conformance",
+  "at": "2026-11-14T07:46:49.248Z",
+  "passed": 1214,
+  "total": 1214,
+  "ok": true,
+  "failures": []
+}

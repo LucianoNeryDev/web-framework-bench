@@ -1,0 +1,251 @@
+{
+  "target": "angular-server",
+  "phase": "load",
+  "at": "2026-11-14T08:52:43.688Z",
+  "coldStartMs": 806,
+  "readyMs": 326,
+  "restartMs": 11000,
+  "idleMemMB": 39.1,
+  "afterLoadMemMB": 186.7,
+  "durationSeconds": 20,
+  "runs": {
+    "home@10": {
+      "route": "/",
+      "concurrency": 10,
+      "rps": 130.4,
+      "successRate": 1,
+      "requests": 2617,
+      "errors": 0,
+      "status": {
+        "200": 2617
+      },
+      "errorKinds": {},
+      "p50": 69.37,
+      "p90": 102.86,
+      "p99": 119.94,
+      "p999": 147.42,
+      "max": 194.98,
+      "mean": 76.55,
+      "bytesPerReq": 12613,
+      "memPeakMB": 153,
+      "memAvgMB": 151.1,
+      "memEndMB": 149.6,
+      "cpuCores": 1.357
+    },
+    "home@100": {
+      "route": "/",
+      "concurrency": 100,
+      "rps": 132.2,
+      "successRate": 0.9996326230712711,
+      "requests": 2721,
+      "errors": 1,
+      "status": {
+        "200": 2721
+      },
+      "errorKinds": {
+        "timeout": 1
+      },
+      "p50": 715.97,
+      "p90": 807.89,
+      "p99": 4036.88,
+      "p999": 9273.91,
+      "max": 9872.67,
+      "mean": 745.64,
+      "bytesPerReq": 12613,
+      "memPeakMB": 216.3,
+      "memAvgMB": 200,
+      "memEndMB": 215.7,
+      "cpuCores": 1.426
+    },
+    "blog@10": {
+      "route": "/blog",
+      "concurrency": 10,
+      "rps": 41.3,
+      "successRate": 1,
+      "requests": 832,
+      "errors": 0,
+      "status": {
+        "200": 832
+      },
+      "errorKinds": {},
+      "p50": 247.32,
+      "p90": 267.65,
+      "p99": 303.64,
+      "p999": 540.23,
+      "max": 540.23,
+      "mean": 241.29,
+      "bytesPerReq": 44695,
+      "memPeakMB": 210.1,
+      "memAvgMB": 188.7,
+      "memEndMB": 181.4,
+      "cpuCores": 1.459
+    },
+    "blog@100": {
+      "route": "/blog",
+      "concurrency": 100,
+      "rps": 43.7,
+      "successRate": 0.9272727272727272,
+      "requests": 867,
+      "errors": 68,
+      "status": {
+        "200": 867
+      },
+      "errorKinds": {
+        "timeout": 68
+      },
+      "p50": 1550.97,
+      "p90": 1664.03,
+      "p99": 5435.07,
+      "p999": 9840.56,
+      "max": 9840.56,
+      "mean": 1602.24,
+      "bytesPerReq": 44695,
+      "memPeakMB": 316.1,
+      "memAvgMB": 289,
+      "memEndMB": 303.9,
+      "cpuCores": 1.451
+    },
+    "post@10": {
+      "route": "/blog/rethinking-connection-pooling-on-a-small-budget",
+      "concurrency": 10,
+      "rps": 124.5,
+      "successRate": 1,
+      "requests": 2496,
+      "errors": 0,
+      "status": {
+        "200": 2496
+      },
+      "errorKinds": {},
+      "p50": 73.75,
+      "p90": 106.75,
+      "p99": 115.89,
+      "p999": 128.77,
+      "max": 156.29,
+      "mean": 80.24,
+      "bytesPerReq": 19038,
+      "memPeakMB": 289.4,
+      "memAvgMB": 193.1,
+      "memEndMB": 158.2,
+      "cpuCores": 1.297
+    },
+    "post@100": {
+      "route": "/blog/rethinking-connection-pooling-on-a-small-budget",
+      "concurrency": 100,
+      "rps": 122.8,
+      "successRate": 0.9988184324537219,
+      "requests": 2536,
+      "errors": 3,
+      "status": {
+        "200": 2536
+      },
+      "errorKinds": {
+        "timeout": 3
+      },
+      "p50": 778.2,
+      "p90": 866.54,
+      "p99": 4281.83,
+      "p999": 9463.11,
+      "max": 9995.66,
+      "mean": 795.18,
+      "bytesPerReq": 19038,
+      "memPeakMB": 208,
+      "memAvgMB": 196.4,
+      "memEndMB": 207.3,
+      "cpuCores": 1.359
+    },
+    "filtered@10": {
+      "route": "/blog?q=the&tag=go",
+      "concurrency": 10,
+      "rps": 88.5,
+      "successRate": 1,
+      "requests": 1778,
+      "errors": 0,
+      "status": {
+        "200": 1778
+      },
+      "errorKinds": {},
+      "p50": 103.39,
+      "p90": 144.7,
+      "p99": 157.48,
+      "p999": 244.9,
+      "max": 272.96,
+      "mean": 112.75,
+      "bytesPerReq": 19487,
+      "memPeakMB": 207.6,
+      "memAvgMB": 188.6,
+      "memEndMB": 171.4,
+      "cpuCores": 1.347
+    },
+    "filtered@100": {
+      "route": "/blog?q=the&tag=go",
+      "concurrency": 100,
+      "rps": 87.6,
+      "successRate": 0.9905450500556173,
+      "requests": 1781,
+      "errors": 17,
+      "status": {
+        "200": 1781
+      },
+      "errorKinds": {
+        "timeout": 17
+      },
+      "p50": 945.92,
+      "p90": 1103.38,
+      "p99": 6974.32,
+      "p999": 9643.62,
+      "max": 9839.86,
+      "mean": 1038.25,
+      "bytesPerReq": 19487,
+      "memPeakMB": 255.6,
+      "memAvgMB": 227,
+      "memEndMB": 254.6,
+      "cpuCores": 1.427
+    },
+    "notFound@10": {
+      "route": "/this-page-does-not-exist",
+      "concurrency": 10,
+      "rps": 264.6,
+      "successRate": 1,
+      "requests": 5299,
+      "errors": 0,
+      "status": {
+        "404": 5299
+      },
+      "errorKinds": {},
+      "p50": 34.36,
+      "p90": 49.37,
+      "p99": 79.8,
+      "p999": 92.29,
+      "max": 108.87,
+      "mean": 37.76,
+      "bytesPerReq": 5143,
+      "memPeakMB": 240,
+      "memAvgMB": 187.9,
+      "memEndMB": 164,
+      "cpuCores": 1.222
+    },
+    "notFound@100": {
+      "route": "/this-page-does-not-exist",
+      "concurrency": 100,
+      "rps": 258.5,
+      "successRate": 1,
+      "requests": 5240,
+      "errors": 0,
+      "status": {
+        "404": 5240
+      },
+      "errorKinds": {},
+      "p50": 383.64,
+      "p90": 411.53,
+      "p99": 442.16,
+      "p999": 4650.27,
+      "max": 5209.25,
+      "mean": 385.46,
+      "bytesPerReq": 5143,
+      "memPeakMB": 197.1,
+      "memAvgMB": 188.2,
+      "memEndMB": 186.7,
+      "cpuCores": 1.296
+    }
+  }
+}
