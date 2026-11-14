@@ -399,7 +399,8 @@ async function robust(t) {
       const t0 = Date.now();
       sh(`docker start ${victim} >/dev/null`);
       if (t.kind === "image") sh(`docker update --cpuset-cpus 0,1 ${victim} >/dev/null`, { allowFail: true });
-      await waitFor(`http://127.0.0.1:${PORT}/`, { timeout: 300_000 });
+      // Recovery is checked on a cache-busting URL: a page cache answering from memory is not a recovered backend.
+      await waitFor(`http://127.0.0.1:${PORT}/?wfb-recovery=${Date.now()}`, { timeout: 300_000 });
       out.crash = { statusWhileDown: during.status, recoveryMs: Date.now() - t0 };
       log(`${t.id} crash: while down ${during.status}, recovered in ${out.crash.recoveryMs} ms`);
     }
@@ -414,7 +415,7 @@ async function robust(t) {
       const t0 = Date.now();
       sh(`docker start ${db} >/dev/null`);
       let recoveredMs = null;
-      try { await waitFor(`http://127.0.0.1:${PORT}${POST}`, { timeout: 180_000 }); recoveredMs = Date.now() - t0; } catch {}
+      try { await waitFor(`http://127.0.0.1:${PORT}${POST}?wfb-recovery=${Date.now()}`, { timeout: 180_000 }); recoveredMs = Date.now() - t0; } catch {}
       out.dbOutage = { homeWhileDown: home.status, postWhileDown: post.status, recoveredWithoutAppRestartMs: recoveredMs };
       log(`${t.id} db outage: / ${home.status}, post ${post.status}, recovered ${recoveredMs} ms`);
     }
