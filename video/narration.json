@@ -1,0 +1,9 @@
+[
+  {"id": "intro", "text": "Thirteen web stacks. One small blog. Every version built the same way, and measured the same way."},
+  {"id": "setup", "text": "Same pages, same content, same tests. A two-core cloud server runs the site, and a separate machine generates the load."},
+  {"id": "static", "text": "First: when the pages are prerendered, the framework barely matters. Every static build served about seventeen thousand pages a second."},
+  {"id": "server", "text": "Render every page on request, and it's a different story. Go: three thousand four hundred pages a second. Astro: sixteen hundred. Next.js: one hundred and sixty-eight. WordPress: fifty."},
+  {"id": "cache", "text": "Put a page cache in front of WordPress, and it jumps to almost fourteen thousand."},
+  {"id": "browser", "text": "In the browser, JavaScript decides. Without a framework, the filter responds in about half a second on a slow phone. Next.js ships a hundred and forty kilobytes, and needs almost two."},
+  {"id": "outro", "text": "For a content site: prerender, and ship as little JavaScript as you can. The code, the data and the method are open source."}
+]

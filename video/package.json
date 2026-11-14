@@ -1,0 +1,29 @@
+{
+  "name": "wfb-video",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "revideo editor --projectFile ./src/project.tsx",
+    "render": "tsc && node dist/render.js"
+  },
+  "dependencies": {
+    "@revideo/2d": "0.11.0",
+    "@revideo/core": "0.11.0",
+    "@revideo/renderer": "0.11.0"
+  },
+  "devDependencies": {
+    "@revideo/cli": "0.11.0",
+    "@revideo/ui": "0.11.0",
+    "tsx": "^4.23.15",
+    "typescript": "5.5.4",
+    "vite": "^4.5"
+  },
+  "allowScripts": {
+    "@ffmpeg-installer/linux-x64@4.1.0": true,
+    "@ffprobe-installer/linux-x64@5.2.0": true,
+    "esbuild@0.18.20": true,
+    "esbuild@0.28.2": true,
+    "puppeteer@25.17.0": true,
+    "@revideo/telemetry": false
+  }
+}

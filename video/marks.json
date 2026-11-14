@@ -1,0 +1,12 @@
+{
+ "server": {
+  "Go:": 4.26,
+  "Astro:": 8.3,
+  "Next.js:": 11.15,
+  "WordPress:": 14.44
+ },
+ "browser": {
+  "Without": 3.13,
+  "Next.js": 8.9
+ }
+}
