@@ -323,7 +323,9 @@ const PROBES = [
   ["traversal-slash", "GET", "/..%2f..%2f..%2fetc%2fpasswd"],
   ["null-byte", "GET", "/blog/%00"],
   ["invalid-utf8", "GET", "/blog/%ff%fe"],
-  ["xss-query", "GET", "/blog?q=%3Cscript%3Ealert(1)%3C%2Fscript%3E"],
+  // Breaks out of an attribute or lands in text: either way an unescaped `"><script>` is exploitable. A bare
+  // <script> inside a quoted attribute value is inert, so the payload must try to close the attribute first.
+  ["xss-query", "GET", "/blog?q=x%22%3E%3Cscript%3Ealert(1)%3C%2Fscript%3E"],
   ["array-param", "GET", "/blog?tag[]=go&q[]=x"],
   ["long-query", "GET", `/blog?q=${"a".repeat(6000)}`],
   ["long-path", "GET", `/${"a".repeat(9000)}`],
@@ -351,7 +353,7 @@ async function robust(t) {
     out.probes = [];
     for (const [name, method, path, headers] of PROBES) {
       const r = await rawRequest(method, path, headers);
-      const reflected = name === "xss-query" && r.body.includes("<script>alert(1)</script>");
+      const reflected = name === "xss-query" && r.body.includes('"><script>alert(1)</script>');
       const exposed = ["dotenv", "git-config", "package-json", "composer-json", "server-source"].includes(name) && r.status === 200 && !/<html/i.test(r.body);
       out.probes.push({ name, method, status: r.status, serverError: typeof r.status !== "number" || r.status >= 500, reflected, exposed });
     }
@@ -361,6 +363,11 @@ async function robust(t) {
       exposedFiles: out.probes.filter((p) => p.exposed).map((p) => p.name),
     };
     log(`${t.id} probes: ${JSON.stringify(out.probeSummary)}`);
+    if (process.env.WFB_ROBUST_STEPS === "probes") {
+      // Re-run only the probes and keep the other robustness results.
+      saveResult(t, "robust", { ...(loadResult(t.id, "robust") ?? {}), probes: out.probes, probeSummary: out.probeSummary });
+      return;
+    }
 
     // 2. Overload: 1000 concurrent connections on a post page.
     {
