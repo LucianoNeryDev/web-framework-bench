@@ -240,9 +240,11 @@ async function interact(t) {
 
       // Time until the blog filter responds: click the "Go" chip until the list shows only Go posts.
       // Some islands filter through the server (htmx, React Router loaders), so after each click wait for the
-      // fetch/XHR requests that click started before clicking again; re-clicking would cancel them.
+      // list requests that click started before clicking again; re-clicking would cancel them.
       const xhr = new Map();
-      const isXhr = (r) => ["fetch", "xhr"].includes(r.resourceType());
+      // Only requests for the list itself count (htmx: /blog?..., React Router: /blog.data?...). Link prefetches
+      // (Next, Nuxt, Qwik prefetch every visible post) are not part of filtering and must not delay the probe.
+      const isXhr = (r) => ["fetch", "xhr"].includes(r.resourceType()) && /^\/blog(\.data|\.txt|\.json)?$/.test(new URL(r.url()).pathname);
       page.on("request", (r) => isXhr(r) && xhr.set(r, Date.now()));
       page.on("requestfinished", (r) => xhr.delete(r));
       page.on("requestfailed", (r) => xhr.delete(r));
