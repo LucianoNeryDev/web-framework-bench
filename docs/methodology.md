@@ -7,23 +7,31 @@ Every target builds the same site ([contract](site-spec.md)) and must pass the
 
 ## Hardware and isolation
 
-- One machine: Intel Core i7-4790S (4 cores, 8 threads, 3.2-4.0 GHz), 16 GB RAM, Debian 13, Docker 26. It
-  is a shared home server: a CI runner and two idle databases kept running, so expect some noise.
-- **The target gets two physical cores and 1 GiB per container** (`--cpuset-cpus 0,1 --memory 1g`). The
-  SMT siblings of those cores (logical CPUs 4 and 5) stay idle, so nothing competes with the target through
-  hyperthreading. Multi-container
-  targets (a CMS with its database, PHP-FPM behind nginx) keep the same per-container limits and share the
-  same two cores. That is how a small VPS runs them.
-- **Clients run on the other two physical cores** (logical CPUs 2, 3, 6, 7): the load generator, the edge
-  proxy, Chromium and the harness itself (`taskset`). Load and target never share a physical core.
-- The load generator ([oha](https://github.com/hatoo/oha) 1.16) runs on the client cores and talks to the
-  target's container IP directly (no Docker port proxy), without requesting compression. That measures the
-  framework, not gzip.
+Two dedicated Google Cloud VMs in the same zone (`europe-west8-a`, Milan), on the same VPC:
+
+| VM | Type | Role |
+|---|---|---|
+| `wfb-target` | `n2-standard-2`: 2 vCPU (one physical core, two threads), 8 GB, Debian 13, Docker 29 | Runs only the target under test: a small VPS |
+| `wfb-loadgen` | `n2-standard-4`: 4 vCPU, 16 GB, Debian 13, Docker 29, Node 24 | Runs the harness, oha, the edge proxy and Chromium |
+
+- **The target owns its VM.** Nothing else runs there apart from Docker, sshd and a cgroup sampler that reads
+  counters twice a second. Each container is limited to 1 GiB. Multi-container targets (a CMS with its
+  database, PHP-FPM behind nginx) share the VM's two vCPUs, as they would on a small VPS. Docker, the OS and the
+  database all count against the same budget, which is the honest VPS picture.
+- **Clients never share hardware with the target.** The load generator reaches the target's published port
+  over the VPC, from a separate VM.
+- The load generator is [oha](https://github.com/hatoo/oha) 1.16. It does not request compression, so the
+  numbers measure the framework rather than gzip.
 - **Docker logging is off** (`--log-driver none`) for every container. Apps still write their access logs to
-  stdout, which is a real cost, but dockerd no longer parses tens of thousands of lines per second on unpinned
-  cores; with logging on, dockerd took most of a core and starved the load generator.
-- Browser measurements go through an **edge proxy**: one nginx with identical gzip settings in front of every
-  target, standing in for a CDN, so no target wins or loses on its own compression defaults.
+  stdout, which is a real cost, but dockerd does not parse tens of thousands of lines per second. In an
+  earlier run on a shared home server, dockerd's log parsing took most of a core and distorted the results.
+- Browser measurements go through an **edge proxy**: one nginx on the load-generator VM, with identical gzip
+  settings in front of every target, standing in for a CDN. No target wins or loses on its own compression
+  defaults.
+- Images are built on the target VM itself, so build times are what a 2-vCPU VPS takes.
+- The VMs are created by [`bench/cloud/`](../bench/cloud/) scripts and deleted after the run. The harness
+  drives the target's Docker over SSH (`WFB_TARGET_SSH`, see [`bench/cloud/env.sh`](../bench/cloud/env.sh)),
+  and the same harness also runs on a single machine without those variables.
 
 ## Modes
 
@@ -97,9 +105,9 @@ and the researched learning curve carry more weight in the effort rating than ag
 
 ## Threats to validity
 
-- One machine, one run per configuration (three to five for browser metrics). Differences under about 10%
-  are noise.
-- Two cores and one Node process: Node servers use one core by design, while Go, nginx and PHP-FPM use both.
+- One run per configuration on cloud VMs (three to five for browser metrics). Cloud VMs share hosts with
+  other tenants, so differences under about 10% are noise.
+- Two vCPUs and one Node process: Node servers use one thread by design, while Go, nginx and PHP-FPM use both.
   That is each runtime's documented default, and it is what you get on a small VPS. A clustered Node
   deployment would close part of the gap.
 - Server mode disables caches that real deployments would enable. Read it as engine cost, not as the
