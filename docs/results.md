@@ -33,7 +33,7 @@ Generated 2026-11-14 by `node bench/report.mjs` from `results/raw/`. How each nu
 
 ## Server throughput and latency
 
-Requests per second and p99 latency (ms) at 10 and 100 concurrent connections, two cores. Static targets are nginx serving files.
+Requests per second and p99 latency (ms) at 10 and 100 concurrent connections, on a 2-vCPU VM. Static targets are nginx serving files.
 
 | Target | home rps @10 | home rps @100 | home p99 @100 | blog rps @10 | blog rps @100 | blog p99 @100 | post rps @10 | post rps @100 | post p99 @100 | filtered rps @10 | filtered rps @100 | filtered p99 @100 | notFound rps @10 | notFound rps @100 | notFound p99 @100 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|

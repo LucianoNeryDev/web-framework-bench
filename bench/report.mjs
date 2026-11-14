@@ -53,7 +53,7 @@ md.push(table(
   ]),
 ), "");
 
-md.push("## Server throughput and latency", "", "Requests per second and p99 latency (ms) at 10 and 100 concurrent connections, two cores. Static targets are nginx serving files.", "");
+md.push("## Server throughput and latency", "", "Requests per second and p99 latency (ms) at 10 and 100 concurrent connections, on a 2-vCPU VM. Static targets are nginx serving files.", "");
 const routes = ["home", "blog", "post", "filtered", "notFound"];
 md.push(table(
   ["Target", ...routes.flatMap((r) => [`${r} rps @10`, `${r} rps @100`, `${r} p99 @100`])],
