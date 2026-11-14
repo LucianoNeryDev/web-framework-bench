@@ -60,7 +60,23 @@ export function loadResult(id, phase) {
 
 const envFlags = (env) => Object.entries(env || {}).map(([k, v]) => `-e ${k}=${JSON.stringify(v)}`).join(" ");
 const composeEnv = (t) => ({ ...t.env, WFB_PORT: String(PORT) });
-const composeCmd = (t) => `docker compose -p wfb-${t.id} -f ${t.compose}`;
+// Docker's json-file log pipeline costs dockerd a full core at tens of thousands of access-log lines per second,
+// on unpinned cores. Every target therefore runs with the "none" log driver: the app still writes its logs, Docker
+// just drops them. Compose targets get a generated override file that does the same for each service.
+const noLogOverride = new Map();
+function composeOverride(t) {
+  if (!noLogOverride.has(t.id)) {
+    const services = execFileSync("bash", ["-c", `docker compose -f ${t.compose} config --services`], {
+      cwd: ROOT, env: { ...process.env, ...t.env, WFB_PORT: String(PORT) }, encoding: "utf8",
+    }).trim().split("\n").filter(Boolean);
+    const file = join(ROOT, "results", "tmp", `nolog-${t.id}.yaml`);
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, `services:\n${services.map((s) => `  ${s}:\n    logging:\n      driver: none\n`).join("")}`, { mode: 0o644 });
+    noLogOverride.set(t.id, file);
+  }
+  return noLogOverride.get(t.id);
+}
+const composeCmd = (t) => `docker compose -p wfb-${t.id} -f ${t.compose} -f ${composeOverride(t)}`;
 
 export function ensureNetwork() {
   sh(`docker network inspect ${NET} >/dev/null 2>&1 || docker network create ${NET} >/dev/null`);
@@ -98,7 +114,7 @@ export async function startTarget(t) {
   ensureNetwork();
   const t0 = Date.now();
   if (t.kind === "image") {
-    sh(`docker run -d --name ${RUN} --network ${NET} --network-alias ${RUN} --cpuset-cpus ${TARGET_CPUS} ` +
+    sh(`docker run -d --name ${RUN} --log-driver none --network ${NET} --network-alias ${RUN} --cpuset-cpus ${TARGET_CPUS} ` +
       `--memory ${TARGET_MEM} --memory-swap ${TARGET_MEM} -p 127.0.0.1:${PORT}:8080 ${envFlags(t.env)} ${t.image}`);
   } else {
     sh(`${composeCmd(t)} up -d --wait --wait-timeout 2400`, { env: composeEnv(t), timeout: 45 * 60_000 });
@@ -152,7 +168,7 @@ export async function startEdge() {
   const conf = join(ROOT, "results", "tmp", "edge.conf");
   mkdirSync(dirname(conf), { recursive: true });
   writeFileSync(conf, EDGE_CONF, { mode: 0o644 });
-  sh(`docker run -d --name ${EDGE} --network ${NET} --cpuset-cpus ${CLIENT_CPUS} -p 127.0.0.1:${EDGE_PORT}:8080 ` +
+  sh(`docker run -d --name ${EDGE} --log-driver none --network ${NET} --cpuset-cpus ${CLIENT_CPUS} -p 127.0.0.1:${EDGE_PORT}:8080 ` +
     `-v ${conf}:/etc/nginx/conf.d/default.conf:ro nginx:1.30-alpine`);
   await waitFor(`http://127.0.0.1:${EDGE_PORT}/`);
 }

@@ -16,8 +16,12 @@ Every target builds the same site ([contract](site-spec.md)) and must pass the
   same two cores. That is how a small VPS runs them.
 - **Clients run on the other two physical cores** (logical CPUs 2, 3, 6, 7): the load generator, the edge
   proxy, Chromium and the harness itself (`taskset`). Load and target never share a physical core.
-- The load generator ([oha](https://github.com/hatoo/oha)) runs in a container on a dedicated Docker network
-  and talks to the target directly, without compression. That measures the framework, not gzip.
+- The load generator ([oha](https://github.com/hatoo/oha) 1.16) runs on the client cores and talks to the
+  target's container IP directly (no Docker port proxy), without requesting compression. That measures the
+  framework, not gzip.
+- **Docker logging is off** (`--log-driver none`) for every container. Apps still write their access logs to
+  stdout, which is a real cost, but dockerd no longer parses tens of thousands of lines per second on unpinned
+  cores; with logging on, dockerd took most of a core and starved the load generator.
 - Browser measurements go through an **edge proxy**: one nginx with identical gzip settings in front of every
   target, standing in for a CDN, so no target wins or loses on its own compression defaults.
 
