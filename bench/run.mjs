@@ -15,7 +15,7 @@
 // Environment: WFB_DURATION (s per load run, default 20), WFB_RUNS (Lighthouse/interaction runs, default 3/5),
 // WFB_SOAK (s, default 180), WFB_CONCURRENCY (default "10,100").
 import { request } from "node:http";
-import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { basename, extname, join } from "node:path";
 import {
   CLIENT_CPUS, PORT, ROOT, TARGET_CPUS, TARGET_IP, dsh, dshAsync, targetUrl, containersOf, edgeBase, targetBase, log, loadResult, memoryNow, oha, posts, restartTarget, saveResult,
@@ -382,6 +382,7 @@ async function robust(t) {
     // 3. Soak: every page in rotation at moderate load; watch memory.
     {
       const urls = [...["/", "/blog", "/about", "/blog?q=cache"], ...posts.map((p) => `/blog/${p.slug}`)].map((p) => `${targetBase(t)}${p}`);
+      mkdirSync(join(ROOT, "results/tmp"), { recursive: true });
       writeFileSync(join(ROOT, "results/tmp/soak-urls.txt"), urls.join("\n") + "\n", { mode: 0o644 });
       const memStart = memoryNow(containers);
       const sampler = await startSampler(containers, 1000);
