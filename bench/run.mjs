@@ -108,6 +108,7 @@ async function build(t) {
     outputKB = +((total - shared) / 1024).toFixed(1);
     outputJsKB = +(Number(dsh(`docker run --rm --entrypoint sh ${t.image} -c "find /usr/share/nginx/html -name '*.js' ! -path '*/app.js' -exec cat {} + | wc -c"`)) / 1024).toFixed(1);
   }
+  dsh("docker builder prune -af >/dev/null 2>&1", { allowFail: true }); // keep the disk from filling; images stay
   saveResult(t, "build", {
     coldBuildSeconds: +median(runs).toFixed(1), runs, installSeconds: result.installSeconds, buildSeconds: result.buildSeconds,
     steps: result.steps, images, imageMB, outputKB, outputJsKB,
